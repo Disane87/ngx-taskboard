@@ -1,10 +1,11 @@
 ## Description
-`ngx-taskboard` is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the [issues](https://github.com/Disane87/ngx-taskboard/issues) when you have questions or found a bug or leave a PR if you have som additions.
+`ngx-taskboard` is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the [issues](https://github.com/Disane87/ngx-taskboard/issues) when you have questions or found a bug or leave a PR if you have som additions. Styling is made with [Bootstrap](https://github.com/twbs/bootstrap), so it's 100% compatible.
 
 ![Tasboard](https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif)
 
 ## Dependency
 - Angular 7
+- Bootstrap
 
 ## Installation
 `npm install @disane/ngx-taskboard`
@@ -98,3 +99,9 @@ export class AppComponent {
 | dragStarted |  CardItem | Fired when the user drags an item. Current CardItem is passed |
 | dropped | CardItem |    Fired when an item is dropped. Current CardItem is passed |
 | elementCreateClick | string |    Fired when an add action is click. Current group name is passed |
+
+## Examples
+Following soon
+
+## Limitations
+- Scrolling actually not possible
