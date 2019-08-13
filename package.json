@@ -7,6 +7,11 @@
     "task items",
     "kanban"
   ],
+  "repository": {
+    "directory": "github",
+    "url": "https://github.com/Disane87/ngx-taskboard.git",
+    "type": "git"
+  },
   "readme": "",
   "author": {
     "name": "Marco Franke",
