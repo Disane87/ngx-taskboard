@@ -31,7 +31,7 @@
     }
   ],
   "description": "Yet another angular taskboard",
-  "homepage": "https://taskboard.disane.de",
+  "homepage": "https://ngx-taskboard.disane.de",
   "maintainers": [
     {
       "name": "Marco Franke",
