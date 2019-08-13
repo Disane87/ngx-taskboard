@@ -102,6 +102,19 @@ export class AppComponent {
 | dropped | CardItem |    Fired when an item is dropped. Current CardItem is passed |
 | elementCreateClick | string |    Fired when an add action is click. Current group name is passed |
 
+### Datatypes
+#### CardItem
+```ts
+export interface CardItem {
+    id: number;
+    name: string;
+    status?: string;
+    color?: string;
+    user?: string;
+    priority?: number;
+}
+```
+
 ## Examples
 Following soon
 
