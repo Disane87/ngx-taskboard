@@ -14,6 +14,10 @@ export class BoardComponent implements OnInit {
   @Input() hGroupKeys: string[] = [];
   @Input() vGroupKeys: string[] = [];
 
+  @Input() hAddNewItems = true;
+  @Input() vAddNewItems = true;
+  @Input() cellAddNewItems = true;
+
   @Input() vGroupKey = '';
   @Input() hGroupKey = '';
   @Input() sortBy = '';
@@ -111,7 +115,11 @@ export class BoardComponent implements OnInit {
     return [];
   }
 
-  toggleCollapse(part: string): void {
+  toggleCollapse(group: { hGroup: string, vGroup: string }): void {
+
+
+    let part = group.hGroup || group.vGroup;
+
     let collapseState = this.collapseState(part);
     this.collapseStates.find(item => item.name == part).collapsed = !collapseState;
     // console.log("Toggle: "+part);

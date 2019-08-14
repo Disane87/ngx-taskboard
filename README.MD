@@ -3,7 +3,7 @@
 ## Description
 `ngx-taskboard` is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the [issues](https://github.com/Disane87/ngx-taskboard/issues) when you have questions or found a bug or leave a PR if you have som additions. Styling is made with [Bootstrap](https://github.com/twbs/bootstrap), so it's 100% compatible.
 
-![Tasboard](https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif)
+![Taskboard](https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif)
 
 ## Dependency
 - Angular 7
@@ -77,30 +77,35 @@ export class AppComponent {
 
 ## Configuration
 ### Properties
-| Property   |      Default      |  Description |
-|----------|:-------------:|------|
-| showBacklog |  true | Shows the backlog |
-| items |    []   |   Items from type `CardItem` |
-| vGroupKey | '' |    Group vertical items by field '<xyz>' |
-| hGroupKey | '' |    Group horizontal items by field '<xyz>' |
-| vGroupKeys | [] |    Group keys which are shown vertically '<xyz>', without, the values of property `vGroupKey` in items is used |
-| hGroupKeys | [] |    Group keys which are shown vertically '<xyz>', without, the values of property `hGroupKey` in items is used |
-| invertGroupDirection | false |   Inverts the horizontal and vertical axis |
-| showUngroupedInBacklog | true |   Items with no value in `vGroupKey` and `hGroupKey` are "ungrouped" and shown in backlog |
-| smallText | false |   Increased font size |
-| itemTemplate | null |   Template for customizing the Items shown. See examples |
-| noElementsTemplate | null |   Template for customizing for collapsed items. See examples |
-| hHeaderTemplate | null |   Template for horizontal headers. See examples |
-| vHeaderTemplate | null |   Template for vertical headers. See examples |
-| actionsTemplate | null |   Template for actions. See examples |
-| vCollapsable | true |   Groups can be collapsed |
+| Property               | Default | Description                                                                                                 |
+| ---------------------- | :-----: | ----------------------------------------------------------------------------------------------------------- |
+| showBacklog            |  true   | Shows the backlog                                                                                           |
+| items                  |   []    | Items from type `CardItem`                                                                                  |
+| vGroupKey              |   ''    | Group vertical items by field '<xyz>'                                                                       |
+| hGroupKey              |   ''    | Group horizontal items by field '<xyz>'                                                                     |
+| vGroupKeys             |   []    | Group keys which are shown vertically '<xyz>', without, the values of property `vGroupKey` in items is used |
+| hGroupKeys             |   []    | Group keys which are shown vertically '<xyz>', without, the values of property `hGroupKey` in items is used |
+| invertGroupDirection   |  false  | Inverts the horizontal and vertical axis                                                                    |
+| showUngroupedInBacklog |  true   | Items with no value in `vGroupKey` and `hGroupKey` are "ungrouped" and shown in backlog                     |
+| smallText              |  false  | Increased font size                                                                                         |
+| itemTemplate           |  null   | Template for customizing the Items shown. See examples                                                      |
+| noElementsTemplate     |  null   | Template for customizing for collapsed items. See examples                                                  |
+| hHeaderTemplate        |  null   | Template for horizontal headers. See examples                                                               |
+| vHeaderTemplate        |  null   | Template for vertical headers. See examples                                                                 |
+| actionsTemplate        |  null   | Template for actions. See examples                                                                          |
+| vCollapsable           |  true   | Groups can be collapsed                                                                                     |
+| hAddNewItems           |  true   | New item icon (horizontal)                                                                                  |
+| vAddNewItems           |  true   | New item icon (vertical)                                                                                    |
+| cellAddNewItems        |  true   | New item icon (cell)                                                                                        |
+ 
+
   
 ### Events
-| Event   |      ParamType      |  Description |
-|----------|:-------------:|------|
-| dragStarted |  CardItem | Fired when the user drags an item. Current CardItem is passed |
-| dropped | CardItem |    Fired when an item is dropped. Current CardItem is passed |
-| elementCreateClick | string |    Fired when an add action is click. Current group name is passed |
+| Event              | ParamType | Description                                                     |
+| ------------------ | :-------: | --------------------------------------------------------------- |
+| dragStarted        | CardItem  | Fired when the user drags an item. Current CardItem is passed   |
+| dropped            | CardItem  | Fired when an item is dropped. Current CardItem is passed       |
+| elementCreateClick |  string   | Fired when an add action is click. Current group name is passed |
 
 ### Datatypes
 #### CardItem
