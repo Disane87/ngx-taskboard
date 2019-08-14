@@ -12,7 +12,7 @@
     "lint": "tslint --project \"tsconfig.lib.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
     "changelog": "auto-changelog -p --commit-limit false -u",
-    "changelog-stdout": "auto-changelog -p --stdout"
+    "changelog-stdout": "auto-changelog --package --stdout"
   },
   "devDependencies": {
     "auto-changelog": "^1.15.0",
@@ -46,7 +46,7 @@
     },
     "github": {
       "release": true,
-      "releaseNotes": "npm run changelog-stdout"
+      "releaseNotes": "npm run changelog-stdout --silent"
     },
     "hooks": {
       "before:init": [
@@ -94,7 +94,7 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "1.0.20",
+  "version": "1.0.21",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
