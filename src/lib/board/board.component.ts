@@ -9,7 +9,7 @@ import { CardItem, CollapseState } from '../types';
 export class BoardComponent implements OnInit {
 
   @Input() showBacklog = true;
-  @Input() items: CardItem[] = [];
+  @Input() items: CardItem[] | object[] = [];
 
   @Input() hGroupKeys: string[] = [];
   @Input() vGroupKeys: string[] = [];
@@ -21,6 +21,7 @@ export class BoardComponent implements OnInit {
   @Input() vGroupKey = '';
   @Input() hGroupKey = '';
   @Input() sortBy = '';
+  @Input() boardName = '';
 
   @Input() invertGroupDirection = false;
   @Input() showUngroupedInBacklog = true;
@@ -31,10 +32,15 @@ export class BoardComponent implements OnInit {
   @Input() hHeaderTemplate: TemplateRef<any>;
   @Input() vHeaderTemplate: TemplateRef<any>;
   @Input() actionsTemplate: TemplateRef<any>;
+
+  @Input() vHeaderClass = 'card-header';
+  @Input() hHeaderClass = 'card-header';
+  @Input() cellClass = 'card-header';
+
   @Input() vCollapsable = true;
 
-  @Output() dragStarted = new EventEmitter<CardItem>();
-  @Output() dropped = new EventEmitter<CardItem>();
+  @Output() dragStarted = new EventEmitter<object>();
+  @Output() dropped = new EventEmitter<object>();
   @Output() elementCreateClick = new EventEmitter<string>();
 
   public hHeadings: string[] = [];
@@ -60,7 +66,7 @@ export class BoardComponent implements OnInit {
     this.collapseStates.push(...[...this.vHeadings, ...this.hHeadings].map(item => ({ name: item, collapsed: false })));
   }
 
-  getItemsOfGroup(vValue: string, hValue: string): CardItem[] {
+  getItemsOfGroup(vValue: string, hValue: string): CardItem[] | object[] {
     let items = this.items.filter(item => item[this.vGroupKey] == vValue && item[this.hGroupKey] == hValue);
     if (this.showUngroupedInBacklog) {
       items = items.filter(item => item[this.vGroupKey] != '' && item[this.hGroupKey] != '')
@@ -100,14 +106,14 @@ export class BoardComponent implements OnInit {
   }
 
   getHeadings(groupKey: string = this.vGroupKey): string[] {
-    let keys = this.items.map(item => item[Object.keys(item).find(key => key == groupKey)]);
+    let keys = (<object[]>this.items).map((item: any) => item[Object.keys(item).find(key => key == groupKey)]);
 
     return keys.filter((elem, pos, arr) => {
       return arr.indexOf(elem) == pos && (this.showUngroupedInBacklog && elem != '');
     });
   }
 
-  getUngroupedItems(): CardItem[] {
+  getUngroupedItems(): CardItem[] | object[] {
     if (this.showUngroupedInBacklog) {
       return this.items.filter(item => item[this.vGroupKey] == '' && item[this.hGroupKey] == '');
     }
@@ -195,4 +201,9 @@ export class BoardComponent implements OnInit {
 
     return placeholderElement;
   }
+}
+
+export interface ClickEvent {
+  hGroup: string;
+  vGroup: string;
 }

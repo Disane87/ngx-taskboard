@@ -25,14 +25,14 @@
         <div class="col-2 border-left card-header border-left-0 d-flex flex-row justify-content-between"
           *ngIf="vGroupKey">
           <div>
-            <!-- {{hGroupKey}} / {{vGroupKey}} -->
+            <!-- {{hGroupKey}} / {{vGroupKey}} -->{{boardName}}
           </div>
           <!-- <div class="actions ml-3" *ngIf="vGroupKey">
 						<fa-icon [icon]="['fas','chevron-left']" [fixedWidth]="true"></fa-icon>
 					</div> -->
         </div>
 
-        <div class="border-left card-header d-flex flex-row justify-content-between"
+        <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between"
           [class.bg-white]="collapseState(group)" [class.border-bottom-0]="collapseState(group)"
           [class.col]="!collapseState(group)" *ngFor="let group of hHeadings"
           [class.h-collapsed]="collapseState(group)">
@@ -57,7 +57,7 @@
 
         <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)" *ngFor="let vGroup of vHeadings">
 
-          <div class="col-2 border-left card-header border-left-0 d-flex flex-row justify-content-between"
+          <div class="col-2 border-left {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between"
             *ngIf="vGroupKey">
             <div class="h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill">
 
@@ -86,7 +86,7 @@
           </div>
 
           <ng-container *ngFor="let hGroup of hHeadings">
-            <div class="border-left card-header bg-white d-flex flex-column" [class.col]="!collapseState(hGroup)"
+            <div class="border-left {{cellClass}} bg-white d-flex flex-column" [class.col]="!collapseState(hGroup)"
               [class.border-bottom-0]="collapseState(hGroup)" [class.v-collapsed]="collapseState(vGroup)"
               [class.h-collapsed]="collapseState(hGroup)">
               <ng-container *ngIf="!collapseState(vGroup) && !collapseState(hGroup)">

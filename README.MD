@@ -77,35 +77,37 @@ export class AppComponent {
 
 ## Configuration
 ### Properties
-| Property               | Default | Description                                                                                                 |
-| ---------------------- | :-----: | ----------------------------------------------------------------------------------------------------------- |
-| showBacklog            |  true   | Shows the backlog                                                                                           |
-| items                  |   []    | Items from type `CardItem`                                                                                  |
-| vGroupKey              |   ''    | Group vertical items by field '<xyz>'                                                                       |
-| hGroupKey              |   ''    | Group horizontal items by field '<xyz>'                                                                     |
-| vGroupKeys             |   []    | Group keys which are shown vertically '<xyz>', without, the values of property `vGroupKey` in items is used |
-| hGroupKeys             |   []    | Group keys which are shown vertically '<xyz>', without, the values of property `hGroupKey` in items is used |
-| invertGroupDirection   |  false  | Inverts the horizontal and vertical axis                                                                    |
-| showUngroupedInBacklog |  true   | Items with no value in `vGroupKey` and `hGroupKey` are "ungrouped" and shown in backlog                     |
-| smallText              |  false  | Increased font size                                                                                         |
-| itemTemplate           |  null   | Template for customizing the Items shown. See examples                                                      |
-| noElementsTemplate     |  null   | Template for customizing for collapsed items. See examples                                                  |
-| hHeaderTemplate        |  null   | Template for horizontal headers. See examples                                                               |
-| vHeaderTemplate        |  null   | Template for vertical headers. See examples                                                                 |
-| actionsTemplate        |  null   | Template for actions. See examples                                                                          |
-| vCollapsable           |  true   | Groups can be collapsed                                                                                     |
-| hAddNewItems           |  true   | New item icon (horizontal)                                                                                  |
-| vAddNewItems           |  true   | New item icon (vertical)                                                                                    |
-| cellAddNewItems        |  true   | New item icon (cell)                                                                                        |
- 
+| Property               |       Default        | Description                                                                                                 |
+| ---------------------- | :------------------: | ----------------------------------------------------------------------------------------------------------- |
+| showBacklog            |         true         | Shows the backlog                                                                                           |
+| items                  |          []          | Items from type `CardItem[]` or `object[]`                                                                  |
+| vGroupKey              |          ''          | Group vertical items by field '<xyz>'                                                                       |
+| hGroupKey              |          ''          | Group horizontal items by field '<xyz>'                                                                     |
+| vGroupKeys             |          []          | Group keys which are shown vertically '<xyz>', without, the values of property `vGroupKey` in items is used |
+| hGroupKeys             |          []          | Group keys which are shown vertically '<xyz>', without, the values of property `hGroupKey` in items is used |
+| invertGroupDirection   |        false         | Inverts the horizontal and vertical axis                                                                    |
+| showUngroupedInBacklog |         true         | Items with no value in `vGroupKey` and `hGroupKey` are "ungrouped" and shown in backlog                     |
+| smallText              |        false         | Increased font size                                                                                         |
+| itemTemplate           | null `<TemplateRef>` | Template for customizing the Items shown. See examples                                                      |
+| noElementsTemplate     | null `<TemplateRef>` | Template for customizing for collapsed items. See examples                                                  |
+| hHeaderTemplate        | null `<TemplateRef>` | Template for horizontal headers. See examples                                                               |
+| vHeaderTemplate        | null `<TemplateRef>` | Template for vertical headers. See examples                                                                 |
+| actionsTemplate        | null `<TemplateRef>` | Template for actions. See examples                                                                          |
+| vCollapsable           |         true         | Groups can be collapsed                                                                                     |
+| hAddNewItems           |         true         | New item icon (horizontal)                                                                                  |
+| vAddNewItems           |         true         | New item icon (vertical)                                                                                    |
+| cellAddNewItems        |         true         | New item icon (cell)                                                                                        |
+| vHeaderClass           |    'card-header'     | CSS class for vertical header                                                                               |
+| hHeaderClass           |    'card-header'     | CSS class for horizontal header                                                                             |
+| cellClass              |    'card-header'     | CSS class for cells                                                                                         |
 
   
 ### Events
-| Event              | ParamType | Description                                                     |
-| ------------------ | :-------: | --------------------------------------------------------------- |
-| dragStarted        | CardItem  | Fired when the user drags an item. Current CardItem is passed   |
-| dropped            | CardItem  | Fired when an item is dropped. Current CardItem is passed       |
-| elementCreateClick |  string   | Fired when an add action is click. Current group name is passed |
+| Event              |  ParamType   | Description                                                     |
+| ------------------ | :----------: | --------------------------------------------------------------- |
+| dragStarted        |   `object`   | Fired when the user drags an item. Current CardItem is passed   |
+| dropped            |   `object`   | Fired when an item is dropped. Current CardItem is passed       |
+| elementCreateClick | `ClickEvent` | Fired when an add action is click. Current group name is passed |
 
 ### Datatypes
 #### CardItem
@@ -117,6 +119,13 @@ export interface CardItem {
     color?: string;
     user?: string;
     priority?: number;
+}
+```
+#### ClickEvent
+```ts
+export interface ClickEvent {
+  hGroup: string; 
+  vGroup: string;
 }
 ```
 
