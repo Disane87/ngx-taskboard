@@ -10,9 +10,11 @@
   "scripts": {
     "release": "release-it",
     "lint": "tslint --project \"tsconfig.lib.json\" --fix",
-    "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard"
+    "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
+    "changelog": "auto-changelog -p --stdout --commit-limit false -u"
   },
   "devDependencies": {
+    "auto-changelog": "^1.15.0",
     "release-it": "*",
     "tslint": "^5.18.0"
   },
@@ -27,7 +29,7 @@
       "assets": [
         "../../dist/ngx-taskboard/*.zip"
       ],
-      "changelog": "git log --pretty=format:\"* %s (%h)\" ${latestTag}...HEAD",
+      "changelog": "npm run changelog",
       "requireUpstream": true,
       "requireCommits": false,
       "addUntrackedFiles": false,
