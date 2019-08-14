@@ -53,7 +53,7 @@
         "npm run lint",
         "npm test"
       ],
-      "after:bump": "npm run build",
+      "after:bump": "npm run build && npm run changelog",
       "after:git:release": "echo After git push, before github release",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
