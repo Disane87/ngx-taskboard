@@ -30,12 +30,21 @@
         "../../dist/ngx-taskboard/*.zip"
       ],
       "changelog": "npm run changelog",
+      "requireUpstream": true,
+      "requireCommits": false,
+      "addUntrackedFiles": false,
+      "commit": true,
       "commitMessage": "Release ${version}",
+      "commitArgs": "",
       "tag": true,
       "tagAnnotation": "Release ${version}",
+      "tagArgs": "",
       "push": true,
       "pushArgs": "--follow-tags",
       "pushRepo": "origin"
+    },
+    "github": {
+      "releaseNotes": "auto-changelog -p -stdout"
     },
     "hooks": {
       "before:init": [
@@ -83,7 +92,7 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "1.0.13",
+  "version": "1.0.14",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
