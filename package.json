@@ -11,7 +11,8 @@
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.lib.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
-    "changelog": "auto-changelog -p --commit-limit false -u"
+    "changelog": "auto-changelog -p --commit-limit false -u",
+    "changelog-stdout": "auto-changelog -p --stdout"
   },
   "devDependencies": {
     "auto-changelog": "^1.15.0",
@@ -44,14 +45,18 @@
       "pushRepo": "origin"
     },
     "github": {
-      "releaseNotes": "auto-changelog -p -stdout"
+      "release": true,
+      "releaseNotes": "npm run changelog-stdout",
+      "assets": [
+        "../../dist/ngx-taskboard/*.zip"
+      ]
     },
     "hooks": {
       "before:init": [
         "npm run lint",
         "npm test"
       ],
-      "after:bump": "npm run build && auto-changelog -p",
+      "after:bump": "npm run build && npm run changelog-stdout",
       "after:git:release": "echo After git push, before github release",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
@@ -92,7 +97,7 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "1.0.14",
+  "version": "1.0.17",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
