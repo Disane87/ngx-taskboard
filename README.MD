@@ -100,14 +100,15 @@ export class AppComponent {
 | vHeaderClass           |    'card-header'     | CSS class for vertical header                                                                               |
 | hHeaderClass           |    'card-header'     | CSS class for horizontal header                                                                             |
 | cellClass              |    'card-header'     | CSS class for cells                                                                                         |
+| boardName              |          ''          | Will be displayed between vertical and horizontal headers                                                   |
 
   
 ### Events
-| Event              |  ParamType   | Description                                                     |
-| ------------------ | :----------: | --------------------------------------------------------------- |
-| dragStarted        |   `object`   | Fired when the user drags an item. Current CardItem is passed   |
-| dropped            |   `object`   | Fired when an item is dropped. Current CardItem is passed       |
-| elementCreateClick | `ClickEvent` | Fired when an add action is click. Current group name is passed |
+| Event              |        ParamType        | Description                                                       |
+| ------------------ | :---------------------: | ----------------------------------------------------------------- |
+| dragStarted        | `CardItem[] | object[]` | Fired when the user drags an item. Current item is passed         |
+| dropped            | `CardItem[] | object[]` | Fired when an item is dropped. Current item is passed             |
+| elementCreateClick |      `ClickEvent`       | Fired when an add action is click. `Current ClickEvent` is passed |
 
 ### Datatypes
 #### CardItem
