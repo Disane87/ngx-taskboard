@@ -7,6 +7,50 @@
     "task items",
     "kanban"
   ],
+  "scripts": {
+    "release": "release-it",
+    "lint": "tslint --project \"tsconfig.lib.json\" --fix",
+    "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard"
+  },
+  "devDependencies": {
+    "release-it": "*",
+    "tslint": "^5.18.0"
+  },
+  "release-it": {
+    "git": {
+      "tagName": "v${version}",
+      "requireCleanWorkingDir": false,
+      "addFiles": [
+        "package.json",
+        "CHANGELOG.md"
+      ],
+      "assets": [
+        "../../dist/ngx-taskboard/*.zip"
+      ],
+      "changelog": "git log --pretty=format:\"* %s (%h)\" ${latestTag}...HEAD",
+      "requireUpstream": true,
+      "requireCommits": false,
+      "addUntrackedFiles": false,
+      "commit": true,
+      "commitMessage": "Release ${version}",
+      "commitArgs": "",
+      "tag": true,
+      "tagAnnotation": "Release ${version}",
+      "tagArgs": "",
+      "push": true,
+      "pushArgs": "--follow-tags",
+      "pushRepo": "origin"
+    },
+    "hooks": {
+      "before:init": [
+        "npm run lint",
+        "npm test"
+      ],
+      "after:bump": "npm run build",
+      "after:git:release": "echo After git push, before github release",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+    }
+  },
   "repository": {
     "directory": "github",
     "url": "https://github.com/Disane87/ngx-taskboard.git",
@@ -43,7 +87,7 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "1.0.5",
+  "version": "1.0.7",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"

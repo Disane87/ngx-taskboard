@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, Renderer2, ElementRef, 
 import { CardItem, CollapseState } from '../types';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'ngx-taskboard',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
@@ -55,8 +56,8 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
     if (this.invertGroupDirection) {
-      let vGkey = this.vGroupKey;
-      let hGkey = this.hGroupKey;
+      const vGkey = this.vGroupKey;
+      const hGkey = this.hGroupKey;
 
       this.hGroupKey = vGkey;
       this.vGroupKey = hGkey;
@@ -67,25 +68,28 @@ export class BoardComponent implements OnInit {
   }
 
   getItemsOfGroup(vValue: string, hValue: string): CardItem[] | object[] {
-    let items = this.items.filter(item => item[this.vGroupKey] == vValue && item[this.hGroupKey] == hValue);
+    let items = this.items.filter(item =>
+      (item[this.vGroupKey.toLowerCase()] as string).toLowerCase() === vValue.toLowerCase() &&
+      (item[this.hGroupKey.toLowerCase()] as string).toLowerCase() === hValue.toLowerCase()
+    );
     if (this.showUngroupedInBacklog) {
-      items = items.filter(item => item[this.vGroupKey] != '' && item[this.hGroupKey] != '')
+      items = items.filter(item => item[this.vGroupKey] !== '' && item[this.hGroupKey] !== '');
     }
 
-    if (this.sortBy != '') {
+    if (this.sortBy !== '') {
       /* Detect datatype of sortBy-Field */
-      let fieldType = typeof (items.some(item => items[0][this.sortBy] !== undefined && items[0][this.sortBy] != null)[this.sortBy]);
+      const fieldType = typeof (items.some(item => items[0][this.sortBy] !== undefined && items[0][this.sortBy] !== null)[this.sortBy]);
       if (fieldType) {
         return items.sort((a, b) => {
 
-          let aField = a[this.sortBy];
-          let bField = b[this.sortBy];
+          const aField = a[this.sortBy];
+          const bField = b[this.sortBy];
 
-          if (fieldType == 'number') {
+          if (fieldType === 'number') {
             return bField - aField;
           }
 
-          if (fieldType == 'string') {
+          if (fieldType === 'string') {
             if (aField < bField) {
               return -1;
             }
@@ -96,7 +100,7 @@ export class BoardComponent implements OnInit {
           }
 
 
-        })
+        });
       } else {
         return items;
       }
@@ -106,16 +110,18 @@ export class BoardComponent implements OnInit {
   }
 
   getHeadings(groupKey: string = this.vGroupKey): string[] {
-    let keys = (<object[]>this.items).map((item: any) => item[Object.keys(item).find(key => key == groupKey)]);
+    const keys = (<object[]>this.items).map((item: any) =>
+      item[Object.keys(item).find(key => key.toLowerCase() === groupKey.toLowerCase())]
+    );
 
     return keys.filter((elem, pos, arr) => {
-      return arr.indexOf(elem) == pos && (this.showUngroupedInBacklog && elem != '');
+      return arr.indexOf(elem) === pos && (this.showUngroupedInBacklog && elem !== '');
     });
   }
 
   getUngroupedItems(): CardItem[] | object[] {
     if (this.showUngroupedInBacklog) {
-      return this.items.filter(item => item[this.vGroupKey] == '' && item[this.hGroupKey] == '');
+      return this.items.filter(item => item[this.vGroupKey] === '' && item[this.hGroupKey] === '');
     }
 
     return [];
@@ -124,26 +130,26 @@ export class BoardComponent implements OnInit {
   toggleCollapse(group: { hGroup: string, vGroup: string }): void {
 
 
-    let part = group.hGroup || group.vGroup;
+    const part = group.hGroup || group.vGroup;
 
-    let collapseState = this.collapseState(part);
-    this.collapseStates.find(item => item.name == part).collapsed = !collapseState;
+    const collapseState = this.collapseState(part);
+    this.collapseStates.find(item => item.name === part).collapsed = !collapseState;
     // console.log("Toggle: "+part);
   }
 
   collapseState(part: string): boolean {
-    return this.collapseStates.find(item => item.name == part).collapsed;
+    return this.collapseStates.find(item => item.name === part).collapsed;
   }
 
   public dragStart(event: DragEvent, item: CardItem) {
     this.dragItem = item;
     this.dragStarted.emit(this.dragItem);
-  };
+  }
 
   public dragEnd(event: DragEvent, item: CardItem) {
     this.dragItem = undefined;
 
-  };
+  }
 
 
   createElement(group: string) {
@@ -154,7 +160,7 @@ export class BoardComponent implements OnInit {
   public drop(event: DragEvent, vRow: string, hRow: string) {
     event.preventDefault();
     if (event.currentTarget) {
-      let placeholderEl = (event.currentTarget as HTMLElement).querySelector('.placeholder');
+      const placeholderEl = (event.currentTarget as HTMLElement).querySelector('.placeholder');
       if (placeholderEl) {
         this.renderer.removeChild(placeholderEl.parentNode, placeholderEl);
       }
@@ -162,19 +168,19 @@ export class BoardComponent implements OnInit {
       this.placeholderSet = false;
     }
 
-    this.dragItem[this.vGroupKey] = vRow;
-    this.dragItem[this.hGroupKey] = hRow;
+    this.dragItem[this.vGroupKey.toLowerCase()] = vRow;
+    this.dragItem[this.hGroupKey.toLowerCase()] = hRow;
 
     this.dropped.emit(this.dragItem);
     this.dragItem = undefined;
-  };
+  }
 
   public dragOver(event: DragEvent, vRow: string, hRow: string) {
     if (this.dragItem) {
       event.preventDefault();
 
-      if (`${vRow}-${hRow.replace(' ', '')}`.toLowerCase() != this.currentDragZone && this.currentDragZone != '') {
-        let lastPlaceholder = document.getElementById(this.currentDragZone);
+      if (`${vRow}-${hRow.replace(' ', '')}`.toLowerCase() !== this.currentDragZone && this.currentDragZone !== '') {
+        const lastPlaceholder = document.getElementById(this.currentDragZone);
         if (lastPlaceholder) {
           this.renderer.removeChild(lastPlaceholder.parentNode, lastPlaceholder);
           this.placeholderSet = false;
@@ -184,15 +190,15 @@ export class BoardComponent implements OnInit {
       this.currentDragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();
 
       if (!this.placeholderSet) {
-        let placeholderElement = this.createPlaceholderElement(this.currentDragZone);
+        const placeholderElement = this.createPlaceholderElement(this.currentDragZone);
         this.renderer.appendChild(event.currentTarget, placeholderElement);
         this.placeholderSet = true;
       }
     }
-  };
+  }
 
   createPlaceholderElement(id: string) {
-    let placeholderElement = this.renderer.createElement('div');
+    const placeholderElement = this.renderer.createElement('div');
     this.renderer.setStyle(placeholderElement, 'border', '1px dashed gray');
     this.renderer.setStyle(placeholderElement, 'width', '100%');
     this.renderer.setStyle(placeholderElement, 'height', '50px');
