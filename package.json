@@ -23,7 +23,6 @@
     "npm": {
       "publishPath": "../../dist/ngx-taskboard"
     },
-    "beforeChangelogCommand": "auto-changelog --stdout",
     "safeBump": true,
     "git": {
       "tagName": "v${version}",

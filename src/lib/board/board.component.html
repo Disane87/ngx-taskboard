@@ -95,25 +95,37 @@
                   (drop)="drop($event, vGroup, hGroup)">
                   <ng-container *ngFor="let item of getItemsOfGroup(vGroup, hGroup)">
 
-                    <!-- Items -->
-                    <ng-container *ngIf="itemTemplate">
-                      <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
-                    </ng-container>
+                    <div class="item-container p-0 m-0" draggable="true" (dragstart)="dragStart($event, item)"
+                      (dragend)="dragEnd($event, item)">
+                      <!-- Items -->
+                      <ng-container *ngIf="itemTemplate">
+                        <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
+                      </ng-container>
 
-                    <ng-container *ngIf="!itemTemplate">
-                      <div class="card mb-1 border-bottom-0 border-top-0" draggable="true"
-                        (dragstart)="dragStart($event, item)" (dragend)="dragEnd($event, item)"
-                        style="border-left: 5px solid; border-radius: 0;" [style.border-left-color]="item?.color">
-                        <div class="card-header border-top d-flex flex-row justify-content-between">
-                          <div>
-                            <span class="font-weight-bold">#{{item.id}}</span>
-                            <span class="ml-3">{{ item.name }}</span>
-                            <span class="ml-3">{{ item.priority }}</span>
+                      <ng-container *ngIf="!itemTemplate">
+                        <div class="card mb-1 border-bottom-0 border-top-0"
+                          style="border-left: 5px solid; border-radius: 0;" [style.border-left-color]="item?.color">
+                          <div class="card-header border-top d-flex flex-row justify-content-between">
+                            <div class="small">
+                              <span class="font-weight-bold">#{{item.id}}</span>
+                              <span class="ml-3">{{ item.name }}</span>
+                              <span class="ml-3">{{ item.priority }}</span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </ng-container>
+                      </ng-container>
+                    </div>
+
                   </ng-container>
+
+                  <!-- <ng-container *ngIf="getItemsOfGroup(vGroup, hGroup).length == 0">
+                    <div class="card mb-1 border-bottom-0 border-top-0"
+                      style="border-left: 5px solid; border-radius: 0;">
+                      <div class="card-header border-top d-flex flex-row justify-content-between">
+
+                      </div>
+                    </div>
+                  </ng-container> -->
 
                 </div>
                 <div class="cell-actions d-flex flex-row align-self-end">

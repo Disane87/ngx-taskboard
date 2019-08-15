@@ -52,6 +52,9 @@ export class BoardComponent implements OnInit {
   private placeholderSet = false;
   private currentDragZone: string;
 
+  private correcthGroupKey = '';
+  private correctvGroupKey = ''
+
   constructor(private renderer: Renderer2, private elRef: ElementRef) { }
 
   ngOnInit() {
@@ -62,20 +65,19 @@ export class BoardComponent implements OnInit {
       this.hGroupKey = vGkey;
       this.vGroupKey = hGkey;
     }
+
+    this.correcthGroupKey = this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey);
+    this.correctvGroupKey = this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey);
+
     this.hHeadings = (this.hGroupKeys.length > 0 ? this.hGroupKeys : this.getHeadings(this.hGroupKey));
     this.vHeadings = (this.vGroupKeys.length > 0 ? this.vGroupKeys : this.getHeadings(this.vGroupKey));
     this.collapseStates.push(...[...this.vHeadings, ...this.hHeadings].map(item => ({ name: item, collapsed: false })));
   }
 
   getItemsOfGroup(vValue: string, hValue: string): CardItem[] | object[] {
-    let items = this.items.filter(item => {
-
-      const hProp = this.getCaseInsensitivePropKey(item, this.hGroupKey);
-      const vProp = this.getCaseInsensitivePropKey(item, this.vGroupKey);
-
-      return (item[vProp] as string).toLowerCase() === vValue.toLowerCase() &&
-        (item[hProp] as string).toLowerCase() === hValue.toLowerCase();
-    });
+    let items = this.items.filter(item => (item[this.correctvGroupKey] as string).toLowerCase() === vValue.toLowerCase() &&
+      (item[this.correcthGroupKey] as string).toLowerCase() === hValue.toLowerCase()
+    );
 
     if (this.showUngroupedInBacklog) {
       items = items.filter(item => item[this.vGroupKey] !== '' && item[this.hGroupKey] !== '');
@@ -177,8 +179,8 @@ export class BoardComponent implements OnInit {
       this.placeholderSet = false;
     }
 
-    this.dragItem[this.vGroupKey.toLowerCase()] = vRow;
-    this.dragItem[this.hGroupKey.toLowerCase()] = hRow;
+    this.dragItem[this.correctvGroupKey] = vRow;
+    this.dragItem[this.correcthGroupKey] = hRow;
 
     this.dropped.emit(this.dragItem);
     this.dragItem = undefined;
@@ -187,6 +189,7 @@ export class BoardComponent implements OnInit {
   public dragOver(event: DragEvent, vRow: string, hRow: string) {
     if (this.dragItem) {
       event.preventDefault();
+
 
       if (`${vRow}-${hRow.replace(' ', '')}`.toLowerCase() !== this.currentDragZone && this.currentDragZone !== '') {
         const lastPlaceholder = document.getElementById(this.currentDragZone);
