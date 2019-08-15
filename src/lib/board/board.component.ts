@@ -70,8 +70,8 @@ export class BoardComponent implements OnInit {
   getItemsOfGroup(vValue: string, hValue: string): CardItem[] | object[] {
     let items = this.items.filter(item => {
 
-      let hProp = this.getCaseInsensitivePropKey(item, this.hGroupKey);
-      let vProp = this.getCaseInsensitivePropKey(item, this.vGroupKey);
+      const hProp = this.getCaseInsensitivePropKey(item, this.hGroupKey);
+      const vProp = this.getCaseInsensitivePropKey(item, this.vGroupKey);
 
       return (item[vProp] as string).toLowerCase() === vValue.toLowerCase() &&
         (item[hProp] as string).toLowerCase() === hValue.toLowerCase();

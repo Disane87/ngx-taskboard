@@ -11,8 +11,8 @@
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.lib.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
-    "changelog": "auto-changelog -p --commit-limit false -u",
-    "changelog-stdout": "auto-changelog --package --stdout"
+    "changelog": "auto-changelog --commit-limit false -u",
+    "changelog-stdout": "auto-changelog --stdout"
   },
   "devDependencies": {
     "auto-changelog": "^1.15.0",
@@ -23,6 +23,8 @@
     "npm": {
       "publishPath": "../../dist/ngx-taskboard"
     },
+    "beforeChangelogCommand": "auto-changelog --stdout",
+    "safeBump": true,
     "git": {
       "tagName": "v${version}",
       "requireCleanWorkingDir": false,
@@ -100,7 +102,7 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "1.0.25",
+  "version": "1.0.26",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
