@@ -53,7 +53,7 @@ export class BoardComponent implements OnInit {
   private currentDragZone: string;
 
   private correcthGroupKey = '';
-  private correctvGroupKey = ''
+  private correctvGroupKey = '';
 
   constructor(private renderer: Renderer2, private elRef: ElementRef) { }
 
