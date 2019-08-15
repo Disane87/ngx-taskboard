@@ -20,6 +20,9 @@
     "tslint": "^5.18.0"
   },
   "release-it": {
+    "npm": {
+      "publishPath": "../../dist/ngx-taskboard"
+    },
     "git": {
       "tagName": "v${version}",
       "requireCleanWorkingDir": false,
@@ -28,7 +31,7 @@
         "CHANGELOG.md"
       ],
       "assets": [
-        "../../dist/ngx-taskboard/*.zip"
+        "dist/ngx-taskboard/*.zip"
       ],
       "changelog": "npm run changelog",
       "requireUpstream": true,
@@ -48,7 +51,7 @@
       "release": true,
       "releaseNotes": "npm run changelog-stdout --silent",
       "assets": [
-        "../../dist/ngx-taskboard/*.zip"
+        "dist/ngx-taskboard/*.zip"
       ]
     },
     "hooks": {
@@ -97,7 +100,7 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "1.0.22",
+  "version": "1.0.25",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
