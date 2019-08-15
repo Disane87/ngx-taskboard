@@ -68,10 +68,15 @@ export class BoardComponent implements OnInit {
   }
 
   getItemsOfGroup(vValue: string, hValue: string): CardItem[] | object[] {
-    let items = this.items.filter(item =>
-      (item[this.vGroupKey.toLowerCase()] as string).toLowerCase() === vValue.toLowerCase() &&
-      (item[this.hGroupKey.toLowerCase()] as string).toLowerCase() === hValue.toLowerCase()
-    );
+    let items = this.items.filter(item => {
+
+      let hProp = this.getCaseInsensitivePropKey(item, this.hGroupKey);
+      let vProp = this.getCaseInsensitivePropKey(item, this.vGroupKey);
+
+      return (item[vProp] as string).toLowerCase() === vValue.toLowerCase() &&
+        (item[hProp] as string).toLowerCase() === hValue.toLowerCase();
+    });
+
     if (this.showUngroupedInBacklog) {
       items = items.filter(item => item[this.vGroupKey] !== '' && item[this.hGroupKey] !== '');
     }
@@ -107,6 +112,10 @@ export class BoardComponent implements OnInit {
 
     }
     return items;
+  }
+
+  getCaseInsensitivePropKey(item: object, propKey: string): string {
+    return Object.keys(item).find(key => key.toLowerCase() === propKey.toLowerCase());
   }
 
   getHeadings(groupKey: string = this.vGroupKey): string[] {
