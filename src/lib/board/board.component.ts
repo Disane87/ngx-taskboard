@@ -52,9 +52,6 @@ export class BoardComponent implements OnInit {
   private placeholderSet = false;
   private currentDragZone: string;
 
-  private correcthGroupKey = '';
-  private correctvGroupKey = '';
-
   constructor(private renderer: Renderer2, private elRef: ElementRef) { }
 
   ngOnInit() {
@@ -66,18 +63,19 @@ export class BoardComponent implements OnInit {
       this.vGroupKey = hGkey;
     }
 
-    this.correcthGroupKey = this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey);
-    this.correctvGroupKey = this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey);
-
     this.hHeadings = (this.hGroupKeys.length > 0 ? this.hGroupKeys : this.getHeadings(this.hGroupKey));
     this.vHeadings = (this.vGroupKeys.length > 0 ? this.vGroupKeys : this.getHeadings(this.vGroupKey));
     this.collapseStates.push(...[...this.vHeadings, ...this.hHeadings].map(item => ({ name: item, collapsed: false })));
   }
 
   getItemsOfGroup(vValue: string, hValue: string): CardItem[] | object[] {
-    let items = this.items.filter(item => (item[this.correctvGroupKey] as string).toLowerCase() === vValue.toLowerCase() &&
-      (item[this.correcthGroupKey] as string).toLowerCase() === hValue.toLowerCase()
-    );
+
+    let items = this.items.filter(item => {
+
+      const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
+      return (item[groupKeys.vGroupKey] as string).toLowerCase() === vValue.toLowerCase() &&
+        (item[groupKeys.hGroupKey] as string).toLowerCase() === hValue.toLowerCase()
+    });
 
     if (this.showUngroupedInBacklog) {
       items = items.filter(item => item[this.vGroupKey] !== '' && item[this.hGroupKey] !== '');
@@ -114,6 +112,13 @@ export class BoardComponent implements OnInit {
 
     }
     return items;
+  }
+
+  determineCorrectGroupKeys(item: object): GroupKeys {
+    return {
+      hGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),
+      vGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey)
+    }
   }
 
   getCaseInsensitivePropKey(item: object, propKey: string): string {
@@ -179,8 +184,11 @@ export class BoardComponent implements OnInit {
       this.placeholderSet = false;
     }
 
-    this.dragItem[this.correctvGroupKey] = vRow;
-    this.dragItem[this.correcthGroupKey] = hRow;
+
+    const groupKeys: GroupKeys = this.determineCorrectGroupKeys(this.dragItem);
+
+    this.dragItem[groupKeys.vGroupKey] = vRow;
+    this.dragItem[groupKeys.hGroupKey] = hRow;
 
     this.dropped.emit(this.dragItem);
     this.dragItem = undefined;
@@ -224,4 +232,10 @@ export class BoardComponent implements OnInit {
 export interface ClickEvent {
   hGroup: string;
   vGroup: string;
+}
+
+
+export interface GroupKeys {
+  hGroupKey: string;
+  vGroupKey: string;
 }

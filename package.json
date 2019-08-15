@@ -50,10 +50,7 @@
     },
     "github": {
       "release": true,
-      "releaseNotes": "npm run changelog-stdout --silent",
-      "assets": [
-        "dist/ngx-taskboard/*.zip"
-      ]
+      "releaseNotes": "npm run changelog-stdout --silent"
     },
     "hooks": {
       "before:init": [
