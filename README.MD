@@ -105,6 +105,11 @@ export class AppComponent {
 
 ## Configuration
 ### Properties
+
+<!-- Start AutoDoc Inputs -->
+ghjghjghjgh
+<!-- End AutoDoc Inputs -->
+
 | Property                    |                         Default | Description                                                                                                 |
 | --------------------------- | ------------------------------: | ----------------------------------------------------------------------------------------------------------- |
 | showBacklog                 |                true (`boolean`) | Shows the backlog                                                                                           |
@@ -131,9 +136,16 @@ export class AppComponent {
 | hHeaderClass                |        'card-header' (`string`) | CSS class for horizontal header                                                                             |
 | cellClass                   |        'card-header' (`string`) | CSS class for cells                                                                                         |
 | boardName                   |                   '' (`string`) | Will be displayed between vertical and horizontal headers                                                   |
+| vCollapsed                   |                   false (`boolean`) | Collapsed the vertical groups on init                                                   |
+| hCollapsed                   |                   false (`boolean`) | Collapsed the vertical groups on init                                                 |
+
 
   
 ### Events
+
+<!-- Start AutoDoc Outputs -->
+
+<!-- End AutoDoc Outputs -->
 | Event              |               ParamType | Description                                                       |
 | ------------------ | ----------------------: | ----------------------------------------------------------------- |
 | dragStarted        | `CardItem[] | object[]` | Fired when the user drags an item. Current item is passed         |
