@@ -46,7 +46,7 @@ export class BoardComponent implements OnInit {
 
   @Output() dragStarted = new EventEmitter<object>();
   @Output() dropped = new EventEmitter<object>();
-  @Output() elementCreateClick = new EventEmitter<string>();
+  @Output() elementCreateClick = new EventEmitter<ClickEvent>();
 
 
 
@@ -190,7 +190,7 @@ export class BoardComponent implements OnInit {
   }
 
 
-  createElement(group: string) {
+  createElement(group: ClickEvent) {
     this.elementCreateClick.emit(group);
   }
 
