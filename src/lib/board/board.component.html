@@ -157,7 +157,8 @@
 
               </ng-container>
               <ng-container *ngIf="collapseState(vGroup) && !collapseState(hGroup)">
-                <div class="text-center">
+                <div class="text-center"  (dragover)="dragOver($event, vGroup, hGroup)"
+                (drop)="drop($event, vGroup, hGroup)">
                   <ng-container [ngIf]="noElementsTemplate"
                     *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(vGroup, hGroup).length }">
                   </ng-container>
