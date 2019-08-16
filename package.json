@@ -11,7 +11,7 @@
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.lib.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
-    "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json",
+    "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
     "changelog": "auto-changelog --commit-limit false -u",
     "changelog-stdout": "auto-changelog --stdout"
   },
@@ -20,6 +20,8 @@
     "auto-changelog": "^1.15.0",
     "doctoc": "^1.4.0",
     "release-it": "*",
+    "replace-in-file": "^4.1.3",
+    "tablemark": "^2.0.0",
     "tslint": "^5.18.0"
   },
   "release-it": {
