@@ -1,9 +1,11 @@
-<div class="h-100 d-flex flex-column align-items-stretch border-0" [class.small]="smallText" style="overflow:hiden">
+<div class="h-100 d-flex flex-column align-items-stretch border-0" [class.small]="smallText" style="overflow: hidden">
 
-  <div class="d-flex flex-row align-items-stretch flex-fill">
+  <div class="d-flex flex-row align-items-stretch flex-fill h-100">
+
+
     <div class="backlog border-right" *ngIf="showBacklog">
       <div class="card border-right-0 border-top-0 border-left-0 w-100 h-100">
-        <div class="card-header d-flex flex-row justify-content-between" style="border-left: 5px solid">
+        <div class="{{hHeaderClass}} d-flex flex-row justify-content-between">
           {{ backlogName }}
 
           <div class="actions ml-3">
@@ -15,7 +17,8 @@
         </div>
         <ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"
           (drop)="drop($event, null, null)">
-          <div class=" ungrouped-item" *ngFor="let item of getUngroupedItems()">
+          <div class=" ungrouped-item" *ngFor="let item of getUngroupedItems()" draggable="true"
+            (dragstart)="dragStart($event, item)" (dragend)="dragEnd($event, item)">
             <ng-container *ngIf="itemTemplate">
               <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
             </ng-container>
@@ -68,7 +71,8 @@
         </div>
       </div>
 
-      <div class="d-flex flex-column flex-fill align-items-stretch" style="overflow-y: auto">
+      <div class="d-flex flex-column  align-items-stretch" [class.flex-fill]="!scrollable"
+        [class.overflow-auto]="scrollable">
 
         <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)" *ngFor="let vGroup of vHeadings">
 

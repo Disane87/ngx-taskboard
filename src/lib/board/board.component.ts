@@ -35,16 +35,20 @@ export class BoardComponent implements OnInit {
   @Input() hHeaderTemplate: TemplateRef<any>;
   @Input() vHeaderTemplate: TemplateRef<any>;
   @Input() actionsTemplate: TemplateRef<any>;
+  @Input() dragoverPlaceholderTemplate: TemplateRef<any>;
 
   @Input() vHeaderClass = 'card-header';
   @Input() hHeaderClass = 'card-header';
   @Input() cellClass = 'card-header';
 
+  @Input() scrollable = false;
   @Input() vCollapsable = true;
 
   @Output() dragStarted = new EventEmitter<object>();
   @Output() dropped = new EventEmitter<object>();
   @Output() elementCreateClick = new EventEmitter<string>();
+
+
 
   public hHeadings: string[] = [];
   public vHeadings: string[] = [];
@@ -244,14 +248,22 @@ export class BoardComponent implements OnInit {
   }
 
   createPlaceholderElement(id: string) {
-    const placeholderElement = this.renderer.createElement('div');
-    this.renderer.setStyle(placeholderElement, 'border', '1px dashed gray');
-    this.renderer.setStyle(placeholderElement, 'width', '100%');
-    this.renderer.setStyle(placeholderElement, 'height', '50px');
-    this.renderer.setAttribute(placeholderElement, 'id', this.currentDragZone);
-    this.renderer.setAttribute(placeholderElement, 'class', 'placeholder');
 
-    return placeholderElement;
+
+    if (this.dragoverPlaceholderTemplate) {
+      return this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);
+    } else {
+      const placeholderElement: HTMLElement = this.renderer.createElement('div');
+      this.renderer.setStyle(placeholderElement, 'border', '1px dashed gray');
+      this.renderer.setStyle(placeholderElement, 'width', '100%');
+      this.renderer.setStyle(placeholderElement, 'height', '50px');
+      this.renderer.setAttribute(placeholderElement, 'id', this.currentDragZone);
+      this.renderer.setAttribute(placeholderElement, 'class', 'placeholder');
+      return placeholderElement;
+    }
+
+
+
   }
 }
 
