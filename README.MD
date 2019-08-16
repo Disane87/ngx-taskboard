@@ -80,6 +80,7 @@ export class AppComponent {
 | Property               |       Default        | Description                                                                                                 |
 | ---------------------- | :------------------: | ----------------------------------------------------------------------------------------------------------- |
 | showBacklog            |         true         | Shows the backlog                                                                                           |
+| backlogName            |      'Backlog'       | Name of the backlog row                                                                                     |
 | items                  |          []          | Items from type `CardItem[]` or `object[]`                                                                  |
 | vGroupKey              |          ''          | Group vertical items by field '<xyz>'                                                                       |
 | hGroupKey              |          ''          | Group horizontal items by field '<xyz>'                                                                     |
