@@ -7,6 +7,63 @@
     "task items",
     "kanban"
   ],
+  "scripts": {
+    "release": "release-it --ci",
+    "lint": "tslint --project \"tsconfig.lib.json\" --fix",
+    "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
+    "prebuild": "npx doctoc ./README.md",
+    "changelog": "auto-changelog --commit-limit false -u",
+    "changelog-stdout": "auto-changelog --stdout"
+  },
+  "devDependencies": {
+    "auto-changelog": "^1.15.0",
+    "doctoc": "^1.4.0",
+    "release-it": "*",
+    "tslint": "^5.18.0"
+  },
+  "release-it": {
+    "npm": {
+      "publishPath": "../../dist/ngx-taskboard"
+    },
+    "safeBump": true,
+    "git": {
+      "tagName": "v${version}",
+      "requireCleanWorkingDir": false,
+      "addFiles": [
+        "package.json",
+        "CHANGELOG.md"
+      ],
+      "assets": [
+        "dist/ngx-taskboard/*.zip"
+      ],
+      "changelog": "npm run changelog",
+      "requireUpstream": true,
+      "requireCommits": false,
+      "addUntrackedFiles": false,
+      "commit": true,
+      "commitMessage": "Release ${version}",
+      "commitArgs": "",
+      "tag": true,
+      "tagAnnotation": "${version}",
+      "tagArgs": "",
+      "push": true,
+      "pushArgs": "--follow-tags",
+      "pushRepo": "origin"
+    },
+    "github": {
+      "release": true,
+      "releaseNotes": "npm run changelog-stdout --silent"
+    },
+    "hooks": {
+      "before:init": [
+        "npm run lint",
+        "npm test"
+      ],
+      "after:bump": "npm run build && npm run changelog",
+      "after:git:release": "echo After git push, before github release",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+    }
+  },
   "repository": {
     "directory": "github",
     "url": "https://github.com/Disane87/ngx-taskboard.git",
@@ -18,8 +75,7 @@
     "email": "mfranke87@icloud.com",
     "url": "https://byte-style.de"
   },
-  "badges": [
-    {
+  "badges": [{
       "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
       "description": "License",
       "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
@@ -37,13 +93,11 @@
   ],
   "description": "Yet another angular taskboard",
   "homepage": "https://ngx-taskboard.disane.de",
-  "maintainers": [
-    {
-      "name": "Marco Franke",
-      "email": "mfranke87@icloud.com"
-    }
-  ],
-  "version": "1.0.1",
+  "maintainers": [{
+    "name": "Marco Franke",
+    "email": "mfranke87@icloud.com"
+  }],
+  "version": "1.0.27",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"

@@ -12,3 +12,5 @@ export interface CollapseState {
     name: string;
     collapsed: boolean;
 }
+
+
