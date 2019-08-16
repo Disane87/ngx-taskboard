@@ -1,20 +1,48 @@
+# ngx-taskboard 
 ![badge](https://api.codeclimate.com/v1/badges/e7183f0854e6cf832261/maintainability) [![codecov](https://codecov.io/gh/Disane87/ngx-taskboard/branch/master/graph/badge.svg)](https://codecov.io/gh/Disane87/ngx-taskboard) ![badge](https://img.shields.io/npm/v/@disane/ngx-taskboard) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@disane/ngx-taskboard)
 
-## Description
 `ngx-taskboard` is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the [issues](https://github.com/Disane87/ngx-taskboard/issues) when you have questions or found a bug or leave a PR if you have som additions. Styling is made with [Bootstrap](https://github.com/twbs/bootstrap), so it's 100% compatible.
+
+
+# Table of Content
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Datatypes](#datatypes)
+    - [CardItem](#carditem)
+    - [ClickEvent](#clickevent)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Description
+
 
 ![Taskboard](https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif)
 
-## Dependency
-- Angular 7
-- Bootstrap
 
-## Installation
+
+# Dependencies
+* Angular 7
+* Bootstrap 4
+
+# Installation
 `npm install @disane/ngx-taskboard`
 
-## Basic usage
+# Basic usage
 
-app.module.ts
+`app.module.ts`
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -36,14 +64,14 @@ export class AppModule { }
 
 ```
 
-app.component.html
+`app.component.html`
 ```html
 <ngx-taskboard class="w-100 h-100" [items]="items" [hGroupKeys]="hGroupKeys" [vGroupKeys]="vGroupKeys"
   [vGroupKey]="vGroupKey" [hGroupKey]="hGroupKey" [sortBy]="sortBy" [invertGroupDirection]="false">
 </ngx-taskboard>
 ```
 
-app.component.ts
+`app.component.ts`
 ```ts
 import { Component } from '@angular/core';
 
@@ -112,8 +140,8 @@ export class AppComponent {
 | dropped            | `CardItem[] | object[]` | Fired when an item is dropped. Current item is passed             |
 | elementCreateClick |            `ClickEvent` | Fired when an add action is click. Current `ClickEvent` is passed |
 
-### Datatypes
-#### CardItem
+## Datatypes
+### CardItem
 ```ts
 export interface CardItem {
     id: number;
@@ -124,7 +152,8 @@ export interface CardItem {
     priority?: number;
 }
 ```
-#### ClickEvent
+
+### ClickEvent
 ```ts
 export interface ClickEvent {
   hGroup: string; 
@@ -132,8 +161,29 @@ export interface ClickEvent {
 }
 ```
 
+
 ## Examples
 Following soon
 
-## Limitations
+# Limitations
 - Scrolling actually not possible
+
+
+# Contributing
+
+## Installation
+
+```bash
+git clone https://github.com/Disane87/ngx-taskboard.git .
+```
+
+Since this is a Angular library, you have can't start it as standalone, like a normal Angular application. Instead, you have to build it with `ng build . --watch` and link it with `npm link`. The link process creates a symlink to your global `npm` which you can access from other projects.
+
+In your test or real project, you have to add the package, but only with another command `npm link @disane/ngx-taskboard --save`. This means, you are not obtaining the package from `npm`, instead you are symlinking it to you global `npm` which has a reference to the above created link in your project.
+
+This is a bit odd, but you can read more about it [here](https://docs.npmjs.com/cli/link).
+
+
+If you have an existing Angular library project with a tets application, you can work here with [submoduling](https://github.blog/2016-02-01-working-with-submodules/) in git, instead of a `git clone`:
+
+`git submodule add https://github.com/Disane87/ngx-taskboard.git`
