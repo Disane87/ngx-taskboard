@@ -90,7 +90,8 @@
 
 
 
-            <div class="vertical-actions d-flex flex-column ">
+            <div class="vertical-actions d-flex flex-column" [class.flex-column]="!collapseState(vGroup)"
+              [class.flex-row]="collapseState(vGroup)" [class.flex-row-reverse]="collapseState(vGroup)">
               <div class="align-self-start flex-fill">
                 <ng-content
                   *ngTemplateOutlet="cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true }">
