@@ -80,8 +80,8 @@ export class BoardComponent implements OnInit {
 
       const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
 
-      let vItem = item[groupKeys.vGroupKey];
-      let hItem = item[groupKeys.hGroupKey];
+      const vItem = item[groupKeys.vGroupKey];
+      const hItem = item[groupKeys.hGroupKey];
 
       if (hItem == null) {
         return false;
@@ -92,7 +92,7 @@ export class BoardComponent implements OnInit {
       }
 
       return (vItem as string).toLowerCase() === vValue.toLowerCase() &&
-        (hItem).toLowerCase() === hValue.toLowerCase()
+        (hItem).toLowerCase() === hValue.toLowerCase();
     });
 
     if (this.showUngroupedInBacklog) {
@@ -119,6 +119,7 @@ export class BoardComponent implements OnInit {
             if (aField > bField) {
               return 1;
             }
+            
             return 0;
           }
 
@@ -136,7 +137,7 @@ export class BoardComponent implements OnInit {
     return {
       hGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),
       vGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey)
-    }
+    };
   }
 
   getCaseInsensitivePropKey(item: object, propKey: string): string {
@@ -157,7 +158,7 @@ export class BoardComponent implements OnInit {
     if (this.showUngroupedInBacklog) {
       return this.items.filter(item => {
         const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
-        let isUngrouped = (item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '') || (item[groupKeys.vGroupKey] === null && item[groupKeys.hGroupKey] === null);
+        const isUngrouped = (item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '') || (item[groupKeys.vGroupKey] === null && item[groupKeys.hGroupKey] === null);
         return isUngrouped;
       });
     }
@@ -228,7 +229,7 @@ export class BoardComponent implements OnInit {
         hRow = '';
       }
 
-      let dragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();
+      const dragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();
       if (dragZone !== this.currentDragZone && this.currentDragZone !== '') {
         const lastPlaceholder = document.getElementById(this.currentDragZone);
         if (lastPlaceholder) {
@@ -247,9 +248,7 @@ export class BoardComponent implements OnInit {
     }
   }
 
-  createPlaceholderElement(id: string) {
-
-
+  createPlaceholderElement(id: string): HTMLElement {
     if (this.dragoverPlaceholderTemplate) {
       return this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);
     } else {
@@ -259,11 +258,9 @@ export class BoardComponent implements OnInit {
       this.renderer.setStyle(placeholderElement, 'height', '50px');
       this.renderer.setAttribute(placeholderElement, 'id', this.currentDragZone);
       this.renderer.setAttribute(placeholderElement, 'class', 'placeholder');
+
       return placeholderElement;
     }
-
-
-
   }
 }
 
