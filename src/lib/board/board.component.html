@@ -2,21 +2,39 @@
 
   <div class="d-flex flex-row align-items-stretch flex-fill">
     <div class="backlog border-right" *ngIf="showBacklog">
+      <div class="card border-right-0 border-top-0 border-left-0 w-100 h-100">
+        <div class="card-header d-flex flex-row justify-content-between" style="border-left: 5px solid">
+          {{ backlogName }}
 
-
-      <!-- <app-card [name]="'Ungruppiert'">
-        <div class="ungrouped-item" (dragover)="dragOver($event, '', '')" (drop)="drop($event, '', '')">
-          <div class="card mb-1 border-bottom-0" *ngFor="let item of getUngroupedItems()" draggable="true"
-            (dragstart)="dragStart($event, item)" (dragend)="dragEnd($event, item)">
-            <div class="card-header">
-              <div class="d-flex">#{{item.id}} {{item.name}}</div>
-            </div>
+          <div class="actions ml-3">
+            <fa-icon [icon]="['fas','plus-square']" [fixedWidth]="true"></fa-icon>
+            <fa-icon [icon]="['fas','chevron-left']" [fixedWidth]="true"></fa-icon>
           </div>
-          <ng-container *ngIf="getUngroupedItems().length == 0">
-            <div class="text-center">Keine Elemente</div>
-          </ng-container>
+
+
         </div>
-      </app-card> -->
+        <ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"
+          (drop)="drop($event, null, null)">
+          <div class=" ungrouped-item" *ngFor="let item of getUngroupedItems()">
+            <ng-container *ngIf="itemTemplate">
+              <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="!itemTemplate">
+              <div class="card mb-1 border-bottom-0 border-top-0" style="border-left: 5px solid; border-radius: 0;"
+                [style.border-left-color]="item?.color">
+                <div class="card-header border-top d-flex flex-row justify-content-between">
+                  <div class="small">
+                    <span class="font-weight-bold">#{{item.id}}</span>
+                    <span class="ml-3">{{ item.name }}</span>
+                    <span class="ml-3">{{ item.priority }}</span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </ul>
+      </div>
 
     </div>
     <div class="column-cards d-flex flex-column flex-fill">
@@ -25,11 +43,8 @@
         <div class="col-2 border-left card-header border-left-0 d-flex flex-row justify-content-between"
           *ngIf="vGroupKey">
           <div>
-            <!-- {{hGroupKey}} / {{vGroupKey}} -->{{boardName}}
+            {{boardName}}
           </div>
-          <!-- <div class="actions ml-3" *ngIf="vGroupKey">
-						<fa-icon [icon]="['fas','chevron-left']" [fixedWidth]="true"></fa-icon>
-					</div> -->
         </div>
 
         <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between"
@@ -62,7 +77,8 @@
             <div class="h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill">
 
               <ng-container [ngIf]="vHeaderTemplate"
-                *ngTemplateOutlet="vHeaderTemplate; context: { groupName: vGroup }"></ng-container>
+                *ngTemplateOutlet="vHeaderTemplate; context: { groupName: vGroup }">
+              </ng-container>
               <ng-container *ngIf="!vHeaderTemplate">
                 {{ vGroup || 'Ungrouped' }}
               </ng-container>

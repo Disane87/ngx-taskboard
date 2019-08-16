@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, Renderer2, ElementRef, TemplateRef } from '@angular/core';
 import { CardItem, CollapseState } from '../types';
+import { CodegenComponentFactoryResolver } from '@angular/core/src/linker/component_factory_resolver';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -10,6 +11,7 @@ import { CardItem, CollapseState } from '../types';
 export class BoardComponent implements OnInit {
 
   @Input() showBacklog = true;
+  @Input() backlogName = 'Backlog';
   @Input() items: CardItem[] | object[] = [];
 
   @Input() hGroupKeys: string[] = [];
@@ -69,12 +71,24 @@ export class BoardComponent implements OnInit {
   }
 
   getItemsOfGroup(vValue: string, hValue: string): CardItem[] | object[] {
-
+    // console.log('getItemsOfGroup', arguments);
     let items = this.items.filter(item => {
 
       const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
-      return (item[groupKeys.vGroupKey] as string).toLowerCase() === vValue.toLowerCase() &&
-        (item[groupKeys.hGroupKey] as string).toLowerCase() === hValue.toLowerCase()
+
+      let vItem = item[groupKeys.vGroupKey];
+      let hItem = item[groupKeys.hGroupKey];
+
+      if (hItem == null) {
+        return false;
+      }
+
+      if (vItem == null) {
+        return false;
+      }
+
+      return (vItem as string).toLowerCase() === vValue.toLowerCase() &&
+        (hItem).toLowerCase() === hValue.toLowerCase()
     });
 
     if (this.showUngroupedInBacklog) {
@@ -137,7 +151,11 @@ export class BoardComponent implements OnInit {
 
   getUngroupedItems(): CardItem[] | object[] {
     if (this.showUngroupedInBacklog) {
-      return this.items.filter(item => item[this.vGroupKey] === '' && item[this.hGroupKey] === '');
+      return this.items.filter(item => {
+        const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
+        let isUngrouped = (item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '') || (item[groupKeys.vGroupKey] === null && item[groupKeys.hGroupKey] === null);
+        return isUngrouped;
+      });
     }
 
     return [];
@@ -198,8 +216,16 @@ export class BoardComponent implements OnInit {
     if (this.dragItem) {
       event.preventDefault();
 
+      if (vRow == null) {
+        vRow = '';
+      }
 
-      if (`${vRow}-${hRow.replace(' ', '')}`.toLowerCase() !== this.currentDragZone && this.currentDragZone !== '') {
+      if (hRow == null) {
+        hRow = '';
+      }
+
+      let dragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();
+      if (dragZone !== this.currentDragZone && this.currentDragZone !== '') {
         const lastPlaceholder = document.getElementById(this.currentDragZone);
         if (lastPlaceholder) {
           this.renderer.removeChild(lastPlaceholder.parentNode, lastPlaceholder);
