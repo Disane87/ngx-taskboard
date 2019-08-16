@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, Renderer2, ElementRef, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Renderer2, ElementRef, TemplateRef, ChangeDetectorRef } from '@angular/core';
 import { CardItem, CollapseState } from '../types';
 import { CodegenComponentFactoryResolver } from '@angular/core/src/linker/component_factory_resolver';
 
@@ -44,11 +44,12 @@ export class BoardComponent implements OnInit {
   @Input() scrollable = false;
   @Input() vCollapsable = true;
 
+  @Input() vCollapsed = false;
+  @Input() hCollapsed = false;
+
   @Output() dragStarted = new EventEmitter<object>();
   @Output() dropped = new EventEmitter<object>();
   @Output() elementCreateClick = new EventEmitter<ClickEvent>();
-
-
 
   public hHeadings: string[] = [];
   public vHeadings: string[] = [];
@@ -58,8 +59,14 @@ export class BoardComponent implements OnInit {
   private placeholderSet = false;
   private currentDragZone: string;
 
-  constructor(private renderer: Renderer2, private elRef: ElementRef) { }
+  constructor(private renderer: Renderer2, private elRef: ElementRef, private cd: ChangeDetectorRef) { }
 
+  /**
+   * 
+   * 
+   * 
+   * @memberOf BoardComponent
+   */
   ngOnInit() {
     if (this.invertGroupDirection) {
       const vGkey = this.vGroupKey;
@@ -74,6 +81,15 @@ export class BoardComponent implements OnInit {
     this.collapseStates.push(...[...this.vHeadings, ...this.hHeadings].map(item => ({ name: item, collapsed: false })));
   }
 
+  /**
+   * 
+   * 
+   * @param {string} vValue 
+   * @param {string} hValue 
+   * @returns {(CardItem[] | object[])} 
+   * 
+   * @memberOf BoardComponent
+   */
   getItemsOfGroup(vValue: string, hValue: string): CardItem[] | object[] {
     // console.log('getItemsOfGroup', arguments);
     let items = this.items.filter(item => {
@@ -133,6 +149,34 @@ export class BoardComponent implements OnInit {
     return items;
   }
 
+  /**
+   * 
+   * 
+   * @param {string} direction 
+   * @param {boolean} collapsed 
+   * 
+   * @memberOf BoardComponent
+   */
+  toggleCollapseGroup(direction: string, collapsed: boolean): void {
+    const groupKeysToToggle = this.collapseStates.filter(item => (direction == 'vertical'  ? this.vHeadings : this.hHeadings).some(i => i.toLowerCase() == item.name.toLowerCase()));
+    groupKeysToToggle.forEach(item => item.collapsed = !collapsed);
+    if(groupKeysToToggle.length > 0){
+      if(direction == 'vertical'){
+        this.vCollapsed = !collapsed;
+      }else{
+        this.hCollapsed = !collapsed;
+      }
+    }
+  }
+
+  /**
+   * 
+   * 
+   * @param {object} item 
+   * @returns {GroupKeys} 
+   * 
+   * @memberOf BoardComponent
+   */
   determineCorrectGroupKeys(item: object): GroupKeys {
     return {
       hGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),
@@ -140,10 +184,27 @@ export class BoardComponent implements OnInit {
     };
   }
 
+  /**
+   * 
+   * 
+   * @param {object} item 
+   * @param {string} propKey 
+   * @returns {string} 
+   * 
+   * @memberOf BoardComponent
+   */
   getCaseInsensitivePropKey(item: object, propKey: string): string {
     return Object.keys(item).find(key => key.toLowerCase() === propKey.toLowerCase());
   }
 
+  /**
+   * 
+   * 
+   * @param {string} [groupKey=this.vGroupKey] 
+   * @returns {string[]} 
+   * 
+   * @memberOf BoardComponent
+   */
   getHeadings(groupKey: string = this.vGroupKey): string[] {
     const keys = (<object[]>this.items).map((item: any) =>
       item[Object.keys(item).find(key => key.toLowerCase() === groupKey.toLowerCase())]
@@ -154,6 +215,13 @@ export class BoardComponent implements OnInit {
     });
   }
 
+  /**
+   * 
+   * 
+   * @returns {(CardItem[] | object[])} 
+   * 
+   * @memberOf BoardComponent
+   */
   getUngroupedItems(): CardItem[] | object[] {
     if (this.showUngroupedInBacklog) {
       return this.items.filter(item => {
@@ -166,6 +234,13 @@ export class BoardComponent implements OnInit {
     return [];
   }
 
+  /**
+   * 
+   * 
+   * @param {{ hGroup: string, vGroup: string }} group 
+   * 
+   * @memberOf BoardComponent
+   */
   toggleCollapse(group: { hGroup: string, vGroup: string }): void {
 
 
@@ -176,26 +251,66 @@ export class BoardComponent implements OnInit {
     // console.log("Toggle: "+part);
   }
 
+  /**
+   * 
+   * 
+   * @param {string} part 
+   * @returns {boolean} 
+   * 
+   * @memberOf BoardComponent
+   */
   collapseState(part: string): boolean {
     return this.collapseStates.find(item => item.name === part).collapsed;
   }
 
+  /**
+   * 
+   * 
+   * @param {DragEvent} event 
+   * @param {CardItem} item 
+   * 
+   * @memberOf BoardComponent
+   */
   public dragStart(event: DragEvent, item: CardItem) {
     this.dragItem = item;
     this.dragStarted.emit(this.dragItem);
   }
 
+  /**
+   * 
+   * 
+   * @param {DragEvent} event 
+   * @param {CardItem} item 
+   * 
+   * @memberOf BoardComponent
+   */
   public dragEnd(event: DragEvent, item: CardItem) {
     this.dragItem = undefined;
 
   }
 
 
+  /**
+   * 
+   * 
+   * @param {ClickEvent} group 
+   * 
+   * @memberOf BoardComponent
+   */
   createElement(group: ClickEvent) {
     this.elementCreateClick.emit(group);
   }
 
 
+  /**
+   * 
+   * 
+   * @param {DragEvent} event 
+   * @param {string} vRow 
+   * @param {string} hRow 
+   * 
+   * @memberOf BoardComponent
+   */
   public drop(event: DragEvent, vRow: string, hRow: string) {
     event.preventDefault();
     if (event.currentTarget) {
@@ -217,6 +332,15 @@ export class BoardComponent implements OnInit {
     this.dragItem = undefined;
   }
 
+  /**
+   * 
+   * 
+   * @param {DragEvent} event
+   * @param {string} vRow
+   * @param {string} hRow 
+   * 
+   * @memberOf BoardComponent
+   */
   public dragOver(event: DragEvent, vRow: string, hRow: string) {
     if (this.dragItem) {
       event.preventDefault();
@@ -248,6 +372,14 @@ export class BoardComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * 
+   * @param {string} id 
+   * @returns {HTMLElement} 
+   * 
+   * @memberOf BoardComponent
+   */
   createPlaceholderElement(id: string): HTMLElement {
     if (this.dragoverPlaceholderTemplate) {
       return this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);
