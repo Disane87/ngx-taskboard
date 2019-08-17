@@ -58,7 +58,35 @@
 </li>
 <li><a href="#limitations">Limitations</a></li>
 <li><a href="#contributing">Contributing</a><ul>
-<li><a href="#installation-1">Installation</a></li>
+<li><a href="#installation-1">Installation</a><ul>
+<li><a href="#events-1">Events</a></li>
+</ul>
+</li>
+<li><a href="#datatypes-1">Datatypes</a><ul>
+<li><a href="#carditem-1">CardItem</a></li>
+<li><a href="#clickevent-1">ClickEvent</a></li>
+</ul>
+</li>
+<li><a href="#examples-1">Examples</a></li>
+</ul>
+</li>
+<li><a href="#limitations-1">Limitations</a></li>
+<li><a href="#contributing-1">Contributing</a><ul>
+<li><a href="#installation-2">Installation</a><ul>
+<li><a href="#events-2">Events</a></li>
+</ul>
+</li>
+<li><a href="#datatypes-2">Datatypes</a><ul>
+<li><a href="#carditem-2">CardItem</a></li>
+<li><a href="#clickevent-2">ClickEvent</a></li>
+</ul>
+</li>
+<li><a href="#examples-2">Examples</a></li>
+</ul>
+</li>
+<li><a href="#limitations-2">Limitations</a></li>
+<li><a href="#contributing-2">Contributing</a><ul>
+<li><a href="#installation-3">Installation</a></li>
 </ul>
 </li>
 </ul>
@@ -130,10 +158,12 @@ export class AppComponent {
 <!-- End AutoDoc inputsClass -->
 
 <h3 id="events">Events</h3>
-<!-- Start AutoDoc outputsClass -->
-
-<!-- End AutoDoc outputsClass -->
-
+<!-- Start AutoDoc outputsClass-->\n| Name               | Default value                  | Description                                                      | Type         |
+<p>| ------------------ | ------------------------------ | ---------------------------------------------------------------- | ------------ |
+| elementCreateClick | new EventEmitter<ClickEvent>() | Fired when an add action is click. Current ClickEvent is passed  | EventEmitter |
+| dropped            | new EventEmitter<object>()     | Fired when an item is dropped. Current item is passed            | EventEmitter |
+| dragStarted        | new EventEmitter<object>()     | Fired when the user drags an item. Current item is passed        | EventEmitter |
+\n<!-- End AutoDoc outputsClass --></p>
 <h2 id="datatypes">Datatypes</h2>
 <h3 id="carditem">CardItem</h3>
 <div><pre class="line-numbers"><code class="language-ts">export interface CardItem {
@@ -155,6 +185,118 @@ export class AppComponent {
 </ul>
 <h1 id="contributing">Contributing</h1>
 <h2 id="installation-1">Installation</h2>
+<div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/Disane87/ngx-taskboard.git .</code></pre></div><p>Since this is a Angular library, you have can&#39;t start it as standalone, like a normal Angular application. Instead, you have to build it with <code>ng build . --watch</code> and link it with <code>npm link</code>. The link process creates a symlink to your global <code>npm</code> which you can access from other projects.</p>
+<p>In your test or real project, you have to add the package, but only with another command <code>npm link @disane/ngx-taskboard --save</code>. This means, you are not obtaining the package from <code>npm</code>, instead you are symlinking it to you global <code>npm</code> which has a reference to the above created link in your project.</p>
+<p>This is a bit odd, but you can read more about it <a href="https://docs.npmjs.com/cli/link">here</a>.</p>
+<p>If you have an existing Angular library project with a tets application, you can work here with <a href="https://github.blog/2016-02-01-working-with-submodules/">submoduling</a> in git, instead of a <code>git clone</code>:</p>
+<p><code>git submodule add https://github.com/Disane87/ngx-taskboard.git</code>
+                                                                                                  | TemplateRef<any>                 |
+| hAddNewItems                | Show add buttons on the column headings                                                                                                                                                                                                  |                                  |
+| hCollapsed                  | Columns are collapsed or not on init                                                                                                                                                                                                     |                                  |
+| hGroupKey                   | Key to group data for columns                                                                                                                                                                                                            |                                  |
+| hGroupKeys                  | Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them | Array<string>                    |
+| hHeaderClass                | Default css class for column header                                                                                                                                                                                                      |                                  |
+| hHeaderTemplate             | Template for column headers. Current groupName will be passed (see examples)                                                                                                                                                             | TemplateRef<any>                 |
+| invertGroupDirection        | Invert rows and columns                                                                                                                                                                                                                  |                                  |
+| items                       | Items to display                                                                                                                                                                                                                         | Array<CardItem> | Array<object> |
+| vHeaderClass                | Default css class for row header                                                                                                                                                                                                         |                                  |
+| cellAddNewItems             | Show add buttons in the cells for columns and rows                                                                                                                                                                                       |                                  |
+| scrollable                  | If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)                                                 |                                  |
+| showBacklog                 | Shows the blacklog on onit                                                                                                                                                                                                               |                                  |
+| showUngroupedInBacklog      | All items which can&#39;t be grouped into rows and columns are stored into the backlog                                                                                                                                                   |                                  |
+| smallText                   | Decrease overall font size                                                                                                                                                                                                               |                                  |
+| sortBy                      | Sort items by property                                                                                                                                                                                                                   |                                  |
+| vAddNewItems                | Show add buttons on the row headings                                                                                                                                                                                                     |                                  |
+| vCollapsable                | Allow to collapse the rows                                                                                                                                                                                                               |                                  |
+| vCollapsed                  | Rows are collapsed or not on init                                                                                                                                                                                                        |                                  |
+| vGroupKey                   | Key to group data for rows                                                                                                                                                                                                               |                                  |
+| vGroupKeys                  | Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them       | Array<string>                    |
+| backlogName                 | Name of the backlog row                                                                                                                                                                                                                  |                                  |
+| actionsTemplate             | Template for actions, add and collapse buttons (see examples)                                                                                                                                                                            | TemplateRef<any>                 |
+\n<!-- End AutoDoc inputsClass --></p>
+<h3 id="events-1">Events</h3>
+<!-- Start AutoDoc outputsClass-->\n| Name               | Default value                  | Description                                                      | Type         |
+<p>| ------------------ | ------------------------------ | ---------------------------------------------------------------- | ------------ |
+| elementCreateClick | new EventEmitter<ClickEvent>() | Fired when an add action is click. Current ClickEvent is passed  | EventEmitter |
+| dropped            | new EventEmitter<object>()     | Fired when an item is dropped. Current item is passed            | EventEmitter |
+| dragStarted        | new EventEmitter<object>()     | Fired when the user drags an item. Current item is passed        | EventEmitter |
+\n<!-- End AutoDoc outputsClass --></p>
+<h2 id="datatypes-1">Datatypes</h2>
+<h3 id="carditem-1">CardItem</h3>
+<div><pre class="line-numbers"><code class="language-ts">export interface CardItem {
+    id: number;
+    name: string;
+    status?: string;
+    color?: string;
+    user?: string;
+    priority?: number;
+}</code></pre></div><h3 id="clickevent-1">ClickEvent</h3>
+<div><pre class="line-numbers"><code class="language-ts">export interface ClickEvent {
+  hGroup: string; 
+  vGroup: string;
+}</code></pre></div><h2 id="examples-1">Examples</h2>
+<p>Following soon</p>
+<h1 id="limitations-1">Limitations</h1>
+<ul>
+<li>Scrolling actually not possible</li>
+</ul>
+<h1 id="contributing-1">Contributing</h1>
+<h2 id="installation-2">Installation</h2>
+<div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/Disane87/ngx-taskboard.git .</code></pre></div><p>Since this is a Angular library, you have can&#39;t start it as standalone, like a normal Angular application. Instead, you have to build it with <code>ng build . --watch</code> and link it with <code>npm link</code>. The link process creates a symlink to your global <code>npm</code> which you can access from other projects.</p>
+<p>In your test or real project, you have to add the package, but only with another command <code>npm link @disane/ngx-taskboard --save</code>. This means, you are not obtaining the package from <code>npm</code>, instead you are symlinking it to you global <code>npm</code> which has a reference to the above created link in your project.</p>
+<p>This is a bit odd, but you can read more about it <a href="https://docs.npmjs.com/cli/link">here</a>.</p>
+<p>If you have an existing Angular library project with a tets application, you can work here with <a href="https://github.blog/2016-02-01-working-with-submodules/">submoduling</a> in git, instead of a <code>git clone</code>:</p>
+<p><code>git submodule add https://github.com/Disane87/ngx-taskboard.git</code>
+                                                                                                  | TemplateRef<any>                 |
+| hAddNewItems                | Show add buttons on the column headings                                                                                                                                                                                                  |                                  |
+| hCollapsed                  | Columns are collapsed or not on init                                                                                                                                                                                                     |                                  |
+| hGroupKey                   | Key to group data for columns                                                                                                                                                                                                            |                                  |
+| hGroupKeys                  | Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them | Array<string>                    |
+| hHeaderClass                | Default css class for column header                                                                                                                                                                                                      |                                  |
+| hHeaderTemplate             | Template for column headers. Current groupName will be passed (see examples)                                                                                                                                                             | TemplateRef<any>                 |
+| invertGroupDirection        | Invert rows and columns                                                                                                                                                                                                                  |                                  |
+| items                       | Items to display                                                                                                                                                                                                                         | Array<CardItem> | Array<object> |
+| vHeaderClass                | Default css class for row header                                                                                                                                                                                                         |                                  |
+| cellAddNewItems             | Show add buttons in the cells for columns and rows                                                                                                                                                                                       |                                  |
+| scrollable                  | If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)                                                 |                                  |
+| showBacklog                 | Shows the blacklog on onit                                                                                                                                                                                                               |                                  |
+| showUngroupedInBacklog      | All items which can&#39;t be grouped into rows and columns are stored into the backlog                                                                                                                                                   |                                  |
+| smallText                   | Decrease overall font size                                                                                                                                                                                                               |                                  |
+| sortBy                      | Sort items by property                                                                                                                                                                                                                   |                                  |
+| vAddNewItems                | Show add buttons on the row headings                                                                                                                                                                                                     |                                  |
+| vCollapsable                | Allow to collapse the rows                                                                                                                                                                                                               |                                  |
+| vCollapsed                  | Rows are collapsed or not on init                                                                                                                                                                                                        |                                  |
+| vGroupKey                   | Key to group data for rows                                                                                                                                                                                                               |                                  |
+| vGroupKeys                  | Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them       | Array<string>                    |
+| backlogName                 | Name of the backlog row                                                                                                                                                                                                                  |                                  |
+| actionsTemplate             | Template for actions, add and collapse buttons (see examples)                                                                                                                                                                            | TemplateRef<any>                 |
+\n<!-- End AutoDoc inputsClass --></p>
+<h3 id="events-2">Events</h3>
+<!-- Start AutoDoc outputsClass -->
+
+<!-- End AutoDoc outputsClass -->
+
+<h2 id="datatypes-2">Datatypes</h2>
+<h3 id="carditem-2">CardItem</h3>
+<div><pre class="line-numbers"><code class="language-ts">export interface CardItem {
+    id: number;
+    name: string;
+    status?: string;
+    color?: string;
+    user?: string;
+    priority?: number;
+}</code></pre></div><h3 id="clickevent-2">ClickEvent</h3>
+<div><pre class="line-numbers"><code class="language-ts">export interface ClickEvent {
+  hGroup: string; 
+  vGroup: string;
+}</code></pre></div><h2 id="examples-2">Examples</h2>
+<p>Following soon</p>
+<h1 id="limitations-2">Limitations</h1>
+<ul>
+<li>Scrolling actually not possible</li>
+</ul>
+<h1 id="contributing-2">Contributing</h1>
+<h2 id="installation-3">Installation</h2>
 <div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/Disane87/ngx-taskboard.git .</code></pre></div><p>Since this is a Angular library, you have can&#39;t start it as standalone, like a normal Angular application. Instead, you have to build it with <code>ng build . --watch</code> and link it with <code>npm link</code>. The link process creates a symlink to your global <code>npm</code> which you can access from other projects.</p>
 <p>In your test or real project, you have to add the package, but only with another command <code>npm link @disane/ngx-taskboard --save</code>. This means, you are not obtaining the package from <code>npm</code>, instead you are symlinking it to you global <code>npm</code> which has a reference to the above created link in your project.</p>
 <p>This is a bit odd, but you can read more about it <a href="https://docs.npmjs.com/cli/link">here</a>.</p>
