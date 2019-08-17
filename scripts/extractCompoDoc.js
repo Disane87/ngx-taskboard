@@ -37,10 +37,10 @@ function prepareData(part, object) {
 
 function replaceText(marker, text) {
     var replaceString = `<!-- Start AutoDoc ${marker} -->([\\s\\S]*?)<!-- End AutoDoc ${marker} -->`;
-    var replaceToString = `<!-- Start AutoDoc ${marker}-->\\n${text}\\n<!-- End AutoDoc ${marker} -->`;
+    var replaceToString = `<!-- Start AutoDoc ${marker} -->\r\n${text}\r\n<!-- End AutoDoc ${marker} -->`;
 
 
-    var regexp = new RegExp(replaceString,"gmi");
+    var regexp = new RegExp(replaceString, "gmi");
 
     console.info(`Replacing "${replaceString}" to "${replaceToString}"`);
 
