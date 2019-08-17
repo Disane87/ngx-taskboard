@@ -1,0 +1,568 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@disane/ngx-taskboard documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">@disane/ngx-taskboard documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interfaces</li>
+  <li>GroupKeys</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/lib/board/board.component.ts</code>
+        </p>
+
+
+
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#hGroupKey">hGroupKey</a>
+                                </li>
+                                <li>
+                                        <a href="#vGroupKey">vGroupKey</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="hGroupKey"></a>
+                                        <span class="name"><b>hGroupKey</b><a href="#hGroupKey"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>hGroupKey:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="vGroupKey"></a>
+                                        <span class="name"><b>vGroupKey</b><a href="#vGroupKey"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>vGroupKey:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, TemplateRef } from &#x27;@angular/core&#x27;;
+import { CodegenComponentFactoryResolver } from &#x27;@angular/core/src/linker/component_factory_resolver&#x27;;
+import { CardItem, CollapseState } from &#x27;../types&#x27;;
+
+@Component({
+  // tslint:disable-next-line: component-selector
+  selector: &#x27;ngx-taskboard&#x27;,
+  templateUrl: &#x27;./board.component.html&#x27;,
+  styleUrls: [&#x27;./board.component.scss&#x27;]
+})
+export class BoardComponent implements OnInit {
+
+  /** Shows the blacklog on onit */
+  @Input() showBacklog &#x3D; true;
+
+  /** Name of the backlog row */
+  @Input() backlogName &#x3D; &#x27;Backlog&#x27;;
+
+  /** Items to display */
+  @Input() items: Array&lt;CardItem&gt; | Array&lt;object&gt; &#x3D; [];
+
+  /**
+   * Grouping keys for columns (if not passed, the keys will be determined out of the items)
+   * Caution: If you don&#x27;t pass any headings manually, only the columns are shown, which have data.
+   * If you want to show emtpy rows, please set them
+   */
+  @Input() hGroupKeys: Array&lt;string&gt; &#x3D; [];
+
+  /**
+   * Grouping keys for rows (if not passed, the keys will be determined out of the items)
+   * Caution: If you don&#x27;t pass any headings manually, only the rows are shown, which have data.
+   * If you want to show emtpy rows, please set them
+   */
+  @Input() vGroupKeys: Array&lt;string&gt; &#x3D; [];
+
+  /** Show add buttons on the column headings */
+  @Input() hAddNewItems &#x3D; true;
+
+  /** Show add buttons on the row headings */
+  @Input() vAddNewItems &#x3D; true;
+
+  /** Show add buttons in the cells for columns and rows */
+  @Input() cellAddNewItems &#x3D; true;
+
+  /** Key to group data for rows */
+  @Input() vGroupKey &#x3D; &#x27;&#x27;;
+
+  /** Key to group data for columns */
+  @Input() hGroupKey &#x3D; &#x27;&#x27;;
+
+  /** Sort items by property */
+  @Input() sortBy &#x3D; &#x27;&#x27;;
+
+  /** Board name to show between row and column header */
+  @Input() boardName &#x3D; &#x27;&#x27;;
+
+  /** Invert rows and columns */
+  @Input() invertGroupDirection &#x3D; false;
+
+  /** All items which can&#x27;t be grouped into rows and columns are stored into the backlog  */
+  @Input() showUngroupedInBacklog &#x3D; true;
+
+  /** Decrease overall font size */
+  @Input() smallText &#x3D; false;
+
+  /** Template for items to render. &quot;item&quot; object ist passed (see examples) */
+  @Input() itemTemplate: TemplateRef&lt;any&gt;;
+
+  /** Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples) */
+  @Input() noElementsTemplate: TemplateRef&lt;any&gt;;
+
+  /** Template for column headers. Current groupName will be passed (see examples) */
+  @Input() hHeaderTemplate: TemplateRef&lt;any&gt;;
+
+  /** Template for row headers. Current groupName will be passed (see examples) */
+  @Input() vHeaderTemplate: TemplateRef&lt;any&gt;;
+
+  /** Template for actions, add and collapse buttons (see examples) */
+  @Input() actionsTemplate: TemplateRef&lt;any&gt;;
+
+  /** Template for the placeholder element which will be generated when an item is draged over a cell */
+  @Input() dragoverPlaceholderTemplate: TemplateRef&lt;any&gt;;
+
+  /** Default css class for row header */
+  @Input() vHeaderClass &#x3D; &#x27;card-header&#x27;;
+
+  /** Default css class for column header */
+  @Input() hHeaderClass &#x3D; &#x27;card-header&#x27;;
+
+  /** Default css class for cell header */
+  @Input() cellClass &#x3D; &#x27;card-header&#x27;;
+
+  /**
+   * If set to true, the rows and columns are scrollable and will be out of the viewport.
+   * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)
+   */
+  @Input() scrollable &#x3D; false;
+
+  /** Allow to collapse the rows */
+  @Input() vCollapsable &#x3D; true;
+
+  /** Rows are collapsed or not on init */
+  @Input() vCollapsed &#x3D; false;
+
+  /** Columns are collapsed or not on init */
+  @Input() hCollapsed &#x3D; false;
+
+  /** Fired when the user drags an item. Current item is passed */
+  @Output() readonly dragStarted &#x3D; new EventEmitter&lt;object&gt;();
+
+  /** Fired when an item is dropped. Current item is passed  */
+  @Output() readonly dropped &#x3D; new EventEmitter&lt;object&gt;();
+
+  /** Fired when an add action is click. Current &#x60;ClickEvent&#x60; is passed */
+  @Output() readonly elementCreateClick &#x3D; new EventEmitter&lt;ClickEvent&gt;();
+
+  public hHeadings: Array&lt;string&gt; &#x3D; [];
+  public vHeadings: Array&lt;string&gt; &#x3D; [];
+
+  private readonly collapseStates: Array&lt;CollapseState&gt; &#x3D; [];
+  private dragItem: CardItem;
+  private placeholderSet &#x3D; false;
+  private currentDragZone: string;
+
+  constructor(private readonly renderer: Renderer2, private readonly elRef: ElementRef, private readonly cd: ChangeDetectorRef) { }
+
+  ngOnInit() {
+    if (this.invertGroupDirection) {
+      const vGkey &#x3D; this.vGroupKey;
+      const hGkey &#x3D; this.hGroupKey;
+
+      this.hGroupKey &#x3D; vGkey;
+      this.vGroupKey &#x3D; hGkey;
+    }
+
+    this.hHeadings &#x3D; (this.hGroupKeys.length &gt; 0 ? this.hGroupKeys : this.getHeadings(this.hGroupKey));
+    this.vHeadings &#x3D; (this.vGroupKeys.length &gt; 0 ? this.vGroupKeys : this.getHeadings(this.vGroupKey));
+
+    this.collapseStates.push(...this.vHeadings.map(item &#x3D;&gt; ({ name: item, collapsed: this.vCollapsed })));
+    this.collapseStates.push(...this.hHeadings.map(item &#x3D;&gt; ({ name: item, collapsed: this.hCollapsed })));
+  }
+
+  getItemsOfGroup(vValue: string, hValue: string): Array&lt;CardItem&gt; | Array&lt;object&gt; {
+    // console.log(&#x27;getItemsOfGroup&#x27;, arguments);
+    let items &#x3D; this.items.filter(item &#x3D;&gt; {
+
+      const groupKeys: GroupKeys &#x3D; this.determineCorrectGroupKeys(item);
+
+      const vItem &#x3D; item[groupKeys.vGroupKey];
+      const hItem &#x3D; item[groupKeys.hGroupKey];
+
+      if (hItem &#x3D;&#x3D; undefined) {
+        return false;
+      }
+
+      if (vItem &#x3D;&#x3D; undefined) {
+        return false;
+      }
+
+      return (vItem as string).toLowerCase() &#x3D;&#x3D;&#x3D; vValue.toLowerCase() &amp;&amp;
+        (hItem).toLowerCase() &#x3D;&#x3D;&#x3D; hValue.toLowerCase();
+    });
+
+    if (this.showUngroupedInBacklog) {
+      items &#x3D; items.filter(item &#x3D;&gt; item[this.vGroupKey] !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; item[this.hGroupKey] !&#x3D;&#x3D; &#x27;&#x27;);
+    }
+
+    if (this.sortBy !&#x3D;&#x3D; &#x27;&#x27;) {
+      /* Detect datatype of sortBy-Field */
+      const fieldType &#x3D; typeof (items.some(item &#x3D;&gt; items[0][this.sortBy] !&#x3D;&#x3D; undefined &amp;&amp; items[0][this.sortBy] !&#x3D;&#x3D; null)[this.sortBy]);
+      if (fieldType) {
+        return items.sort((a, b) &#x3D;&gt; {
+
+          const aField &#x3D; a[this.sortBy];
+          const bField &#x3D; b[this.sortBy];
+
+          if (fieldType &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {
+            return bField - aField;
+          }
+
+          if (fieldType &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+            if (aField &lt; bField) {
+              return -1;
+            }
+            if (aField &gt; bField) {
+              return 1;
+            }
+
+            return 0;
+          }
+
+        });
+      } else {
+        return items;
+      }
+
+    }
+    return items;
+  }
+
+  toggleCollapseGroup(direction: string, collapsed: boolean): void {
+    const groupKeysToToggle &#x3D; this.collapseStates.filter(item &#x3D;&gt; (direction &#x3D;&#x3D; &#x27;vertical&#x27;  ? this.vHeadings : this.hHeadings).some(i &#x3D;&gt; i.toLowerCase() &#x3D;&#x3D; item.name.toLowerCase()));
+    groupKeysToToggle.forEach(item &#x3D;&gt; item.collapsed &#x3D; !collapsed);
+    if (groupKeysToToggle.length &gt; 0) {
+      if (direction &#x3D;&#x3D; &#x27;vertical&#x27;) {
+        debugger;
+        this.vCollapsed &#x3D; !collapsed;
+      } else {
+        this.hCollapsed &#x3D; !collapsed;
+      }
+    }
+  }
+
+  determineCorrectGroupKeys(item: object): GroupKeys {
+    return {
+      hGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),
+      vGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey)
+    };
+  }
+
+  getCaseInsensitivePropKey(item: object, propKey: string): string {
+    return Object.keys(item).find(key &#x3D;&gt; key.toLowerCase() &#x3D;&#x3D;&#x3D; propKey.toLowerCase());
+  }
+
+  getHeadings(groupKey: string &#x3D; this.vGroupKey): Array&lt;string&gt; {
+    const keys &#x3D; (this.items as Array&lt;object&gt;).map((item: any) &#x3D;&gt;
+      item[Object.keys(item).find(key &#x3D;&gt; key.toLowerCase() &#x3D;&#x3D;&#x3D; groupKey.toLowerCase())]
+    );
+
+    return keys.filter((elem, pos, arr) &#x3D;&gt; {
+      return arr.indexOf(elem) &#x3D;&#x3D;&#x3D; pos &amp;&amp; (this.showUngroupedInBacklog &amp;&amp; elem !&#x3D;&#x3D; &#x27;&#x27;);
+    });
+  }
+
+  getUngroupedItems(): Array&lt;CardItem&gt; | Array&lt;object&gt; {
+    if (this.showUngroupedInBacklog) {
+      return this.items.filter(item &#x3D;&gt; {
+        const groupKeys: GroupKeys &#x3D; this.determineCorrectGroupKeys(item);
+        const isUngrouped &#x3D; (item[groupKeys.vGroupKey] &#x3D;&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; item[groupKeys.hGroupKey] &#x3D;&#x3D;&#x3D; &#x27;&#x27;) || (item[groupKeys.vGroupKey] &#x3D;&#x3D;&#x3D; null &amp;&amp; item[groupKeys.hGroupKey] &#x3D;&#x3D;&#x3D; null);
+        return isUngrouped;
+      });
+    }
+
+    return [];
+  }
+
+  toggleCollapse(group: { hGroup: string, vGroup: string }): void {
+
+    const part &#x3D; group.hGroup || group.vGroup;
+
+    const collapseState &#x3D; this.collapseState(part);
+    this.collapseStates.find(item &#x3D;&gt; item.name &#x3D;&#x3D;&#x3D; part).collapsed &#x3D; !collapseState;
+    // console.log(&quot;Toggle: &quot;+part);
+  }
+
+  collapseState(part: string): boolean {
+    return this.collapseStates.find(item &#x3D;&gt; item.name &#x3D;&#x3D;&#x3D; part).collapsed;
+  }
+
+  public dragStart(event: DragEvent, item: CardItem) {
+    this.dragItem &#x3D; item;
+    this.dragStarted.emit(this.dragItem);
+  }
+
+  public dragEnd(event: DragEvent, item: CardItem) {
+    this.dragItem &#x3D; undefined;
+
+  }
+
+  createElement(group: ClickEvent) {
+    this.elementCreateClick.emit(group);
+  }
+
+  public drop(event: DragEvent, vRow: string, hRow: string) {
+    event.preventDefault();
+    if (event.currentTarget) {
+      const placeholderEl &#x3D; (event.currentTarget as HTMLElement).querySelector(&#x27;.placeholder&#x27;);
+      if (placeholderEl) {
+        this.renderer.removeChild(placeholderEl.parentNode, placeholderEl);
+      }
+      this.currentDragZone &#x3D; &#x27;&#x27;;
+      this.placeholderSet &#x3D; false;
+    }
+
+    const groupKeys: GroupKeys &#x3D; this.determineCorrectGroupKeys(this.dragItem);
+
+    this.dragItem[groupKeys.vGroupKey] &#x3D; vRow;
+    this.dragItem[groupKeys.hGroupKey] &#x3D; hRow;
+
+    this.dropped.emit(this.dragItem);
+    this.dragItem &#x3D; undefined;
+  }
+
+  public dragOver(event: DragEvent, vRow: string, hRow: string) {
+    if (this.dragItem) {
+      event.preventDefault();
+
+      if (vRow &#x3D;&#x3D; undefined) {
+        vRow &#x3D; &#x27;&#x27;;
+      }
+
+      if (hRow &#x3D;&#x3D; undefined) {
+        hRow &#x3D; &#x27;&#x27;;
+      }
+
+      const dragZone &#x3D; &#x60;${vRow}-${hRow.replace(&#x27; &#x27;, &#x27;&#x27;)}&#x60;.toLowerCase();
+      if (dragZone !&#x3D;&#x3D; this.currentDragZone &amp;&amp; this.currentDragZone !&#x3D;&#x3D; &#x27;&#x27;) {
+        const lastPlaceholder &#x3D; document.getElementById(this.currentDragZone);
+        if (lastPlaceholder) {
+          this.renderer.removeChild(lastPlaceholder.parentNode, lastPlaceholder);
+          this.placeholderSet &#x3D; false;
+        }
+      }
+
+      this.currentDragZone &#x3D; &#x60;${vRow}-${hRow.replace(&#x27; &#x27;, &#x27;&#x27;)}&#x60;.toLowerCase();
+
+      if (!this.placeholderSet) {
+        const placeholderElement &#x3D; this.createPlaceholderElement(this.currentDragZone);
+        this.renderer.appendChild(event.currentTarget, placeholderElement);
+        this.placeholderSet &#x3D; true;
+      }
+    }
+  }
+
+  createPlaceholderElement(id: string): HTMLElement {
+    if (this.dragoverPlaceholderTemplate) {
+      return this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);
+    } else {
+      const placeholderElement: HTMLElement &#x3D; this.renderer.createElement(&#x27;div&#x27;);
+      this.renderer.setStyle(placeholderElement, &#x27;border&#x27;, &#x27;1px dashed gray&#x27;);
+      this.renderer.setStyle(placeholderElement, &#x27;width&#x27;, &#x27;100%&#x27;);
+      this.renderer.setStyle(placeholderElement, &#x27;height&#x27;, &#x27;50px&#x27;);
+      this.renderer.setAttribute(placeholderElement, &#x27;id&#x27;, this.currentDragZone);
+      this.renderer.setAttribute(placeholderElement, &#x27;class&#x27;, &#x27;placeholder&#x27;);
+
+      return placeholderElement;
+    }
+  }
+}
+
+export interface ClickEvent {
+  hGroup: string;
+  vGroup: string;
+}
+
+export interface GroupKeys {
+  hGroupKey: string;
+  vGroupKey: string;
+}
+</code></pre>
+    </div>
+</div>
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'GroupKeys.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

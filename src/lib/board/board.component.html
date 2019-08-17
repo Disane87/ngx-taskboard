@@ -1,7 +1,5 @@
 <div class="h-100 d-flex flex-column align-items-stretch border-0" [class.small]="smallText" style="overflow: hidden">
-
   <div class="d-flex flex-row align-items-stretch flex-fill h-100">
-
 
     <div class="backlog border-right" *ngIf="showBacklog">
       <div class="card border-right-0 border-top-0 border-left-0 w-100 h-100">
@@ -43,10 +41,13 @@
     <div class="column-cards d-flex flex-column flex-fill">
 
       <div class="headings d-flex flex-row align-items-stretch w-100">
-        <div class="col-2 border-left card-header border-left-0 d-flex flex-row justify-content-between"
+        <div class="col-2 border-left card-header border-left-0 d-flex flex-row"
           *ngIf="vGroupKey">
-          <div>
-            {{boardName}}
+          <div class="d-flex flex-row w-100">
+            <div class="boardname flex-fill">{{ boardName }}</div>
+            <div class="h-v-actions align-self-center">
+              <fa-icon [icon]="['fas', vCollapsed ? 'chevron-down' : 'chevron-up']" [fixedWidth]="true" (click)="toggleCollapseGroup('vertical', vCollapsed)"></fa-icon>
+            </div>
           </div>
         </div>
 
@@ -54,7 +55,7 @@
           [class.bg-white]="collapseState(group)" [class.border-bottom-0]="collapseState(group)"
           [class.col]="!collapseState(group)" *ngFor="let group of hHeadings"
           [class.h-collapsed]="collapseState(group)">
-          <div clasS="group-heading" *ngIf="!collapseState(group)">
+          <div class="group-heading" *ngIf="!collapseState(group)">
 
 
             <ng-container [ngIf]="hHeaderTemplate" *ngTemplateOutlet="hHeaderTemplate; context: { groupName: group }">
@@ -94,7 +95,7 @@
               [class.flex-row]="collapseState(vGroup)" [class.flex-row-reverse]="collapseState(vGroup)">
               <div class="align-self-start flex-fill">
                 <ng-content
-                  *ngTemplateOutlet="cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true }">
+                  *ngTemplateOutlet="cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? 'chevron-up' : 'chevron-down'  }">
                 </ng-content>
               </div>
               <div class="align-self-start">
@@ -157,7 +158,8 @@
 
               </ng-container>
               <ng-container *ngIf="collapseState(vGroup) && !collapseState(hGroup)">
-                <div class="text-center">
+                <div class="text-center"  (dragover)="dragOver($event, vGroup, hGroup)"
+                (drop)="drop($event, vGroup, hGroup)">
                   <ng-container [ngIf]="noElementsTemplate"
                     *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(vGroup, hGroup).length }">
                   </ng-container>

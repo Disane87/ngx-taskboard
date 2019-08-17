@@ -26,6 +26,74 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Datatypes](#datatypes)
+    - [CardItem](#carditem)
+    - [ClickEvent](#clickevent)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Datatypes](#datatypes)
+    - [CardItem](#carditem)
+    - [ClickEvent](#clickevent)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Datatypes](#datatypes)
+    - [CardItem](#carditem)
+    - [ClickEvent](#clickevent)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Datatypes](#datatypes)
+    - [CardItem](#carditem)
+    - [ClickEvent](#clickevent)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Description
 
 
@@ -105,40 +173,16 @@ export class AppComponent {
 
 ## Configuration
 ### Properties
-| Property                    |                         Default | Description                                                                                                 |
-| --------------------------- | ------------------------------: | ----------------------------------------------------------------------------------------------------------- |
-| showBacklog                 |                true (`boolean`) | Shows the backlog                                                                                           |
-| backlogName                 |            'Backlog' (`string`) | Name of the backlog row                                                                                     |
-| items                       | [] (`CardItem[]` or `object[]`) | Items to be displayed                                                                                       |
-| vGroupKey                   |                   '' (`string`) | Group vertical items by field '<xyz>'                                                                       |
-| hGroupKey                   |                   '' (`string`) | Group horizontal items by field '<xyz>'                                                                     |
-| vGroupKeys                  |                 [] (`string[]`) | Group keys which are shown vertically '<xyz>', without, the values of property `vGroupKey` in items is used |
-| hGroupKeys                  |                 [] (`string[]`) | Group keys which are shown vertically '<xyz>', without, the values of property `hGroupKey` in items is used |
-| invertGroupDirection        |               false (`boolean`) | Inverts the horizontal and vertical axis                                                                    |
-| showUngroupedInBacklog      |                true (`boolean`) | Items with no value in `vGroupKey` and `hGroupKey` are "ungrouped" and shown in backlog                     |
-| smallText                   |               false (`boolean`) | Increased font size                                                                                         |
-| itemTemplate                |           null  (`TemplateRef`) | Template for customizing the Items shown. See examples                                                      |
-| noElementsTemplate          |           null  (`TemplateRef`) | Template for customizing for collapsed items. See examples                                                  |
-| hHeaderTemplate             |           null  (`TemplateRef`) | Template for horizontal headers. See examples                                                               |
-| vHeaderTemplate             |           null  (`TemplateRef`) | Template for vertical headers. See examples                                                                 |
-| actionsTemplate             |           null  (`TemplateRef`) | Template for actions. See examples                                                                          |
-| dragoverPlaceholderTemplate |           null  (`TemplateRef`) | Template for the placeholder which is generated while dragging over. See examples                           |
-| vCollapsable                |                true (`boolean`) | Groups can be collapsed                                                                                     |
-| hAddNewItems                |                true (`boolean`) | New item icon (horizontal)                                                                                  |
-| vAddNewItems                |                true (`boolean`) | New item icon (vertical)                                                                                    |
-| cellAddNewItems             |                true (`boolean`) | New item icon (cell)                                                                                        |
-| vHeaderClass                |        'card-header' (`string`) | CSS class for vertical header                                                                               |
-| hHeaderClass                |        'card-header' (`string`) | CSS class for horizontal header                                                                             |
-| cellClass                   |        'card-header' (`string`) | CSS class for cells                                                                                         |
-| boardName                   |                   '' (`string`) | Will be displayed between vertical and horizontal headers                                                   |
 
-  
+<!-- Start AutoDoc inputsClass -->
+
+<!-- End AutoDoc inputsClass -->
+
 ### Events
-| Event              |               ParamType | Description                                                       |
-| ------------------ | ----------------------: | ----------------------------------------------------------------- |
-| dragStarted        | `CardItem[] | object[]` | Fired when the user drags an item. Current item is passed         |
-| dropped            | `CardItem[] | object[]` | Fired when an item is dropped. Current item is passed             |
-| elementCreateClick |            `ClickEvent` | Fired when an add action is click. Current `ClickEvent` is passed |
+
+<!-- Start AutoDoc outputsClass -->
+
+<!-- End AutoDoc outputsClass -->
 
 ## Datatypes
 ### CardItem

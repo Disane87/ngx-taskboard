@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, Renderer2, ElementRef, TemplateRef } from '@angular/core';
-import { CardItem, CollapseState } from '../types';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, TemplateRef } from '@angular/core';
 import { CodegenComponentFactoryResolver } from '@angular/core/src/linker/component_factory_resolver';
+import { CardItem, CollapseState } from '../types';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -10,55 +10,119 @@ import { CodegenComponentFactoryResolver } from '@angular/core/src/linker/compon
 })
 export class BoardComponent implements OnInit {
 
+  /** Shows the blacklog on onit */
   @Input() showBacklog = true;
+
+  /** Name of the backlog row */
   @Input() backlogName = 'Backlog';
-  @Input() items: CardItem[] | object[] = [];
 
-  @Input() hGroupKeys: string[] = [];
-  @Input() vGroupKeys: string[] = [];
+  /** Items to display */
+  @Input() items: Array<CardItem> | Array<object> = [];
 
+  /**
+   * Grouping keys for columns (if not passed, the keys will be determined out of the items)
+   * Caution: If you don't pass any headings manually, only the columns are shown, which have data.
+   * If you want to show emtpy rows, please set them
+   */
+  @Input() hGroupKeys: Array<string> = [];
+
+  /**
+   * Grouping keys for rows (if not passed, the keys will be determined out of the items)
+   * Caution: If you don't pass any headings manually, only the rows are shown, which have data.
+   * If you want to show emtpy rows, please set them
+   */
+  @Input() vGroupKeys: Array<string> = [];
+
+  /** Show add buttons on the column headings */
   @Input() hAddNewItems = true;
+
+  /** Show add buttons on the row headings */
   @Input() vAddNewItems = true;
+
+  /** Show add buttons in the cells for columns and rows */
   @Input() cellAddNewItems = true;
 
+  /** Key to group data for rows */
   @Input() vGroupKey = '';
+
+  /** Key to group data for columns */
   @Input() hGroupKey = '';
+
+  /** Sort items by property */
   @Input() sortBy = '';
+
+  /** Board name to show between row and column header */
   @Input() boardName = '';
 
+  /** Invert rows and columns */
   @Input() invertGroupDirection = false;
+
+  /** All items which can't be grouped into rows and columns are stored into the backlog  */
   @Input() showUngroupedInBacklog = true;
+
+  /** Decrease overall font size */
   @Input() smallText = false;
 
+  /** Template for items to render. "item" object ist passed (see examples) */
   @Input() itemTemplate: TemplateRef<any>;
+
+  /** Template for collapsed rows to render. "count" object ist passed (see examples) */
   @Input() noElementsTemplate: TemplateRef<any>;
+
+  /** Template for column headers. Current groupName will be passed (see examples) */
   @Input() hHeaderTemplate: TemplateRef<any>;
+
+  /** Template for row headers. Current groupName will be passed (see examples) */
   @Input() vHeaderTemplate: TemplateRef<any>;
+
+  /** Template for actions, add and collapse buttons (see examples) */
   @Input() actionsTemplate: TemplateRef<any>;
+
+  /** Template for the placeholder element which will be generated when an item is draged over a cell */
   @Input() dragoverPlaceholderTemplate: TemplateRef<any>;
 
+  /** Default css class for row header */
   @Input() vHeaderClass = 'card-header';
+
+  /** Default css class for column header */
   @Input() hHeaderClass = 'card-header';
+
+  /** Default css class for cell header */
   @Input() cellClass = 'card-header';
 
+  /**
+   * If set to true, the rows and columns are scrollable and will be out of the viewport.
+   * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)
+   */
   @Input() scrollable = false;
+
+  /** Allow to collapse the rows */
   @Input() vCollapsable = true;
 
-  @Output() dragStarted = new EventEmitter<object>();
-  @Output() dropped = new EventEmitter<object>();
-  @Output() elementCreateClick = new EventEmitter<ClickEvent>();
+  /** Rows are collapsed or not on init */
+  @Input() vCollapsed = false;
 
+  /** Columns are collapsed or not on init */
+  @Input() hCollapsed = false;
 
+  /** Fired when the user drags an item. Current item is passed */
+  @Output() readonly dragStarted = new EventEmitter<object>();
 
-  public hHeadings: string[] = [];
-  public vHeadings: string[] = [];
+  /** Fired when an item is dropped. Current item is passed  */
+  @Output() readonly dropped = new EventEmitter<object>();
 
-  private collapseStates: CollapseState[] = [];
+  /** Fired when an add action is click. Current `ClickEvent` is passed */
+  @Output() readonly elementCreateClick = new EventEmitter<ClickEvent>();
+
+  public hHeadings: Array<string> = [];
+  public vHeadings: Array<string> = [];
+
+  private readonly collapseStates: Array<CollapseState> = [];
   private dragItem: CardItem;
   private placeholderSet = false;
   private currentDragZone: string;
 
-  constructor(private renderer: Renderer2, private elRef: ElementRef) { }
+  constructor(private readonly renderer: Renderer2, private readonly elRef: ElementRef, private readonly cd: ChangeDetectorRef) { }
 
   ngOnInit() {
     if (this.invertGroupDirection) {
@@ -71,10 +135,12 @@ export class BoardComponent implements OnInit {
 
     this.hHeadings = (this.hGroupKeys.length > 0 ? this.hGroupKeys : this.getHeadings(this.hGroupKey));
     this.vHeadings = (this.vGroupKeys.length > 0 ? this.vGroupKeys : this.getHeadings(this.vGroupKey));
-    this.collapseStates.push(...[...this.vHeadings, ...this.hHeadings].map(item => ({ name: item, collapsed: false })));
+
+    this.collapseStates.push(...this.vHeadings.map(item => ({ name: item, collapsed: this.vCollapsed })));
+    this.collapseStates.push(...this.hHeadings.map(item => ({ name: item, collapsed: this.hCollapsed })));
   }
 
-  getItemsOfGroup(vValue: string, hValue: string): CardItem[] | object[] {
+  getItemsOfGroup(vValue: string, hValue: string): Array<CardItem> | Array<object> {
     // console.log('getItemsOfGroup', arguments);
     let items = this.items.filter(item => {
 
@@ -83,11 +149,11 @@ export class BoardComponent implements OnInit {
       const vItem = item[groupKeys.vGroupKey];
       const hItem = item[groupKeys.hGroupKey];
 
-      if (hItem == null) {
+      if (hItem == undefined) {
         return false;
       }
 
-      if (vItem == null) {
+      if (vItem == undefined) {
         return false;
       }
 
@@ -119,10 +185,9 @@ export class BoardComponent implements OnInit {
             if (aField > bField) {
               return 1;
             }
-            
+
             return 0;
           }
-
 
         });
       } else {
@@ -131,6 +196,19 @@ export class BoardComponent implements OnInit {
 
     }
     return items;
+  }
+
+  toggleCollapseGroup(direction: string, collapsed: boolean): void {
+    const groupKeysToToggle = this.collapseStates.filter(item => (direction == 'vertical'  ? this.vHeadings : this.hHeadings).some(i => i.toLowerCase() == item.name.toLowerCase()));
+    groupKeysToToggle.forEach(item => item.collapsed = !collapsed);
+    if (groupKeysToToggle.length > 0) {
+      if (direction == 'vertical') {
+        debugger;
+        this.vCollapsed = !collapsed;
+      } else {
+        this.hCollapsed = !collapsed;
+      }
+    }
   }
 
   determineCorrectGroupKeys(item: object): GroupKeys {
@@ -144,8 +222,8 @@ export class BoardComponent implements OnInit {
     return Object.keys(item).find(key => key.toLowerCase() === propKey.toLowerCase());
   }
 
-  getHeadings(groupKey: string = this.vGroupKey): string[] {
-    const keys = (<object[]>this.items).map((item: any) =>
+  getHeadings(groupKey: string = this.vGroupKey): Array<string> {
+    const keys = (this.items as Array<object>).map((item: any) =>
       item[Object.keys(item).find(key => key.toLowerCase() === groupKey.toLowerCase())]
     );
 
@@ -154,7 +232,7 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  getUngroupedItems(): CardItem[] | object[] {
+  getUngroupedItems(): Array<CardItem> | Array<object> {
     if (this.showUngroupedInBacklog) {
       return this.items.filter(item => {
         const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
@@ -167,7 +245,6 @@ export class BoardComponent implements OnInit {
   }
 
   toggleCollapse(group: { hGroup: string, vGroup: string }): void {
-
 
     const part = group.hGroup || group.vGroup;
 
@@ -190,11 +267,9 @@ export class BoardComponent implements OnInit {
 
   }
 
-
   createElement(group: ClickEvent) {
     this.elementCreateClick.emit(group);
   }
-
 
   public drop(event: DragEvent, vRow: string, hRow: string) {
     event.preventDefault();
@@ -206,7 +281,6 @@ export class BoardComponent implements OnInit {
       this.currentDragZone = '';
       this.placeholderSet = false;
     }
-
 
     const groupKeys: GroupKeys = this.determineCorrectGroupKeys(this.dragItem);
 
@@ -221,11 +295,11 @@ export class BoardComponent implements OnInit {
     if (this.dragItem) {
       event.preventDefault();
 
-      if (vRow == null) {
+      if (vRow == undefined) {
         vRow = '';
       }
 
-      if (hRow == null) {
+      if (hRow == undefined) {
         hRow = '';
       }
 
@@ -268,7 +342,6 @@ export interface ClickEvent {
   hGroup: string;
   vGroup: string;
 }
-
 
 export interface GroupKeys {
   hGroupKey: string;
