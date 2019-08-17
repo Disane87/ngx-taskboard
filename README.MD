@@ -26,6 +26,74 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Datatypes](#datatypes)
+    - [CardItem](#carditem)
+    - [ClickEvent](#clickevent)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Datatypes](#datatypes)
+    - [CardItem](#carditem)
+    - [ClickEvent](#clickevent)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Datatypes](#datatypes)
+    - [CardItem](#carditem)
+    - [ClickEvent](#clickevent)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Datatypes](#datatypes)
+    - [CardItem](#carditem)
+    - [ClickEvent](#clickevent)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Description
 
 

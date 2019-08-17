@@ -64,6 +64,110 @@
 </ul>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#basic-usage">Basic usage</a><ul>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#events">Events</a></li>
+</ul>
+</li>
+<li><a href="#datatypes">Datatypes</a><ul>
+<li><a href="#carditem">CardItem</a></li>
+<li><a href="#clickevent">ClickEvent</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#contributing">Contributing</a><ul>
+<li><a href="#installation-1">Installation</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#basic-usage">Basic usage</a><ul>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#events">Events</a></li>
+</ul>
+</li>
+<li><a href="#datatypes">Datatypes</a><ul>
+<li><a href="#carditem">CardItem</a></li>
+<li><a href="#clickevent">ClickEvent</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#contributing">Contributing</a><ul>
+<li><a href="#installation-1">Installation</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#basic-usage">Basic usage</a><ul>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#events">Events</a></li>
+</ul>
+</li>
+<li><a href="#datatypes">Datatypes</a><ul>
+<li><a href="#carditem">CardItem</a></li>
+<li><a href="#clickevent">ClickEvent</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#contributing">Contributing</a><ul>
+<li><a href="#installation-1">Installation</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#basic-usage">Basic usage</a><ul>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#events">Events</a></li>
+</ul>
+</li>
+<li><a href="#datatypes">Datatypes</a><ul>
+<li><a href="#carditem">CardItem</a></li>
+<li><a href="#clickevent">ClickEvent</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#contributing">Contributing</a><ul>
+<li><a href="#installation-1">Installation</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <h1 id="description">Description</h1>
 <p><img src="https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif" alt="Taskboard" class="img-responsive"></p>
 <h1 id="dependencies">Dependencies</h1>
@@ -125,174 +229,15 @@ export class AppComponent {
 }
 </code></pre></div><h2 id="configuration">Configuration</h2>
 <h3 id="properties">Properties</h3>
-<table class="table table-bordered compodoc-table">
-<thead>
-<tr>
-<th>Property</th>
-<th align="right">Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>showBacklog</td>
-<td align="right">true (<code>boolean</code>)</td>
-<td>Shows the backlog</td>
-</tr>
-<tr>
-<td>backlogName</td>
-<td align="right">&#39;Backlog&#39; (<code>string</code>)</td>
-<td>Name of the backlog row</td>
-</tr>
-<tr>
-<td>items</td>
-<td align="right">[] (<code>CardItem[]</code> or <code>object[]</code>)</td>
-<td>Items to be displayed</td>
-</tr>
-<tr>
-<td>vGroupKey</td>
-<td align="right">&#39;&#39; (<code>string</code>)</td>
-<td>Group vertical items by field &#39;<xyz>&#39;</td>
-</tr>
-<tr>
-<td>hGroupKey</td>
-<td align="right">&#39;&#39; (<code>string</code>)</td>
-<td>Group horizontal items by field &#39;<xyz>&#39;</td>
-</tr>
-<tr>
-<td>vGroupKeys</td>
-<td align="right">[] (<code>string[]</code>)</td>
-<td>Group keys which are shown vertically &#39;<xyz>&#39;, without, the values of property <code>vGroupKey</code> in items is used</td>
-</tr>
-<tr>
-<td>hGroupKeys</td>
-<td align="right">[] (<code>string[]</code>)</td>
-<td>Group keys which are shown vertically &#39;<xyz>&#39;, without, the values of property <code>hGroupKey</code> in items is used</td>
-</tr>
-<tr>
-<td>invertGroupDirection</td>
-<td align="right">false (<code>boolean</code>)</td>
-<td>Inverts the horizontal and vertical axis</td>
-</tr>
-<tr>
-<td>showUngroupedInBacklog</td>
-<td align="right">true (<code>boolean</code>)</td>
-<td>Items with no value in <code>vGroupKey</code> and <code>hGroupKey</code> are &quot;ungrouped&quot; and shown in backlog</td>
-</tr>
-<tr>
-<td>smallText</td>
-<td align="right">false (<code>boolean</code>)</td>
-<td>Increased font size</td>
-</tr>
-<tr>
-<td>itemTemplate</td>
-<td align="right">null  (<code>TemplateRef</code>)</td>
-<td>Template for customizing the Items shown. See examples</td>
-</tr>
-<tr>
-<td>noElementsTemplate</td>
-<td align="right">null  (<code>TemplateRef</code>)</td>
-<td>Template for customizing for collapsed items. See examples</td>
-</tr>
-<tr>
-<td>hHeaderTemplate</td>
-<td align="right">null  (<code>TemplateRef</code>)</td>
-<td>Template for horizontal headers. See examples</td>
-</tr>
-<tr>
-<td>vHeaderTemplate</td>
-<td align="right">null  (<code>TemplateRef</code>)</td>
-<td>Template for vertical headers. See examples</td>
-</tr>
-<tr>
-<td>actionsTemplate</td>
-<td align="right">null  (<code>TemplateRef</code>)</td>
-<td>Template for actions. See examples</td>
-</tr>
-<tr>
-<td>dragoverPlaceholderTemplate</td>
-<td align="right">null  (<code>TemplateRef</code>)</td>
-<td>Template for the placeholder which is generated while dragging over. See examples</td>
-</tr>
-<tr>
-<td>vCollapsable</td>
-<td align="right">true (<code>boolean</code>)</td>
-<td>Groups can be collapsed</td>
-</tr>
-<tr>
-<td>hAddNewItems</td>
-<td align="right">true (<code>boolean</code>)</td>
-<td>New item icon (horizontal)</td>
-</tr>
-<tr>
-<td>vAddNewItems</td>
-<td align="right">true (<code>boolean</code>)</td>
-<td>New item icon (vertical)</td>
-</tr>
-<tr>
-<td>cellAddNewItems</td>
-<td align="right">true (<code>boolean</code>)</td>
-<td>New item icon (cell)</td>
-</tr>
-<tr>
-<td>vHeaderClass</td>
-<td align="right">&#39;card-header&#39; (<code>string</code>)</td>
-<td>CSS class for vertical header</td>
-</tr>
-<tr>
-<td>hHeaderClass</td>
-<td align="right">&#39;card-header&#39; (<code>string</code>)</td>
-<td>CSS class for horizontal header</td>
-</tr>
-<tr>
-<td>cellClass</td>
-<td align="right">&#39;card-header&#39; (<code>string</code>)</td>
-<td>CSS class for cells</td>
-</tr>
-<tr>
-<td>boardName</td>
-<td align="right">&#39;&#39; (<code>string</code>)</td>
-<td>Will be displayed between vertical and horizontal headers</td>
-</tr>
-<tr>
-<td>vCollapsed</td>
-<td align="right">false (<code>boolean</code>)</td>
-<td>Collapsed the vertical groups on init</td>
-</tr>
-<tr>
-<td>hCollapsed</td>
-<td align="right">false (<code>boolean</code>)</td>
-<td>Collapsed the vertical groups on init</td>
-</tr>
-</tbody>
-</table>
+<!-- Start AutoDoc inputsClass -->
+
+<!-- End AutoDoc inputsClass -->
+
 <h3 id="events">Events</h3>
-<table class="table table-bordered compodoc-table">
-<thead>
-<tr>
-<th>Event</th>
-<th align="right">ParamType</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>dragStarted</td>
-<td align="right">`CardItem[]</td>
-<td>object[]`</td>
-</tr>
-<tr>
-<td>dropped</td>
-<td align="right">`CardItem[]</td>
-<td>object[]`</td>
-</tr>
-<tr>
-<td>elementCreateClick</td>
-<td align="right"><code>ClickEvent</code></td>
-<td>Fired when an add action is click. Current <code>ClickEvent</code> is passed</td>
-</tr>
-</tbody>
-</table>
+<!-- Start AutoDoc outputsClass -->
+
+<!-- End AutoDoc outputsClass -->
+
 <h2 id="datatypes">Datatypes</h2>
 <h3 id="carditem">CardItem</h3>
 <div><pre class="line-numbers"><code class="language-ts">export interface CardItem {
