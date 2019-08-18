@@ -11,6 +11,7 @@ console.log("Current path" + readmeFilePath);
 var board = parsedJSON.components.find(comp => comp.name == 'BoardComponent');
 
 var documentationparts = ['inputsClass', 'outputsClass'];
+
 documentationparts.forEach(part => {
     let partData = board[part].sort((a, b) => a.name < b.name);
     replaceText(part, tablemark(prepareData(part, partData)));
@@ -36,11 +37,12 @@ function prepareData(part, object) {
 
 
 function replaceText(marker, text) {
-    var replaceString = `<!-- Start AutoDoc ${marker} -->([\\s\\S]*?)<!-- End AutoDoc ${marker} -->`;
-    var replaceToString = `<!-- Start AutoDoc ${marker} -->\r\n${text}\r\n<!-- End AutoDoc ${marker} -->`;
+    var replaceString = `<!-- Start AutoDoc ${marker} -->@REPLACE@<!-- End AutoDoc ${marker} -->`;
+    var replaceRegex = replaceString.replace('@REPLACE@', '([\\s\\S]*?)')
+    var replaceToString = replaceString.replace('@REPLACE@', `\r\n${text}\r\n`);
 
 
-    var regexp = new RegExp(replaceString, "gmi");
+    var regexp = new RegExp(replaceRegex, "gmi");
 
     console.info(`Replacing "${replaceString}" to "${replaceToString}"`);
 
