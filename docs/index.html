@@ -36,7 +36,7 @@
 <h1 id="table-of-content">Table of Content</h1>
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- END doctoc -->
 
 <ul>
 <li><a href="#description">Description</a></li>
@@ -64,109 +64,6 @@
 </ul>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-<ul>
-<li><a href="#description">Description</a></li>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#basic-usage">Basic usage</a><ul>
-<li><a href="#configuration">Configuration</a><ul>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#events">Events</a></li>
-</ul>
-</li>
-<li><a href="#datatypes">Datatypes</a><ul>
-<li><a href="#carditem">CardItem</a></li>
-<li><a href="#clickevent">ClickEvent</a></li>
-</ul>
-</li>
-<li><a href="#examples">Examples</a></li>
-</ul>
-</li>
-<li><a href="#limitations">Limitations</a></li>
-<li><a href="#contributing">Contributing</a><ul>
-<li><a href="#installation-1">Installation</a></li>
-</ul>
-</li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-<ul>
-<li><a href="#description">Description</a></li>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#basic-usage">Basic usage</a><ul>
-<li><a href="#configuration">Configuration</a><ul>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#events">Events</a></li>
-</ul>
-</li>
-<li><a href="#datatypes">Datatypes</a><ul>
-<li><a href="#carditem">CardItem</a></li>
-<li><a href="#clickevent">ClickEvent</a></li>
-</ul>
-</li>
-<li><a href="#examples">Examples</a></li>
-</ul>
-</li>
-<li><a href="#limitations">Limitations</a></li>
-<li><a href="#contributing">Contributing</a><ul>
-<li><a href="#installation-1">Installation</a></li>
-</ul>
-</li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-<ul>
-<li><a href="#description">Description</a></li>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#basic-usage">Basic usage</a><ul>
-<li><a href="#configuration">Configuration</a><ul>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#events">Events</a></li>
-</ul>
-</li>
-<li><a href="#datatypes">Datatypes</a><ul>
-<li><a href="#carditem">CardItem</a></li>
-<li><a href="#clickevent">ClickEvent</a></li>
-</ul>
-</li>
-<li><a href="#examples">Examples</a></li>
-</ul>
-</li>
-<li><a href="#limitations">Limitations</a></li>
-<li><a href="#contributing">Contributing</a><ul>
-<li><a href="#installation-1">Installation</a></li>
-</ul>
-</li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-<ul>
-<li><a href="#description">Description</a></li>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#basic-usage">Basic usage</a><ul>
-<li><a href="#configuration">Configuration</a><ul>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#events">Events</a></li>
-</ul>
-</li>
-<li><a href="#datatypes">Datatypes</a><ul>
-<li><a href="#carditem">CardItem</a></li>
-<li><a href="#clickevent">ClickEvent</a></li>
-</ul>
-</li>
-<li><a href="#examples">Examples</a></li>
-</ul>
-</li>
-<li><a href="#limitations">Limitations</a></li>
-<li><a href="#contributing">Contributing</a><ul>
-<li><a href="#installation-1">Installation</a></li>
-</ul>
-</li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 <h1 id="description">Description</h1>
 <p><img src="https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif" alt="Taskboard" class="img-responsive"></p>
@@ -230,12 +127,191 @@ export class AppComponent {
 </code></pre></div><h2 id="configuration">Configuration</h2>
 <h3 id="properties">Properties</h3>
 <!-- Start AutoDoc inputsClass -->
-
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>itemTemplate</td>
+<td>Template for items to render. &quot;item&quot; object ist passed (see examples)</td>
+<td>TemplateRef<any></td>
+</tr>
+<tr>
+<td>vHeaderTemplate</td>
+<td>Template for row headers. Current groupName will be passed (see examples)</td>
+<td>TemplateRef<any></td>
+</tr>
+<tr>
+<td>noElementsTemplate</td>
+<td>Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples)</td>
+<td>TemplateRef<any></td>
+</tr>
+<tr>
+<td>boardName</td>
+<td>Board name to show between row and column header</td>
+<td></td>
+</tr>
+<tr>
+<td>cellClass</td>
+<td>Default css class for cell header</td>
+<td></td>
+</tr>
+<tr>
+<td>dragoverPlaceholderTemplate</td>
+<td>Template for the placeholder element which will be generated when an item is draged over a cell</td>
+<td>TemplateRef<any></td>
+</tr>
+<tr>
+<td>hAddNewItems</td>
+<td>Show add buttons on the column headings</td>
+<td></td>
+</tr>
+<tr>
+<td>hCollapsed</td>
+<td>Columns are collapsed or not on init</td>
+<td></td>
+</tr>
+<tr>
+<td>hGroupKey</td>
+<td>Key to group data for columns</td>
+<td></td>
+</tr>
+<tr>
+<td>hGroupKeys</td>
+<td>Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>hHeaderClass</td>
+<td>Default css class for column header</td>
+<td></td>
+</tr>
+<tr>
+<td>hHeaderTemplate</td>
+<td>Template for column headers. Current groupName will be passed (see examples)</td>
+<td>TemplateRef<any></td>
+</tr>
+<tr>
+<td>invertGroupDirection</td>
+<td>Invert rows and columns</td>
+<td></td>
+</tr>
+<tr>
+<td>items</td>
+<td>Items to display</td>
+<td>Array<CardItem> | Array<object></td>
+</tr>
+<tr>
+<td>vHeaderClass</td>
+<td>Default css class for row header</td>
+<td></td>
+</tr>
+<tr>
+<td>cellAddNewItems</td>
+<td>Show add buttons in the cells for columns and rows</td>
+<td></td>
+</tr>
+<tr>
+<td>scrollable</td>
+<td>If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)</td>
+<td></td>
+</tr>
+<tr>
+<td>showBacklog</td>
+<td>Shows the blacklog on onit</td>
+<td></td>
+</tr>
+<tr>
+<td>showUngroupedInBacklog</td>
+<td>All items which can&#39;t be grouped into rows and columns are stored into the backlog</td>
+<td></td>
+</tr>
+<tr>
+<td>smallText</td>
+<td>Decrease overall font size</td>
+<td></td>
+</tr>
+<tr>
+<td>sortBy</td>
+<td>Sort items by property</td>
+<td></td>
+</tr>
+<tr>
+<td>vAddNewItems</td>
+<td>Show add buttons on the row headings</td>
+<td></td>
+</tr>
+<tr>
+<td>vCollapsable</td>
+<td>Allow to collapse the rows</td>
+<td></td>
+</tr>
+<tr>
+<td>vCollapsed</td>
+<td>Rows are collapsed or not on init</td>
+<td></td>
+</tr>
+<tr>
+<td>vGroupKey</td>
+<td>Key to group data for rows</td>
+<td></td>
+</tr>
+<tr>
+<td>vGroupKeys</td>
+<td>Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>backlogName</td>
+<td>Name of the backlog row</td>
+<td></td>
+</tr>
+<tr>
+<td>actionsTemplate</td>
+<td>Template for actions, add and collapse buttons (see examples)</td>
+<td>TemplateRef<any></td>
+</tr>
+</tbody>
+</table>
 <!-- End AutoDoc inputsClass -->
 
 <h3 id="events">Events</h3>
 <!-- Start AutoDoc outputsClass -->
-
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Default value</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>elementCreateClick</td>
+<td>new EventEmitter<ClickEvent>()</td>
+<td>Fired when an add action is click. Current ClickEvent is passed</td>
+<td>EventEmitter</td>
+</tr>
+<tr>
+<td>dropped</td>
+<td>new EventEmitter<object>()</td>
+<td>Fired when an item is dropped. Current item is passed</td>
+<td>EventEmitter</td>
+</tr>
+<tr>
+<td>dragStarted</td>
+<td>new EventEmitter<object>()</td>
+<td>Fired when the user drags an item. Current item is passed</td>
+<td>EventEmitter</td>
+</tr>
+</tbody>
+</table>
 <!-- End AutoDoc outputsClass -->
 
 <h2 id="datatypes">Datatypes</h2>
@@ -264,6 +340,7 @@ export class AppComponent {
 <p>This is a bit odd, but you can read more about it <a href="https://docs.npmjs.com/cli/link">here</a>.</p>
 <p>If you have an existing Angular library project with a tets application, you can work here with <a href="https://github.blog/2016-02-01-working-with-submodules/">submoduling</a> in git, instead of a <code>git clone</code>:</p>
 <p><code>git submodule add https://github.com/Disane87/ngx-taskboard.git</code></p>
+<p>And now, have some fun! 😊</p>
 
 
 
