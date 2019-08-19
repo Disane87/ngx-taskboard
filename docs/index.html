@@ -33,10 +33,9 @@
 <h1 id="ngx-taskboard">ngx-taskboard</h1>
 <p><img src="https://api.codeclimate.com/v1/badges/e7183f0854e6cf832261/maintainability" alt="badge" class="img-responsive"> <a href="https://codecov.io/gh/Disane87/ngx-taskboard"><img src="https://codecov.io/gh/Disane87/ngx-taskboard/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a> <img src="https://img.shields.io/npm/v/@disane/ngx-taskboard" alt="badge" class="img-responsive"> <img src="https://img.shields.io/bundlephobia/minzip/@disane/ngx-taskboard" alt="npm bundle size (scoped)" class="img-responsive"></p>
 <p><code>ngx-taskboard</code> is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the <a href="https://github.com/Disane87/ngx-taskboard/issues">issues</a> when you have questions or found a bug or leave a PR if you have som additions. Styling is made with <a href="https://github.com/twbs/bootstrap">Bootstrap</a>, so it&#39;s 100% compatible.</p>
-<h1 id="table-of-content">Table of Content</h1>
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<!-- END doctoc -->
+
 
 <ul>
 <li><a href="#description">Description</a></li>
@@ -48,22 +47,17 @@
 <li><a href="#events">Events</a></li>
 </ul>
 </li>
-<li><a href="#datatypes">Datatypes</a><ul>
-<li><a href="#carditem">CardItem</a></li>
-<li><a href="#clickevent">ClickEvent</a></li>
-</ul>
-</li>
+<li><a href="#interfaces">Interfaces</a></li>
 <li><a href="#examples">Examples</a></li>
 </ul>
 </li>
 <li><a href="#limitations">Limitations</a></li>
 <li><a href="#contributing">Contributing</a><ul>
-<li><a href="#installation-1">Installation</a></li>
+<li><a href="#installation-the-project">Installation the project</a></li>
 </ul>
 </li>
 </ul>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 
 <h1 id="description">Description</h1>
 <p><img src="https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif" alt="Taskboard" class="img-responsive"></p>
@@ -126,162 +120,7 @@ export class AppComponent {
 }
 </code></pre></div><h2 id="configuration">Configuration</h2>
 <h3 id="properties">Properties</h3>
-<!-- Start AutoDoc inputsClass -->
-<table class="table table-bordered compodoc-table">
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>itemTemplate</td>
-<td>Template for items to render. &quot;item&quot; object ist passed (see examples)</td>
-<td>TemplateRef<any></td>
-</tr>
-<tr>
-<td>vHeaderTemplate</td>
-<td>Template for row headers. Current groupName will be passed (see examples)</td>
-<td>TemplateRef<any></td>
-</tr>
-<tr>
-<td>noElementsTemplate</td>
-<td>Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples)</td>
-<td>TemplateRef<any></td>
-</tr>
-<tr>
-<td>boardName</td>
-<td>Board name to show between row and column header</td>
-<td></td>
-</tr>
-<tr>
-<td>cellClass</td>
-<td>Default css class for cell header</td>
-<td></td>
-</tr>
-<tr>
-<td>dragoverPlaceholderTemplate</td>
-<td>Template for the placeholder element which will be generated when an item is draged over a cell</td>
-<td>TemplateRef<any></td>
-</tr>
-<tr>
-<td>hAddNewItems</td>
-<td>Show add buttons on the column headings</td>
-<td></td>
-</tr>
-<tr>
-<td>hCollapsed</td>
-<td>Columns are collapsed or not on init</td>
-<td></td>
-</tr>
-<tr>
-<td>hGroupKey</td>
-<td>Key to group data for columns</td>
-<td></td>
-</tr>
-<tr>
-<td>hGroupKeys</td>
-<td>Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them</td>
-<td>Array<string></td>
-</tr>
-<tr>
-<td>hHeaderClass</td>
-<td>Default css class for column header</td>
-<td></td>
-</tr>
-<tr>
-<td>hHeaderTemplate</td>
-<td>Template for column headers. Current groupName will be passed (see examples)</td>
-<td>TemplateRef<any></td>
-</tr>
-<tr>
-<td>invertGroupDirection</td>
-<td>Invert rows and columns</td>
-<td></td>
-</tr>
-<tr>
-<td>items</td>
-<td>Items to display</td>
-<td>Array<CardItem> | Array<object></td>
-</tr>
-<tr>
-<td>vHeaderClass</td>
-<td>Default css class for row header</td>
-<td></td>
-</tr>
-<tr>
-<td>cellAddNewItems</td>
-<td>Show add buttons in the cells for columns and rows</td>
-<td></td>
-</tr>
-<tr>
-<td>scrollable</td>
-<td>If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)</td>
-<td></td>
-</tr>
-<tr>
-<td>showBacklog</td>
-<td>Shows the blacklog on onit</td>
-<td></td>
-</tr>
-<tr>
-<td>showUngroupedInBacklog</td>
-<td>All items which can&#39;t be grouped into rows and columns are stored into the backlog</td>
-<td></td>
-</tr>
-<tr>
-<td>smallText</td>
-<td>Decrease overall font size</td>
-<td></td>
-</tr>
-<tr>
-<td>sortBy</td>
-<td>Sort items by property</td>
-<td></td>
-</tr>
-<tr>
-<td>vAddNewItems</td>
-<td>Show add buttons on the row headings</td>
-<td></td>
-</tr>
-<tr>
-<td>vCollapsable</td>
-<td>Allow to collapse the rows</td>
-<td></td>
-</tr>
-<tr>
-<td>vCollapsed</td>
-<td>Rows are collapsed or not on init</td>
-<td></td>
-</tr>
-<tr>
-<td>vGroupKey</td>
-<td>Key to group data for rows</td>
-<td></td>
-</tr>
-<tr>
-<td>vGroupKeys</td>
-<td>Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them</td>
-<td>Array<string></td>
-</tr>
-<tr>
-<td>backlogName</td>
-<td>Name of the backlog row</td>
-<td></td>
-</tr>
-<tr>
-<td>actionsTemplate</td>
-<td>Template for actions, add and collapse buttons (see examples)</td>
-<td>TemplateRef<any></td>
-</tr>
-</tbody>
-</table>
-<!-- End AutoDoc inputsClass -->
-
-<h3 id="events">Events</h3>
-<!-- Start AutoDoc outputsClass -->
+<!-- Start AutoDoc components-name=BoardComponent-inputsClass -->
 <table class="table table-bordered compodoc-table">
 <thead>
 <tr>
@@ -293,53 +132,277 @@ export class AppComponent {
 </thead>
 <tbody>
 <tr>
-<td>elementCreateClick</td>
-<td>new EventEmitter<ClickEvent>()</td>
-<td>Fired when an add action is click. Current ClickEvent is passed</td>
+<td>actionsTemplate</td>
+<td>null</td>
+<td>Template for actions, add and collapse buttons (see examples)</td>
+<td>TemplateRef&lt;any&gt;</td>
+</tr>
+<tr>
+<td>backlogName</td>
+<td>&#39;Backlog&#39;</td>
+<td>Name of the backlog row</td>
+<td>string</td>
+</tr>
+<tr>
+<td>boardName</td>
+<td>&#39;&#39;</td>
+<td>Board name to show between row and column header</td>
+<td>string</td>
+</tr>
+<tr>
+<td>cellAddNewItems</td>
+<td>true</td>
+<td>Show add buttons in the cells for columns and rows</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>cellClass</td>
+<td>&#39;card-header&#39;</td>
+<td>Default css class for cell header</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dragoverPlaceholderTemplate</td>
+<td>null</td>
+<td>Template for the placeholder element which will be generated when an item is draged over a cell</td>
+<td>TemplateRef&lt;any&gt;</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>&#39;&#39;</td>
+<td>Predefined filter for the searchbar. If set, the items are filtered by the term on init.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>filterOnProperties</td>
+<td>[]</td>
+<td>Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched</td>
+<td>Array&lt;string&gt;</td>
+</tr>
+<tr>
+<td>hAddNewItems</td>
+<td>true</td>
+<td>Show add buttons on the column headings</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>hCollapsed</td>
+<td>false</td>
+<td>Columns are collapsed or not on init</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>hGroupKey</td>
+<td>&#39;&#39;</td>
+<td>Key to group data for columns</td>
+<td>string</td>
+</tr>
+<tr>
+<td>hGroupKeys</td>
+<td>[]</td>
+<td>Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them</td>
+<td>Array&lt;string&gt;</td>
+</tr>
+<tr>
+<td>hHeaderClass</td>
+<td>&#39;card-header&#39;</td>
+<td>Default css class for column header</td>
+<td>string</td>
+</tr>
+<tr>
+<td>hHeaderTemplate</td>
+<td>null</td>
+<td>Template for column headers. Current groupName will be passed (see examples)</td>
+<td>TemplateRef&lt;any&gt;</td>
+</tr>
+<tr>
+<td>invertGroupDirection</td>
+<td>false</td>
+<td>Invert rows and columns</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>items</td>
+<td>[]</td>
+<td>Items to display</td>
+<td>Array&lt;CardItem&gt; | Array<object></td>
+</tr>
+<tr>
+<td>itemTemplate</td>
+<td>null</td>
+<td>Template for items to render. &quot;item&quot; object ist passed (see examples)</td>
+<td>TemplateRef&lt;any&gt;</td>
+</tr>
+<tr>
+<td>noElementsTemplate</td>
+<td>null</td>
+<td>Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples)</td>
+<td>TemplateRef&lt;any&gt;</td>
+</tr>
+<tr>
+<td>scrollable</td>
+<td>false</td>
+<td>If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>showBacklog</td>
+<td>true</td>
+<td>Shows the blacklog on onit</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>showFilterRow</td>
+<td>true</td>
+<td>Shows the filter row to search items by filter in filterOnProperties array</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>showUngroupedInBacklog</td>
+<td>true</td>
+<td>All items which can&#39;t be grouped into rows and columns are stored into the backlog</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>smallText</td>
+<td>false</td>
+<td>Decrease overall font size</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>sortBy</td>
+<td>&#39;&#39;</td>
+<td>Sort items by property</td>
+<td>string</td>
+</tr>
+<tr>
+<td>vAddNewItems</td>
+<td>true</td>
+<td>Show add buttons on the row headings</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>vCollapsable</td>
+<td>true</td>
+<td>Allow to collapse the rows</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>vCollapsed</td>
+<td>false</td>
+<td>Rows are collapsed or not on init</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>vGroupKey</td>
+<td>&#39;&#39;</td>
+<td>Key to group data for rows</td>
+<td>string</td>
+</tr>
+<tr>
+<td>vGroupKeys</td>
+<td>[]</td>
+<td>Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them</td>
+<td>Array&lt;string&gt;</td>
+</tr>
+<tr>
+<td>vHeaderClass</td>
+<td>&#39;card-header&#39;</td>
+<td>Default css class for row header</td>
+<td>string</td>
+</tr>
+<tr>
+<td>vHeaderTemplate</td>
+<td>null</td>
+<td>Template for row headers. Current groupName will be passed (see examples)</td>
+<td>TemplateRef&lt;any&gt;</td>
+</tr>
+</tbody>
+</table>
+<!-- End AutoDoc components-name=BoardComponent-inputsClass -->
+
+<h3 id="events">Events</h3>
+<!-- Start AutoDoc components-name=BoardComponent-outputsClass -->
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Default value</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dragStarted</td>
+<td>new EventEmitter&lt;object&gt;()</td>
+<td>Fired when the user drags an item. Current item is passed</td>
 <td>EventEmitter</td>
 </tr>
 <tr>
 <td>dropped</td>
-<td>new EventEmitter<object>()</td>
+<td>new EventEmitter&lt;object&gt;()</td>
 <td>Fired when an item is dropped. Current item is passed</td>
 <td>EventEmitter</td>
 </tr>
 <tr>
-<td>dragStarted</td>
-<td>new EventEmitter<object>()</td>
-<td>Fired when the user drags an item. Current item is passed</td>
+<td>elementCreateClick</td>
+<td>new EventEmitter&lt;ClickEvent&gt;()</td>
+<td>Fired when an add action is click. Current ClickEvent is passed</td>
 <td>EventEmitter</td>
 </tr>
 </tbody>
 </table>
-<!-- End AutoDoc outputsClass -->
+<!-- End AutoDoc components-name=BoardComponent-outputsClass -->
 
-<h2 id="datatypes">Datatypes</h2>
-<h3 id="carditem">CardItem</h3>
-<div><pre class="line-numbers"><code class="language-ts">export interface CardItem {
-    id: number;
-    name: string;
-    status?: string;
-    color?: string;
-    user?: string;
-    priority?: number;
-}</code></pre></div><h3 id="clickevent">ClickEvent</h3>
-<div><pre class="line-numbers"><code class="language-ts">export interface ClickEvent {
-  hGroup: string; 
-  vGroup: string;
-}</code></pre></div><h2 id="examples">Examples</h2>
+<h2 id="interfaces">Interfaces</h2>
+<!-- Start AutoDoc Interfaces -->
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CardItem</td>
+<td>interface</td>
+<td>Item to render</td>
+</tr>
+<tr>
+<td>ClickEvent</td>
+<td>interface</td>
+<td>Datatype which is emitted when an item should be added</td>
+</tr>
+<tr>
+<td>CollapseState</td>
+<td>interface</td>
+<td>All the collapse stated of every group item (horizontal / vertical)</td>
+</tr>
+<tr>
+<td>GroupKeys</td>
+<td>interface</td>
+<td>Group keys to determine the correct groups internally</td>
+</tr>
+</tbody>
+</table>
+<!-- End AutoDoc Interfaces -->
+
+<h2 id="examples">Examples</h2>
 <p>Following soon</p>
 <h1 id="limitations">Limitations</h1>
 <ul>
 <li>Scrolling actually not possible</li>
 </ul>
 <h1 id="contributing">Contributing</h1>
-<h2 id="installation-1">Installation</h2>
+<h2 id="installation-the-project">Installation the project</h2>
 <div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/Disane87/ngx-taskboard.git .</code></pre></div><p>Since this is a Angular library, you have can&#39;t start it as standalone, like a normal Angular application. Instead, you have to build it with <code>ng build . --watch</code> and link it with <code>npm link</code>. The link process creates a symlink to your global <code>npm</code> which you can access from other projects.</p>
 <p>In your test or real project, you have to add the package, but only with another command <code>npm link @disane/ngx-taskboard --save</code>. This means, you are not obtaining the package from <code>npm</code>, instead you are symlinking it to you global <code>npm</code> which has a reference to the above created link in your project.</p>
 <p>This is a bit odd, but you can read more about it <a href="https://docs.npmjs.com/cli/link">here</a>.</p>
 <p>If you have an existing Angular library project with a tets application, you can work here with <a href="https://github.blog/2016-02-01-working-with-submodules/">submoduling</a> in git, instead of a <code>git clone</code>:</p>
-<p><code>git submodule add https://github.com/Disane87/ngx-taskboard.git</code></p>
+<p>git submodule add <a href="https://github.com/Disane87/ngx-taskboard.git%60">https://github.com/Disane87/ngx-taskboard.git`</a></p>
 <p>And now, have some fun! 😊</p>
 
 

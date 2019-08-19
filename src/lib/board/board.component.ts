@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, TemplateRef } from '@angular/core';
 import { CodegenComponentFactoryResolver } from '@angular/core/src/linker/component_factory_resolver';
-import { CardItem, CollapseState } from '../types';
+import { CardItem, CollapseState, ClickEvent, GroupKeys, } from '../types';
+import { TaskboardService } from '../taskboard.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -11,10 +12,10 @@ import { CardItem, CollapseState } from '../types';
 export class BoardComponent implements OnInit {
 
   /** Shows the blacklog on onit */
-  @Input() showBacklog = true;
+  @Input() showBacklog: boolean = true;
 
   /** Name of the backlog row */
-  @Input() backlogName = 'Backlog';
+  @Input() backlogName: string = 'Backlog';
 
   /** Items to display */
   @Input() items: Array<CardItem> | Array<object> = [];
@@ -34,76 +35,85 @@ export class BoardComponent implements OnInit {
   @Input() vGroupKeys: Array<string> = [];
 
   /** Show add buttons on the column headings */
-  @Input() hAddNewItems = true;
+  @Input() hAddNewItems: boolean = true;
 
   /** Show add buttons on the row headings */
-  @Input() vAddNewItems = true;
+  @Input() vAddNewItems: boolean = true;
 
   /** Show add buttons in the cells for columns and rows */
-  @Input() cellAddNewItems = true;
+  @Input() cellAddNewItems: boolean = true;
 
   /** Key to group data for rows */
-  @Input() vGroupKey = '';
+  @Input() vGroupKey: string = '';
 
   /** Key to group data for columns */
-  @Input() hGroupKey = '';
+  @Input() hGroupKey: string = '';
 
   /** Sort items by property */
-  @Input() sortBy = '';
+  @Input() sortBy: string = '';
 
   /** Board name to show between row and column header */
-  @Input() boardName = '';
+  @Input() boardName: string = '';
 
   /** Invert rows and columns */
-  @Input() invertGroupDirection = false;
+  @Input() invertGroupDirection: boolean = false;
 
   /** All items which can't be grouped into rows and columns are stored into the backlog  */
-  @Input() showUngroupedInBacklog = true;
+  @Input() showUngroupedInBacklog: boolean = true;
 
   /** Decrease overall font size */
-  @Input() smallText = false;
+  @Input() smallText: boolean = false;
 
   /** Template for items to render. "item" object ist passed (see examples) */
-  @Input() itemTemplate: TemplateRef<any>;
+  @Input() itemTemplate: TemplateRef<any> = null;
 
   /** Template for collapsed rows to render. "count" object ist passed (see examples) */
-  @Input() noElementsTemplate: TemplateRef<any>;
+  @Input() noElementsTemplate: TemplateRef<any> = null;
 
   /** Template for column headers. Current groupName will be passed (see examples) */
-  @Input() hHeaderTemplate: TemplateRef<any>;
+  @Input() hHeaderTemplate: TemplateRef<any> = null;
 
   /** Template for row headers. Current groupName will be passed (see examples) */
-  @Input() vHeaderTemplate: TemplateRef<any>;
+  @Input() vHeaderTemplate: TemplateRef<any> = null;
 
   /** Template for actions, add and collapse buttons (see examples) */
-  @Input() actionsTemplate: TemplateRef<any>;
+  @Input() actionsTemplate: TemplateRef<any> = null;
 
   /** Template for the placeholder element which will be generated when an item is draged over a cell */
-  @Input() dragoverPlaceholderTemplate: TemplateRef<any>;
+  @Input() dragoverPlaceholderTemplate: TemplateRef<any> = null;
 
   /** Default css class for row header */
-  @Input() vHeaderClass = 'card-header';
+  @Input() vHeaderClass: string = 'card-header';
 
   /** Default css class for column header */
-  @Input() hHeaderClass = 'card-header';
+  @Input() hHeaderClass: string = 'card-header';
 
   /** Default css class for cell header */
-  @Input() cellClass = 'card-header';
+  @Input() cellClass: string = 'card-header';
 
   /**
    * If set to true, the rows and columns are scrollable and will be out of the viewport.
    * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)
    */
-  @Input() scrollable = false;
+  @Input() scrollable: boolean = false;
 
   /** Allow to collapse the rows */
-  @Input() vCollapsable = true;
+  @Input() vCollapsable: boolean = true;
 
   /** Rows are collapsed or not on init */
-  @Input() vCollapsed = false;
+  @Input() vCollapsed: boolean = false;
 
   /** Columns are collapsed or not on init */
-  @Input() hCollapsed = false;
+  @Input() hCollapsed: boolean = false;
+
+  /** Shows the filter row to search items by filter in filterOnProperties array */
+  @Input() showFilterRow: boolean = true;
+
+  /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
+  @Input() filter: string = '';
+
+  /** Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched */
+  @Input() filterOnProperties: Array<string> = [];
 
   /** Fired when the user drags an item. Current item is passed */
   @Output() readonly dragStarted = new EventEmitter<object>();
@@ -111,7 +121,7 @@ export class BoardComponent implements OnInit {
   /** Fired when an item is dropped. Current item is passed  */
   @Output() readonly dropped = new EventEmitter<object>();
 
-  /** Fired when an add action is click. Current `ClickEvent` is passed */
+  /** Fired when an add action is click. Current ClickEvent is passed */
   @Output() readonly elementCreateClick = new EventEmitter<ClickEvent>();
 
   public hHeadings: Array<string> = [];
@@ -122,7 +132,7 @@ export class BoardComponent implements OnInit {
   private placeholderSet = false;
   private currentDragZone: string;
 
-  constructor(private readonly renderer: Renderer2, private readonly elRef: ElementRef, private readonly cd: ChangeDetectorRef) { }
+  constructor(private readonly renderer: Renderer2, private readonly elRef: ElementRef, private readonly cd: ChangeDetectorRef, private taskboardService: TaskboardService) { }
 
   ngOnInit() {
     if (this.invertGroupDirection) {
@@ -138,11 +148,18 @@ export class BoardComponent implements OnInit {
 
     this.collapseStates.push(...this.vHeadings.map(item => ({ name: item, collapsed: this.vCollapsed })));
     this.collapseStates.push(...this.hHeadings.map(item => ({ name: item, collapsed: this.hCollapsed })));
+
+    this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
   }
 
   getItemsOfGroup(vValue: string, hValue: string): Array<CardItem> | Array<object> {
     // console.log('getItemsOfGroup', arguments);
     let items = this.items.filter(item => {
+
+      if(this.taskboardService.objectProperties.length == 0){
+        debugger;
+        this.taskboardService.objectProperties = Object.keys(item);
+      }
 
       const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
 
@@ -169,7 +186,7 @@ export class BoardComponent implements OnInit {
       /* Detect datatype of sortBy-Field */
       const fieldType = typeof (items.some(item => items[0][this.sortBy] !== undefined && items[0][this.sortBy] !== null)[this.sortBy]);
       if (fieldType) {
-        return items.sort((a, b) => {
+        items = items.sort((a, b) => {
 
           const aField = a[this.sortBy];
           const bField = b[this.sortBy];
@@ -190,20 +207,22 @@ export class BoardComponent implements OnInit {
           }
 
         });
-      } else {
-        return items;
       }
-
     }
-    return items;
+    return (this.filter != '') ? items.filter((item, index, array) => {
+      return (this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {
+        let found  = item[key] != undefined && typeof(item[key]) != "number" && ((<string>item[key]).indexOf(this.filter) > -1 ? true : false);
+        found && console.info(`Searching "${item[key]}" for "${this.filter}" | Found ${found}`);
+        return found;
+      })
+    }) : items;
   }
 
   toggleCollapseGroup(direction: string, collapsed: boolean): void {
-    const groupKeysToToggle = this.collapseStates.filter(item => (direction == 'vertical'  ? this.vHeadings : this.hHeadings).some(i => i.toLowerCase() == item.name.toLowerCase()));
+    const groupKeysToToggle = this.collapseStates.filter(item => (direction == 'vertical' ? this.vHeadings : this.hHeadings).some(i => i.toLowerCase() == item.name.toLowerCase()));
     groupKeysToToggle.forEach(item => item.collapsed = !collapsed);
     if (groupKeysToToggle.length > 0) {
       if (direction == 'vertical') {
-        debugger;
         this.vCollapsed = !collapsed;
       } else {
         this.hCollapsed = !collapsed;
@@ -336,14 +355,4 @@ export class BoardComponent implements OnInit {
       return placeholderElement;
     }
   }
-}
-
-export interface ClickEvent {
-  hGroup: string;
-  vGroup: string;
-}
-
-export interface GroupKeys {
-  hGroupKey: string;
-  vGroupKey: string;
 }

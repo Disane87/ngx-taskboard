@@ -3,11 +3,9 @@
 
 `ngx-taskboard` is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the [issues](https://github.com/Disane87/ngx-taskboard/issues) when you have questions or found a bug or leave a PR if you have som additions. Styling is made with [Bootstrap](https://github.com/twbs/bootstrap), so it's 100% compatible.
 
-
-# Table of Content
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<!-- END doctoc -->
+
 
 - [Description](#description)
 - [Dependencies](#dependencies)
@@ -16,27 +14,22 @@
   - [Configuration](#configuration)
     - [Properties](#properties)
     - [Events](#events)
-  - [Datatypes](#datatypes)
-    - [CardItem](#carditem)
-    - [ClickEvent](#clickevent)
+  - [Interfaces](#interfaces)
   - [Examples](#examples)
 - [Limitations](#limitations)
 - [Contributing](#contributing)
-  - [Installation](#installation-1)
+  - [Installation the project](#installation-the-project)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
 # Description
-
 
 ![Taskboard](https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif)
 
-
-
 # Dependencies
-* Angular 7
-* Bootstrap 4
+
+- Angular 7
+- Bootstrap 4
 
 # Installation
 `npm install @disane/ngx-taskboard`
@@ -44,6 +37,7 @@
 # Basic usage
 
 `app.module.ts`
+
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -66,6 +60,7 @@ export class AppModule { }
 ```
 
 `app.component.html`
+
 ```html
 <ngx-taskboard class="w-100 h-100" [items]="items" [hGroupKeys]="hGroupKeys" [vGroupKeys]="vGroupKeys"
   [vGroupKey]="vGroupKey" [hGroupKey]="hGroupKey" [sortBy]="sortBy" [invertGroupDirection]="false">
@@ -73,6 +68,7 @@ export class AppModule { }
 ```
 
 `app.component.ts`
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -105,85 +101,79 @@ export class AppComponent {
 ```
 
 ## Configuration
+
 ### Properties
 
-<!-- Start AutoDoc inputsClass -->
-| Name                        | Description                                                                                                                                                                                                                              | Type                             |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| itemTemplate                | Template for items to render. &quot;item&quot; object ist passed (see examples)                                                                                                                                                          | TemplateRef<any>                 |
-| vHeaderTemplate             | Template for row headers. Current groupName will be passed (see examples)                                                                                                                                                                | TemplateRef<any>                 |
-| noElementsTemplate          | Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples)                                                                                                                                                | TemplateRef<any>                 |
-| boardName                   | Board name to show between row and column header                                                                                                                                                                                         |                                  |
-| cellClass                   | Default css class for cell header                                                                                                                                                                                                        |                                  |
-| dragoverPlaceholderTemplate | Template for the placeholder element which will be generated when an item is draged over a cell                                                                                                                                          | TemplateRef<any>                 |
-| hAddNewItems                | Show add buttons on the column headings                                                                                                                                                                                                  |                                  |
-| hCollapsed                  | Columns are collapsed or not on init                                                                                                                                                                                                     |                                  |
-| hGroupKey                   | Key to group data for columns                                                                                                                                                                                                            |                                  |
-| hGroupKeys                  | Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them | Array<string>                    |
-| hHeaderClass                | Default css class for column header                                                                                                                                                                                                      |                                  |
-| hHeaderTemplate             | Template for column headers. Current groupName will be passed (see examples)                                                                                                                                                             | TemplateRef<any>                 |
-| invertGroupDirection        | Invert rows and columns                                                                                                                                                                                                                  |                                  |
-| items                       | Items to display                                                                                                                                                                                                                         | Array<CardItem> \| Array<object> |
-| vHeaderClass                | Default css class for row header                                                                                                                                                                                                         |                                  |
-| cellAddNewItems             | Show add buttons in the cells for columns and rows                                                                                                                                                                                       |                                  |
-| scrollable                  | If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)                                                 |                                  |
-| showBacklog                 | Shows the blacklog on onit                                                                                                                                                                                                               |                                  |
-| showUngroupedInBacklog      | All items which can&#39;t be grouped into rows and columns are stored into the backlog                                                                                                                                                   |                                  |
-| smallText                   | Decrease overall font size                                                                                                                                                                                                               |                                  |
-| sortBy                      | Sort items by property                                                                                                                                                                                                                   |                                  |
-| vAddNewItems                | Show add buttons on the row headings                                                                                                                                                                                                     |                                  |
-| vCollapsable                | Allow to collapse the rows                                                                                                                                                                                                               |                                  |
-| vCollapsed                  | Rows are collapsed or not on init                                                                                                                                                                                                        |                                  |
-| vGroupKey                   | Key to group data for rows                                                                                                                                                                                                               |                                  |
-| vGroupKeys                  | Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them       | Array<string>                    |
-| backlogName                 | Name of the backlog row                                                                                                                                                                                                                  |                                  |
-| actionsTemplate             | Template for actions, add and collapse buttons (see examples)                                                                                                                                                                            | TemplateRef<any>                 |
+<!-- Start AutoDoc components-name=BoardComponent-inputsClass -->
+| Name                        | Default value | Description                                                                                                                                                                                                                              | Type                                   |
+| --------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| actionsTemplate             | null          | Template for actions, add and collapse buttons (see examples)                                                                                                                                                                            | TemplateRef&lt;any&gt;                 |
+| backlogName                 | 'Backlog'     | Name of the backlog row                                                                                                                                                                                                                  | string                                 |
+| boardName                   | ''            | Board name to show between row and column header                                                                                                                                                                                         | string                                 |
+| cellAddNewItems             | true          | Show add buttons in the cells for columns and rows                                                                                                                                                                                       | boolean                                |
+| cellClass                   | 'card-header' | Default css class for cell header                                                                                                                                                                                                        | string                                 |
+| dragoverPlaceholderTemplate | null          | Template for the placeholder element which will be generated when an item is draged over a cell                                                                                                                                          | TemplateRef&lt;any&gt;                 |
+| filter                      | ''            | Predefined filter for the searchbar. If set, the items are filtered by the term on init.                                                                                                                                                 | string                                 |
+| filterOnProperties          | []            | Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched                                                                                                            | Array&lt;string&gt;                    |
+| hAddNewItems                | true          | Show add buttons on the column headings                                                                                                                                                                                                  | boolean                                |
+| hCollapsed                  | false         | Columns are collapsed or not on init                                                                                                                                                                                                     | boolean                                |
+| hGroupKey                   | ''            | Key to group data for columns                                                                                                                                                                                                            | string                                 |
+| hGroupKeys                  | []            | Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them | Array&lt;string&gt;                    |
+| hHeaderClass                | 'card-header' | Default css class for column header                                                                                                                                                                                                      | string                                 |
+| hHeaderTemplate             | null          | Template for column headers. Current groupName will be passed (see examples)                                                                                                                                                             | TemplateRef&lt;any&gt;                 |
+| invertGroupDirection        | false         | Invert rows and columns                                                                                                                                                                                                                  | boolean                                |
+| items                       | []            | Items to display                                                                                                                                                                                                                         | Array&lt;CardItem&gt; \| Array<object> |
+| itemTemplate                | null          | Template for items to render. &quot;item&quot; object ist passed (see examples)                                                                                                                                                          | TemplateRef&lt;any&gt;                 |
+| noElementsTemplate          | null          | Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples)                                                                                                                                                | TemplateRef&lt;any&gt;                 |
+| scrollable                  | false         | If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)                                                 | boolean                                |
+| showBacklog                 | true          | Shows the blacklog on onit                                                                                                                                                                                                               | boolean                                |
+| showFilterRow               | true          | Shows the filter row to search items by filter in filterOnProperties array                                                                                                                                                               | boolean                                |
+| showUngroupedInBacklog      | true          | All items which can&#39;t be grouped into rows and columns are stored into the backlog                                                                                                                                                   | boolean                                |
+| smallText                   | false         | Decrease overall font size                                                                                                                                                                                                               | boolean                                |
+| sortBy                      | ''            | Sort items by property                                                                                                                                                                                                                   | string                                 |
+| vAddNewItems                | true          | Show add buttons on the row headings                                                                                                                                                                                                     | boolean                                |
+| vCollapsable                | true          | Allow to collapse the rows                                                                                                                                                                                                               | boolean                                |
+| vCollapsed                  | false         | Rows are collapsed or not on init                                                                                                                                                                                                        | boolean                                |
+| vGroupKey                   | ''            | Key to group data for rows                                                                                                                                                                                                               | string                                 |
+| vGroupKeys                  | []            | Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them       | Array&lt;string&gt;                    |
+| vHeaderClass                | 'card-header' | Default css class for row header                                                                                                                                                                                                         | string                                 |
+| vHeaderTemplate             | null          | Template for row headers. Current groupName will be passed (see examples)                                                                                                                                                                | TemplateRef&lt;any&gt;                 |
 
-<!-- End AutoDoc inputsClass -->
+<!-- End AutoDoc components-name=BoardComponent-inputsClass -->
 
 ### Events
 
-<!-- Start AutoDoc outputsClass -->
-| Name               | Default value                  | Description                                                      | Type         |
-| ------------------ | ------------------------------ | ---------------------------------------------------------------- | ------------ |
-| elementCreateClick | new EventEmitter<ClickEvent>() | Fired when an add action is click. Current ClickEvent is passed  | EventEmitter |
-| dropped            | new EventEmitter<object>()     | Fired when an item is dropped. Current item is passed            | EventEmitter |
-| dragStarted        | new EventEmitter<object>()     | Fired when the user drags an item. Current item is passed        | EventEmitter |
+<!-- Start AutoDoc components-name=BoardComponent-outputsClass -->
+| Name               | Default value                        | Description                                                      | Type         |
+| ------------------ | ------------------------------------ | ---------------------------------------------------------------- | ------------ |
+| dragStarted        | new EventEmitter&lt;object&gt;()     | Fired when the user drags an item. Current item is passed        | EventEmitter |
+| dropped            | new EventEmitter&lt;object&gt;()     | Fired when an item is dropped. Current item is passed            | EventEmitter |
+| elementCreateClick | new EventEmitter&lt;ClickEvent&gt;() | Fired when an add action is click. Current ClickEvent is passed  | EventEmitter |
 
-<!-- End AutoDoc outputsClass -->
+<!-- End AutoDoc components-name=BoardComponent-outputsClass -->
 
-## Datatypes
-### CardItem
-```ts
-export interface CardItem {
-    id: number;
-    name: string;
-    status?: string;
-    color?: string;
-    user?: string;
-    priority?: number;
-}
-```
+## Interfaces
+<!-- Start AutoDoc Interfaces -->
+| Name          | Type      | Description                                                         |
+| ------------- | --------- | ------------------------------------------------------------------- |
+| CardItem      | interface | Item to render                                                      |
+| ClickEvent    | interface | Datatype which is emitted when an item should be added              |
+| CollapseState | interface | All the collapse stated of every group item (horizontal / vertical) |
+| GroupKeys     | interface | Group keys to determine the correct groups internally               |
 
-### ClickEvent
-```ts
-export interface ClickEvent {
-  hGroup: string; 
-  vGroup: string;
-}
-```
-
+<!-- End AutoDoc Interfaces -->
 
 ## Examples
+
 Following soon
 
 # Limitations
-- Scrolling actually not possible
 
+- Scrolling actually not possible
 
 # Contributing
 
-## Installation
+## Installation the project
 
 ```bash
 git clone https://github.com/Disane87/ngx-taskboard.git .
@@ -195,9 +185,8 @@ In your test or real project, you have to add the package, but only with another
 
 This is a bit odd, but you can read more about it [here](https://docs.npmjs.com/cli/link).
 
-
 If you have an existing Angular library project with a tets application, you can work here with [submoduling](https://github.blog/2016-02-01-working-with-submodules/) in git, instead of a `git clone`:
 
-`git submodule add https://github.com/Disane87/ngx-taskboard.git`
+git submodule add https://github.com/Disane87/ngx-taskboard.git`
 
 And now, have some fun! 😊
