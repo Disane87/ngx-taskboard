@@ -50,10 +50,7 @@ function main() {
             }
 
         }
-
     });
-
-
 }
 
 function prepareData(part, object) {
