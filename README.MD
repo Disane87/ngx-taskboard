@@ -152,7 +152,7 @@ export class AppComponent {
 
 <!-- End AutoDoc components-name=BoardComponent-outputsClass -->
 
-## Interfaces
+### Interfaces
 <!-- Start AutoDoc Interfaces -->
 | Name          | Type      | Description                                                         |
 | ------------- | --------- | ------------------------------------------------------------------- |
