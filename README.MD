@@ -16,9 +16,7 @@
   - [Configuration](#configuration)
     - [Properties](#properties)
     - [Events](#events)
-  - [Datatypes](#datatypes)
-    - [CardItem](#carditem)
-    - [ClickEvent](#clickevent)
+  - [Interfaces](#interfaces)
   - [Examples](#examples)
 - [Limitations](#limitations)
 - [Contributing](#contributing)
@@ -107,71 +105,23 @@ export class AppComponent {
 ## Configuration
 ### Properties
 
-<!-- Start AutoDoc inputsClass -->
-| Name                        | Description                                                                                                                                                                                                                              | Type                             |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| itemTemplate                | Template for items to render. &quot;item&quot; object ist passed (see examples)                                                                                                                                                          | TemplateRef<any>                 |
-| vHeaderTemplate             | Template for row headers. Current groupName will be passed (see examples)                                                                                                                                                                | TemplateRef<any>                 |
-| noElementsTemplate          | Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples)                                                                                                                                                | TemplateRef<any>                 |
-| boardName                   | Board name to show between row and column header                                                                                                                                                                                         |                                  |
-| cellClass                   | Default css class for cell header                                                                                                                                                                                                        |                                  |
-| dragoverPlaceholderTemplate | Template for the placeholder element which will be generated when an item is draged over a cell                                                                                                                                          | TemplateRef<any>                 |
-| hAddNewItems                | Show add buttons on the column headings                                                                                                                                                                                                  |                                  |
-| hCollapsed                  | Columns are collapsed or not on init                                                                                                                                                                                                     |                                  |
-| hGroupKey                   | Key to group data for columns                                                                                                                                                                                                            |                                  |
-| hGroupKeys                  | Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them | Array<string>                    |
-| hHeaderClass                | Default css class for column header                                                                                                                                                                                                      |                                  |
-| hHeaderTemplate             | Template for column headers. Current groupName will be passed (see examples)                                                                                                                                                             | TemplateRef<any>                 |
-| invertGroupDirection        | Invert rows and columns                                                                                                                                                                                                                  |                                  |
-| items                       | Items to display                                                                                                                                                                                                                         | Array<CardItem> \| Array<object> |
-| vHeaderClass                | Default css class for row header                                                                                                                                                                                                         |                                  |
-| cellAddNewItems             | Show add buttons in the cells for columns and rows                                                                                                                                                                                       |                                  |
-| scrollable                  | If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)                                                 |                                  |
-| showBacklog                 | Shows the blacklog on onit                                                                                                                                                                                                               |                                  |
-| showUngroupedInBacklog      | All items which can&#39;t be grouped into rows and columns are stored into the backlog                                                                                                                                                   |                                  |
-| smallText                   | Decrease overall font size                                                                                                                                                                                                               |                                  |
-| sortBy                      | Sort items by property                                                                                                                                                                                                                   |                                  |
-| vAddNewItems                | Show add buttons on the row headings                                                                                                                                                                                                     |                                  |
-| vCollapsable                | Allow to collapse the rows                                                                                                                                                                                                               |                                  |
-| vCollapsed                  | Rows are collapsed or not on init                                                                                                                                                                                                        |                                  |
-| vGroupKey                   | Key to group data for rows                                                                                                                                                                                                               |                                  |
-| vGroupKeys                  | Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them       | Array<string>                    |
-| backlogName                 | Name of the backlog row                                                                                                                                                                                                                  |                                  |
-| actionsTemplate             | Template for actions, add and collapse buttons (see examples)                                                                                                                                                                            | TemplateRef<any>                 |
-
-<!-- End AutoDoc inputsClass -->
+<!-- Start AutoDoc components.name=BoardComponent.inputsClass  -->
+<!-- End AutoDoc components.name=BoardComponent.inputsClass -->
 
 ### Events
 
-<!-- Start AutoDoc outputsClass -->
-| Name               | Default value                  | Description                                                      | Type         |
-| ------------------ | ------------------------------ | ---------------------------------------------------------------- | ------------ |
-| elementCreateClick | new EventEmitter<ClickEvent>() | Fired when an add action is click. Current ClickEvent is passed  | EventEmitter |
-| dropped            | new EventEmitter<object>()     | Fired when an item is dropped. Current item is passed            | EventEmitter |
-| dragStarted        | new EventEmitter<object>()     | Fired when the user drags an item. Current item is passed        | EventEmitter |
+<!-- Start AutoDoc components.name=BoardComponent.outputsClass -->
+| Name               | Default value                        | Description                                                      | Type         |
+| ------------------ | ------------------------------------ | ---------------------------------------------------------------- | ------------ |
+| dragStarted        | new EventEmitter&lt;object&gt;()     | Fired when the user drags an item. Current item is passed        | EventEmitter |
+| dropped            | new EventEmitter&lt;object&gt;()     | Fired when an item is dropped. Current item is passed            | EventEmitter |
+| elementCreateClick | new EventEmitter&lt;ClickEvent&gt;() | Fired when an add action is click. Current ClickEvent is passed  | EventEmitter |
 
-<!-- End AutoDoc outputsClass -->
+<!-- End AutoDoc components.name=BoardComponent.outputsClass -->
 
-## Datatypes
-### CardItem
-```ts
-export interface CardItem {
-    id: number;
-    name: string;
-    status?: string;
-    color?: string;
-    user?: string;
-    priority?: number;
-}
-```
-
-### ClickEvent
-```ts
-export interface ClickEvent {
-  hGroup: string; 
-  vGroup: string;
-}
-```
+## Interfaces
+<!-- Start AutoDoc Interfaces -->
+<!-- End AutoDoc Interfaces -->
 
 
 ## Examples
@@ -197,6 +147,10 @@ This is a bit odd, but you can read more about it [here](https://docs.npmjs.com/
 
 
 If you have an existing Angular library project with a tets application, you can work here with [submoduling](https://github.blog/2016-02-01-working-with-submodules/) in git, instead of a `git clone`:
+
+`git submodule add https://github.com/Disane87/ngx-taskboard.git`
+
+And now, have some fun! 😊 can work here with [submoduling](https://github.blog/2016-02-01-working-with-submodules/) in git, instead of a `git clone`:
 
 `git submodule add https://github.com/Disane87/ngx-taskboard.git`
 
