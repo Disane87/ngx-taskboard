@@ -106,22 +106,22 @@ export class BoardComponent implements OnInit {
   /** Columns are collapsed or not on init */
   @Input() hCollapsed: boolean = false;
 
-  /** Shows the filter row to search items by `filter` in `filterOnProperties` array */
+  /** Shows the filter row to search items by filter in filterOnProperties array */
   @Input() showFilterRow: boolean = true;
 
-  /** Predefined filter for the searchbar. If set, the `items` are filtered by the term on init. */
+  /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
   @Input() filter: string = '';
 
-  /** Specify the properties which will be searched for the given term in `filter`. If not properties are given, all will be searched */
+  /** Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched */
   @Input() filterOnProperties: Array<string> = [];
 
-  /** Fired when the user drags an item. Current `item` is passed */
+  /** Fired when the user drags an item. Current item is passed */
   @Output() readonly dragStarted = new EventEmitter<object>();
 
-  /** Fired when an item is dropped. Current `item` is passed  */
+  /** Fired when an item is dropped. Current item is passed  */
   @Output() readonly dropped = new EventEmitter<object>();
 
-  /** Fired when an add action is click. Current `ClickEvent` is passed */
+  /** Fired when an add action is click. Current ClickEvent is passed */
   @Output() readonly elementCreateClick = new EventEmitter<ClickEvent>();
 
   public hHeadings: Array<string> = [];

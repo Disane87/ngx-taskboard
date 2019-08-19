@@ -656,7 +656,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Predefined filter for the searchbar. If set, the <code>items</code> are filtered by the term on init. </p>
+                        <div class="io-description"><p>Predefined filter for the searchbar. If set, the items are filtered by the term on init. </p>
 </div>
                     </td>
                 </tr>
@@ -688,7 +688,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Specify the properties which will be searched for the given term in <code>filter</code>. If not properties are given, all will be searched </p>
+                        <div class="io-description"><p>Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched </p>
 </div>
                     </td>
                 </tr>
@@ -1107,7 +1107,7 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Shows the filter row to search items by <code>filter</code> in <code>filterOnProperties</code> array </p>
+                        <div class="io-description"><p>Shows the filter row to search items by filter in filterOnProperties array </p>
 </div>
                     </td>
                 </tr>
@@ -1459,7 +1459,7 @@ If you want to show emtpy rows, please set them</p>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Fired when the user drags an item. Current <code>item</code> is passed </p>
+                        <div class="io-description"><p>Fired when the user drags an item. Current item is passed </p>
 </div>
                     </td>
                 </tr>
@@ -1486,7 +1486,7 @@ If you want to show emtpy rows, please set them</p>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Fired when an item is dropped. Current <code>item</code> is passed  </p>
+                        <div class="io-description"><p>Fired when an item is dropped. Current item is passed  </p>
 </div>
                     </td>
                 </tr>
@@ -1513,7 +1513,7 @@ If you want to show emtpy rows, please set them</p>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Fired when an add action is click. Current <code>ClickEvent</code> is passed </p>
+                        <div class="io-description"><p>Fired when an add action is click. Current ClickEvent is passed </p>
 </div>
                     </td>
                 </tr>
@@ -2938,22 +2938,22 @@ export class BoardComponent implements OnInit {
   /** Columns are collapsed or not on init */
   @Input() hCollapsed: boolean &#x3D; false;
 
-  /** Shows the filter row to search items by &#x60;filter&#x60; in &#x60;filterOnProperties&#x60; array */
+  /** Shows the filter row to search items by filter in filterOnProperties array */
   @Input() showFilterRow: boolean &#x3D; true;
 
-  /** Predefined filter for the searchbar. If set, the &#x60;items&#x60; are filtered by the term on init. */
+  /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
   @Input() filter: string &#x3D; &#x27;&#x27;;
 
-  /** Specify the properties which will be searched for the given term in &#x60;filter&#x60;. If not properties are given, all will be searched */
+  /** Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched */
   @Input() filterOnProperties: Array&lt;string&gt; &#x3D; [];
 
-  /** Fired when the user drags an item. Current &#x60;item&#x60; is passed */
+  /** Fired when the user drags an item. Current item is passed */
   @Output() readonly dragStarted &#x3D; new EventEmitter&lt;object&gt;();
 
-  /** Fired when an item is dropped. Current &#x60;item&#x60; is passed  */
+  /** Fired when an item is dropped. Current item is passed  */
   @Output() readonly dropped &#x3D; new EventEmitter&lt;object&gt;();
 
-  /** Fired when an add action is click. Current &#x60;ClickEvent&#x60; is passed */
+  /** Fired when an add action is click. Current ClickEvent is passed */
   @Output() readonly elementCreateClick &#x3D; new EventEmitter&lt;ClickEvent&gt;();
 
   public hHeadings: Array&lt;string&gt; &#x3D; [];

@@ -1,59 +1,37 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [ngx-taskboard](#ngx-taskboard)
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Interfaces](#interfaces)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation the project](#installation-the-project)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # ngx-taskboard 
 ![badge](https://api.codeclimate.com/v1/badges/e7183f0854e6cf832261/maintainability) [![codecov](https://codecov.io/gh/Disane87/ngx-taskboard/branch/master/graph/badge.svg)](https://codecov.io/gh/Disane87/ngx-taskboard) ![badge](https://img.shields.io/npm/v/@disane/ngx-taskboard) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@disane/ngx-taskboard)
 
 `ngx-taskboard` is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the [issues](https://github.com/Disane87/ngx-taskboard/issues) when you have questions or found a bug or leave a PR if you have som additions. Styling is made with [Bootstrap](https://github.com/twbs/bootstrap), so it's 100% compatible.
 
 
-# Table of Content
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<!-- END doctoc -->
-
-- [Description](#description)
-- [Dependencies](#dependencies)
-- [Installation](#installation)
-- [Basic usage](#basic-usage)
-  - [Configuration](#configuration)
-    - [Properties](#properties)
-    - [Events](#events)
-  - [Interfaces](#interfaces)
-  - [Examples](#examples)
-- [Limitations](#limitations)
-- [Contributing](#contributing)
-  - [Installation](#installation-1)
-  - [Dependencies in your test/dev project](#dependencies-in-your-testdev-project)
-  - [Fun fun fun](#fun-fun-fun)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-- [Description](#description)
-- [Dependencies](#dependencies)
-- [Installation](#installation)
-- [Basic usage](#basic-usage)
-  - [Configuration](#configuration)
-    - [Properties](#properties)
-    - [Events](#events)
-  - [Interfaces](#interfaces)
-  - [Examples](#examples)
-- [Limitations](#limitations)
-- [Contributing](#contributing)
-  - [Installation](#installation-1)
-  - [Dependencies in your test/dev project](#dependencies-in-your-testdev-project)
-  - [Fun fun fun](#fun-fun-fun)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-
 # Description
-
 
 ![Taskboard](https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif)
 
-
-
 # Dependencies
-* Angular 7
-* Bootstrap 4
+
+- Angular 7
+- Bootstrap 4
 
 # Installation
 `npm install @disane/ngx-taskboard`
@@ -61,6 +39,7 @@
 # Basic usage
 
 `app.module.ts`
+
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -83,6 +62,7 @@ export class AppModule { }
 ```
 
 `app.component.html`
+
 ```html
 <ngx-taskboard class="w-100 h-100" [items]="items" [hGroupKeys]="hGroupKeys" [vGroupKeys]="vGroupKeys"
   [vGroupKey]="vGroupKey" [hGroupKey]="hGroupKey" [sortBy]="sortBy" [invertGroupDirection]="false">
@@ -90,6 +70,7 @@ export class AppModule { }
 ```
 
 `app.component.ts`
+
 ```ts
 import { Component } from '@angular/core';
 
@@ -122,39 +103,79 @@ export class AppComponent {
 ```
 
 ## Configuration
+
 ### Properties
 
 <!-- Start AutoDoc components-name=BoardComponent-inputsClass -->
+| Name                        | Default value | Description                                                                                                                                                                                                                              | Type                                   |
+| --------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| actionsTemplate             | null          | Template for actions, add and collapse buttons (see examples)                                                                                                                                                                            | TemplateRef&lt;any&gt;                 |
+| backlogName                 | 'Backlog'     | Name of the backlog row                                                                                                                                                                                                                  | string                                 |
+| boardName                   | ''            | Board name to show between row and column header                                                                                                                                                                                         | string                                 |
+| cellAddNewItems             | true          | Show add buttons in the cells for columns and rows                                                                                                                                                                                       | boolean                                |
+| cellClass                   | 'card-header' | Default css class for cell header                                                                                                                                                                                                        | string                                 |
+| dragoverPlaceholderTemplate | null          | Template for the placeholder element which will be generated when an item is draged over a cell                                                                                                                                          | TemplateRef&lt;any&gt;                 |
+| filter                      | ''            | Predefined filter for the searchbar. If set, the items are filtered by the term on init.                                                                                                                                                 | string                                 |
+| filterOnProperties          | []            | Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched                                                                                                            | Array&lt;string&gt;                    |
+| hAddNewItems                | true          | Show add buttons on the column headings                                                                                                                                                                                                  | boolean                                |
+| hCollapsed                  | false         | Columns are collapsed or not on init                                                                                                                                                                                                     | boolean                                |
+| hGroupKey                   | ''            | Key to group data for columns                                                                                                                                                                                                            | string                                 |
+| hGroupKeys                  | []            | Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them | Array&lt;string&gt;                    |
+| hHeaderClass                | 'card-header' | Default css class for column header                                                                                                                                                                                                      | string                                 |
+| hHeaderTemplate             | null          | Template for column headers. Current groupName will be passed (see examples)                                                                                                                                                             | TemplateRef&lt;any&gt;                 |
+| invertGroupDirection        | false         | Invert rows and columns                                                                                                                                                                                                                  | boolean                                |
+| items                       | []            | Items to display                                                                                                                                                                                                                         | Array&lt;CardItem&gt; \| Array<object> |
+| itemTemplate                | null          | Template for items to render. &quot;item&quot; object ist passed (see examples)                                                                                                                                                          | TemplateRef&lt;any&gt;                 |
+| noElementsTemplate          | null          | Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples)                                                                                                                                                | TemplateRef&lt;any&gt;                 |
+| scrollable                  | false         | If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)                                                 | boolean                                |
+| showBacklog                 | true          | Shows the blacklog on onit                                                                                                                                                                                                               | boolean                                |
+| showFilterRow               | true          | Shows the filter row to search items by filter in filterOnProperties array                                                                                                                                                               | boolean                                |
+| showUngroupedInBacklog      | true          | All items which can&#39;t be grouped into rows and columns are stored into the backlog                                                                                                                                                   | boolean                                |
+| smallText                   | false         | Decrease overall font size                                                                                                                                                                                                               | boolean                                |
+| sortBy                      | ''            | Sort items by property                                                                                                                                                                                                                   | string                                 |
+| vAddNewItems                | true          | Show add buttons on the row headings                                                                                                                                                                                                     | boolean                                |
+| vCollapsable                | true          | Allow to collapse the rows                                                                                                                                                                                                               | boolean                                |
+| vCollapsed                  | false         | Rows are collapsed or not on init                                                                                                                                                                                                        | boolean                                |
+| vGroupKey                   | ''            | Key to group data for rows                                                                                                                                                                                                               | string                                 |
+| vGroupKeys                  | []            | Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them       | Array&lt;string&gt;                    |
+| vHeaderClass                | 'card-header' | Default css class for row header                                                                                                                                                                                                         | string                                 |
+| vHeaderTemplate             | null          | Template for row headers. Current groupName will be passed (see examples)                                                                                                                                                                | TemplateRef&lt;any&gt;                 |
 
 <!-- End AutoDoc components-name=BoardComponent-inputsClass -->
 
 ### Events
 
 <!-- Start AutoDoc components-name=BoardComponent-outputsClass -->
-| Name               | Default value                    | Description                                                      | Type           |
-| ------------------ | -------------------------------- | ---------------------------------------------------------------- | -------------- |
-| dragStarted        | `new EventEmitter<object>()`     | Fired when the user drags an item. Current item is passed        | `EventEmitter` |
-| dropped            | `new EventEmitter<object>()`     | Fired when an item is dropped. Current item is passed            | `EventEmitter` |
-| elementCreateClick | `new EventEmitter<ClickEvent>()` | Fired when an add action is click. Current ClickEvent is passed  | `EventEmitter` |
+| Name               | Default value                        | Description                                                      | Type         |
+| ------------------ | ------------------------------------ | ---------------------------------------------------------------- | ------------ |
+| dragStarted        | new EventEmitter&lt;object&gt;()     | Fired when the user drags an item. Current item is passed        | EventEmitter |
+| dropped            | new EventEmitter&lt;object&gt;()     | Fired when an item is dropped. Current item is passed            | EventEmitter |
+| elementCreateClick | new EventEmitter&lt;ClickEvent&gt;() | Fired when an add action is click. Current ClickEvent is passed  | EventEmitter |
 
 <!-- End AutoDoc components-name=BoardComponent-outputsClass -->
 
 ## Interfaces
 <!-- Start AutoDoc Interfaces -->
+| Name          | Type      | Description                                                         |
+| ------------- | --------- | ------------------------------------------------------------------- |
+| CardItem      | interface | Item to render                                                      |
+| ClickEvent    | interface | Datatype which is emitted when an item should be added              |
+| CollapseState | interface | All the collapse stated of every group item (horizontal / vertical) |
+| GroupKeys     | interface | Group keys to determine the correct groups internally               |
 
 <!-- End AutoDoc Interfaces -->
 
-
 ## Examples
+
 Following soon
 
 # Limitations
-- Scrolling actually not possible
 
+- Scrolling actually not possible
 
 # Contributing
 
-## Installation
+## Installation the project
 
 ```bash
 git clone https://github.com/Disane87/ngx-taskboard.git .
@@ -166,63 +187,8 @@ In your test or real project, you have to add the package, but only with another
 
 This is a bit odd, but you can read more about it [here](https://docs.npmjs.com/cli/link).
 
-
 If you have an existing Angular library project with a tets application, you can work here with [submoduling](https://github.blog/2016-02-01-working-with-submodules/) in git, instead of a `git clone`:
 
 `git submodule add https://github.com/Disane87/ngx-taskboard.git`
 
 And now, have some fun! 😊
-
-
-## Dependencies in your test/dev project
-```json
- "dependencies": {
-    "@angular/animations": "7.2.15",
-    "@angular/common": "7.2.15",
-    "@angular/compiler": "7.2.15",
-    "@angular/core": "7.2.15",
-    "@angular/forms": "7.2.15",
-    "@angular/platform-browser": "7.2.15",
-    "@angular/platform-browser-dynamic": "7.2.15",
-    "@angular/router": "7.2.15",
-    "@fortawesome/angular-fontawesome": "^0.3.0",
-    "@fortawesome/fontawesome-svg-core": "1.2.12",
-    "@fortawesome/free-brands-svg-icons": "5.6.3",
-    "@fortawesome/free-regular-svg-icons": "5.6.3",
-    "@fortawesome/free-solid-svg-icons": "5.6.3",
-    "bootstrap": "4.3.1",
-    "core-js": "2.6.9",
-    "ngx-bootstrap": "5.1.1",
-    "rxjs": "6.3.3",
-    "tslib": "1.10.0",
-    "zone.js": "0.8.29"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "0.12.4",
-    "@angular-devkit/build-ng-packagr": "0.12.4",
-    "@angular/cli": "7.2.4",
-    "@angular/compiler-cli": "7.2.15",
-    "@angular/language-service": "7.2.15",
-    "@types/jasmine": "2.8.16",
-    "@types/jasminewd2": "2.0.6",
-    "@types/node": "8.9.5",
-    "angular-tslint-rules": "1.18.0",
-    "codelyzer": "4.5.0",
-    "jasmine-core": "2.99.1",
-    "jasmine-spec-reporter": "4.2.1",
-    "karma": "3.1.4",
-    "karma-chrome-launcher": "2.2.0",
-    "karma-coverage-istanbul-reporter": "2.0.6",
-    "karma-jasmine": "1.1.2",
-    "karma-jasmine-html-reporter": "0.2.2",
-    "ng-packagr": "4.7.1",
-    "protractor": "5.4.2",
-    "ts-node": "7.0.1",
-    "tsickle": "0.36.0",
-    "tslib": "1.10.0",
-    "tslint": "5.11.0",
-    "typescript": "3.2.4"
-  }
-```
-
-## Fun fun fun

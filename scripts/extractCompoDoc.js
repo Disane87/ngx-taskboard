@@ -64,15 +64,15 @@ function prepareData(part, object) {
             input.description = input.description.replace(/(\r\n|\n|\r)/gm, "");
             input.description = input.description.replace(/<[^>]*>?/gm, '');
             if (input.type) {
-                input.type = '`'+input.type+'`';
-                // input.type = input.type.replace("<", '&lt;');
-                // input.type = input.type.replace(">", '&gt;');
+                // input.type = '`'+input.type+'`';
+                input.type = input.type.replace("<", '&lt;');
+                input.type = input.type.replace(">", '&gt;');
             }
 
             if (input.defaultValue) {
-                input.defaultValue = '`'+input.defaultValue+'`';
-                // input.defaultValue = input.defaultValue.replace("<", '&lt;');
-                // input.defaultValue = input.defaultValue.replace(">", '&gt;');
+                // input.defaultValue = '`'+input.defaultValue+'`';
+                input.defaultValue = input.defaultValue.replace("<", '&lt;');
+                input.defaultValue = input.defaultValue.replace(">", '&gt;');
             }
 
         } else {
@@ -108,11 +108,11 @@ function replaceText(marker, text) {
         from: regexp,
         to: replaceToString
     })
-        .then(results => {
-            console.log('Replacement results:', results);
-        })
-        .catch(error => {
-            console.error('Error occurred:', error);
-        });
+    .then(results => {
+        console.log('Replacement results:', results);
+    })
+    .catch(error => {
+        console.error('Error occurred:', error);
+    });
 
 }
