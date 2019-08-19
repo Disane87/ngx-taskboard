@@ -66,6 +66,7 @@ function prepareData(part, object) {
             if (input.type) {
                 input.type = input.type.replace("<", '&lt;');
                 input.type = input.type.replace(">", '&gt;');
+                input.type = '`'+input.type+'`';
             }
 
             if (input.defaultValue) {

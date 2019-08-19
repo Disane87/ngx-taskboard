@@ -11,10 +11,10 @@ import { CardItem, CollapseState, ClickEvent, GroupKeys, } from '../types';
 export class BoardComponent implements OnInit {
 
   /** Shows the blacklog on onit */
-  @Input() showBacklog = true;
+  @Input() showBacklog: boolean = true;
 
   /** Name of the backlog row */
-  @Input() backlogName = 'Backlog';
+  @Input() backlogName: string = 'Backlog';
 
   /** Items to display */
   @Input() items: Array<CardItem> | Array<object> = [];
@@ -136,8 +136,8 @@ export class BoardComponent implements OnInit {
     this.hHeadings = (this.hGroupKeys.length > 0 ? this.hGroupKeys : this.getHeadings(this.hGroupKey));
     this.vHeadings = (this.vGroupKeys.length > 0 ? this.vGroupKeys : this.getHeadings(this.vGroupKey));
 
-    this.collapseStates.push(...this.vHeadings.map(item => ({ name: item, collapsed: this.vCollapsed })));
-    this.collapseStates.push(...this.hHeadings.map(item => ({ name: item, collapsed: this.hCollapsed })));
+    this.collapseStates.push(...this.vHeadings.map(item => ({ name: item, collapsed: !this.vCollapsed })));
+    this.collapseStates.push(...this.hHeadings.map(item => ({ name: item, collapsed: !this.hCollapsed })));
   }
 
   getItemsOfGroup(vValue: string, hValue: string): Array<CardItem> | Array<object> {

@@ -3,7 +3,6 @@
  * Item to render
  * 
  * @export
- * @interface CardItem
  */
 export interface CardItem {
     id: number;
@@ -18,7 +17,6 @@ export interface CardItem {
  * All the collapse stated of every group item (horizontal / vertical)
  * 
  * @export
- * @interface CollapseState
  */
 export interface CollapseState {
     name: string;
@@ -29,7 +27,6 @@ export interface CollapseState {
  * Datatype which is emitted when an item should be added
  * 
  * @export
- * @interface ClickEvent
  */
 export interface ClickEvent {
     hGroup: string;
@@ -40,7 +37,6 @@ export interface ClickEvent {
  * Group keys to determine the correct groups internally
  * 
  * @export
- * @interface GroupKeys
  */
 export interface GroupKeys {
     hGroupKey: string;

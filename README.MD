@@ -191,3 +191,54 @@ If you have an existing Angular library project with a tets application, you can
 `git submodule add https://github.com/Disane87/ngx-taskboard.git`
 
 And now, have some fun! 😊
+
+## Dependencies in your test/dev project
+```json
+"dependencies": {
+    "@angular/animations": "7.2.15",
+    "@angular/common": "7.2.15",
+    "@angular/compiler": "7.2.15",
+    "@angular/core": "7.2.15",
+    "@angular/forms": "7.2.15",
+    "@angular/platform-browser": "7.2.15",
+    "@angular/platform-browser-dynamic": "7.2.15",
+    "@angular/router": "7.2.15",
+    "@fortawesome/angular-fontawesome": "0.3.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.21",
+    "@fortawesome/free-brands-svg-icons": "5.10.1",
+    "@fortawesome/free-regular-svg-icons": "5.10.1",
+    "@fortawesome/free-solid-svg-icons": "5.10.1",
+    "bootstrap": "4.3.1",
+    "core-js": "2.6.9",
+    "ngx-bootstrap": "5.1.1",
+    "rxjs": "6.3.3",
+    "tslib": "1.10.0",
+    "zone.js": "0.8.29"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "0.12.4",
+    "@angular-devkit/build-ng-packagr": "0.12.4",
+    "@angular/cli": "7.2.4",
+    "@angular/compiler-cli": "7.2.15",
+    "@angular/language-service": "7.2.15",
+    "@types/jasmine": "2.8.16",
+    "@types/jasminewd2": "2.0.6",
+    "@types/node": "8.9.5",
+    "angular-tslint-rules": "1.18.0",
+    "codelyzer": "4.5.0",
+    "jasmine-core": "2.99.1",
+    "jasmine-spec-reporter": "4.2.1",
+    "karma": "3.1.4",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-coverage-istanbul-reporter": "2.0.6",
+    "karma-jasmine": "1.1.2",
+    "karma-jasmine-html-reporter": "0.2.2",
+    "ng-packagr": "4.7.1",
+    "protractor": "5.4.2",
+    "ts-node": "7.0.1",
+    "tsickle": "0.36.0",
+    "tslib": "1.10.0",
+    "tslint": "5.11.0",
+    "typescript": "3.2.4"
+  }
+```
