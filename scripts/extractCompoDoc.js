@@ -24,7 +24,7 @@ function main() {
             console.log(`Found match, group ${m.index}: ${m[1]}`);
             var match = m[1];
 
-            var matchProperties = match.split(".");
+            var matchProperties = match.split("-");
             if (matchProperties.length > 1) {
                 var data = documentationJson;
                 matchProperties.forEach((part, index) => {
@@ -104,7 +104,6 @@ function replaceText(marker, text) {
     var regexp = new RegExp(replaceRegex, "gmi");
 
     console.info(`Replacing "${replaceRegex}" to "${replaceToString}"`);
-
     replace({
         files: readmeFilePath,
         from: regexp,
