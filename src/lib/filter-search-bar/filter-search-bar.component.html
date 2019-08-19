@@ -1,0 +1,29 @@
+<div class="card-header">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text bg-white" id="basic-addon1">
+        <fa-icon [icon]="['fas','search']"></fa-icon>
+      </span>
+    </div>
+    <input type="text" *ngIf="taskboardService.objectProperties.length > 0" class="form-control border-left-0" [typeahead]="taskboardService.objectProperties" placeholder="Search for items" [ngModel]='filter'
+      (ngModelChange)="changed($event)" />
+
+    <!-- <div class="input-group-append">
+        <div class="btn-group" dropdown>
+            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                    aria-controls="dropdown-basic">
+              Button dropdown <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                role="menu" aria-labelledby="button-basic">
+              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+              <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+              <li class="divider dropdown-divider"></li>
+              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+              </li>
+            </ul>
+          </div>
+    </div> -->
+  </div>
+</div>

@@ -55,6 +55,32 @@
 <li><a href="#limitations">Limitations</a></li>
 <li><a href="#contributing">Contributing</a><ul>
 <li><a href="#installation-1">Installation</a></li>
+<li><a href="#dependencies-in-your-testdev-project">Dependencies in your test/dev project</a></li>
+<li><a href="#fun-fun-fun">Fun fun fun</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#basic-usage">Basic usage</a><ul>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#events">Events</a></li>
+</ul>
+</li>
+<li><a href="#interfaces">Interfaces</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#contributing">Contributing</a><ul>
+<li><a href="#installation-1">Installation</a></li>
+<li><a href="#dependencies-in-your-testdev-project">Dependencies in your test/dev project</a></li>
+<li><a href="#fun-fun-fun">Fun fun fun</a></li>
 </ul>
 </li>
 </ul>
@@ -122,15 +148,18 @@ export class AppComponent {
 }
 </code></pre></div><h2 id="configuration">Configuration</h2>
 <h3 id="properties">Properties</h3>
-<!-- Start AutoDoc components.name=BoardComponent.inputsClass  -->
-<!-- End AutoDoc components.name=BoardComponent.inputsClass -->
+<!-- Start AutoDoc components-name=BoardComponent-inputsClass -->
+
+<!-- End AutoDoc components-name=BoardComponent-inputsClass -->
 
 <h3 id="events">Events</h3>
-<!-- Start AutoDoc components.name=BoardComponent.outputsClass -->
-<!-- End AutoDoc components.name=BoardComponent.outputsClass -->
+<!-- Start AutoDoc components-name=BoardComponent-outputsClass -->
+
+<!-- End AutoDoc components-name=BoardComponent-outputsClass -->
 
 <h2 id="interfaces">Interfaces</h2>
 <!-- Start AutoDoc Interfaces -->
+
 <!-- End AutoDoc Interfaces -->
 
 
@@ -147,9 +176,55 @@ export class AppComponent {
 <p>This is a bit odd, but you can read more about it <a href="https://docs.npmjs.com/cli/link">here</a>.</p>
 <p>If you have an existing Angular library project with a tets application, you can work here with <a href="https://github.blog/2016-02-01-working-with-submodules/">submoduling</a> in git, instead of a <code>git clone</code>:</p>
 <p><code>git submodule add https://github.com/Disane87/ngx-taskboard.git</code></p>
-<p>And now, have some fun! 😊 can work here with <a href="https://github.blog/2016-02-01-working-with-submodules/">submoduling</a> in git, instead of a <code>git clone</code>:</p>
-<p><code>git submodule add https://github.com/Disane87/ngx-taskboard.git</code></p>
 <p>And now, have some fun! 😊</p>
+<h2 id="dependencies-in-your-testdev-project">Dependencies in your test/dev project</h2>
+<div><pre class="line-numbers"><code class="language-json"> &quot;dependencies&quot;: {
+    &quot;&#64;angular/animations&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;angular/common&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;angular/compiler&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;angular/core&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;angular/forms&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;angular/platform-browser&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;angular/platform-browser-dynamic&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;angular/router&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;fortawesome/angular-fontawesome&quot;: &quot;^0.3.0&quot;,
+    &quot;&#64;fortawesome/fontawesome-svg-core&quot;: &quot;1.2.12&quot;,
+    &quot;&#64;fortawesome/free-brands-svg-icons&quot;: &quot;5.6.3&quot;,
+    &quot;&#64;fortawesome/free-regular-svg-icons&quot;: &quot;5.6.3&quot;,
+    &quot;&#64;fortawesome/free-solid-svg-icons&quot;: &quot;5.6.3&quot;,
+    &quot;bootstrap&quot;: &quot;4.3.1&quot;,
+    &quot;core-js&quot;: &quot;2.6.9&quot;,
+    &quot;ngx-bootstrap&quot;: &quot;5.1.1&quot;,
+    &quot;rxjs&quot;: &quot;6.3.3&quot;,
+    &quot;tslib&quot;: &quot;1.10.0&quot;,
+    &quot;zone.js&quot;: &quot;0.8.29&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;&#64;angular-devkit/build-angular&quot;: &quot;0.12.4&quot;,
+    &quot;&#64;angular-devkit/build-ng-packagr&quot;: &quot;0.12.4&quot;,
+    &quot;&#64;angular/cli&quot;: &quot;7.2.4&quot;,
+    &quot;&#64;angular/compiler-cli&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;angular/language-service&quot;: &quot;7.2.15&quot;,
+    &quot;&#64;types/jasmine&quot;: &quot;2.8.16&quot;,
+    &quot;&#64;types/jasminewd2&quot;: &quot;2.0.6&quot;,
+    &quot;&#64;types/node&quot;: &quot;8.9.5&quot;,
+    &quot;angular-tslint-rules&quot;: &quot;1.18.0&quot;,
+    &quot;codelyzer&quot;: &quot;4.5.0&quot;,
+    &quot;jasmine-core&quot;: &quot;2.99.1&quot;,
+    &quot;jasmine-spec-reporter&quot;: &quot;4.2.1&quot;,
+    &quot;karma&quot;: &quot;3.1.4&quot;,
+    &quot;karma-chrome-launcher&quot;: &quot;2.2.0&quot;,
+    &quot;karma-coverage-istanbul-reporter&quot;: &quot;2.0.6&quot;,
+    &quot;karma-jasmine&quot;: &quot;1.1.2&quot;,
+    &quot;karma-jasmine-html-reporter&quot;: &quot;0.2.2&quot;,
+    &quot;ng-packagr&quot;: &quot;4.7.1&quot;,
+    &quot;protractor&quot;: &quot;5.4.2&quot;,
+    &quot;ts-node&quot;: &quot;7.0.1&quot;,
+    &quot;tsickle&quot;: &quot;0.36.0&quot;,
+    &quot;tslib&quot;: &quot;1.10.0&quot;,
+    &quot;tslint&quot;: &quot;5.11.0&quot;,
+    &quot;typescript&quot;: &quot;3.2.4&quot;
+  }</code></pre></div><h2 id="fun-fun-fun">Fun fun fun</h2>
 
 
 

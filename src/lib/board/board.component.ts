@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, TemplateRef } from '@angular/core';
 import { CodegenComponentFactoryResolver } from '@angular/core/src/linker/component_factory_resolver';
 import { CardItem, CollapseState, ClickEvent, GroupKeys, } from '../types';
+import { TaskboardService } from '../taskboard.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -105,10 +106,19 @@ export class BoardComponent implements OnInit {
   /** Columns are collapsed or not on init */
   @Input() hCollapsed: boolean = false;
 
-  /** Fired when the user drags an item. Current item is passed */
+  /** Shows the filter row to search items by `filter` in `filterOnProperties` array */
+  @Input() showFilterRow: boolean = true;
+
+  /** Predefined filter for the searchbar. If set, the `items` are filtered by the term on init. */
+  @Input() filter: string = '';
+
+  /** Specify the properties which will be searched for the given term in `filter`. If not properties are given, all will be searched */
+  @Input() filterOnProperties: Array<string> = [];
+
+  /** Fired when the user drags an item. Current `item` is passed */
   @Output() readonly dragStarted = new EventEmitter<object>();
 
-  /** Fired when an item is dropped. Current item is passed  */
+  /** Fired when an item is dropped. Current `item` is passed  */
   @Output() readonly dropped = new EventEmitter<object>();
 
   /** Fired when an add action is click. Current `ClickEvent` is passed */
@@ -122,7 +132,7 @@ export class BoardComponent implements OnInit {
   private placeholderSet = false;
   private currentDragZone: string;
 
-  constructor(private readonly renderer: Renderer2, private readonly elRef: ElementRef, private readonly cd: ChangeDetectorRef) { }
+  constructor(private readonly renderer: Renderer2, private readonly elRef: ElementRef, private readonly cd: ChangeDetectorRef, private taskboardService: TaskboardService) { }
 
   ngOnInit() {
     if (this.invertGroupDirection) {
@@ -136,13 +146,20 @@ export class BoardComponent implements OnInit {
     this.hHeadings = (this.hGroupKeys.length > 0 ? this.hGroupKeys : this.getHeadings(this.hGroupKey));
     this.vHeadings = (this.vGroupKeys.length > 0 ? this.vGroupKeys : this.getHeadings(this.vGroupKey));
 
-    this.collapseStates.push(...this.vHeadings.map(item => ({ name: item, collapsed: !this.vCollapsed })));
-    this.collapseStates.push(...this.hHeadings.map(item => ({ name: item, collapsed: !this.hCollapsed })));
+    this.collapseStates.push(...this.vHeadings.map(item => ({ name: item, collapsed: this.vCollapsed })));
+    this.collapseStates.push(...this.hHeadings.map(item => ({ name: item, collapsed: this.hCollapsed })));
+
+    this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
   }
 
   getItemsOfGroup(vValue: string, hValue: string): Array<CardItem> | Array<object> {
     // console.log('getItemsOfGroup', arguments);
     let items = this.items.filter(item => {
+
+      if(this.taskboardService.objectProperties.length == 0){
+        debugger;
+        this.taskboardService.objectProperties = Object.keys(item);
+      }
 
       const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
 
@@ -169,7 +186,7 @@ export class BoardComponent implements OnInit {
       /* Detect datatype of sortBy-Field */
       const fieldType = typeof (items.some(item => items[0][this.sortBy] !== undefined && items[0][this.sortBy] !== null)[this.sortBy]);
       if (fieldType) {
-        return items.sort((a, b) => {
+        items = items.sort((a, b) => {
 
           const aField = a[this.sortBy];
           const bField = b[this.sortBy];
@@ -190,12 +207,15 @@ export class BoardComponent implements OnInit {
           }
 
         });
-      } else {
-        return items;
       }
-
     }
-    return items;
+    return (this.filter != '') ? items.filter((item, index, array) => {
+      return (this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {
+        let found  = item[key] != undefined && typeof(item[key]) != "number" && ((<string>item[key]).indexOf(this.filter) > -1 ? true : false);
+        found && console.info(`Searching "${item[key]}" for "${this.filter}" | Found ${found}`);
+        return found;
+      })
+    }) : items;
   }
 
   toggleCollapseGroup(direction: string, collapsed: boolean): void {

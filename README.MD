@@ -9,8 +9,6 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <!-- END doctoc -->
 
-- [ngx-taskboard](#ngx-taskboard)
-- [Table of Content](#table-of-content)
 - [Description](#description)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
@@ -23,6 +21,25 @@
 - [Limitations](#limitations)
 - [Contributing](#contributing)
   - [Installation](#installation-1)
+  - [Dependencies in your test/dev project](#dependencies-in-your-testdev-project)
+  - [Fun fun fun](#fun-fun-fun)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Basic usage](#basic-usage)
+  - [Configuration](#configuration)
+    - [Properties](#properties)
+    - [Events](#events)
+  - [Interfaces](#interfaces)
+  - [Examples](#examples)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
+  - [Installation](#installation-1)
+  - [Dependencies in your test/dev project](#dependencies-in-your-testdev-project)
+  - [Fun fun fun](#fun-fun-fun)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -108,58 +125,22 @@ export class AppComponent {
 ### Properties
 
 <!-- Start AutoDoc components-name=BoardComponent-inputsClass -->
-| Name                        | Default value | Description                                                                                                                                                                                                                              | Type                                   |
-| --------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| actionsTemplate             | null          | Template for actions, add and collapse buttons (see examples)                                                                                                                                                                            | TemplateRef&lt;any&gt;                 |
-| backlogName                 | 'Backlog'     | Name of the backlog row                                                                                                                                                                                                                  |                                        |
-| boardName                   | ''            | Board name to show between row and column header                                                                                                                                                                                         | string                                 |
-| cellAddNewItems             | true          | Show add buttons in the cells for columns and rows                                                                                                                                                                                       | boolean                                |
-| cellClass                   | 'card-header' | Default css class for cell header                                                                                                                                                                                                        | string                                 |
-| dragoverPlaceholderTemplate | null          | Template for the placeholder element which will be generated when an item is draged over a cell                                                                                                                                          | TemplateRef&lt;any&gt;                 |
-| hAddNewItems                | true          | Show add buttons on the column headings                                                                                                                                                                                                  | boolean                                |
-| hCollapsed                  | false         | Columns are collapsed or not on init                                                                                                                                                                                                     | boolean                                |
-| hGroupKey                   | ''            | Key to group data for columns                                                                                                                                                                                                            | string                                 |
-| hGroupKeys                  | []            | Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them | Array&lt;string&gt;                    |
-| hHeaderClass                | 'card-header' | Default css class for column header                                                                                                                                                                                                      | string                                 |
-| hHeaderTemplate             | null          | Template for column headers. Current groupName will be passed (see examples)                                                                                                                                                             | TemplateRef&lt;any&gt;                 |
-| invertGroupDirection        | false         | Invert rows and columns                                                                                                                                                                                                                  | boolean                                |
-| items                       | []            | Items to display                                                                                                                                                                                                                         | Array&lt;CardItem&gt; \| Array<object> |
-| itemTemplate                | null          | Template for items to render. &quot;item&quot; object ist passed (see examples)                                                                                                                                                          | TemplateRef&lt;any&gt;                 |
-| noElementsTemplate          | null          | Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples)                                                                                                                                                | TemplateRef&lt;any&gt;                 |
-| scrollable                  | false         | If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)                                                 | boolean                                |
-| showBacklog                 | true          | Shows the blacklog on onit                                                                                                                                                                                                               |                                        |
-| showUngroupedInBacklog      | true          | All items which can&#39;t be grouped into rows and columns are stored into the backlog                                                                                                                                                   | boolean                                |
-| smallText                   | false         | Decrease overall font size                                                                                                                                                                                                               | boolean                                |
-| sortBy                      | ''            | Sort items by property                                                                                                                                                                                                                   | string                                 |
-| vAddNewItems                | true          | Show add buttons on the row headings                                                                                                                                                                                                     | boolean                                |
-| vCollapsable                | true          | Allow to collapse the rows                                                                                                                                                                                                               | boolean                                |
-| vCollapsed                  | false         | Rows are collapsed or not on init                                                                                                                                                                                                        | boolean                                |
-| vGroupKey                   | ''            | Key to group data for rows                                                                                                                                                                                                               | string                                 |
-| vGroupKeys                  | []            | Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them       | Array&lt;string&gt;                    |
-| vHeaderClass                | 'card-header' | Default css class for row header                                                                                                                                                                                                         | string                                 |
-| vHeaderTemplate             | null          | Template for row headers. Current groupName will be passed (see examples)                                                                                                                                                                | TemplateRef&lt;any&gt;                 |
 
 <!-- End AutoDoc components-name=BoardComponent-inputsClass -->
 
 ### Events
 
 <!-- Start AutoDoc components-name=BoardComponent-outputsClass -->
-| Name               | Default value                        | Description                                                     | Type         |
-| ------------------ | ------------------------------------ | --------------------------------------------------------------- | ------------ |
-| dragStarted        | new EventEmitter&lt;object&gt;()     | Fired when the user drags an item. Current item is passed       | EventEmitter |
-| dropped            | new EventEmitter&lt;object&gt;()     | Fired when an item is dropped. Current item is passed           | EventEmitter |
-| elementCreateClick | new EventEmitter&lt;ClickEvent&gt;() | Fired when an add action is click. Current ClickEvent is passed | EventEmitter |
+| Name               | Default value                    | Description                                                      | Type           |
+| ------------------ | -------------------------------- | ---------------------------------------------------------------- | -------------- |
+| dragStarted        | `new EventEmitter<object>()`     | Fired when the user drags an item. Current item is passed        | `EventEmitter` |
+| dropped            | `new EventEmitter<object>()`     | Fired when an item is dropped. Current item is passed            | `EventEmitter` |
+| elementCreateClick | `new EventEmitter<ClickEvent>()` | Fired when an add action is click. Current ClickEvent is passed  | `EventEmitter` |
 
 <!-- End AutoDoc components-name=BoardComponent-outputsClass -->
 
 ## Interfaces
 <!-- Start AutoDoc Interfaces -->
-| Name          | Type      | Description                                                         |
-| ------------- | --------- | ------------------------------------------------------------------- |
-| CardItem      | interface | Item to render                                                      |
-| ClickEvent    | interface | Datatype which is emitted when an item should be added              |
-| CollapseState | interface | All the collapse stated of every group item (horizontal / vertical) |
-| GroupKeys     | interface | Group keys to determine the correct groups internally               |
 
 <!-- End AutoDoc Interfaces -->
 
@@ -192,9 +173,10 @@ If you have an existing Angular library project with a tets application, you can
 
 And now, have some fun! 😊
 
+
 ## Dependencies in your test/dev project
 ```json
-"dependencies": {
+ "dependencies": {
     "@angular/animations": "7.2.15",
     "@angular/common": "7.2.15",
     "@angular/compiler": "7.2.15",
@@ -203,11 +185,11 @@ And now, have some fun! 😊
     "@angular/platform-browser": "7.2.15",
     "@angular/platform-browser-dynamic": "7.2.15",
     "@angular/router": "7.2.15",
-    "@fortawesome/angular-fontawesome": "0.3.0",
-    "@fortawesome/fontawesome-svg-core": "1.2.21",
-    "@fortawesome/free-brands-svg-icons": "5.10.1",
-    "@fortawesome/free-regular-svg-icons": "5.10.1",
-    "@fortawesome/free-solid-svg-icons": "5.10.1",
+    "@fortawesome/angular-fontawesome": "^0.3.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.12",
+    "@fortawesome/free-brands-svg-icons": "5.6.3",
+    "@fortawesome/free-regular-svg-icons": "5.6.3",
+    "@fortawesome/free-solid-svg-icons": "5.6.3",
     "bootstrap": "4.3.1",
     "core-js": "2.6.9",
     "ngx-bootstrap": "5.1.1",
@@ -242,3 +224,5 @@ And now, have some fun! 😊
     "typescript": "3.2.4"
   }
 ```
+
+## Fun fun fun
