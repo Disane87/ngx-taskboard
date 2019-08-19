@@ -30,11 +30,14 @@
                <div class="content getting-started">
                    <div class="content-data">
 
+<h1 id="ngx-taskboard">ngx-taskboard</h1>
+<p><img src="https://api.codeclimate.com/v1/badges/e7183f0854e6cf832261/maintainability" alt="badge" class="img-responsive"> <a href="https://codecov.io/gh/Disane87/ngx-taskboard"><img src="https://codecov.io/gh/Disane87/ngx-taskboard/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a> <img src="https://img.shields.io/npm/v/@disane/ngx-taskboard" alt="badge" class="img-responsive"> <img src="https://img.shields.io/bundlephobia/minzip/@disane/ngx-taskboard" alt="npm bundle size (scoped)" class="img-responsive"></p>
+<p><code>ngx-taskboard</code> is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the <a href="https://github.com/Disane87/ngx-taskboard/issues">issues</a> when you have questions or found a bug or leave a PR if you have som additions. Styling is made with <a href="https://github.com/twbs/bootstrap">Bootstrap</a>, so it&#39;s 100% compatible.</p>
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+
+
 <ul>
-<li><a href="#ngx-taskboard">ngx-taskboard</a></li>
 <li><a href="#description">Description</a></li>
 <li><a href="#dependencies">Dependencies</a></li>
 <li><a href="#installation">Installation</a></li>
@@ -56,9 +59,6 @@
 </ul>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-<h1 id="ngx-taskboard">ngx-taskboard</h1>
-<p><img src="https://api.codeclimate.com/v1/badges/e7183f0854e6cf832261/maintainability" alt="badge" class="img-responsive"> <a href="https://codecov.io/gh/Disane87/ngx-taskboard"><img src="https://codecov.io/gh/Disane87/ngx-taskboard/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a> <img src="https://img.shields.io/npm/v/@disane/ngx-taskboard" alt="badge" class="img-responsive"> <img src="https://img.shields.io/bundlephobia/minzip/@disane/ngx-taskboard" alt="npm bundle size (scoped)" class="img-responsive"></p>
-<p><code>ngx-taskboard</code> is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the <a href="https://github.com/Disane87/ngx-taskboard/issues">issues</a> when you have questions or found a bug or leave a PR if you have som additions. Styling is made with <a href="https://github.com/twbs/bootstrap">Bootstrap</a>, so it&#39;s 100% compatible.</p>
 <h1 id="description">Description</h1>
 <p><img src="https://github.com/Disane87/ngx-taskboard/blob/master/docs/images/taskboard.gif" alt="Taskboard" class="img-responsive"></p>
 <h1 id="dependencies">Dependencies</h1>
@@ -357,6 +357,37 @@ export class AppComponent {
 
 <h2 id="interfaces">Interfaces</h2>
 <!-- Start AutoDoc Interfaces -->
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CardItem</td>
+<td>interface</td>
+<td>Item to render</td>
+</tr>
+<tr>
+<td>ClickEvent</td>
+<td>interface</td>
+<td>Datatype which is emitted when an item should be added</td>
+</tr>
+<tr>
+<td>CollapseState</td>
+<td>interface</td>
+<td>All the collapse stated of every group item (horizontal / vertical)</td>
+</tr>
+<tr>
+<td>GroupKeys</td>
+<td>interface</td>
+<td>Group keys to determine the correct groups internally</td>
+</tr>
+</tbody>
+</table>
 <!-- End AutoDoc Interfaces -->
 
 <h2 id="examples">Examples</h2>
@@ -371,7 +402,7 @@ export class AppComponent {
 <p>In your test or real project, you have to add the package, but only with another command <code>npm link @disane/ngx-taskboard --save</code>. This means, you are not obtaining the package from <code>npm</code>, instead you are symlinking it to you global <code>npm</code> which has a reference to the above created link in your project.</p>
 <p>This is a bit odd, but you can read more about it <a href="https://docs.npmjs.com/cli/link">here</a>.</p>
 <p>If you have an existing Angular library project with a tets application, you can work here with <a href="https://github.blog/2016-02-01-working-with-submodules/">submoduling</a> in git, instead of a <code>git clone</code>:</p>
-<p><code>git submodule add https://github.com/Disane87/ngx-taskboard.git</code></p>
+<p>git submodule add <a href="https://github.com/Disane87/ngx-taskboard.git%60">https://github.com/Disane87/ngx-taskboard.git`</a></p>
 <p>And now, have some fun! 😊</p>
 
 

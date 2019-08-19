@@ -1,8 +1,12 @@
+# ngx-taskboard 
+![badge](https://api.codeclimate.com/v1/badges/e7183f0854e6cf832261/maintainability) [![codecov](https://codecov.io/gh/Disane87/ngx-taskboard/branch/master/graph/badge.svg)](https://codecov.io/gh/Disane87/ngx-taskboard) ![badge](https://img.shields.io/npm/v/@disane/ngx-taskboard) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@disane/ngx-taskboard)
+
+`ngx-taskboard` is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the [issues](https://github.com/Disane87/ngx-taskboard/issues) when you have questions or found a bug or leave a PR if you have som additions. Styling is made with [Bootstrap](https://github.com/twbs/bootstrap), so it's 100% compatible.
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [ngx-taskboard](#ngx-taskboard)
+
 - [Description](#description)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
@@ -17,12 +21,6 @@
   - [Installation the project](#installation-the-project)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# ngx-taskboard 
-![badge](https://api.codeclimate.com/v1/badges/e7183f0854e6cf832261/maintainability) [![codecov](https://codecov.io/gh/Disane87/ngx-taskboard/branch/master/graph/badge.svg)](https://codecov.io/gh/Disane87/ngx-taskboard) ![badge](https://img.shields.io/npm/v/@disane/ngx-taskboard) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@disane/ngx-taskboard)
-
-`ngx-taskboard` is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the [issues](https://github.com/Disane87/ngx-taskboard/issues) when you have questions or found a bug or leave a PR if you have som additions. Styling is made with [Bootstrap](https://github.com/twbs/bootstrap), so it's 100% compatible.
-
 
 # Description
 
@@ -189,6 +187,6 @@ This is a bit odd, but you can read more about it [here](https://docs.npmjs.com/
 
 If you have an existing Angular library project with a tets application, you can work here with [submoduling](https://github.blog/2016-02-01-working-with-submodules/) in git, instead of a `git clone`:
 
-`git submodule add https://github.com/Disane87/ngx-taskboard.git`
+git submodule add https://github.com/Disane87/ngx-taskboard.git`
 
 And now, have some fun! 😊
