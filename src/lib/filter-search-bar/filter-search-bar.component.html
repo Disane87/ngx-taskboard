@@ -5,7 +5,8 @@
         <fa-icon [icon]="['fas','search']"></fa-icon>
       </span>
     </div>
-    <input type="text" *ngIf="taskboardService.objectProperties.length > 0" class="form-control border-left-0" [typeahead]="taskboardService.objectProperties" placeholder="Search for items" [ngModel]='filter'
+    <input type="text" *ngIf="taskboardService.objectProperties.length > 0" class="form-control border-left-0 pl-0"
+      [typeahead]="taskboardService.objectProperties" placeholder="{{placeholder}}" [ngModel]='filter'
       (ngModelChange)="changed($event)" />
 
     <!-- <div class="input-group-append">
