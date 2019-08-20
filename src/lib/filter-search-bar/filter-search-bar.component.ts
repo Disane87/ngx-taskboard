@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import { TaskboardService } from '../taskboard.service';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -14,11 +14,13 @@ export class FilterSearchBarComponent implements OnInit {
   public filter: string;
   public filterChanged: Subject<string> = new Subject<string>();
   public filterOnProperties: Array<string> = [];
-  public filterOnPropertiesChanged: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();  
+  public filterOnPropertiesChanged: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
 
-  constructor(public taskboardService: TaskboardService) { 
+  @Input() placeholder = 'Search for Items';
+
+  constructor(public taskboardService: TaskboardService) {
     this.filterChanged.pipe(
-      debounceTime(300), 
+      debounceTime(300),
       distinctUntilChanged())
       .subscribe((filter: string) => {
         this.filter = filter
@@ -29,7 +31,7 @@ export class FilterSearchBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  changed(text){
+  changed(text) {
     this.filterChanged.next(text);
   }
 }

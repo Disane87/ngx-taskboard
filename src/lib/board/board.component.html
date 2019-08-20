@@ -1,6 +1,6 @@
 <div class="h-100 d-flex flex-column align-items-stretch border-0" [class.small]="smallText" style="overflow: hidden">
   <div class="d-flex flex-column h-100">
-    <ngx-taskboard-filter-search-bar></ngx-taskboard-filter-search-bar>
+    <ngx-taskboard-filter-search-bar [placeholder]="filterRowPlaceholder"></ngx-taskboard-filter-search-bar>
     <div class="d-flex flex-row align-items-stretch flex-fill h-100 ">
 
       <div class="backlog border-right" *ngIf="showBacklog">

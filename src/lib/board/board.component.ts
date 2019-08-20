@@ -109,6 +109,9 @@ export class BoardComponent implements OnInit {
   /** Shows the filter row to search items by filter in filterOnProperties array */
   @Input() showFilterRow: boolean = true;
 
+  /** SPlaceholde rfor the input with the filter row*/
+  @Input() filterRowPlaceholder: string = 'Search for items';
+
   /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
   @Input() filter: string = '';
 
