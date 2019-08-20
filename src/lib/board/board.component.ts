@@ -156,26 +156,20 @@ export class BoardComponent implements OnInit {
     // console.log('getItemsOfGroup', arguments);
     let items = this.items.filter(item => {
 
-      if(this.taskboardService.objectProperties.length == 0){
-        debugger;
+      if (this.taskboardService.objectProperties.length == 0) {
         this.taskboardService.objectProperties = Object.keys(item);
       }
-
       const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
 
       const vItem = item[groupKeys.vGroupKey];
       const hItem = item[groupKeys.hGroupKey];
 
-      if (hItem == undefined) {
+      if (hItem == undefined || hItem == null && vItem == undefined || vItem == null) {
         return false;
       }
 
-      if (vItem == undefined) {
-        return false;
-      }
-
-      return (vItem as string).toLowerCase() === vValue.toLowerCase() &&
-        (hItem).toLowerCase() === hValue.toLowerCase();
+      return vItem.toLowerCase() === vValue.toLowerCase() &&
+        hItem.toLowerCase() === hValue.toLowerCase();
     });
 
     if (this.showUngroupedInBacklog) {
@@ -211,7 +205,7 @@ export class BoardComponent implements OnInit {
     }
     return (this.filter != '') ? items.filter((item, index, array) => {
       return (this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {
-        let found  = item[key] != undefined && typeof(item[key]) != "number" && ((<string>item[key]).indexOf(this.filter) > -1 ? true : false);
+        let found = item[key] != undefined && typeof (item[key]) != "number" && ((<string>item[key]).indexOf(this.filter) > -1 ? true : false);
         found && console.info(`Searching "${item[key]}" for "${this.filter}" | Found ${found}`);
         return found;
       })
@@ -238,7 +232,11 @@ export class BoardComponent implements OnInit {
   }
 
   getCaseInsensitivePropKey(item: object, propKey: string): string {
-    return Object.keys(item).find(key => key.toLowerCase() === propKey.toLowerCase());
+    if (item) {
+      return Object.keys(item).find(key => (key != '' && key != null && key != undefined) ? key.toLowerCase() === propKey.toLowerCase() : false);
+    }
+
+    return '';
   }
 
   getHeadings(groupKey: string = this.vGroupKey): Array<string> {
@@ -246,8 +244,9 @@ export class BoardComponent implements OnInit {
       item[Object.keys(item).find(key => key.toLowerCase() === groupKey.toLowerCase())]
     );
 
+
     return keys.filter((elem, pos, arr) => {
-      return arr.indexOf(elem) === pos && (this.showUngroupedInBacklog && elem !== '');
+      return arr.indexOf(elem) === pos && (this.showUngroupedInBacklog && (elem !== '' && elem != null));
     });
   }
 
