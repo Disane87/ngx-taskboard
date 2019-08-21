@@ -38,8 +38,8 @@
     "npm": {
       "publishPath": "../../dist/ngx-taskboard"
     },
-    "beforeChangelogCommand": "npx auto-changelog",
-    "changelogCommand": "npx auto-changelog",
+    "beforeChangelogCommand": "npx auto-changelog -p",
+    "changelogCommand": "npx auto-changelog -p",
     "safeBump": false,
     "verbose": true,
     "dry-run": true,
@@ -109,7 +109,7 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "1.1.6",
+  "version": "1.1.5",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
