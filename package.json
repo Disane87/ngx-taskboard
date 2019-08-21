@@ -37,8 +37,8 @@
     "npm": {
       "publishPath": "../../dist/ngx-taskboard"
     },
-    "beforeChangelogCommand": "npx auto-changelog -p",
-    "changelogCommand": "npx auto-changelog -p",
+    "beforeChangelogCommand": "npx auto-changelog",
+    "changelogCommand": "npx auto-changelog",
     "safeBump": false,
     "verbose": true,
     "dry-run": true,
