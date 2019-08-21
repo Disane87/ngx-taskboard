@@ -44,7 +44,7 @@
     "dry-run": true,
     "git": {
       "tagName": "💻 v${version}",
-      "requireCleanWorkingDir": false,
+      "requireCleanWorkingDir": true,
       "requireUpstream": true,
       "requireCommits": false,
       "addUntrackedFiles": false,
