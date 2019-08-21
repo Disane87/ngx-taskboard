@@ -39,17 +39,18 @@
       "publishPath": "../../dist/ngx-taskboard"
     },
     "beforeChangelogCommand": "npx auto-changelog",
+    "changelogCommand": "npx auto-changelog",
     "safeBump": false,
     "verbose": true,
     "dry-run": true,
     "git": {
       "tagName": "💻 v${version}",
-      "requireCleanWorkingDir": true,
+      "requireCleanWorkingDir": false,
       "requireUpstream": true,
-      "requireCommits": false,
+      "requireCommits": true,
       "addUntrackedFiles": false,
       "commit": true,
-      "commitMessage": " 🚀 Release ${version}"
+      "commitMessage": "🚀 Release ${version}"
     },
     "github": {
       "release": true
@@ -60,7 +61,7 @@
         "npm test"
       ],
       "after:init": "echo 👏 after init: ${version}",
-      "before:bump": "echo 👏 before bump: ${version}",
+      "before:bump": "echo👏 before bump: ${version}",
       "after:bump": "npm run build && npm run prebuild",
       "after:git:release": "echo After git push, before github release",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
