@@ -24,7 +24,6 @@
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",
-    "template": "clTemplate.hbs",
     "commitLimit": false,
     "package": true,
     "replaceText": {
