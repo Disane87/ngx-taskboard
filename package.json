@@ -53,7 +53,10 @@
       "commitMessage": "🚀 Release ${version}",
       "tag": true,
       "tagAnnotation": "${version}",
-      "tagArgs": ""
+      "tagArgs": "",
+      "push": true,
+      "pushArgs": "--follow-tags",
+      "pushRepo": "origin"
     },
     "github": {
       "release": true
