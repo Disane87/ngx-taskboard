@@ -11,9 +11,7 @@
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.lib.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
-    "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
-    "changelog": "auto-changelog --commit-limit false -u",
-    "changelog-stdout": "auto-changelog --stdout"
+    "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js"
   },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.10",
@@ -24,45 +22,46 @@
     "tablemark": "^2.0.0",
     "tslint": "^5.18.0"
   },
+  "auto-changelog": {
+		"output": "CHANGELOG.md",
+		"template": "clTemplate.hbs",
+		"commitLimit": false,
+		"package": true,
+		"replaceText": {
+			"FIX: ": "",
+			"NEW: ": "",
+			"IMPROVE: ": "",
+			"DOC: ": ""
+		}
+	},
   "release-it": {
     "npm": {
       "publishPath": "../../dist/ngx-taskboard"
     },
-    "safeBump": true,
+    "beforeChangelogCommand": "npx auto-changelog",
+    "safeBump": false,
+    "verbose": true,
+    "dry-run": true,
     "git": {
-      "tagName": "v${version}",
+      "tagName": "💻 v${version}",
       "requireCleanWorkingDir": false,
-      "addFiles": [
-        "package.json",
-        "CHANGELOG.md"
-      ],
-      "assets": [
-        "dist/ngx-taskboard/*.zip"
-      ],
-      "changelog": "npm run changelog",
       "requireUpstream": true,
       "requireCommits": false,
       "addUntrackedFiles": false,
       "commit": true,
-      "commitMessage": "Release ${version}",
-      "commitArgs": "",
-      "tag": true,
-      "tagAnnotation": "${version}",
-      "tagArgs": "",
-      "push": true,
-      "pushArgs": "--follow-tags",
-      "pushRepo": "origin"
+      "commitMessage": " 🚀 Release ${version}"
     },
     "github": {
-      "release": true,
-      "releaseNotes": "npm run changelog-stdout --silent"
+      "release": true
     },
     "hooks": {
       "before:init": [
         "npm run lint",
         "npm test"
       ],
-      "after:bump": "npm run build && npm run prebuild && npm run changelog",
+      "after:init": "👏 after init: ${version}",
+      "before:bump": "👏 before bump: ${version}",
+      "after:bump": "npm run build && npm run prebuild",
       "after:git:release": "echo After git push, before github release",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
