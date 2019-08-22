@@ -11,7 +11,7 @@
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.lib.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
-    "test:release": "npm run release -- patch --no-increment --no-npm",
+    "test:release": "npm run release -- patch --no-increment --no-npm.publish --no-git.tag --no-git.commit --no-git.push",
     "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js"
   },
   "devDependencies": {
@@ -108,7 +108,7 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "1.1.6",
+  "version": "1.1.7",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
