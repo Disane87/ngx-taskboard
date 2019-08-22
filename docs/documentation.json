@@ -141,7 +141,7 @@
     "injectables": [
         {
             "name": "TaskboardService",
-            "id": "injectable-TaskboardService-aa6434cf336bd022672bef15aa81449b",
+            "id": "injectable-TaskboardService-117ebae82e262f0feb8de79b1b8a3c30",
             "file": "src/lib/taskboard.service.ts",
             "properties": [
                 {
@@ -169,7 +169,7 @@
             ],
             "methods": [],
             "description": "",
-            "sourceCode": "import { Injectable, EventEmitter } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class TaskboardService {\n\n  public filterChanged$ = new EventEmitter<string>();\n  public objectProperties: Array<string> = [];\n\n  constructor() { }\n}\n",
+            "sourceCode": "import { Injectable, EventEmitter } from '@angular/core';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class TaskboardService {\r\n\r\n  public filterChanged$ = new EventEmitter<string>();\r\n  public objectProperties: Array<string> = [];\r\n\r\n  constructor() { }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
