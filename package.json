@@ -65,8 +65,8 @@
         "npm test"
       ],
       "after:init": "echo 👏 after init: ${version}",
-      "before:bump": "echo 👏 before bump: ${version} && npx auto-changelog",
-      "after:bump": "npm run build && npm run prebuild",
+      "before:bump": "echo 👏 before bump: ${version} ",
+      "after:bump": "npm run build && npm run prebuild && npx auto-changelog",
       "after:git:release": "echo After git push, before github release",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
@@ -107,7 +107,7 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "1.1.10",
+  "version": "1.1.11",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
