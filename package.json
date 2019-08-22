@@ -11,6 +11,7 @@
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.lib.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
+    "test:release": "npm run release -- patch --no-increment --no-npm",
     "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js"
   },
   "devDependencies": {
@@ -37,8 +38,7 @@
     "npm": {
       "publishPath": "../../dist/ngx-taskboard"
     },
-    "beforeChangelogCommand": "npx auto-changelog",
-    "changelogCommand": "npx auto-changelog",
+    "changelogCommand": "npx auto-changelog --stdout",
     "safeBump": false,
     "verbose": true,
     "dry-run": true,
