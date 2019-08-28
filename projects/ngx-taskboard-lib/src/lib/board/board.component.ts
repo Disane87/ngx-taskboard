@@ -88,6 +88,12 @@ export class BoardComponent implements OnInit {
   /** Default css class for column header */
   @Input() hHeaderClass: string = 'card-header';
 
+  /** If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */
+  @Input() stickyHorizontalHeaderKeys: boolean = true;
+
+  /** If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */
+  @Input() stickyVerticalHeaderKeys: boolean = false;
+
   /** Default css class for cell header */
   @Input() cellClass: string = 'card-header';
 
@@ -96,6 +102,9 @@ export class BoardComponent implements OnInit {
    * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)
    */
   @Input() scrollable: boolean = false;
+
+  /** Column width (in px) which is applied to the columns when the content is scollable */
+  @Input() columnWidth: number = 200;
 
   /** Allow to collapse the rows */
   @Input() vCollapsable: boolean = true;
@@ -109,7 +118,7 @@ export class BoardComponent implements OnInit {
   /** Shows the filter row to search items by filter in filterOnProperties array */
   @Input() showFilterRow: boolean = true;
 
-  /** SPlaceholde rfor the input with the filter row*/
+  /** Placeholder for the input with the filter row */
   @Input() filterRowPlaceholder: string = 'Search for items';
 
   /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
@@ -135,7 +144,12 @@ export class BoardComponent implements OnInit {
   private placeholderSet = false;
   private currentDragZone: string;
 
-  constructor(private readonly renderer: Renderer2, private readonly elRef: ElementRef, private readonly cd: ChangeDetectorRef, private taskboardService: TaskboardService) { }
+  constructor(
+    private readonly renderer: Renderer2,
+    private readonly elRef: ElementRef,
+    private readonly cd: ChangeDetectorRef,
+    private taskboardService: TaskboardService
+  ) { }
 
   ngOnInit() {
     if (this.invertGroupDirection) {
@@ -153,6 +167,8 @@ export class BoardComponent implements OnInit {
     this.collapseStates.push(...this.hHeadings.map(item => ({ name: item, collapsed: this.hCollapsed })));
 
     this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
+
+    // this.calculateScrollBarWidth();
   }
 
   getItemsOfGroup(vValue: string, hValue: string): Array<CardItem> | Array<object> {
@@ -216,7 +232,10 @@ export class BoardComponent implements OnInit {
   }
 
   toggleCollapseGroup(direction: string, collapsed: boolean): void {
-    const groupKeysToToggle = this.collapseStates.filter(item => (direction == 'vertical' ? this.vHeadings : this.hHeadings).some(i => i.toLowerCase() == item.name.toLowerCase()));
+    const groupKeysToToggle =
+      this.collapseStates.filter(item => (direction === 'vertical' ? this.vHeadings : this.hHeadings)
+        .some(i => i.toLowerCase() == item.name.toLowerCase()));
+
     groupKeysToToggle.forEach(item => item.collapsed = !collapsed);
     if (groupKeysToToggle.length > 0) {
       if (direction == 'vertical') {
@@ -236,7 +255,11 @@ export class BoardComponent implements OnInit {
 
   getCaseInsensitivePropKey(item: object, propKey: string): string {
     if (item) {
-      return Object.keys(item).find(key => (key != '' && key != null && key != undefined) ? key.toLowerCase() === propKey.toLowerCase() : false);
+      return Object.keys(item).find(
+        key => (key != '' && key != null && key != undefined)
+          ? key.toLowerCase() === propKey.toLowerCase()
+          : false
+      );
     }
 
     return '';
@@ -257,7 +280,10 @@ export class BoardComponent implements OnInit {
     if (this.showUngroupedInBacklog) {
       return this.items.filter(item => {
         const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
-        const isUngrouped = (item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '') || (item[groupKeys.vGroupKey] === null && item[groupKeys.hGroupKey] === null);
+        const isUngrouped =
+          (item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '')
+          ||
+          (item[groupKeys.vGroupKey] === null && item[groupKeys.hGroupKey] === null);
         return isUngrouped;
       });
     }
@@ -341,6 +367,27 @@ export class BoardComponent implements OnInit {
         this.placeholderSet = true;
       }
     }
+  }
+
+  scrollBarStyle(): object {
+
+    return {
+      'padding-right': `${this.calculateScrollBarWidth()}px`
+    };
+  }
+
+  getColumnWidth(): object {
+    if (!this.scrollable) return {};
+
+    return {
+      'min-width': `${this.columnWidth}px`
+    };
+  }
+
+  calculateScrollBarWidth(): number {
+    let headingsRowWidth = this.elRef.nativeElement.querySelector(".headings").clientWidth;
+    let contentWidth = this.elRef.nativeElement.querySelector(".row-content").clientWidth
+    return headingsRowWidth - contentWidth;
   }
 
   createPlaceholderElement(id: string): HTMLElement {

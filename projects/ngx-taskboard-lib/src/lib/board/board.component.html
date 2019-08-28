@@ -7,13 +7,10 @@
         <div class="card border-right-0 border-top-0 border-left-0 w-100 h-100">
           <div class="{{hHeaderClass}} d-flex flex-row justify-content-between">
             {{ backlogName }}
-
             <div class="actions ml-3">
               <fa-icon [icon]="['fas','plus-square']" [fixedWidth]="true"></fa-icon>
               <fa-icon [icon]="['fas','chevron-left']" [fixedWidth]="true"></fa-icon>
             </div>
-
-
           </div>
           <ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"
             (drop)="drop($event, null, null)">
@@ -28,7 +25,9 @@
                   [style.border-left-color]="item?.color">
                   <div class="card-header border-top d-flex flex-row justify-content-between">
                     <div class="">
-                      <span class="font-weight-bold">#{{item.id}}</span>
+                      <span class="font-weight-bold">
+                        #{{item.id}}
+                      </span>
                       <span class="ml-3">{{ item.name }}</span>
                       <span class="ml-3">{{ item.priority }}</span>
                     </div>
@@ -40,12 +39,13 @@
         </div>
 
       </div>
-      <div class="column-cards d-flex flex-column flex-fill">
+      <div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-auto]="scrollable">
 
-        <div class="headings d-flex flex-row align-items-stretch w-100">
+        <div class="headings d-flex flex-row align-items-stretch w-100" [ngStyle]="scrollBarStyle()"
+          [class.sticky-top]="stickyHorizontalHeaderKeys && scrollable">
           <div class="col-2 border-left card-header border-left-0 d-flex flex-row" *ngIf="vGroupKey">
             <div class="d-flex flex-row w-100">
-              <div class="boardname">{{ boardName }}</div>
+              <div class="boardname flex-fill">{{ boardName }}</div>
               <div class="h-v-actions align-self-center">
                 <fa-icon [icon]="['fas', vCollapsed ? 'chevron-down' : 'chevron-up']" [fixedWidth]="true"
                   (click)="toggleCollapseGroup('vertical', vCollapsed)"></fa-icon>
@@ -53,17 +53,15 @@
             </div>
           </div>
 
-          <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between"
+          <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header"
             [class.bg-white]="collapseState(group)" [class.border-bottom-0]="collapseState(group)"
-            [class.col]="!collapseState(group)" *ngFor="let group of hHeadings"
-            [class.h-collapsed]="collapseState(group)">
-            <div class="group-heading" *ngIf="!collapseState(group)">
-
-
+            [class.col]="!collapseState(group) && !scrollable" *ngFor="let group of hHeadings"
+            [class.h-collapsed]="collapseState(group)" [ngStyle]="getColumnWidth()">
+            <div class="" *ngIf="!collapseState(group)">
               <ng-container [ngIf]="hHeaderTemplate" *ngTemplateOutlet="hHeaderTemplate; context: { groupName: group }">
               </ng-container>
               <ng-container *ngIf="!hHeaderTemplate">
-                {{group || 'Ungrouped'}}
+                {{ group || 'Ungrouped'}}
               </ng-container>
             </div>
             <div *ngIf="!collapseState(group)">
@@ -72,16 +70,15 @@
               </ng-content>
             </div>
           </div>
+
         </div>
 
-        <div class="d-flex flex-column  align-items-stretch" [class.flex-fill]="!scrollable"
-          [class.overflow-auto]="scrollable">
+        <div class="d-flex flex-column row-content align-items-stretch" [class.flex-fill]="!scrollable">
 
           <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)" *ngFor="let vGroup of vHeadings">
 
-            <div class="col-2 border-left {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between"
-              *ngIf="vGroupKey">
-              <div class="h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill">
+            <div class="col-2 {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between" *ngIf="vGroupKey">
+              <div class="vertical-group-header h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill">
 
                 <ng-container [ngIf]="vHeaderTemplate"
                   *ngTemplateOutlet="vHeaderTemplate; context: { groupName: vGroup }">
@@ -90,8 +87,6 @@
                   {{ vGroup || 'Ungrouped' }}
                 </ng-container>
               </div>
-
-
 
               <div class="vertical-actions d-flex flex-column" [class.flex-column]="!collapseState(vGroup)"
                 [class.flex-row]="collapseState(vGroup)" [class.flex-row-reverse]="collapseState(vGroup)">
@@ -110,9 +105,10 @@
             </div>
 
             <ng-container *ngFor="let hGroup of hHeadings">
-              <div class="border-left {{cellClass}} bg-white d-flex flex-column" [class.col]="!collapseState(hGroup)"
-                [class.border-bottom-0]="collapseState(hGroup)" [class.v-collapsed]="collapseState(vGroup)"
-                [class.h-collapsed]="collapseState(hGroup)">
+              <div class="cell-item border-left {{cellClass}} bg-white d-flex flex-column"
+                [class.col]="!collapseState(hGroup) && !scrollable" [class.border-bottom-0]="collapseState(hGroup)"
+                [class.v-collapsed]="collapseState(vGroup)" [class.h-collapsed]="collapseState(hGroup)"
+                [ngStyle]="getColumnWidth()">
                 <ng-container *ngIf="!collapseState(vGroup) && !collapseState(hGroup)">
 
                   <div class="cell-items flex-fill" (dragover)="dragOver($event, vGroup, hGroup)"

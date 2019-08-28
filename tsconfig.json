@@ -24,6 +24,12 @@
       ],
       "ngx-taskboard-lib/*": [
         "dist/ngx-taskboard-lib/*"
+      ],
+      "my-lib": [
+        "dist/my-lib"
+      ],
+      "my-lib/*": [
+        "dist/my-lib/*"
       ]
     }
   }

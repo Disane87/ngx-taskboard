@@ -1,3 +1,5 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
 :host {
   .overflow-hidden {
     overflow: hidden;
@@ -6,4 +8,8 @@
   .overflow-scroll {
     overflow: scroll;
   }
+}
+
+.card-header-bg {
+  background-color: hex($card-cap-bg);
 }

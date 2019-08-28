@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NgxTaskboardModule } from '@disane/ngx-taskboard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule, NgxTaskboardModule
+    BrowserModule, NgxTaskboardModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,25 +2,15 @@
   "name": "ngx-taskboard",
   "version": "0.0.0",
   "scripts": {
-<<<<<<< Updated upstream
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.lib.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
     "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
     "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
-    "semantic-release": "semantic-release"
-  },
-  "devDependencies": {
-    "@compodoc/compodoc": "^1.1.10",
-    "@semantic-release/changelog": "^3.0.4",
-    "@semantic-release/git": "^7.0.16",
-    "auto-changelog": "^1.15.0",
-    "doctoc": "^1.4.0",
-    "release-it": "*",
-    "replace-in-file": "^4.1.3",
-    "semantic-release": "^15.13.21",
-    "tablemark": "^2.0.0",
-    "tslint": "^5.18.0"
+    "semantic-release": "semantic-release",
+    "build:watch": "npm unlink ./dist/ngx-taskboard --no-save && ng build ngx-taskboard-lib --watch",
+    "link": "npm link ./dist/ngx-taskboard",
+    "start": "ng serve --open"
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",
@@ -35,7 +25,7 @@
   },
   "release-it": {
     "npm": {
-      "publishPath": "../../dist/ngx-taskboard"
+      "publishPath": "./dist/ngx-taskboard"
     },
     "safeBump": false,
     "verbose": true,
@@ -106,19 +96,6 @@
       "email": "mfranke87@icloud.com"
     }
   ],
-  "version": "0.0.0-development",
-  "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
-=======
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
->>>>>>> Stashed changes
-  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.2.0",
@@ -128,20 +105,30 @@
     "@angular/forms": "~7.2.0",
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
+    "@angular/router": "~7.2.0",
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@fortawesome/fontawesome-svg-core": "1.2.12",
     "@fortawesome/free-brands-svg-icons": "5.6.3",
     "@fortawesome/free-regular-svg-icons": "5.6.3",
     "@fortawesome/free-solid-svg-icons": "5.6.3",
     "bootstrap": "4.3.1",
-    "ngx-bootstrap": "5.1.1",
-    "@angular/router": "~7.2.0",
     "core-js": "^2.5.4",
+    "ngx-bootstrap": "5.1.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.10",
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/git": "^7.0.16",
+    "auto-changelog": "^1.15.0",
+    "doctoc": "^1.4.0",
+    "release-it": "*",
+    "replace-in-file": "^4.1.3",
+    "semantic-release": "^15.13.21",
+    "tablemark": "^2.0.0",
+    "tslint": "^5.18.0",
     "@angular-devkit/build-angular": "~0.13.0",
     "@angular-devkit/build-ng-packagr": "~0.13.0",
     "@angular/cli": "~7.3.9",
@@ -163,7 +150,6 @@
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
-    "tslint": "~5.11.0",
     "typescript": "~3.2.2"
   }
 }
