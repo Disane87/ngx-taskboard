@@ -161,7 +161,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/lib/ngx-taskboard.module.ts</code>
+            <code>projects/ngx-taskboard-lib/src/lib/ngx-taskboard.module.ts</code>
         </p>
 
 
@@ -207,23 +207,23 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
-import { BoardComponent } from &#x27;./board/board.component&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;
-import { BrowserAnimationsModule } from &#x27;@angular/platform-browser/animations&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &quot;@angular/core&quot;;
+import { FormsModule } from &quot;@angular/forms&quot;;
+import { BrowserModule } from &quot;@angular/platform-browser&quot;;
+import { BrowserAnimationsModule } from &quot;@angular/platform-browser/animations&quot;;
+import { BoardComponent } from &quot;./board/board.component&quot;;
 
 // Fontawesome
-import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
-import { library } from &#x27;@fortawesome/fontawesome-svg-core&#x27;;
-import { fab } from &#x27;@fortawesome/free-brands-svg-icons&#x27;;
-import { far } from &#x27;@fortawesome/free-regular-svg-icons&#x27;;
-import { fas } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+import { FontAwesomeModule } from &quot;@fortawesome/angular-fontawesome&quot;;
+import { library } from &quot;@fortawesome/fontawesome-svg-core&quot;;
+import { fab } from &quot;@fortawesome/free-brands-svg-icons&quot;;
+import { far } from &quot;@fortawesome/free-regular-svg-icons&quot;;
+import { fas } from &quot;@fortawesome/free-solid-svg-icons&quot;;
 
-import { FilterSearchBarComponent } from &#x27;./filter-search-bar/filter-search-bar.component&#x27;;
-import { TaskboardService } from &#x27;./taskboard.service&#x27;;
+import { FilterSearchBarComponent } from &quot;./filter-search-bar/filter-search-bar.component&quot;;
+import { TaskboardService } from &quot;./taskboard.service&quot;;
 
-import { TypeaheadModule  } from &#x27;ngx-bootstrap/typeahead&#x27;;
+import { TypeaheadModule  } from &quot;ngx-bootstrap/typeahead&quot;;
 
 library.add(fas, far, fab);
 
@@ -231,7 +231,7 @@ library.add(fas, far, fab);
   declarations: [BoardComponent, FilterSearchBarComponent],
   imports: [BrowserModule, FontAwesomeModule, FormsModule, TypeaheadModule.forRoot(), BrowserAnimationsModule],
   providers: [TaskboardService],
-  exports: [BoardComponent]
+  exports: [BoardComponent],
 })
 export class NgxTaskboardModule { }
 </code></pre>

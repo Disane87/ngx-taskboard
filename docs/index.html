@@ -141,25 +141,31 @@ export class AppComponent {
 <td>backlogName</td>
 <td>&#39;Backlog&#39;</td>
 <td>Name of the backlog row</td>
-<td>string</td>
+<td></td>
 </tr>
 <tr>
 <td>boardName</td>
 <td>&#39;&#39;</td>
 <td>Board name to show between row and column header</td>
-<td>string</td>
+<td></td>
 </tr>
 <tr>
 <td>cellAddNewItems</td>
 <td>true</td>
 <td>Show add buttons in the cells for columns and rows</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>cellClass</td>
 <td>&#39;card-header&#39;</td>
 <td>Default css class for cell header</td>
-<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>columnWidth</td>
+<td>200</td>
+<td>Column width (in px) which is applied to the columns when the content is scollable</td>
+<td></td>
 </tr>
 <tr>
 <td>dragoverPlaceholderTemplate</td>
@@ -171,7 +177,7 @@ export class AppComponent {
 <td>filter</td>
 <td>&#39;&#39;</td>
 <td>Predefined filter for the searchbar. If set, the items are filtered by the term on init.</td>
-<td>string</td>
+<td></td>
 </tr>
 <tr>
 <td>filterOnProperties</td>
@@ -182,26 +188,26 @@ export class AppComponent {
 <tr>
 <td>filterRowPlaceholder</td>
 <td>&#39;Search for items&#39;</td>
-<td>SPlaceholde rfor the input with the filter row</td>
-<td>string</td>
+<td>Placeholder for the input with the filter row</td>
+<td></td>
 </tr>
 <tr>
 <td>hAddNewItems</td>
 <td>true</td>
 <td>Show add buttons on the column headings</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>hCollapsed</td>
 <td>false</td>
 <td>Columns are collapsed or not on init</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>hGroupKey</td>
 <td>&#39;&#39;</td>
 <td>Key to group data for columns</td>
-<td>string</td>
+<td></td>
 </tr>
 <tr>
 <td>hGroupKeys</td>
@@ -211,9 +217,9 @@ export class AppComponent {
 </tr>
 <tr>
 <td>hHeaderClass</td>
-<td>&#39;card-header&#39;</td>
+<td>&#39;card-header card-header-bg&#39;</td>
 <td>Default css class for column header</td>
-<td>string</td>
+<td></td>
 </tr>
 <tr>
 <td>hHeaderTemplate</td>
@@ -225,7 +231,7 @@ export class AppComponent {
 <td>invertGroupDirection</td>
 <td>false</td>
 <td>Invert rows and columns</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>items</td>
@@ -249,61 +255,73 @@ export class AppComponent {
 <td>scrollable</td>
 <td>false</td>
 <td>If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>showBacklog</td>
 <td>true</td>
 <td>Shows the blacklog on onit</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>showFilterRow</td>
 <td>true</td>
 <td>Shows the filter row to search items by filter in filterOnProperties array</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>showUngroupedInBacklog</td>
 <td>true</td>
 <td>All items which can&#39;t be grouped into rows and columns are stored into the backlog</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>smallText</td>
 <td>false</td>
 <td>Decrease overall font size</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>sortBy</td>
 <td>&#39;&#39;</td>
 <td>Sort items by property</td>
-<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>stickyHorizontalHeaderKeys</td>
+<td>true</td>
+<td>If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true</td>
+<td></td>
+</tr>
+<tr>
+<td>stickyVerticalHeaderKeys</td>
+<td>false</td>
+<td>If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true</td>
+<td></td>
 </tr>
 <tr>
 <td>vAddNewItems</td>
 <td>true</td>
 <td>Show add buttons on the row headings</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>vCollapsable</td>
 <td>true</td>
 <td>Allow to collapse the rows</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>vCollapsed</td>
 <td>false</td>
 <td>Rows are collapsed or not on init</td>
-<td>boolean</td>
+<td></td>
 </tr>
 <tr>
 <td>vGroupKey</td>
 <td>&#39;&#39;</td>
 <td>Key to group data for rows</td>
-<td>string</td>
+<td></td>
 </tr>
 <tr>
 <td>vGroupKeys</td>
@@ -315,7 +333,7 @@ export class AppComponent {
 <td>vHeaderClass</td>
 <td>&#39;card-header&#39;</td>
 <td>Default css class for row header</td>
-<td>string</td>
+<td></td>
 </tr>
 <tr>
 <td>vHeaderTemplate</td>

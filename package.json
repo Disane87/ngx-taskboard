@@ -1,114 +1,119 @@
 {
   "name": "@disane/ngx-taskboard",
-  "license": "MIT",
-  "keywords": [
-    "taskboard",
-    "angular",
-    "task items",
-    "kanban"
-  ],
+  "version": "1.1.17",
   "scripts": {
     "release": "release-it --ci",
-    "lint": "tslint --project \"tsconfig.lib.json\" --fix",
-    "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard",
-    "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
-    "changelog": "auto-changelog --commit-limit false -u",
-    "changelog-stdout": "auto-changelog --stdout"
+    "lint": "tslint --project \"tsconfig.json\" --fix",
+    "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard-lib",
+    "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
+    "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
+    "semantic-release": "semantic-release",
+    "build:watch": "npm unlink ./dist/ngx-taskboard --no-save && ng build ngx-taskboard-lib --watch",
+    "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
+    "start": "ng serve --open"
   },
-  "devDependencies": {
-    "@compodoc/compodoc": "^1.1.10",
-    "auto-changelog": "^1.15.0",
-    "doctoc": "^1.4.0",
-    "release-it": "*",
-    "replace-in-file": "^4.1.3",
-    "tablemark": "^2.0.0",
-    "tslint": "^5.18.0"
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "commitLimit": false,
+    "package": true,
+    "replaceText": {
+      "FIX: ": "",
+      "NEW: ": "",
+      "IMPROVE: ": "",
+      "DOC: ": ""
+    }
   },
   "release-it": {
     "npm": {
-      "publishPath": "../../dist/ngx-taskboard"
+      "publishPath": "./dist/ngx-taskboard"
     },
-    "safeBump": true,
+    "safeBump": false,
+    "verbose": true,
+    "dry-run": true,
     "git": {
       "tagName": "v${version}",
       "requireCleanWorkingDir": false,
-      "addFiles": [
-        "package.json",
-        "CHANGELOG.md"
-      ],
-      "assets": [
-        "dist/ngx-taskboard/*.zip"
-      ],
-      "changelog": "npm run changelog",
       "requireUpstream": true,
-      "requireCommits": false,
+      "requireCommits": true,
       "addUntrackedFiles": false,
       "commit": true,
-      "commitMessage": "Release ${version}",
-      "commitArgs": "",
+      "commitMessage": "🚀 Release ${version}",
       "tag": true,
-      "tagAnnotation": "${version}",
+      "tagAnnotation": "💻 ${version}",
       "tagArgs": "",
       "push": true,
       "pushArgs": "--follow-tags",
       "pushRepo": "origin"
     },
     "github": {
-      "release": true,
-      "releaseNotes": "npm run changelog-stdout --silent"
+      "release": true
     },
     "hooks": {
       "before:init": [
         "npm run lint",
         "npm test"
       ],
-      "after:bump": "npm run build && npm run prebuild && npm run changelog",
+      "after:init": "echo 👏 after init: ${version}",
+      "before:bump": "echo 👏 before bump: ${version} ",
+      "after:bump": "npm run build && npm run prebuild && npx auto-changelog",
       "after:git:release": "echo After git push, before github release",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
   },
-  "repository": {
-    "directory": "github",
-    "url": "https://github.com/Disane87/ngx-taskboard.git",
-    "type": "git"
-  },
-  "readme": "",
-  "author": {
-    "name": "Marco Franke",
-    "email": "mfranke87@icloud.com",
-    "url": "https://byte-style.de"
-  },
-  "badges": [
-    {
-      "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
-      "description": "License",
-      "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
-    },
-    {
-      "url": "https://img.shields.io/github/issues/Disane87/ngx-taskboard",
-      "description": "Issues",
-      "href": "https://github.com/Disane87/ngx-taskboard/issues"
-    },
-    {
-      "url": "https://img.shields.io/github/stars/Disane87/ngx-taskboard",
-      "description": "Stars",
-      "href": "https://github.com/Disane87/ngx-taskboard/stargazers"
-    }
-  ],
-  "description": "Yet another angular taskboard",
-  "homepage": "https://ngx-taskboard.disane.de",
-  "maintainers": [
-    {
-      "name": "Marco Franke",
-      "email": "mfranke87@icloud.com"
-    }
-  ],
-  "version": "1.1.5",
-  "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
-  },
+  "private": false,
   "dependencies": {
-    "ngx-select-ex": "^3.7.2"
+    "@angular/animations": "~7.2.0",
+    "@angular/common": "~7.2.0",
+    "@angular/compiler": "~7.2.0",
+    "@angular/core": "~7.2.0",
+    "@angular/forms": "~7.2.0",
+    "@angular/platform-browser": "~7.2.0",
+    "@angular/platform-browser-dynamic": "~7.2.0",
+    "@angular/router": "~7.2.0",
+    "@fortawesome/angular-fontawesome": "^0.3.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.12",
+    "@fortawesome/free-brands-svg-icons": "5.6.3",
+    "@fortawesome/free-regular-svg-icons": "5.6.3",
+    "@fortawesome/free-solid-svg-icons": "5.6.3",
+    "bootstrap": "4.3.1",
+    "core-js": "^2.5.4",
+    "ngx-bootstrap": "5.1.1",
+    "rxjs": "~6.3.3",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular-devkit/build-ng-packagr": "~0.13.0",
+    "@angular/cli": "~7.3.9",
+    "@angular/compiler-cli": "~7.2.0",
+    "@angular/language-service": "~7.2.0",
+    "@compodoc/compodoc": "^1.1.10",
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/git": "^7.0.16",
+    "@types/jasmine": "~2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "auto-changelog": "^1.15.0",
+    "codelyzer": "~4.5.0",
+    "doctoc": "^1.4.0",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^4.2.0",
+    "protractor": "~5.4.0",
+    "release-it": "*",
+    "replace-in-file": "^4.1.3",
+    "semantic-release": "^15.13.21",
+    "tablemark": "^2.0.0",
+    "ts-node": "~7.0.0",
+    "tsickle": ">=0.34.0",
+    "tslib": "^1.9.0",
+    "tslint": "^5.19.0",
+    "typescript": "^3.2.4"
   }
 }

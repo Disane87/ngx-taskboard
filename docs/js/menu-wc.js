@@ -65,13 +65,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/NgxTaskboardModule.html" data-type="entity-link">NgxTaskboardModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-NgxTaskboardModule-da20fa6713eb93422a301ae2b5dfe4f1"' : 'data-target="#xs-components-links-module-NgxTaskboardModule-da20fa6713eb93422a301ae2b5dfe4f1"' }>
+                                            'data-target="#components-links-module-NgxTaskboardModule-24a7475567225dbfdc917f1afbe9073e"' : 'data-target="#xs-components-links-module-NgxTaskboardModule-24a7475567225dbfdc917f1afbe9073e"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-NgxTaskboardModule-da20fa6713eb93422a301ae2b5dfe4f1"' :
-                                            'id="xs-components-links-module-NgxTaskboardModule-da20fa6713eb93422a301ae2b5dfe4f1"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-NgxTaskboardModule-24a7475567225dbfdc917f1afbe9073e"' :
+                                            'id="xs-components-links-module-NgxTaskboardModule-24a7475567225dbfdc917f1afbe9073e"' }>
                                             <li class="link">
                                                 <a href="components/BoardComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">BoardComponent</a>
@@ -84,13 +84,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-NgxTaskboardModule-da20fa6713eb93422a301ae2b5dfe4f1"' : 'data-target="#xs-injectables-links-module-NgxTaskboardModule-da20fa6713eb93422a301ae2b5dfe4f1"' }>
+                                        'data-target="#injectables-links-module-NgxTaskboardModule-24a7475567225dbfdc917f1afbe9073e"' : 'data-target="#xs-injectables-links-module-NgxTaskboardModule-24a7475567225dbfdc917f1afbe9073e"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-NgxTaskboardModule-da20fa6713eb93422a301ae2b5dfe4f1"' :
-                                        'id="xs-injectables-links-module-NgxTaskboardModule-da20fa6713eb93422a301ae2b5dfe4f1"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-NgxTaskboardModule-24a7475567225dbfdc917f1afbe9073e"' :
+                                        'id="xs-injectables-links-module-NgxTaskboardModule-24a7475567225dbfdc917f1afbe9073e"' }>
                                         <li class="link">
                                             <a href="injectables/TaskboardService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TaskboardService</a>

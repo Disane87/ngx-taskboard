@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/lib/board/board.component.ts</code>
+    <code>projects/ngx-taskboard-lib/src/lib/board/board.component.ts</code>
 </p>
 
 
@@ -167,6 +167,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#calculateScrollBarWidth">calculateScrollBarWidth</a>
+                            </li>
+                            <li>
                                 <a href="#collapseState">collapseState</a>
                             </li>
                             <li>
@@ -198,6 +201,9 @@
                                 <a href="#getCaseInsensitivePropKey">getCaseInsensitivePropKey</a>
                             </li>
                             <li>
+                                <a href="#getColumnWidth">getColumnWidth</a>
+                            </li>
+                            <li>
                                 <a href="#getHeadings">getHeadings</a>
                             </li>
                             <li>
@@ -208,6 +214,9 @@
                             </li>
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#scrollBarStyle">scrollBarStyle</a>
                             </li>
                             <li>
                                 <a href="#toggleCollapse">toggleCollapse</a>
@@ -241,6 +250,9 @@
                             </li>
                             <li>
                                 <a href="#cellClass">cellClass</a>
+                            </li>
+                            <li>
+                                <a href="#columnWidth">columnWidth</a>
                             </li>
                             <li>
                                 <a href="#dragoverPlaceholderTemplate">dragoverPlaceholderTemplate</a>
@@ -301,6 +313,12 @@
                             </li>
                             <li>
                                 <a href="#sortBy">sortBy</a>
+                            </li>
+                            <li>
+                                <a href="#stickyHorizontalHeaderKeys">stickyHorizontalHeaderKeys</a>
+                            </li>
+                            <li>
+                                <a href="#stickyVerticalHeaderKeys">stickyVerticalHeaderKeys</a>
                             </li>
                             <li>
                                 <a href="#vAddNewItems">vAddNewItems</a>
@@ -365,7 +383,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/lib/board/board.component.ts:136</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:145</a></div>
                             </td>
                         </tr>
 
@@ -462,7 +480,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/lib/board/board.component.ts:80</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:80</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -483,18 +501,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;Backlog&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/lib/board/board.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:18</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -515,18 +527,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/lib/board/board.component.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:56</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -547,18 +553,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/lib/board/board.component.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:44</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -579,23 +579,43 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;card-header&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/lib/board/board.component.ts:92</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:98</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Default css class for cell header </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="columnWidth"></a>
+                        <b>columnWidth</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>200</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:107</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Column width (in px) which is applied to the columns when the content is scollable </p>
 </div>
                     </td>
                 </tr>
@@ -622,7 +642,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/lib/board/board.component.ts:83</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:83</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -643,18 +663,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/lib/board/board.component.ts:116</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:125</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -686,7 +700,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/lib/board/board.component.ts:119</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:128</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -707,23 +721,17 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;Search for items&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/lib/board/board.component.ts:113</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:122</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>SPlaceholde rfor the input with the filter row</p>
+                        <div class="io-description"><p>Placeholder for the input with the filter row </p>
 </div>
                     </td>
                 </tr>
@@ -739,18 +747,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/lib/board/board.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:38</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -771,18 +773,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/lib/board/board.component.ts:107</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:116</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -803,18 +799,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/lib/board/board.component.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:50</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -846,7 +836,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/board/board.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:28</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -869,18 +859,12 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;card-header&#x27;</code>
+                        <i>Default value : </i><code>&#x27;card-header card-header-bg&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/lib/board/board.component.ts:89</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:89</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -912,7 +896,7 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/lib/board/board.component.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:74</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -933,18 +917,12 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/lib/board/board.component.ts:59</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:59</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -976,7 +954,7 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/lib/board/board.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:21</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1008,7 +986,7 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/lib/board/board.component.ts:68</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:68</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1040,7 +1018,7 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/lib/board/board.component.ts:71</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:71</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1061,18 +1039,12 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/lib/board/board.component.ts:98</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:104</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1094,18 +1066,12 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/lib/board/board.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:15</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1126,18 +1092,12 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/lib/board/board.component.ts:110</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:119</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1158,18 +1118,12 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/lib/board/board.component.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:62</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1190,18 +1144,12 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/lib/board/board.component.ts:65</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:65</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1222,23 +1170,69 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/lib/board/board.component.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:53</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Sort items by property </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stickyHorizontalHeaderKeys"></a>
+                        <b>stickyHorizontalHeaderKeys</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:92</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stickyVerticalHeaderKeys"></a>
+                        <b>stickyVerticalHeaderKeys</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:95</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true </p>
 </div>
                     </td>
                 </tr>
@@ -1254,18 +1248,12 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/lib/board/board.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:41</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1286,18 +1274,12 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/lib/board/board.component.ts:101</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:110</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1318,18 +1300,12 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/lib/board/board.component.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:113</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1350,18 +1326,12 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/lib/board/board.component.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:47</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1393,7 +1363,7 @@ If not set, all rows and column will only use 100% of the parent element (aligne
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/lib/board/board.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:35</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1416,18 +1386,12 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;card-header&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/lib/board/board.component.ts:86</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:86</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1459,7 +1423,7 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/lib/board/board.component.ts:77</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:77</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1489,7 +1453,7 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/lib/board/board.component.ts:122</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:131</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1516,7 +1480,7 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/lib/board/board.component.ts:125</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:134</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1543,7 +1507,7 @@ If you want to show emtpy rows, please set them</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/lib/board/board.component.ts:128</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:137</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1566,6 +1530,45 @@ If you want to show emtpy rows, please set them</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="calculateScrollBarWidth"></a>
+                    <span class="name">
+                        <b>
+                            calculateScrollBarWidth
+                        </b>
+                        <a href="#calculateScrollBarWidth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculateScrollBarWidth()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="387"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:387</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="collapseState"></a>
                     <span class="name">
                         <b>
@@ -1584,8 +1587,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="277"
-                            class="link-to-prism">src/lib/board/board.component.ts:277</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="303"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:303</a></div>
                 </td>
             </tr>
 
@@ -1654,8 +1657,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="291"
-                            class="link-to-prism">src/lib/board/board.component.ts:291</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="317"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:317</a></div>
                 </td>
             </tr>
 
@@ -1724,8 +1727,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="346"
-                            class="link-to-prism">src/lib/board/board.component.ts:346</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="393"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:393</a></div>
                 </td>
             </tr>
 
@@ -1794,8 +1797,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="230"
-                            class="link-to-prism">src/lib/board/board.component.ts:230</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="249"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:249</a></div>
                 </td>
             </tr>
 
@@ -1866,8 +1869,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="286"
-                            class="link-to-prism">src/lib/board/board.component.ts:286</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="312"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:312</a></div>
                 </td>
             </tr>
 
@@ -1950,8 +1953,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="315"
-                            class="link-to-prism">src/lib/board/board.component.ts:315</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="341"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:341</a></div>
                 </td>
             </tr>
 
@@ -2046,8 +2049,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="281"
-                            class="link-to-prism">src/lib/board/board.component.ts:281</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="307"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:307</a></div>
                 </td>
             </tr>
 
@@ -2130,8 +2133,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="295"
-                            class="link-to-prism">src/lib/board/board.component.ts:295</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="321"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:321</a></div>
                 </td>
             </tr>
 
@@ -2224,8 +2227,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="237"
-                            class="link-to-prism">src/lib/board/board.component.ts:237</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="256"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:256</a></div>
                 </td>
             </tr>
 
@@ -2288,6 +2291,45 @@ If you want to show emtpy rows, please set them</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getColumnWidth"></a>
+                    <span class="name">
+                        <b>
+                            getColumnWidth
+                        </b>
+                        <a href="#getColumnWidth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getColumnWidth()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="379"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:379</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getHeadings"></a>
                     <span class="name">
                         <b>
@@ -2306,8 +2348,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="245"
-                            class="link-to-prism">src/lib/board/board.component.ts:245</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="268"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:268</a></div>
                 </td>
             </tr>
 
@@ -2380,8 +2422,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="158"
-                            class="link-to-prism">src/lib/board/board.component.ts:158</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:174</a></div>
                 </td>
             </tr>
 
@@ -2462,8 +2504,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="256"
-                            class="link-to-prism">src/lib/board/board.component.ts:256</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="279"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:279</a></div>
                 </td>
             </tr>
 
@@ -2501,8 +2543,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="140"
-                            class="link-to-prism">src/lib/board/board.component.ts:140</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="154"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:154</a></div>
                 </td>
             </tr>
 
@@ -2512,6 +2554,45 @@ If you want to show emtpy rows, please set them</p>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollBarStyle"></a>
+                    <span class="name">
+                        <b>
+                            scrollBarStyle
+                        </b>
+                        <a href="#scrollBarStyle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>scrollBarStyle()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="372"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:372</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
 
                     </div>
                 </td>
@@ -2540,8 +2621,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="268"
-                            class="link-to-prism">src/lib/board/board.component.ts:268</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="294"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:294</a></div>
                 </td>
             </tr>
 
@@ -2610,8 +2691,8 @@ If you want to show emtpy rows, please set them</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="218"
-                            class="link-to-prism">src/lib/board/board.component.ts:218</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="234"
+                            class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:234</a></div>
                 </td>
             </tr>
 
@@ -2703,7 +2784,7 @@ If you want to show emtpy rows, please set them</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/lib/board/board.component.ts:133</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:142</a></div>
                             </td>
                         </tr>
 
@@ -2731,7 +2812,7 @@ If you want to show emtpy rows, please set them</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/lib/board/board.component.ts:136</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:145</a></div>
                             </td>
                         </tr>
 
@@ -2759,7 +2840,7 @@ If you want to show emtpy rows, please set them</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/lib/board/board.component.ts:134</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:143</a></div>
                             </td>
                         </tr>
 
@@ -2792,7 +2873,7 @@ If you want to show emtpy rows, please set them</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/lib/board/board.component.ts:130</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:139</a></div>
                             </td>
                         </tr>
 
@@ -2819,7 +2900,7 @@ If you want to show emtpy rows, please set them</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/lib/board/board.component.ts:135</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:144</a></div>
                             </td>
                         </tr>
 
@@ -2852,7 +2933,7 @@ If you want to show emtpy rows, please set them</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/lib/board/board.component.ts:131</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/board/board.component.ts:140</a></div>
                             </td>
                         </tr>
 
@@ -2879,10 +2960,10 @@ import { TaskboardService } from &#x27;../taskboard.service&#x27;;
 export class BoardComponent implements OnInit {
 
   /** Shows the blacklog on onit */
-  @Input() showBacklog: boolean &#x3D; true;
+  @Input() showBacklog &#x3D; true;
 
   /** Name of the backlog row */
-  @Input() backlogName: string &#x3D; &#x27;Backlog&#x27;;
+  @Input() backlogName &#x3D; &#x27;Backlog&#x27;;
 
   /** Items to display */
   @Input() items: Array&lt;CardItem&gt; | Array&lt;object&gt; &#x3D; [];
@@ -2902,34 +2983,34 @@ export class BoardComponent implements OnInit {
   @Input() vGroupKeys: Array&lt;string&gt; &#x3D; [];
 
   /** Show add buttons on the column headings */
-  @Input() hAddNewItems: boolean &#x3D; true;
+  @Input() hAddNewItems &#x3D; true;
 
   /** Show add buttons on the row headings */
-  @Input() vAddNewItems: boolean &#x3D; true;
+  @Input() vAddNewItems &#x3D; true;
 
   /** Show add buttons in the cells for columns and rows */
-  @Input() cellAddNewItems: boolean &#x3D; true;
+  @Input() cellAddNewItems &#x3D; true;
 
   /** Key to group data for rows */
-  @Input() vGroupKey: string &#x3D; &#x27;&#x27;;
+  @Input() vGroupKey &#x3D; &#x27;&#x27;;
 
   /** Key to group data for columns */
-  @Input() hGroupKey: string &#x3D; &#x27;&#x27;;
+  @Input() hGroupKey &#x3D; &#x27;&#x27;;
 
   /** Sort items by property */
-  @Input() sortBy: string &#x3D; &#x27;&#x27;;
+  @Input() sortBy &#x3D; &#x27;&#x27;;
 
   /** Board name to show between row and column header */
-  @Input() boardName: string &#x3D; &#x27;&#x27;;
+  @Input() boardName &#x3D; &#x27;&#x27;;
 
   /** Invert rows and columns */
-  @Input() invertGroupDirection: boolean &#x3D; false;
+  @Input() invertGroupDirection &#x3D; false;
 
   /** All items which can&#x27;t be grouped into rows and columns are stored into the backlog  */
-  @Input() showUngroupedInBacklog: boolean &#x3D; true;
+  @Input() showUngroupedInBacklog &#x3D; true;
 
   /** Decrease overall font size */
-  @Input() smallText: boolean &#x3D; false;
+  @Input() smallText &#x3D; false;
 
   /** Template for items to render. &quot;item&quot; object ist passed (see examples) */
   @Input() itemTemplate: TemplateRef&lt;any&gt; &#x3D; null;
@@ -2950,37 +3031,49 @@ export class BoardComponent implements OnInit {
   @Input() dragoverPlaceholderTemplate: TemplateRef&lt;any&gt; &#x3D; null;
 
   /** Default css class for row header */
-  @Input() vHeaderClass: string &#x3D; &#x27;card-header&#x27;;
+  @Input() vHeaderClass &#x3D; &#x27;card-header&#x27;;
 
   /** Default css class for column header */
-  @Input() hHeaderClass: string &#x3D; &#x27;card-header&#x27;;
+  @Input() hHeaderClass &#x3D; &#x27;card-header card-header-bg&#x27;;
+
+  /** If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */
+  @Input() stickyHorizontalHeaderKeys &#x3D; true;
+
+  /** If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */
+  @Input() stickyVerticalHeaderKeys &#x3D; false;
 
   /** Default css class for cell header */
-  @Input() cellClass: string &#x3D; &#x27;card-header&#x27;;
+  @Input() cellClass &#x3D; &#x27;card-header&#x27;;
 
   /**
    * If set to true, the rows and columns are scrollable and will be out of the viewport.
    * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)
    */
-  @Input() scrollable: boolean &#x3D; false;
+  @Input() scrollable &#x3D; false;
+
+  /** Column width (in px) which is applied to the columns when the content is scollable */
+  @Input() columnWidth &#x3D; 200;
 
   /** Allow to collapse the rows */
-  @Input() vCollapsable: boolean &#x3D; true;
+  @Input() vCollapsable &#x3D; true;
 
   /** Rows are collapsed or not on init */
-  @Input() vCollapsed: boolean &#x3D; false;
+  @Input() vCollapsed &#x3D; false;
 
   /** Columns are collapsed or not on init */
-  @Input() hCollapsed: boolean &#x3D; false;
+  @Input() hCollapsed &#x3D; false;
 
   /** Shows the filter row to search items by filter in filterOnProperties array */
-  @Input() showFilterRow: boolean &#x3D; true;
+  @Input() showFilterRow &#x3D; true;
+
+  /** Placeholder for the input with the filter row */
+  @Input() filterRowPlaceholder &#x3D; &#x27;Search for items&#x27;;
 
   /** SPlaceholde rfor the input with the filter row*/
   @Input() filterRowPlaceholder: string &#x3D; &#x27;Search for items&#x27;;
 
   /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
-  @Input() filter: string &#x3D; &#x27;&#x27;;
+  @Input() filter &#x3D; &#x27;&#x27;;
 
   /** Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched */
   @Input() filterOnProperties: Array&lt;string&gt; &#x3D; [];
@@ -3002,7 +3095,12 @@ export class BoardComponent implements OnInit {
   private placeholderSet &#x3D; false;
   private currentDragZone: string;
 
-  constructor(private readonly renderer: Renderer2, private readonly elRef: ElementRef, private readonly cd: ChangeDetectorRef, private taskboardService: TaskboardService) { }
+  constructor(
+    private readonly renderer: Renderer2,
+    private readonly elRef: ElementRef,
+    private readonly cd: ChangeDetectorRef,
+    private taskboardService: TaskboardService
+  ) { }
 
   ngOnInit() {
     if (this.invertGroupDirection) {
@@ -3020,13 +3118,15 @@ export class BoardComponent implements OnInit {
     this.collapseStates.push(...this.hHeadings.map(item &#x3D;&gt; ({ name: item, collapsed: this.hCollapsed })));
 
     this.taskboardService.filterChanged$.subscribe(filter &#x3D;&gt; this.filter &#x3D; filter);
+
+    // this.calculateScrollBarWidth();
   }
 
   getItemsOfGroup(vValue: string, hValue: string): Array&lt;CardItem&gt; | Array&lt;object&gt; {
     // console.log(&#x27;getItemsOfGroup&#x27;, arguments);
     let items &#x3D; this.items.filter(item &#x3D;&gt; {
 
-      if (this.taskboardService.objectProperties.length &#x3D;&#x3D; 0) {
+      if (this.taskboardService.objectProperties.length &#x3D;&#x3D;&#x3D; 0) {
         this.taskboardService.objectProperties &#x3D; Object.keys(item);
       }
       const groupKeys: GroupKeys &#x3D; this.determineCorrectGroupKeys(item);
@@ -3034,7 +3134,7 @@ export class BoardComponent implements OnInit {
       const vItem &#x3D; item[groupKeys.vGroupKey];
       const hItem &#x3D; item[groupKeys.hGroupKey];
 
-      if (hItem &#x3D;&#x3D; undefined || hItem &#x3D;&#x3D; null &amp;&amp; vItem &#x3D;&#x3D; undefined || vItem &#x3D;&#x3D; null) {
+      if (hItem &#x3D;&#x3D; undefined || hItem &#x3D;&#x3D; null &amp;&amp; vItem &#x3D;&#x3D;&#x3D; undefined || vItem &#x3D;&#x3D; null) {
         return false;
       }
 
@@ -3075,15 +3175,18 @@ export class BoardComponent implements OnInit {
     }
     return (this.filter !&#x3D; &#x27;&#x27;) ? items.filter((item, index, array) &#x3D;&gt; {
       return (this.filterOnProperties.length &gt; 0 ? this.filterOnProperties : Object.keys(item)).some(key &#x3D;&gt; {
-        let found &#x3D; item[key] !&#x3D; undefined &amp;&amp; typeof (item[key]) !&#x3D; &quot;number&quot; &amp;&amp; ((&lt;string&gt;item[key]).indexOf(this.filter) &gt; -1 ? true : false);
+        const found &#x3D; item[key] !&#x3D; undefined &amp;&amp; typeof (item[key]) !&#x3D; &#x27;number&#x27; &amp;&amp; ((item[key] as string).indexOf(this.filter) &gt; -1 ? true : false);
         found &amp;&amp; console.info(&#x60;Searching &quot;${item[key]}&quot; for &quot;${this.filter}&quot; | Found ${found}&#x60;);
         return found;
-      })
+      });
     }) : items;
   }
 
   toggleCollapseGroup(direction: string, collapsed: boolean): void {
-    const groupKeysToToggle &#x3D; this.collapseStates.filter(item &#x3D;&gt; (direction &#x3D;&#x3D; &#x27;vertical&#x27; ? this.vHeadings : this.hHeadings).some(i &#x3D;&gt; i.toLowerCase() &#x3D;&#x3D; item.name.toLowerCase()));
+    const groupKeysToToggle &#x3D;
+      this.collapseStates.filter(item &#x3D;&gt; (direction &#x3D;&#x3D;&#x3D; &#x27;vertical&#x27; ? this.vHeadings : this.hHeadings)
+        .some(i &#x3D;&gt; i.toLowerCase() &#x3D;&#x3D; item.name.toLowerCase()));
+
     groupKeysToToggle.forEach(item &#x3D;&gt; item.collapsed &#x3D; !collapsed);
     if (groupKeysToToggle.length &gt; 0) {
       if (direction &#x3D;&#x3D; &#x27;vertical&#x27;) {
@@ -3103,7 +3206,11 @@ export class BoardComponent implements OnInit {
 
   getCaseInsensitivePropKey(item: object, propKey: string): string {
     if (item) {
-      return Object.keys(item).find(key &#x3D;&gt; (key !&#x3D; &#x27;&#x27; &amp;&amp; key !&#x3D; null &amp;&amp; key !&#x3D; undefined) ? key.toLowerCase() &#x3D;&#x3D;&#x3D; propKey.toLowerCase() : false);
+      return Object.keys(item).find(
+        key &#x3D;&gt; (key !&#x3D; &#x27;&#x27; &amp;&amp; key !&#x3D; null &amp;&amp; key !&#x3D; undefined)
+          ? key.toLowerCase() &#x3D;&#x3D;&#x3D; propKey.toLowerCase()
+          : false
+      );
     }
 
     return &#x27;&#x27;;
@@ -3124,7 +3231,10 @@ export class BoardComponent implements OnInit {
     if (this.showUngroupedInBacklog) {
       return this.items.filter(item &#x3D;&gt; {
         const groupKeys: GroupKeys &#x3D; this.determineCorrectGroupKeys(item);
-        const isUngrouped &#x3D; (item[groupKeys.vGroupKey] &#x3D;&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; item[groupKeys.hGroupKey] &#x3D;&#x3D;&#x3D; &#x27;&#x27;) || (item[groupKeys.vGroupKey] &#x3D;&#x3D;&#x3D; null &amp;&amp; item[groupKeys.hGroupKey] &#x3D;&#x3D;&#x3D; null);
+        const isUngrouped &#x3D;
+          (item[groupKeys.vGroupKey] &#x3D;&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; item[groupKeys.hGroupKey] &#x3D;&#x3D;&#x3D; &#x27;&#x27;)
+          ||
+          (item[groupKeys.vGroupKey] &#x3D;&#x3D;&#x3D; null &amp;&amp; item[groupKeys.hGroupKey] &#x3D;&#x3D;&#x3D; null);
         return isUngrouped;
       });
     }
@@ -3210,6 +3320,27 @@ export class BoardComponent implements OnInit {
     }
   }
 
+  scrollBarStyle(): object {
+
+    return {
+      &#x27;padding-right&#x27;: &#x60;${this.calculateScrollBarWidth()}px&#x60;
+    };
+  }
+
+  getColumnWidth(): object {
+    if (!this.scrollable) { return {}; }
+
+    return {
+      &#x27;min-width&#x27;: &#x60;${this.columnWidth}px&#x60;
+    };
+  }
+
+  calculateScrollBarWidth(): number {
+    const headingsRowWidth &#x3D; this.elRef.nativeElement.querySelector(&#x27;.headings&#x27;).clientWidth;
+    const contentWidth &#x3D; this.elRef.nativeElement.querySelector(&#x27;.row-content&#x27;).clientWidth;
+    return headingsRowWidth - contentWidth;
+  }
+
   createPlaceholderElement(id: string): HTMLElement {
     if (this.dragoverPlaceholderTemplate) {
       return this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);
@@ -3238,13 +3369,10 @@ export class BoardComponent implements OnInit {
         &lt;div class&#x3D;&quot;card border-right-0 border-top-0 border-left-0 w-100 h-100&quot;&gt;
           &lt;div class&#x3D;&quot;{{hHeaderClass}} d-flex flex-row justify-content-between&quot;&gt;
             {{ backlogName }}
-
             &lt;div class&#x3D;&quot;actions ml-3&quot;&gt;
               &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;,&#x27;plus-square&#x27;]&quot; [fixedWidth]&#x3D;&quot;true&quot;&gt;&lt;/fa-icon&gt;
               &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;,&#x27;chevron-left&#x27;]&quot; [fixedWidth]&#x3D;&quot;true&quot;&gt;&lt;/fa-icon&gt;
             &lt;/div&gt;
-
-
           &lt;/div&gt;
           &lt;ul class&#x3D;&quot;list-group list-group-flush p-3 h-100&quot; (dragover)&#x3D;&quot;dragOver($event, null, null)&quot;
             (drop)&#x3D;&quot;drop($event, null, null)&quot;&gt;
@@ -3259,7 +3387,9 @@ export class BoardComponent implements OnInit {
                   [style.border-left-color]&#x3D;&quot;item?.color&quot;&gt;
                   &lt;div class&#x3D;&quot;card-header border-top d-flex flex-row justify-content-between&quot;&gt;
                     &lt;div class&#x3D;&quot;&quot;&gt;
-                      &lt;span class&#x3D;&quot;font-weight-bold&quot;&gt;#{{item.id}}&lt;/span&gt;
+                      &lt;span class&#x3D;&quot;font-weight-bold&quot;&gt;
+                        #{{item.id}}
+                      &lt;/span&gt;
                       &lt;span class&#x3D;&quot;ml-3&quot;&gt;{{ item.name }}&lt;/span&gt;
                       &lt;span class&#x3D;&quot;ml-3&quot;&gt;{{ item.priority }}&lt;/span&gt;
                     &lt;/div&gt;
@@ -3271,10 +3401,11 @@ export class BoardComponent implements OnInit {
         &lt;/div&gt;
 
       &lt;/div&gt;
-      &lt;div class&#x3D;&quot;column-cards d-flex flex-column flex-fill&quot;&gt;
+      &lt;div class&#x3D;&quot;column-cards d-flex flex-column flex-fill h-100&quot; [class.overflow-auto]&#x3D;&quot;scrollable&quot;&gt;
 
-        &lt;div class&#x3D;&quot;headings d-flex flex-row align-items-stretch w-100&quot;&gt;
-          &lt;div class&#x3D;&quot;col-2 border-left card-header border-left-0 d-flex flex-row&quot; *ngIf&#x3D;&quot;vGroupKey&quot;&gt;
+        &lt;div class&#x3D;&quot;headings d-flex flex-row align-items-stretch w-100&quot; [ngStyle]&#x3D;&quot;scrollBarStyle()&quot;
+          [class.sticky-top]&#x3D;&quot;stickyHorizontalHeaderKeys &amp;&amp; scrollable&quot;&gt;
+          &lt;div class&#x3D;&quot;col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row&quot; *ngIf&#x3D;&quot;vGroupKey&quot;&gt;
             &lt;div class&#x3D;&quot;d-flex flex-row w-100&quot;&gt;
               &lt;div class&#x3D;&quot;boardname&quot;&gt;{{ boardName }}&lt;/div&gt;
               &lt;div class&#x3D;&quot;h-v-actions align-self-center&quot;&gt;
@@ -3284,17 +3415,15 @@ export class BoardComponent implements OnInit {
             &lt;/div&gt;
           &lt;/div&gt;
 
-          &lt;div class&#x3D;&quot;border-left {{hHeaderClass}} d-flex flex-row justify-content-between&quot;
+          &lt;div class&#x3D;&quot;border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header&quot;
             [class.bg-white]&#x3D;&quot;collapseState(group)&quot; [class.border-bottom-0]&#x3D;&quot;collapseState(group)&quot;
-            [class.col]&#x3D;&quot;!collapseState(group)&quot; *ngFor&#x3D;&quot;let group of hHeadings&quot;
-            [class.h-collapsed]&#x3D;&quot;collapseState(group)&quot;&gt;
-            &lt;div class&#x3D;&quot;group-heading&quot; *ngIf&#x3D;&quot;!collapseState(group)&quot;&gt;
-
-
+            [class.col]&#x3D;&quot;!collapseState(group) &amp;&amp; !scrollable&quot; *ngFor&#x3D;&quot;let group of hHeadings&quot;
+            [class.h-collapsed]&#x3D;&quot;collapseState(group)&quot; [ngStyle]&#x3D;&quot;getColumnWidth()&quot;&gt;
+            &lt;div class&#x3D;&quot;&quot; *ngIf&#x3D;&quot;!collapseState(group)&quot;&gt;
               &lt;ng-container [ngIf]&#x3D;&quot;hHeaderTemplate&quot; *ngTemplateOutlet&#x3D;&quot;hHeaderTemplate; context: { groupName: group }&quot;&gt;
               &lt;/ng-container&gt;
               &lt;ng-container *ngIf&#x3D;&quot;!hHeaderTemplate&quot;&gt;
-                {{group || &#x27;Ungrouped&#x27;}}
+                {{ group || &#x27;Ungrouped&#x27;}}
               &lt;/ng-container&gt;
             &lt;/div&gt;
             &lt;div *ngIf&#x3D;&quot;!collapseState(group)&quot;&gt;
@@ -3303,16 +3432,15 @@ export class BoardComponent implements OnInit {
               &lt;/ng-content&gt;
             &lt;/div&gt;
           &lt;/div&gt;
+
         &lt;/div&gt;
 
-        &lt;div class&#x3D;&quot;d-flex flex-column  align-items-stretch&quot; [class.flex-fill]&#x3D;&quot;!scrollable&quot;
-          [class.overflow-auto]&#x3D;&quot;scrollable&quot;&gt;
+        &lt;div class&#x3D;&quot;d-flex flex-column row-content align-items-stretch&quot; [class.flex-fill]&#x3D;&quot;!scrollable&quot;&gt;
 
           &lt;div class&#x3D;&quot;d-flex flex-row&quot; [class.flex-fill]&#x3D;&quot;!collapseState(vGroup)&quot; *ngFor&#x3D;&quot;let vGroup of vHeadings&quot;&gt;
 
-            &lt;div class&#x3D;&quot;col-2 border-left {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between&quot;
-              *ngIf&#x3D;&quot;vGroupKey&quot;&gt;
-              &lt;div class&#x3D;&quot;h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill&quot;&gt;
+            &lt;div class&#x3D;&quot;col-2 {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between&quot; *ngIf&#x3D;&quot;vGroupKey&quot;&gt;
+              &lt;div class&#x3D;&quot;vertical-group-header h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill&quot;&gt;
 
                 &lt;ng-container [ngIf]&#x3D;&quot;vHeaderTemplate&quot;
                   *ngTemplateOutlet&#x3D;&quot;vHeaderTemplate; context: { groupName: vGroup }&quot;&gt;
@@ -3321,8 +3449,6 @@ export class BoardComponent implements OnInit {
                   {{ vGroup || &#x27;Ungrouped&#x27; }}
                 &lt;/ng-container&gt;
               &lt;/div&gt;
-
-
 
               &lt;div class&#x3D;&quot;vertical-actions d-flex flex-column&quot; [class.flex-column]&#x3D;&quot;!collapseState(vGroup)&quot;
                 [class.flex-row]&#x3D;&quot;collapseState(vGroup)&quot; [class.flex-row-reverse]&#x3D;&quot;collapseState(vGroup)&quot;&gt;
@@ -3341,9 +3467,10 @@ export class BoardComponent implements OnInit {
             &lt;/div&gt;
 
             &lt;ng-container *ngFor&#x3D;&quot;let hGroup of hHeadings&quot;&gt;
-              &lt;div class&#x3D;&quot;border-left {{cellClass}} bg-white d-flex flex-column&quot; [class.col]&#x3D;&quot;!collapseState(hGroup)&quot;
-                [class.border-bottom-0]&#x3D;&quot;collapseState(hGroup)&quot; [class.v-collapsed]&#x3D;&quot;collapseState(vGroup)&quot;
-                [class.h-collapsed]&#x3D;&quot;collapseState(hGroup)&quot;&gt;
+              &lt;div class&#x3D;&quot;cell-item border-left {{cellClass}} bg-white d-flex flex-column&quot;
+                [class.col]&#x3D;&quot;!collapseState(hGroup) &amp;&amp; !scrollable&quot; [class.border-bottom-0]&#x3D;&quot;collapseState(hGroup)&quot;
+                [class.v-collapsed]&#x3D;&quot;collapseState(vGroup)&quot; [class.h-collapsed]&#x3D;&quot;collapseState(hGroup)&quot;
+                [ngStyle]&#x3D;&quot;getColumnWidth()&quot;&gt;
                 &lt;ng-container *ngIf&#x3D;&quot;!collapseState(vGroup) &amp;&amp; !collapseState(hGroup)&quot;&gt;
 
                   &lt;div class&#x3D;&quot;cell-items flex-fill&quot; (dragover)&#x3D;&quot;dragOver($event, vGroup, hGroup)&quot;
@@ -3440,7 +3567,9 @@ export class BoardComponent implements OnInit {
                 <p class="comment">
                     <code>./board.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">:host {
+                <pre class="line-numbers"><code class="language-scss">@import &quot;node_modules/bootstrap/scss/bootstrap&quot;;
+
+:host {
   .overflow-hidden {
     overflow: hidden;
   }
@@ -3448,6 +3577,10 @@ export class BoardComponent implements OnInit {
   .overflow-scroll {
     overflow: scroll;
   }
+}
+
+.card-header-bg {
+  background-color: #f7f7f7;
 }
 </code></pre>
     </div>
@@ -3477,7 +3610,7 @@ export class BoardComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="h-100 d-flex flex-column align-items-stretch border-0" [class.small]="smallText" style="overflow: hidden">  <div class="d-flex flex-column h-100">    <ngx-taskboard-filter-search-bar [placeholder]="filterRowPlaceholder"></ngx-taskboard-filter-search-bar>    <div class="d-flex flex-row align-items-stretch flex-fill h-100 ">      <div class="backlog border-right" *ngIf="showBacklog">        <div class="card border-right-0 border-top-0 border-left-0 w-100 h-100">          <div class="{{hHeaderClass}} d-flex flex-row justify-content-between">            {{ backlogName }}            <div class="actions ml-3">              <fa-icon [icon]="[\'fas\',\'plus-square\']" [fixedWidth]="true"></fa-icon>              <fa-icon [icon]="[\'fas\',\'chevron-left\']" [fixedWidth]="true"></fa-icon>            </div>          </div>          <ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"            (drop)="drop($event, null, null)">            <div class=" ungrouped-item" *ngFor="let item of getUngroupedItems()" draggable="true"              (dragstart)="dragStart($event, item)" (dragend)="dragEnd($event, item)">              <ng-container *ngIf="itemTemplate">                <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>              </ng-container>              <ng-container *ngIf="!itemTemplate">                <div class="card mb-1 border-bottom-0 border-top-0" style="border-left: 5px solid; border-radius: 0;"                  [style.border-left-color]="item?.color">                  <div class="card-header border-top d-flex flex-row justify-content-between">                    <div class="">                      <span class="font-weight-bold">#{{item.id}}</span>                      <span class="ml-3">{{ item.name }}</span>                      <span class="ml-3">{{ item.priority }}</span>                    </div>                  </div>                </div>              </ng-container>            </div>          </ul>        </div>      </div>      <div class="column-cards d-flex flex-column flex-fill">        <div class="headings d-flex flex-row align-items-stretch w-100">          <div class="col-2 border-left card-header border-left-0 d-flex flex-row" *ngIf="vGroupKey">            <div class="d-flex flex-row w-100">              <div class="boardname">{{ boardName }}</div>              <div class="h-v-actions align-self-center">                <fa-icon [icon]="[\'fas\', vCollapsed ? \'chevron-down\' : \'chevron-up\']" [fixedWidth]="true"                  (click)="toggleCollapseGroup(\'vertical\', vCollapsed)"></fa-icon>              </div>            </div>          </div>          <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between"            [class.bg-white]="collapseState(group)" [class.border-bottom-0]="collapseState(group)"            [class.col]="!collapseState(group)" *ngFor="let group of hHeadings"            [class.h-collapsed]="collapseState(group)">            <div class="group-heading" *ngIf="!collapseState(group)">              <ng-container [ngIf]="hHeaderTemplate" *ngTemplateOutlet="hHeaderTemplate; context: { groupName: group }">              </ng-container>              <ng-container *ngIf="!hHeaderTemplate">                {{group || \'Ungrouped\'}}              </ng-container>            </div>            <div *ngIf="!collapseState(group)">              <ng-content                *ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, group: { hGroup: group, vGroup: null}, collapser: false, chevronIcon: !collapseState(group) ? \'chevron-left\' : \'chevron-right\' }">              </ng-content>            </div>          </div>        </div>        <div class="d-flex flex-column  align-items-stretch" [class.flex-fill]="!scrollable"          [class.overflow-auto]="scrollable">          <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)" *ngFor="let vGroup of vHeadings">            <div class="col-2 border-left {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between"              *ngIf="vGroupKey">              <div class="h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill">                <ng-container [ngIf]="vHeaderTemplate"                  *ngTemplateOutlet="vHeaderTemplate; context: { groupName: vGroup }">                </ng-container>                <ng-container *ngIf="!vHeaderTemplate">                  {{ vGroup || \'Ungrouped\' }}                </ng-container>              </div>              <div class="vertical-actions d-flex flex-column" [class.flex-column]="!collapseState(vGroup)"                [class.flex-row]="collapseState(vGroup)" [class.flex-row-reverse]="collapseState(vGroup)">                <div class="align-self-start flex-fill">                  <ng-content                    *ngTemplateOutlet="cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? \'chevron-up\' : \'chevron-down\'  }">                  </ng-content>                </div>                <div class="align-self-start">                  <ng-content class="align-self-end"                    *ngTemplateOutlet="cardAction; context: { withNew: vAddNewItems, group: { hGroup: null, vGroup: vGroup}, collapser: false }">                  </ng-content>                </div>              </div>            </div>            <ng-container *ngFor="let hGroup of hHeadings">              <div class="border-left {{cellClass}} bg-white d-flex flex-column" [class.col]="!collapseState(hGroup)"                [class.border-bottom-0]="collapseState(hGroup)" [class.v-collapsed]="collapseState(vGroup)"                [class.h-collapsed]="collapseState(hGroup)">                <ng-container *ngIf="!collapseState(vGroup) && !collapseState(hGroup)">                  <div class="cell-items flex-fill" (dragover)="dragOver($event, vGroup, hGroup)"                    (drop)="drop($event, vGroup, hGroup)">                    <ng-container *ngFor="let item of getItemsOfGroup(vGroup, hGroup)">                      <div class="item-container p-0 m-0" draggable="true" (dragstart)="dragStart($event, item)"                        (dragend)="dragEnd($event, item)">                        <!-- Items -->                        <ng-container *ngIf="itemTemplate">                          <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>                        </ng-container>                        <ng-container *ngIf="!itemTemplate">                          <div class="card mb-1 border-bottom-0 border-top-0"                            style="border-left: 5px solid; border-radius: 0;" [style.border-left-color]="item?.color">                            <div class="card-header border-top d-flex flex-row justify-content-between">                              <div class="">                                <span class="font-weight-bold">#{{item.id}}</span>                                <span class="ml-3">{{ item.name }}</span>                                <span class="ml-3">{{ item.priority }}</span>                              </div>                            </div>                          </div>                        </ng-container>                      </div>                    </ng-container>                    <!-- <ng-container *ngIf="getItemsOfGroup(vGroup, hGroup).length == 0">                      <div class="card mb-1 border-bottom-0 border-top-0"                        style="border-left: 5px solid; border-radius: 0;">                        <div class="card-header border-top d-flex flex-row justify-content-between">                          </div>                      </div>                    </ng-container> -->                  </div>                  <div class="cell-actions d-flex flex-row align-self-end">                    <ng-content                      *ngTemplateOutlet="cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }">                    </ng-content>                  </div>                </ng-container>                <ng-container *ngIf="collapseState(vGroup) && !collapseState(hGroup)">                  <div class="text-center" (dragover)="dragOver($event, vGroup, hGroup)"                    (drop)="drop($event, vGroup, hGroup)">                    <ng-container [ngIf]="noElementsTemplate"                      *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(vGroup, hGroup).length, filter: this.filter }">                    </ng-container>                    <ng-container *ngIf="!noElementsTemplate">                      {{ getItemsOfGroup(vGroup, hGroup).length }} elements                      <span *ngIf="filter !== \'\'" class="code"> (filtered by <code>{{filter}}</code>)</span>                    </ng-container>                  </div>                </ng-container>                <ng-container *ngIf="collapseState(hGroup)">                </ng-container>                <!-- {{ collapseState(hGroup) }} / {{ collapseState(vGroup) }} -->              </div>            </ng-container>          </div>        </div>      </div>    </div>  </div></div><ng-template #cardAction let-withNew="withNew" let-group="group" let-chevronIcon="chevronIcon"  let-collapser="collapser">  <ng-container [ngIf]="actionsTemplate"    *ngTemplateOutlet="actionsTemplate; context: { actionConfig: { group: group, chevronIcon: chevronIcon, collapser: collapser  }  }">  </ng-container>  <ng-container *ngIf="!actionsTemplate">    <div class="actions ml-3" *ngIf="vGroupKey">      <fa-icon [icon]="[\'fas\',\'plus-square\']" [fixedWidth]="true" *ngIf="withNew" (click)="createElement(group)">      </fa-icon>      <fa-icon [icon]="[\'fas\',chevronIcon ? chevronIcon : \'chevron-left\']" [fixedWidth]="true"        (click)="toggleCollapse(group)" *ngIf="(collapser != null ? collapser : true)"></fa-icon>    </div>  </ng-container></ng-template></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="h-100 d-flex flex-column align-items-stretch border-0" [class.small]="smallText" style="overflow: hidden">  <div class="d-flex flex-column h-100">    <ngx-taskboard-filter-search-bar [placeholder]="filterRowPlaceholder"></ngx-taskboard-filter-search-bar>    <div class="d-flex flex-row align-items-stretch flex-fill h-100 ">      <div class="backlog border-right" *ngIf="showBacklog">        <div class="card border-right-0 border-top-0 border-left-0 w-100 h-100">          <div class="{{hHeaderClass}} d-flex flex-row justify-content-between">            {{ backlogName }}            <div class="actions ml-3">              <fa-icon [icon]="[\'fas\',\'plus-square\']" [fixedWidth]="true"></fa-icon>              <fa-icon [icon]="[\'fas\',\'chevron-left\']" [fixedWidth]="true"></fa-icon>            </div>          </div>          <ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"            (drop)="drop($event, null, null)">            <div class=" ungrouped-item" *ngFor="let item of getUngroupedItems()" draggable="true"              (dragstart)="dragStart($event, item)" (dragend)="dragEnd($event, item)">              <ng-container *ngIf="itemTemplate">                <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>              </ng-container>              <ng-container *ngIf="!itemTemplate">                <div class="card mb-1 border-bottom-0 border-top-0" style="border-left: 5px solid; border-radius: 0;"                  [style.border-left-color]="item?.color">                  <div class="card-header border-top d-flex flex-row justify-content-between">                    <div class="">                      <span class="font-weight-bold">                        #{{item.id}}                      </span>                      <span class="ml-3">{{ item.name }}</span>                      <span class="ml-3">{{ item.priority }}</span>                    </div>                  </div>                </div>              </ng-container>            </div>          </ul>        </div>      </div>      <div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-auto]="scrollable">        <div class="headings d-flex flex-row align-items-stretch w-100" [ngStyle]="scrollBarStyle()"          [class.sticky-top]="stickyHorizontalHeaderKeys && scrollable">          <div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">            <div class="d-flex flex-row w-100">              <div class="boardname flex-fill">{{ boardName }}</div>              <div class="h-v-actions align-self-center">                <fa-icon [icon]="[\'fas\', vCollapsed ? \'chevron-down\' : \'chevron-up\']" [fixedWidth]="true"                  (click)="toggleCollapseGroup(\'vertical\', vCollapsed)"></fa-icon>              </div>            </div>          </div>          <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header"            [class.bg-white]="collapseState(group)" [class.border-bottom-0]="collapseState(group)"            [class.col]="!collapseState(group) && !scrollable" *ngFor="let group of hHeadings"            [class.h-collapsed]="collapseState(group)" [ngStyle]="getColumnWidth()">            <div class="" *ngIf="!collapseState(group)">              <ng-container [ngIf]="hHeaderTemplate" *ngTemplateOutlet="hHeaderTemplate; context: { groupName: group }">              </ng-container>              <ng-container *ngIf="!hHeaderTemplate">                {{ group || \'Ungrouped\'}}              </ng-container>            </div>            <div *ngIf="!collapseState(group)">              <ng-content                *ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, group: { hGroup: group, vGroup: null}, collapser: false, chevronIcon: !collapseState(group) ? \'chevron-left\' : \'chevron-right\' }">              </ng-content>            </div>          </div>        </div>        <div class="d-flex flex-column row-content align-items-stretch" [class.flex-fill]="!scrollable">          <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)" *ngFor="let vGroup of vHeadings">            <div class="col-2 {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between" *ngIf="vGroupKey">              <div class="vertical-group-header h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill">                <ng-container [ngIf]="vHeaderTemplate"                  *ngTemplateOutlet="vHeaderTemplate; context: { groupName: vGroup }">                </ng-container>                <ng-container *ngIf="!vHeaderTemplate">                  {{ vGroup || \'Ungrouped\' }}                </ng-container>              </div>              <div class="vertical-actions d-flex flex-column" [class.flex-column]="!collapseState(vGroup)"                [class.flex-row]="collapseState(vGroup)" [class.flex-row-reverse]="collapseState(vGroup)">                <div class="align-self-start flex-fill">                  <ng-content                    *ngTemplateOutlet="cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? \'chevron-up\' : \'chevron-down\'  }">                  </ng-content>                </div>                <div class="align-self-start">                  <ng-content class="align-self-end"                    *ngTemplateOutlet="cardAction; context: { withNew: vAddNewItems, group: { hGroup: null, vGroup: vGroup}, collapser: false }">                  </ng-content>                </div>              </div>            </div>            <ng-container *ngFor="let hGroup of hHeadings">              <div class="cell-item border-left {{cellClass}} bg-white d-flex flex-column"                [class.col]="!collapseState(hGroup) && !scrollable" [class.border-bottom-0]="collapseState(hGroup)"                [class.v-collapsed]="collapseState(vGroup)" [class.h-collapsed]="collapseState(hGroup)"                [ngStyle]="getColumnWidth()">                <ng-container *ngIf="!collapseState(vGroup) && !collapseState(hGroup)">                  <div class="cell-items flex-fill" (dragover)="dragOver($event, vGroup, hGroup)"                    (drop)="drop($event, vGroup, hGroup)">                    <ng-container *ngFor="let item of getItemsOfGroup(vGroup, hGroup)">                      <div class="item-container p-0 m-0" draggable="true" (dragstart)="dragStart($event, item)"                        (dragend)="dragEnd($event, item)">                        <!-- Items -->                        <ng-container *ngIf="itemTemplate">                          <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>                        </ng-container>                        <ng-container *ngIf="!itemTemplate">                          <div class="card mb-1 border-bottom-0 border-top-0"                            style="border-left: 5px solid; border-radius: 0;" [style.border-left-color]="item?.color">                            <div class="card-header border-top d-flex flex-row justify-content-between">                              <div class="">                                <span class="font-weight-bold">#{{item.id}}</span>                                <span class="ml-3">{{ item.name }}</span>                                <span class="ml-3">{{ item.priority }}</span>                              </div>                            </div>                          </div>                        </ng-container>                      </div>                    </ng-container>                    <!-- <ng-container *ngIf="getItemsOfGroup(vGroup, hGroup).length == 0">                      <div class="card mb-1 border-bottom-0 border-top-0"                        style="border-left: 5px solid; border-radius: 0;">                        <div class="card-header border-top d-flex flex-row justify-content-between">                          </div>                      </div>                    </ng-container> -->                  </div>                  <div class="cell-actions d-flex flex-row align-self-end">                    <ng-content                      *ngTemplateOutlet="cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }">                    </ng-content>                  </div>                </ng-container>                <ng-container *ngIf="collapseState(vGroup) && !collapseState(hGroup)">                  <div class="text-center" (dragover)="dragOver($event, vGroup, hGroup)"                    (drop)="drop($event, vGroup, hGroup)">                    <ng-container [ngIf]="noElementsTemplate"                      *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(vGroup, hGroup).length, filter: this.filter }">                    </ng-container>                    <ng-container *ngIf="!noElementsTemplate">                      {{ getItemsOfGroup(vGroup, hGroup).length }} elements                      <span *ngIf="filter !== \'\'" class="code"> (filtered by <code>{{filter}}</code>)</span>                    </ng-container>                  </div>                </ng-container>                <ng-container *ngIf="collapseState(hGroup)">                </ng-container>                <!-- {{ collapseState(hGroup) }} / {{ collapseState(vGroup) }} -->              </div>            </ng-container>          </div>        </div>      </div>    </div>  </div></div><ng-template #cardAction let-withNew="withNew" let-group="group" let-chevronIcon="chevronIcon"  let-collapser="collapser">  <ng-container [ngIf]="actionsTemplate"    *ngTemplateOutlet="actionsTemplate; context: { actionConfig: { group: group, chevronIcon: chevronIcon, collapser: collapser  }  }">  </ng-container>  <ng-container *ngIf="!actionsTemplate">    <div class="actions ml-3" *ngIf="vGroupKey">      <fa-icon [icon]="[\'fas\',\'plus-square\']" [fixedWidth]="true" *ngIf="withNew" (click)="createElement(group)">      </fa-icon>      <fa-icon [icon]="[\'fas\',chevronIcon ? chevronIcon : \'chevron-left\']" [fixedWidth]="true"        (click)="toggleCollapse(group)" *ngIf="(collapser != null ? collapser : true)"></fa-icon>    </div>  </ng-container></ng-template></div>'
     var COMPONENTS = [{'name': 'BoardComponent', 'selector': 'ngx-taskboard'},{'name': 'FilterSearchBarComponent', 'selector': 'ngx-taskboard-filter-search-bar'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BoardComponent'};
