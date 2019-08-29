@@ -12,10 +12,10 @@ import { TaskboardService } from '../taskboard.service';
 export class BoardComponent implements OnInit {
 
   /** Shows the blacklog on onit */
-  @Input() showBacklog: boolean = true;
+  @Input() showBacklog = true;
 
   /** Name of the backlog row */
-  @Input() backlogName: string = 'Backlog';
+  @Input() backlogName = 'Backlog';
 
   /** Items to display */
   @Input() items: Array<CardItem> | Array<object> = [];
@@ -35,34 +35,34 @@ export class BoardComponent implements OnInit {
   @Input() vGroupKeys: Array<string> = [];
 
   /** Show add buttons on the column headings */
-  @Input() hAddNewItems: boolean = true;
+  @Input() hAddNewItems = true;
 
   /** Show add buttons on the row headings */
-  @Input() vAddNewItems: boolean = true;
+  @Input() vAddNewItems = true;
 
   /** Show add buttons in the cells for columns and rows */
-  @Input() cellAddNewItems: boolean = true;
+  @Input() cellAddNewItems = true;
 
   /** Key to group data for rows */
-  @Input() vGroupKey: string = '';
+  @Input() vGroupKey = '';
 
   /** Key to group data for columns */
-  @Input() hGroupKey: string = '';
+  @Input() hGroupKey = '';
 
   /** Sort items by property */
-  @Input() sortBy: string = '';
+  @Input() sortBy = '';
 
   /** Board name to show between row and column header */
-  @Input() boardName: string = '';
+  @Input() boardName = '';
 
   /** Invert rows and columns */
-  @Input() invertGroupDirection: boolean = false;
+  @Input() invertGroupDirection = false;
 
   /** All items which can't be grouped into rows and columns are stored into the backlog  */
-  @Input() showUngroupedInBacklog: boolean = true;
+  @Input() showUngroupedInBacklog = true;
 
   /** Decrease overall font size */
-  @Input() smallText: boolean = false;
+  @Input() smallText = false;
 
   /** Template for items to render. "item" object ist passed (see examples) */
   @Input() itemTemplate: TemplateRef<any> = null;
@@ -83,46 +83,46 @@ export class BoardComponent implements OnInit {
   @Input() dragoverPlaceholderTemplate: TemplateRef<any> = null;
 
   /** Default css class for row header */
-  @Input() vHeaderClass: string = 'card-header';
+  @Input() vHeaderClass = 'card-header';
 
   /** Default css class for column header */
-  @Input() hHeaderClass: string = 'card-header';
+  @Input() hHeaderClass = 'card-header card-header-bg';
 
   /** If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */
-  @Input() stickyHorizontalHeaderKeys: boolean = true;
+  @Input() stickyHorizontalHeaderKeys = true;
 
   /** If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */
-  @Input() stickyVerticalHeaderKeys: boolean = false;
+  @Input() stickyVerticalHeaderKeys = false;
 
   /** Default css class for cell header */
-  @Input() cellClass: string = 'card-header';
+  @Input() cellClass = 'card-header';
 
   /**
    * If set to true, the rows and columns are scrollable and will be out of the viewport.
    * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)
    */
-  @Input() scrollable: boolean = false;
+  @Input() scrollable = false;
 
   /** Column width (in px) which is applied to the columns when the content is scollable */
-  @Input() columnWidth: number = 200;
+  @Input() columnWidth = 200;
 
   /** Allow to collapse the rows */
-  @Input() vCollapsable: boolean = true;
+  @Input() vCollapsable = true;
 
   /** Rows are collapsed or not on init */
-  @Input() vCollapsed: boolean = false;
+  @Input() vCollapsed = false;
 
   /** Columns are collapsed or not on init */
-  @Input() hCollapsed: boolean = false;
+  @Input() hCollapsed = false;
 
   /** Shows the filter row to search items by filter in filterOnProperties array */
-  @Input() showFilterRow: boolean = true;
+  @Input() showFilterRow = true;
 
   /** Placeholder for the input with the filter row */
-  @Input() filterRowPlaceholder: string = 'Search for items';
+  @Input() filterRowPlaceholder = 'Search for items';
 
   /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
-  @Input() filter: string = '';
+  @Input() filter = '';
 
   /** Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched */
   @Input() filterOnProperties: Array<string> = [];
@@ -175,7 +175,7 @@ export class BoardComponent implements OnInit {
     // console.log('getItemsOfGroup', arguments);
     let items = this.items.filter(item => {
 
-      if (this.taskboardService.objectProperties.length == 0) {
+      if (this.taskboardService.objectProperties.length === 0) {
         this.taskboardService.objectProperties = Object.keys(item);
       }
       const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
@@ -183,7 +183,7 @@ export class BoardComponent implements OnInit {
       const vItem = item[groupKeys.vGroupKey];
       const hItem = item[groupKeys.hGroupKey];
 
-      if (hItem == undefined || hItem == null && vItem == undefined || vItem == null) {
+      if (hItem == undefined || hItem == null && vItem === undefined || vItem == null) {
         return false;
       }
 
@@ -224,10 +224,10 @@ export class BoardComponent implements OnInit {
     }
     return (this.filter != '') ? items.filter((item, index, array) => {
       return (this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {
-        let found = item[key] != undefined && typeof (item[key]) != "number" && ((<string>item[key]).indexOf(this.filter) > -1 ? true : false);
+        const found = item[key] != undefined && typeof (item[key]) != 'number' && ((item[key] as string).indexOf(this.filter) > -1 ? true : false);
         found && console.info(`Searching "${item[key]}" for "${this.filter}" | Found ${found}`);
         return found;
-      })
+      });
     }) : items;
   }
 
@@ -377,7 +377,7 @@ export class BoardComponent implements OnInit {
   }
 
   getColumnWidth(): object {
-    if (!this.scrollable) return {};
+    if (!this.scrollable) { return {}; }
 
     return {
       'min-width': `${this.columnWidth}px`
@@ -385,8 +385,8 @@ export class BoardComponent implements OnInit {
   }
 
   calculateScrollBarWidth(): number {
-    let headingsRowWidth = this.elRef.nativeElement.querySelector(".headings").clientWidth;
-    let contentWidth = this.elRef.nativeElement.querySelector(".row-content").clientWidth
+    const headingsRowWidth = this.elRef.nativeElement.querySelector('.headings').clientWidth;
+    const contentWidth = this.elRef.nativeElement.querySelector('.row-content').clientWidth;
     return headingsRowWidth - contentWidth;
   }
 

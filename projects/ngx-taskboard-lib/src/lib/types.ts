@@ -1,7 +1,7 @@
 
 /**
  * Item to render
- * 
+ *
  * @export
  */
 export interface CardItem {
@@ -15,7 +15,7 @@ export interface CardItem {
 
 /**
  * All the collapse stated of every group item (horizontal / vertical)
- * 
+ *
  * @export
  */
 export interface CollapseState {
@@ -25,7 +25,7 @@ export interface CollapseState {
 
 /**
  * Datatype which is emitted when an item should be added
- * 
+ *
  * @export
  */
 export interface ClickEvent {
@@ -35,7 +35,7 @@ export interface ClickEvent {
 
 /**
  * Group keys to determine the correct groups internally
- * 
+ *
  * @export
  */
 export interface GroupKeys {

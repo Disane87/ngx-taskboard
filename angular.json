@@ -109,7 +109,7 @@
       }
     },
     "ngx-taskboard-lib": {
-      "root": "projects/ngx-taskboard",
+      "root": "projects/ngx-taskboard-lib",
       "sourceRoot": "projects/ngx-taskboard-lib/src",
       "projectType": "library",
       "prefix": "ngx-taskboard",

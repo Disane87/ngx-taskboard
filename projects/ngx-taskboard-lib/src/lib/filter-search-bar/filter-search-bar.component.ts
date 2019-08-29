@@ -1,37 +1,37 @@
-import { Component, OnInit, EventEmitter, Input } from '@angular/core';
-import { TaskboardService } from '../taskboard.service';
-import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { DebugRenderer2 } from '@angular/core/src/view/services';
+import { Component, EventEmitter, Input, OnInit } from "@angular/core";
+import { Subject } from "rxjs";
+import { debounceTime, distinctUntilChanged } from "rxjs/operators";
+import { TaskboardService } from "../taskboard.service";
 
 @Component({
-  selector: 'ngx-taskboard-filter-search-bar',
-  templateUrl: './filter-search-bar.component.html',
-  styleUrls: ['./filter-search-bar.component.scss']
+  // tslint:disable-next-line: component-selector
+  selector: "ngx-taskboard-filter-search-bar",
+  templateUrl: "./filter-search-bar.component.html",
+  styleUrls: ["./filter-search-bar.component.scss"],
 })
 export class FilterSearchBarComponent implements OnInit {
 
   public filter: string;
   public filterChanged: Subject<string> = new Subject<string>();
-  public filterOnProperties: Array<string> = [];
-  public filterOnPropertiesChanged: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
+  public filterOnProperties: string[] = [];
+  public filterOnPropertiesChanged: EventEmitter<string[]> = new EventEmitter<string[]>();
 
-  @Input() placeholder = 'Search for Items';
+  @Input() public placeholder = "Search for Items";
 
   constructor(public taskboardService: TaskboardService) {
     this.filterChanged.pipe(
       debounceTime(300),
       distinctUntilChanged())
       .subscribe((filter: string) => {
-        this.filter = filter
+        this.filter = filter;
         this.taskboardService.filterChanged$.emit(filter);
       });
   }
 
-  ngOnInit() {
+  public ngOnInit() {
   }
 
-  changed(text) {
+  public changed(text) {
     this.filterChanged.next(text);
   }
 }
