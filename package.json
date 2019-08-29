@@ -1,6 +1,6 @@
 {
   "name": "ngx-taskboard",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "scripts": {
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.json\" --fix",
