@@ -60,42 +60,6 @@
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
   },
-  "repository": {
-    "directory": "github",
-    "url": "https://github.com/Disane87/ngx-taskboard.git",
-    "type": "git"
-  },
-  "readme": "",
-  "author": {
-    "name": "Marco Franke",
-    "email": "mfranke87@icloud.com",
-    "url": "https://byte-style.de"
-  },
-  "badges": [
-    {
-      "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
-      "description": "License",
-      "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
-    },
-    {
-      "url": "https://img.shields.io/github/issues/Disane87/ngx-taskboard",
-      "description": "Issues",
-      "href": "https://github.com/Disane87/ngx-taskboard/issues"
-    },
-    {
-      "url": "https://img.shields.io/github/stars/Disane87/ngx-taskboard",
-      "description": "Stars",
-      "href": "https://github.com/Disane87/ngx-taskboard/stargazers"
-    }
-  ],
-  "description": "Yet another angular taskboard",
-  "homepage": "https://ngx-taskboard.disane.de",
-  "maintainers": [
-    {
-      "name": "Marco Franke",
-      "email": "mfranke87@icloud.com"
-    }
-  ],
   "private": false,
   "dependencies": {
     "@angular/animations": "~7.2.0",
