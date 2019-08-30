@@ -32,11 +32,11 @@
         </div>
 
       </div>
-      <div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-auto]="scrollable"
-        [class.border-bottom]="scrollable">
+      <div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-x-auto]="horizontalScrolling"
+        [class.overflow-y-auto]="verticalScrolling" [class.border-bottom]="(scrollable && verticalScrolling)">
 
         <div class="headings d-flex flex-row align-items-stretch w-100" [ngStyle]="scrollBarStyle()"
-          [class.sticky-top]="stickyHorizontalHeaderKeys && scrollable">
+          [class.sticky-top]="stickyHorizontalHeaderKeys && verticalScrolling">
           <div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">
             <div class="d-flex flex-row w-100">
               <div class="boardname flex-fill">{{ boardName }}</div>
@@ -49,9 +49,9 @@
 
           <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header"
             [class.bg-white]="collapseState(hGroup)" [class.border-bottom-0]="collapseState(hGroup)"
-            [class.col]="!collapseState(hGroup) && !scrollable" *ngFor="let hGroup of hHeadings; let hLast = last"
-            [class.h-collapsed]="collapseState(hGroup)" [ngStyle]="getColumnWidth()"
-            [class.border-right]="scrollable && hLast">
+            [class.col]="!collapseState(hGroup) && !(scrollable && horizontalScrolling)"
+            *ngFor="let hGroup of hHeadings; let hLast = last" [class.h-collapsed]="collapseState(hGroup)"
+            [ngStyle]="getColumnWidth()" [class.border-right]="(scrollable && horizontalScrolling) && hLast">
             <div class="" *ngIf="!collapseState(hGroup)">
               <ng-container [ngIf]="hHeaderTemplate"
                 *ngTemplateOutlet="hHeaderTemplate; context: { groupName: hGroup }">
@@ -69,7 +69,8 @@
 
         </div>
 
-        <div class="d-flex flex-column row-content align-items-stretch" [class.flex-fill]="!scrollable">
+        <div class="d-flex flex-column row-content align-items-stretch"
+          [class.flex-fill]="!(scrollable && verticalScrolling)">
 
           <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)" *ngFor="let vGroup of vHeadings">
 
@@ -103,9 +104,10 @@
             <ng-container *ngFor="let hGroup of hHeadings; let hLast = last">
 
               <div class="cell-item border-left {{cellClass}} bg-white d-flex flex-column"
-                [class.col]="!collapseState(hGroup) && !scrollable" [class.border-bottom-0]="collapseState(hGroup)"
-                [class.v-collapsed]="collapseState(vGroup)" [class.h-collapsed]="collapseState(hGroup)"
-                [ngStyle]="getColumnWidth()" [class.border-right]="scrollable && hLast">
+                [class.col]="!collapseState(hGroup) && !(scrollable && horizontalScrolling)"
+                [class.border-bottom-0]="collapseState(hGroup)" [class.v-collapsed]="collapseState(vGroup)"
+                [class.h-collapsed]="collapseState(hGroup)" [ngStyle]="getColumnWidth()"
+                [class.border-right]="(scrollable && horizontalScrolling) && hLast">
 
 
 

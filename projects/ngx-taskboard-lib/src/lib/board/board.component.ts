@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, TemplateRef } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, TemplateRef, ChangeDetectionStrategy, SimpleChanges, HostListener } from '@angular/core';
 import { CardItem, CollapseState, ClickEvent, GroupKeys, Scrollable, GroupHeading } from '../types';
 import { TaskboardService } from '../taskboard.service';
 
@@ -6,7 +6,8 @@ import { TaskboardService } from '../taskboard.service';
   // tslint:disable-next-line: component-selector
   selector: 'ngx-taskboard',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoardComponent implements OnInit {
 
@@ -105,12 +106,6 @@ export class BoardComponent implements OnInit {
   /** Default css class for cell header */
   @Input() cellClass: string = 'card-header';
 
-  /**
-   * If set to true, the rows and columns are scrollable and will be out of the viewport.
-   * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)
-   */
-  @Input() scrollable: boolean = false;
-
   /** Column width (in px) which is applied to the columns when the content is scollable */
   @Input() columnWidth: number = 200;
 
@@ -147,13 +142,25 @@ export class BoardComponent implements OnInit {
   /** Fired when an add action is click. Current ClickEvent is passed */
   @Output() readonly elementCreateClick = new EventEmitter<ClickEvent>();
 
+  private readonly collapseStates: Array<CollapseState> = [];
   public hHeadings: Array<string | GroupHeading> = [];
   public vHeadings: Array<string | GroupHeading> = [];
 
-  private readonly collapseStates: Array<CollapseState> = [];
   private dragItem: CardItem;
   private placeholderSet = false;
   private currentDragZone: string;
+
+  /**
+  * If set to true, the rows and columns are scrollable and will be out of the viewport.
+  * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)
+  */
+  public scrollable: boolean = false;
+
+  /** If set to true, rows are scrollable */
+  public verticalScrolling: boolean = false;
+
+  /** If set to true, columns are scrollable */
+  public horizontalScrolling: boolean = false;
 
   constructor(
     private readonly renderer: Renderer2,
@@ -162,24 +169,45 @@ export class BoardComponent implements OnInit {
     private taskboardService: TaskboardService
   ) { }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.checkIfContentNeedsToScroll();
+  }
+
   ngOnInit() {
     if (this.items.length > 0) {
       this.prepareBoard();
     }
   }
 
+  ngDoCheck() {
+    this.checkIfContentNeedsToScroll();
+  }
+
+  checkIfContentNeedsToScroll() {
+    let { hScroll: h, vScroll: v } = this.containerIsScrollable('.column-cards');
+    this.horizontalScrolling = h;
+    this.verticalScrolling = v;
+  }
+
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+
+    // debugger;
+    setTimeout(() => {
+
+    }, 1000)
+
+  }
+
   prepareBoard() {
-    // console.log("prepareBoard");
     this.generateHeadings();
 
     this.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));
-    // console.log("Collapse states: ", this.collapseStates);
     this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
 
-    // this.calculateScrollBarWidth();
-
-    // console.log('.row-content', this.containerIsScrollable('.row-content'));
-    // console.log('.column-cards', this.containerIsScrollable('.column-cards'));
   }
 
   generateHeadings() {
@@ -218,19 +246,17 @@ export class BoardComponent implements OnInit {
       }
       const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
 
-      const vItem = item[groupKeys.vGroupKey];
-      const hItem = item[groupKeys.hGroupKey];
+      const vItem = this.getValue(item[groupKeys.vGroupKey]);
+      const hItem = this.getValue(item[groupKeys.hGroupKey]);
 
       if (hItem == undefined || hItem == null && vItem === undefined || vItem == null) {
         return false;
       }
 
-      let found = vItem.toLowerCase() === vValue.toLowerCase() &&
-        hItem.toLowerCase() === hValue.toLowerCase();
-
-      if (found) {
-        // console.log("Found item: ", found, item)
-      }
+      let found = vItem.toLowerCase() === vValue.toLowerCase() && hItem.toLowerCase() === hValue.toLowerCase();
+      // if (found) {
+      // console.log("Found item: ", found, item)
+      // }
       return found;
     });
 
@@ -268,7 +294,7 @@ export class BoardComponent implements OnInit {
     return (this.filter != '') ? items.filter((item, index, array) => {
       return (this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {
         const found = item[key] != undefined && typeof (item[key]) != 'number' && ((item[key] as string).indexOf(this.filter) > -1 ? true : false);
-        found && console.info(`Searching "${item[key]}" for "${this.filter}" | Found ${found}`);
+        // found && console.info(`Searching "${item[key]}" for "${this.filter}" | Found ${found}`);
         return found;
       });
     }) : items;
@@ -404,6 +430,9 @@ export class BoardComponent implements OnInit {
       if (hRow == undefined) {
         hRow = '';
       }
+
+      vRow = this.getValue(vRow);
+      hRow = this.getValue(hRow);
 
       const dragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();
       if (dragZone !== this.currentDragZone && this.currentDragZone !== '') {
