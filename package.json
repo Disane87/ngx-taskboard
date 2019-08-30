@@ -12,7 +12,7 @@
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
     "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
     "start": "ng serve --open",
-    "semantic-release:run": "npm run lint && npm test && npm unlink && npm run build && npm run semantic-release:test -- --no-ci"
+    "semantic-release:run": "npm run lint && npm test && npm unlink && npm run build && npm run semantic-release:test"
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",
@@ -75,8 +75,7 @@
     "email": "mfranke87@icloud.com",
     "url": "https://byte-style.de"
   },
-  "badges": [
-    {
+  "badges": [{
       "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
       "description": "License",
       "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
@@ -94,12 +93,10 @@
   ],
   "description": "Yet another angular taskboard",
   "homepage": "https://ngx-taskboard.disane.de",
-  "maintainers": [
-    {
-      "name": "Marco Franke",
-      "email": "mfranke87@icloud.com"
-    }
-  ],
+  "maintainers": [{
+    "name": "Marco Franke",
+    "email": "mfranke87@icloud.com"
+  }],
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
