@@ -1,17 +1,18 @@
 {
   "name": "@disane/ngx-taskboard",
-  "version": "1.1.17",
+  "version": "1.2.0",
   "scripts": {
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard-lib",
     "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
     "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
-    "semantic-release": "semantic-release",
+    "semantic-release:test": "npx semantic-release -b dev",
     "build:watch": "ng build ngx-taskboard-lib --watch",
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
     "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
-    "start": "ng serve --open"
+    "start": "ng serve --open",
+    "semantic-release:run": "npm run semantic-release:test -- --no-ci"
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",

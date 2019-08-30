@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/Disane87/ngx-taskboard/compare/v1.1.17...v1.2.0) (2019-08-30)
+
+
+### Features
+
+* Check if content must be scrolled, if not, all items are filled resolves [#2](https://github.com/Disane87/ngx-taskboard/issues/2) ([e8320cd](https://github.com/Disane87/ngx-taskboard/commit/e8320cd))
+* implemented ordering [#24](https://github.com/Disane87/ngx-taskboard/issues/24) ([83383de](https://github.com/Disane87/ngx-taskboard/commit/83383de))
+* resolves [#24](https://github.com/Disane87/ngx-taskboard/issues/24) ([66f465c](https://github.com/Disane87/ngx-taskboard/commit/66f465c))
+
 ### Changelog
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
