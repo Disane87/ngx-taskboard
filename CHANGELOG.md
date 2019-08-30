@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/Disane87/ngx-taskboard/compare/v1.2.1...v1.2.2) (2019-08-30)
+
+
+### Bug Fixes
+
+* changed release pipeline ([bdcea6d](https://github.com/Disane87/ngx-taskboard/commit/bdcea6d))
+
 ## [1.2.1](https://github.com/Disane87/ngx-taskboard/compare/v1.2.0...v1.2.1) (2019-08-30)
 
 
