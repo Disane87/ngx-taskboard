@@ -1,6 +1,6 @@
 {
   "name": "@disane/ngx-taskboard",
-  "version": "1.1.16",
+  "version": "1.2.0",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
@@ -16,8 +16,7 @@
     "email": "mfranke87@icloud.com",
     "url": "https://byte-style.de"
   },
-  "badges": [
-    {
+  "badges": [{
       "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
       "description": "License",
       "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
@@ -35,10 +34,8 @@
   ],
   "description": "Yet another angular taskboard",
   "homepage": "https://ngx-taskboard.disane.de",
-  "maintainers": [
-    {
-      "name": "Marco Franke",
-      "email": "mfranke87@icloud.com"
-    }
-  ]
+  "maintainers": [{
+    "name": "Marco Franke",
+    "email": "mfranke87@icloud.com"
+  }]
 }

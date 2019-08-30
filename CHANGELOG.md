@@ -1,3 +1,26 @@
+## [1.2.2](https://github.com/Disane87/ngx-taskboard/compare/v1.2.1...v1.2.2) (2019-08-30)
+
+
+### Bug Fixes
+
+* changed release pipeline ([bdcea6d](https://github.com/Disane87/ngx-taskboard/commit/bdcea6d))
+
+## [1.2.1](https://github.com/Disane87/ngx-taskboard/compare/v1.2.0...v1.2.1) (2019-08-30)
+
+
+### Bug Fixes
+
+* Changed build command ([d26f5b2](https://github.com/Disane87/ngx-taskboard/commit/d26f5b2))
+
+# [1.2.0](https://github.com/Disane87/ngx-taskboard/compare/v1.1.17...v1.2.0) (2019-08-30)
+
+
+### Features
+
+* Check if content must be scrolled, if not, all items are filled resolves [#2](https://github.com/Disane87/ngx-taskboard/issues/2) ([e8320cd](https://github.com/Disane87/ngx-taskboard/commit/e8320cd))
+* implemented ordering [#24](https://github.com/Disane87/ngx-taskboard/issues/24) ([83383de](https://github.com/Disane87/ngx-taskboard/commit/83383de))
+* resolves [#24](https://github.com/Disane87/ngx-taskboard/issues/24) ([66f465c](https://github.com/Disane87/ngx-taskboard/commit/66f465c))
+
 ### Changelog
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.

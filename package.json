@@ -1,16 +1,18 @@
 {
   "name": "@disane/ngx-taskboard",
-  "version": "1.1.17",
+  "version": "1.2.0",
   "scripts": {
     "release": "release-it --ci",
     "lint": "tslint --project \"tsconfig.json\" --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard-lib",
     "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
     "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
-    "semantic-release": "semantic-release",
-    "build:watch": "npm unlink ./dist/ngx-taskboard --no-save && ng build ngx-taskboard-lib --watch",
+    "semantic-release:test": "npx semantic-release -b dev",
+    "build:watch": "ng build ngx-taskboard-lib --watch",
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
-    "start": "ng serve --open"
+    "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
+    "start": "ng serve --open",
+    "semantic-release:run": "npm run lint && npm test && npm unlink && npm run build && npm run semantic-release:test -- --no-ci"
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",
@@ -23,6 +25,7 @@
       "DOC: ": ""
     }
   },
+  "license": "MIT",
   "release-it": {
     "npm": {
       "publishPath": "./dist/ngx-taskboard"
@@ -61,6 +64,42 @@
     }
   },
   "private": false,
+  "repository": {
+    "directory": "github",
+    "url": "https://github.com/Disane87/ngx-taskboard.git",
+    "type": "git"
+  },
+  "readme": "",
+  "author": {
+    "name": "Marco Franke",
+    "email": "mfranke87@icloud.com",
+    "url": "https://byte-style.de"
+  },
+  "badges": [
+    {
+      "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
+      "description": "License",
+      "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
+    },
+    {
+      "url": "https://img.shields.io/github/issues/Disane87/ngx-taskboard",
+      "description": "Issues",
+      "href": "https://github.com/Disane87/ngx-taskboard/issues"
+    },
+    {
+      "url": "https://img.shields.io/github/stars/Disane87/ngx-taskboard",
+      "description": "Stars",
+      "href": "https://github.com/Disane87/ngx-taskboard/stargazers"
+    }
+  ],
+  "description": "Yet another angular taskboard",
+  "homepage": "https://ngx-taskboard.disane.de",
+  "maintainers": [
+    {
+      "name": "Marco Franke",
+      "email": "mfranke87@icloud.com"
+    }
+  ],
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",

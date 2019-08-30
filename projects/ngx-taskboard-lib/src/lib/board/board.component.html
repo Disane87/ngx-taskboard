@@ -1,15 +1,19 @@
+<!-- <pre>{{ hHeadings | json }}</pre>
+<pre>{{ vHeadings | json }}</pre> -->
+
 <div class="h-100 d-flex flex-column align-items-stretch border-0" [class.small]="smallText" style="overflow: hidden">
   <div class="d-flex flex-column h-100">
     <ngx-taskboard-filter-search-bar [placeholder]="filterRowPlaceholder"></ngx-taskboard-filter-search-bar>
     <div class="d-flex flex-row align-items-stretch flex-fill h-100 ">
 
-      <div class="backlog border-right" *ngIf="showBacklog">
+      <div class="backlog border-right" *ngIf="showBacklog" [style.width]="backlogWidth">
         <div class="card border-right-0 border-top-0 border-left-0 w-100 h-100">
           <div class="{{hHeaderClass}} d-flex flex-row justify-content-between">
             {{ backlogName }}
+
             <div class="actions ml-3">
               <fa-icon [icon]="['fas','plus-square']" [fixedWidth]="true"></fa-icon>
-              <fa-icon [icon]="['fas','chevron-left']" [fixedWidth]="true"></fa-icon>
+              <!-- <fa-icon [icon]="['fas','chevron-left']" [fixedWidth]="true"></fa-icon> -->
             </div>
           </div>
           <ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"
@@ -21,28 +25,18 @@
               </ng-container>
 
               <ng-container *ngIf="!itemTemplate">
-                <div class="card mb-1 border-bottom-0 border-top-0" style="border-left: 5px solid; border-radius: 0;"
-                  [style.border-left-color]="item?.color">
-                  <div class="card-header border-top d-flex flex-row justify-content-between">
-                    <div class="">
-                      <span class="font-weight-bold">
-                        #{{item.id}}
-                      </span>
-                      <span class="ml-3">{{ item.name }}</span>
-                      <span class="ml-3">{{ item.priority }}</span>
-                    </div>
-                  </div>
-                </div>
+                <ng-container *ngTemplateOutlet="defaultItemTemplate; context: { item: item }"></ng-container>
               </ng-container>
             </div>
           </ul>
         </div>
 
       </div>
-      <div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-auto]="scrollable">
+      <div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-x-auto]="horizontalScrolling"
+        [class.overflow-y-auto]="verticalScrolling" [class.border-bottom]="(scrollable && verticalScrolling)">
 
         <div class="headings d-flex flex-row align-items-stretch w-100" [ngStyle]="scrollBarStyle()"
-          [class.sticky-top]="stickyHorizontalHeaderKeys && scrollable">
+          [class.sticky-top]="stickyHorizontalHeaderKeys && verticalScrolling">
           <div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">
             <div class="d-flex flex-row w-100">
               <div class="boardname">{{ boardName }}</div>
@@ -54,26 +48,29 @@
           </div>
 
           <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header"
-            [class.bg-white]="collapseState(group)" [class.border-bottom-0]="collapseState(group)"
-            [class.col]="!collapseState(group) && !scrollable" *ngFor="let group of hHeadings"
-            [class.h-collapsed]="collapseState(group)" [ngStyle]="getColumnWidth()">
-            <div class="" *ngIf="!collapseState(group)">
-              <ng-container [ngIf]="hHeaderTemplate" *ngTemplateOutlet="hHeaderTemplate; context: { groupName: group }">
+            [class.bg-white]="collapseState(hGroup)" [class.border-bottom-0]="collapseState(hGroup)"
+            [class.col]="!collapseState(hGroup) && !(scrollable && horizontalScrolling)"
+            *ngFor="let hGroup of hHeadings; let hLast = last" [class.h-collapsed]="collapseState(hGroup)"
+            [ngStyle]="getColumnWidth()" [class.border-right]="(scrollable && horizontalScrolling) && hLast">
+            <div class="" *ngIf="!collapseState(hGroup)">
+              <ng-container [ngIf]="hHeaderTemplate"
+                *ngTemplateOutlet="hHeaderTemplate; context: { groupName: hGroup }">
               </ng-container>
               <ng-container *ngIf="!hHeaderTemplate">
-                {{ group || 'Ungrouped'}}
+                {{ getValue(hGroup) || 'Ungrouped' }}
               </ng-container>
             </div>
-            <div *ngIf="!collapseState(group)">
+            <div *ngIf="!collapseState(hGroup)">
               <ng-content
-                *ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, group: { hGroup: group, vGroup: null}, collapser: false, chevronIcon: !collapseState(group) ? 'chevron-left' : 'chevron-right' }">
+                *ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, hGroup: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }">
               </ng-content>
             </div>
           </div>
 
         </div>
 
-        <div class="d-flex flex-column row-content align-items-stretch" [class.flex-fill]="!scrollable">
+        <div class="d-flex flex-column row-content align-items-stretch"
+          [class.flex-fill]="!(scrollable && verticalScrolling)">
 
           <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)" *ngFor="let vGroup of vHeadings">
 
@@ -84,7 +81,7 @@
                   *ngTemplateOutlet="vHeaderTemplate; context: { groupName: vGroup }">
                 </ng-container>
                 <ng-container *ngIf="!vHeaderTemplate">
-                  {{ vGroup || 'Ungrouped' }}
+                  {{ getValue(vGroup) || 'Ungrouped' }}
                 </ng-container>
               </div>
 
@@ -104,49 +101,34 @@
 
             </div>
 
-            <ng-container *ngFor="let hGroup of hHeadings">
+            <ng-container *ngFor="let hGroup of hHeadings; let hLast = last">
+
               <div class="cell-item border-left {{cellClass}} bg-white d-flex flex-column"
-                [class.col]="!collapseState(hGroup) && !scrollable" [class.border-bottom-0]="collapseState(hGroup)"
-                [class.v-collapsed]="collapseState(vGroup)" [class.h-collapsed]="collapseState(hGroup)"
-                [ngStyle]="getColumnWidth()">
+                [class.col]="!collapseState(hGroup) && !(scrollable && horizontalScrolling)"
+                [class.border-bottom-0]="collapseState(hGroup)" [class.v-collapsed]="collapseState(vGroup)"
+                [class.h-collapsed]="collapseState(hGroup)" [ngStyle]="getColumnWidth()"
+                [class.border-right]="(scrollable && horizontalScrolling) && hLast">
+
+
+
                 <ng-container *ngIf="!collapseState(vGroup) && !collapseState(hGroup)">
 
                   <div class="cell-items flex-fill" (dragover)="dragOver($event, vGroup, hGroup)"
                     (drop)="drop($event, vGroup, hGroup)">
-                    <ng-container *ngFor="let item of getItemsOfGroup(vGroup, hGroup)">
+                    <ng-container *ngFor="let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))">
 
                       <div class="item-container p-0 m-0" draggable="true" (dragstart)="dragStart($event, item)"
                         (dragend)="dragEnd($event, item)">
-                        <!-- Items -->
                         <ng-container *ngIf="itemTemplate">
                           <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
                         </ng-container>
 
                         <ng-container *ngIf="!itemTemplate">
-                          <div class="card mb-1 border-bottom-0 border-top-0"
-                            style="border-left: 5px solid; border-radius: 0;" [style.border-left-color]="item?.color">
-                            <div class="card-header border-top d-flex flex-row justify-content-between">
-                              <div class="">
-                                <span class="font-weight-bold">#{{item.id}}</span>
-                                <span class="ml-3">{{ item.name }}</span>
-                                <span class="ml-3">{{ item.priority }}</span>
-                              </div>
-                            </div>
-                          </div>
+                          <ng-container *ngTemplateOutlet="defaultItemTemplate; context: { item: item }"></ng-container>
                         </ng-container>
                       </div>
 
                     </ng-container>
-
-                    <!-- <ng-container *ngIf="getItemsOfGroup(vGroup, hGroup).length == 0">
-                      <div class="card mb-1 border-bottom-0 border-top-0"
-                        style="border-left: 5px solid; border-radius: 0;">
-                        <div class="card-header border-top d-flex flex-row justify-content-between">
-  
-                        </div>
-                      </div>
-                    </ng-container> -->
-
                   </div>
                   <div class="cell-actions d-flex flex-row align-self-end">
                     <ng-content
@@ -159,10 +141,10 @@
                   <div class="text-center" (dragover)="dragOver($event, vGroup, hGroup)"
                     (drop)="drop($event, vGroup, hGroup)">
                     <ng-container [ngIf]="noElementsTemplate"
-                      *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(vGroup, hGroup).length, filter: this.filter }">
+                      *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length, filter: this.filter }">
                     </ng-container>
                     <ng-container *ngIf="!noElementsTemplate">
-                      {{ getItemsOfGroup(vGroup, hGroup).length }} elements
+                      {{ getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length }} elements
                       <span *ngIf="filter !== ''" class="code"> (filtered by <code>{{filter}}</code>)</span>
                     </ng-container>
                   </div>
@@ -198,4 +180,17 @@
   </ng-container>
 
 
+</ng-template>
+
+<ng-template #defaultItemTemplate let-item="item">
+  <div class="card mb-1 border-bottom-0 border-top-0" style="border-left: 5px solid; border-radius: 0;"
+    [style.border-left-color]="item?.color">
+    <div class="card-header border-top d-flex flex-row justify-content-between">
+      <div class="">
+        <span class="font-weight-bold">#{{item.id}}</span>
+        <span class="ml-3">{{ item.name }}</span>
+        <span class="ml-3">{{ item.priority }}</span>
+      </div>
+    </div>
+  </div>
 </ng-template>

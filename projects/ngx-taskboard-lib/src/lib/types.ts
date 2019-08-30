@@ -24,6 +24,16 @@ export interface CollapseState {
 }
 
 /**
+ * Object to determine the scrollability
+ * 
+ * @export
+ */
+export interface Scrollable {
+    hScroll: boolean;
+    vScroll: boolean;
+}
+
+/**
  * Datatype which is emitted when an item should be added
  *
  * @export
@@ -41,4 +51,16 @@ export interface ClickEvent {
 export interface GroupKeys {
     hGroupKey: string;
     vGroupKey: string;
+}
+
+/**
+ * Object for the headings in which you can set color etc.
+ * 
+ * @export
+ */
+export interface GroupHeading {
+    value: string;
+    display: string;
+    color: string;
+    orderId: number;
 }
