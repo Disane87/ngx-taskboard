@@ -7,6 +7,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [ngx-taskboard](#ngx-taskboard)
 - [Description](#description)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
@@ -16,7 +17,6 @@
     - [Events](#events)
   - [Interfaces](#interfaces)
   - [Examples](#examples)
-- [Limitations](#limitations)
 - [Contributing](#contributing)
   - [Installation the project](#installation-the-project)
 
@@ -173,10 +173,6 @@ export class AppComponent {
 
 Following soon
 
-# Limitations
-
-- Scrolling actually not possible
-
 # Contributing
 
 ## Installation the project
@@ -185,15 +181,23 @@ Following soon
 git clone https://github.com/Disane87/ngx-taskboard.git .
 ```
 
-Since this is a Angular library, you have can't start it as standalone, like a normal Angular application. Instead, you have to build it with `ng build . --watch` and link it with `npm link`. The link process creates a symlink to your global `npm` which you can access from other projects.
+Installing deps:
+```bash
+npm install
+```
 
-In your test or real project, you have to add the package, but only with another command `npm link @disane/ngx-taskboard --save`. This means, you are not obtaining the package from `npm`, instead you are symlinking it to you global `npm` which has a reference to the above created link in your project.
-
-This is a bit odd, but you can read more about it [here](https://docs.npmjs.com/cli/link).
-
-If you have an existing Angular library project with a tets application, you can work here with [submoduling](https://github.blog/2016-02-01-working-with-submodules/) in git, instead of a `git clone`:
-
-git submodule add https://github.com/Disane87/ngx-taskboard.git`
+then
+```bash
+npm run build:watch 
+```
+then 
+```bash
+npm run link
+```
+then
+```bash
+npm run start
+```
 
 And now, have some fun! 😊
 w, have some fun! 😊
