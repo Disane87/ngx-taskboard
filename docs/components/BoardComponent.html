@@ -4047,6 +4047,9 @@ export class BoardComponent implements OnInit {
   /** Placeholder for the input with the filter row */
   @Input() filterRowPlaceholder: string &#x3D; &#x27;Search for items&#x27;;
 
+  /** SPlaceholde rfor the input with the filter row*/
+  @Input() filterRowPlaceholder: string &#x3D; &#x27;Search for items&#x27;;
+
   /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
   @Input() filter: string &#x3D; &#x27;&#x27;;
 
@@ -4468,7 +4471,7 @@ export class BoardComponent implements OnInit {
           [class.sticky-top]&#x3D;&quot;stickyHorizontalHeaderKeys &amp;&amp; verticalScrolling&quot;&gt;
           &lt;div class&#x3D;&quot;col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row&quot; *ngIf&#x3D;&quot;vGroupKey&quot;&gt;
             &lt;div class&#x3D;&quot;d-flex flex-row w-100&quot;&gt;
-              &lt;div class&#x3D;&quot;boardname flex-fill&quot;&gt;{{ boardName }}&lt;/div&gt;
+              &lt;div class&#x3D;&quot;boardname&quot;&gt;{{ boardName }}&lt;/div&gt;
               &lt;div class&#x3D;&quot;h-v-actions align-self-center&quot;&gt;
                 &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;, vCollapsed ? &#x27;chevron-down&#x27; : &#x27;chevron-up&#x27;]&quot; [fixedWidth]&#x3D;&quot;true&quot;
                   (click)&#x3D;&quot;toggleCollapseGroup(&#x27;vertical&#x27;, vCollapsed)&quot;&gt;&lt;/fa-icon&gt;
