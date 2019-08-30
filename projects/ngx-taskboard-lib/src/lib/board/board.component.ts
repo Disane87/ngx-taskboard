@@ -191,12 +191,18 @@ export class BoardComponent implements OnInit {
       this.vGroupKey = hGkey;
     }
 
-    this.hHeadings = (this.hGroupKeys.length > 0 ? this.hGroupKeys : this.getHeadings(this.hGroupKey));
-    this.vHeadings = (this.vGroupKeys.length > 0 ? this.vGroupKeys : this.getHeadings(this.vGroupKey));
-
-    // console.log("Cols: ", this.hHeadings);
-    // console.log("Rows: ", this.vHeadings);
+    this.vHeadings = this.getHeadings(this.vGroupKeys, this.vGroupKey);
+    this.hHeadings = this.getHeadings(this.hGroupKeys, this.hGroupKey);
   }
+
+  private getHeadings(keys: Array<any>, key: string): Array<string | GroupHeading> {
+    if ((keys.length > 0 && (keys[0] as GroupHeading).value != '')) {
+      return keys.sort((a: GroupHeading, b: GroupHeading) => a.orderId - b.orderId);
+    } else {
+      return this.getHeadingsFromItems(key);
+    }
+  }
+
 
   generateCollapseStates(array: Array<string | GroupHeading>, diretion: 'h' | 'v'): CollapseState[] {
     return array.map(item => ({ name: this.getValue(item), collapsed: (diretion == 'h') ? this.hCollapsed : this.vCollapsed }));
@@ -306,7 +312,7 @@ export class BoardComponent implements OnInit {
     return '';
   }
 
-  getHeadings(groupKey: string = this.vGroupKey): Array<string> {
+  getHeadingsFromItems(groupKey: string = this.vGroupKey): Array<string> {
     const keys = (this.items as Array<object>).map((item: any) =>
       item[Object.keys(item).find(key => key.toLowerCase() === groupKey.toLowerCase())]
     );

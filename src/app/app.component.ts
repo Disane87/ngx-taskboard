@@ -14,18 +14,18 @@ export class AppComponent {
   public vGroupKey = 'status';
 
   public hGroupKeys: Array<GroupHeading> = [
-    { value: 'open', color: '#fff', display: 'TEST', orderId: 0 },
-    { value: 'working', color: '#fff', display: 'TEST', orderId: 0 },
-    { value: 'closed', color: '#fff', display: 'TEST', orderId: 0 },
-    { value: 'pending', color: '#fff', display: 'TEST', orderId: 0 },
+    { value: 'open', color: '#fff', display: 'TEST', orderId: 1 },
+    { value: 'working', color: '#fff', display: 'TEST', orderId: 2 },
+    { value: 'closed', color: '#fff', display: 'TEST', orderId: 3 },
+    { value: 'pending', color: '#fff', display: 'TEST', orderId: 4 },
     { value: 'test', color: '#fff', display: 'TEST', orderId: 0 }
   ];
   public vGroupKeys = [
-    { value: 'Karina', color: '#fff', display: 'MF', orderId: 0 },
-    { value: 'Christoph', color: '#fff', display: 'MF', orderId: 0 },
-    { value: 'Daniel', color: '#fff', display: 'MF', orderId: 0 },
-    { value: 'Malian', color: '#fff', display: 'MF', orderId: 0 },
-    { value: 'Joseph', color: '#fff', display: 'MF', orderId: 0 },
+    { value: 'Karina', color: '#fff', display: 'MF', orderId: 5 },
+    { value: 'Christoph', color: '#fff', display: 'MF', orderId: 4 },
+    { value: 'Daniel', color: '#fff', display: 'MF', orderId: 3 },
+    { value: 'Malian', color: '#fff', display: 'MF', orderId: 2 },
+    { value: 'Joseph', color: '#fff', display: 'MF', orderId: 1 },
   ];
 
   // public hGroupKeys = ['open', 'closed', 'working', 'test', 'pending', 'released'];
