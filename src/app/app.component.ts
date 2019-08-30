@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GroupHeading } from 'projects/ngx-taskboard-lib/src/lib/types';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,29 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   public showcaseMode = true;
 
-  public hGroupKey = 'status';
-  public vGroupKey = 'name';
+  public hGroupKey = 'name';
+  public vGroupKey = 'status';
 
-  public hGroupKeys = ['open', 'closed', 'working', 'test', 'pending', 'released'];
-  public vGroupKeys = [];
+  public hGroupKeys: Array<GroupHeading> = [
+    { value: 'open', color: '#fff', display: 'TEST', orderId: 0 },
+    { value: 'working', color: '#fff', display: 'TEST', orderId: 0 },
+    { value: 'closed', color: '#fff', display: 'TEST', orderId: 0 },
+    { value: 'pending', color: '#fff', display: 'TEST', orderId: 0 },
+    { value: 'test', color: '#fff', display: 'TEST', orderId: 0 }
+  ];
+  public vGroupKeys = [
+    { value: 'Karina', color: '#fff', display: 'MF', orderId: 0 },
+    { value: 'Christoph', color: '#fff', display: 'MF', orderId: 0 },
+    { value: 'Daniel', color: '#fff', display: 'MF', orderId: 0 },
+    { value: 'Malian', color: '#fff', display: 'MF', orderId: 0 },
+    { value: 'Joseph', color: '#fff', display: 'MF', orderId: 0 },
+  ];
+
+  // public hGroupKeys = ['open', 'closed', 'working', 'test', 'pending', 'released'];
+  // public vGroupKeys = ['Marco', 'Christoph', 'Daniel', 'Malian', 'Joseph'];
+
+  // public hGroupKey = 'status';
+  // public vGroupKey = 'name';
 
   public items: Array<object> = [];
 

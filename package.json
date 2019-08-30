@@ -24,6 +24,7 @@
       "DOC: ": ""
     }
   },
+  "license": "MIT",
   "release-it": {
     "npm": {
       "publishPath": "./dist/ngx-taskboard"
