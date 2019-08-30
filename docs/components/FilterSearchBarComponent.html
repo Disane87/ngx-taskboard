@@ -600,8 +600,7 @@ export class FilterSearchBarComponent implements OnInit {
       &lt;/span&gt;
     &lt;/div&gt;
     &lt;input type&#x3D;&quot;text&quot; *ngIf&#x3D;&quot;taskboardService.objectProperties.length &gt; 0&quot; class&#x3D;&quot;form-control border-left-0 pl-0&quot;
-      [typeahead]&#x3D;&quot;taskboardService.objectProperties&quot; placeholder&#x3D;&quot;{{placeholder}}&quot; [ngModel]&#x3D;&#x27;filter&#x27;
-      (ngModelChange)&#x3D;&quot;changed($event)&quot; /&gt;
+      placeholder&#x3D;&quot;{{placeholder}}&quot; [ngModel]&#x3D;&#x27;filter&#x27; (ngModelChange)&#x3D;&quot;changed($event)&quot; /&gt;
 
     &lt;!-- &lt;div class&#x3D;&quot;input-group-append&quot;&gt;
         &lt;div class&#x3D;&quot;btn-group&quot; dropdown&gt;
@@ -621,7 +620,9 @@ export class FilterSearchBarComponent implements OnInit {
           &lt;/div&gt;
     &lt;/div&gt; --&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+
+&lt;!-- [typeahead]&#x3D;&quot;taskboardService.objectProperties&quot; --&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -656,7 +657,7 @@ export class FilterSearchBarComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="card-header">  <div class="input-group">    <div class="input-group-prepend">      <span class="input-group-text bg-white" id="basic-addon1">        <fa-icon [icon]="[\'fas\',\'search\']"></fa-icon>      </span>    </div>    <input type="text" *ngIf="taskboardService.objectProperties.length > 0" class="form-control border-left-0 pl-0"      [typeahead]="taskboardService.objectProperties" placeholder="{{placeholder}}" [ngModel]=\'filter\'      (ngModelChange)="changed($event)" />    <!-- <div class="input-group-append">        <div class="btn-group" dropdown>            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"                    aria-controls="dropdown-basic">              Button dropdown <span class="caret"></span>            </button>            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"                role="menu" aria-labelledby="button-basic">              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>              <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>              <li class="divider dropdown-divider"></li>              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>              </li>            </ul>          </div>    </div> -->  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="card-header">  <div class="input-group">    <div class="input-group-prepend">      <span class="input-group-text bg-white" id="basic-addon1">        <fa-icon [icon]="[\'fas\',\'search\']"></fa-icon>      </span>    </div>    <input type="text" *ngIf="taskboardService.objectProperties.length > 0" class="form-control border-left-0 pl-0"      placeholder="{{placeholder}}" [ngModel]=\'filter\' (ngModelChange)="changed($event)" />    <!-- <div class="input-group-append">        <div class="btn-group" dropdown>            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"                    aria-controls="dropdown-basic">              Button dropdown <span class="caret"></span>            </button>            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"                role="menu" aria-labelledby="button-basic">              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>              <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>              <li class="divider dropdown-divider"></li>              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>              </li>            </ul>          </div>    </div> -->  </div></div><!-- [typeahead]="taskboardService.objectProperties" --></div>'
     var COMPONENTS = [{'name': 'BoardComponent', 'selector': 'ngx-taskboard'},{'name': 'FilterSearchBarComponent', 'selector': 'ngx-taskboard-filter-search-bar'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FilterSearchBarComponent'};
