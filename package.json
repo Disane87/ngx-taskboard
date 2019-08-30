@@ -8,8 +8,9 @@
     "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
     "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
     "semantic-release": "semantic-release",
-    "build:watch": "npm unlink ./dist/ngx-taskboard --no-save && ng build ngx-taskboard-lib --watch",
+    "build:watch": "ng build ngx-taskboard-lib --watch",
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
+    "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
     "start": "ng serve --open"
   },
   "auto-changelog": {
@@ -61,6 +62,42 @@
     }
   },
   "private": false,
+  "repository": {
+    "directory": "github",
+    "url": "https://github.com/Disane87/ngx-taskboard.git",
+    "type": "git"
+  },
+  "readme": "",
+  "author": {
+    "name": "Marco Franke",
+    "email": "mfranke87@icloud.com",
+    "url": "https://byte-style.de"
+  },
+  "badges": [
+    {
+      "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
+      "description": "License",
+      "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
+    },
+    {
+      "url": "https://img.shields.io/github/issues/Disane87/ngx-taskboard",
+      "description": "Issues",
+      "href": "https://github.com/Disane87/ngx-taskboard/issues"
+    },
+    {
+      "url": "https://img.shields.io/github/stars/Disane87/ngx-taskboard",
+      "description": "Stars",
+      "href": "https://github.com/Disane87/ngx-taskboard/stargazers"
+    }
+  ],
+  "description": "Yet another angular taskboard",
+  "homepage": "https://ngx-taskboard.disane.de",
+  "maintainers": [
+    {
+      "name": "Marco Franke",
+      "email": "mfranke87@icloud.com"
+    }
+  ],
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",

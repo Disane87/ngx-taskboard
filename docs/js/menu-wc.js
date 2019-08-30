@@ -131,7 +131,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/CollapseState.html" data-type="entity-link">CollapseState</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/GroupHeading.html" data-type="entity-link">GroupHeading</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/GroupKeys.html" data-type="entity-link">GroupKeys</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Scrollable.html" data-type="entity-link">Scrollable</a>
                             </li>
                         </ul>
                     </li>

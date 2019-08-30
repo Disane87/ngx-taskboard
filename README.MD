@@ -163,7 +163,9 @@ export class AppComponent {
 | CardItem      | interface | Item to render                                                      |
 | ClickEvent    | interface | Datatype which is emitted when an item should be added              |
 | CollapseState | interface | All the collapse stated of every group item (horizontal / vertical) |
+| GroupHeading  | interface | Object for the headings in which you can set color etc.             |
 | GroupKeys     | interface | Group keys to determine the correct groups internally               |
+| Scrollable    | interface | Object to determine the scrollability                               |
 
 <!-- End AutoDoc Interfaces -->
 
@@ -194,3 +196,4 @@ If you have an existing Angular library project with a tets application, you can
 git submodule add https://github.com/Disane87/ngx-taskboard.git`
 
 And now, have some fun! 😊
+w, have some fun! 😊
