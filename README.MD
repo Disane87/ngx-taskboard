@@ -148,15 +148,15 @@ export class AppComponent {
 ### Events
 
 <!-- Start AutoDoc components-name=BoardComponent-outputsClass -->
-| Name               | Default value                        | Description                                                      | Type         |
-| ------------------ | ------------------------------------ | ---------------------------------------------------------------- | ------------ |
-| dragStarted        | new EventEmitter&lt;object&gt;()     | Fired when the user drags an item. Current item is passed        | EventEmitter |
-| dropped            | new EventEmitter&lt;object&gt;()     | Fired when an item is dropped. Current item is passed            | EventEmitter |
-| elementCreateClick | new EventEmitter&lt;ClickEvent&gt;() | Fired when an add action is click. Current ClickEvent is passed  | EventEmitter |
+| Name               | Default value                        | Description                                                     | Type         |
+| ------------------ | ------------------------------------ | --------------------------------------------------------------- | ------------ |
+| dragStarted        | new EventEmitter&lt;object&gt;()     | Fired when the user drags an item. Current item is passed       | EventEmitter |
+| dropped            | new EventEmitter&lt;object&gt;()     | Fired when an item is dropped. Current item is passed           | EventEmitter |
+| elementCreateClick | new EventEmitter&lt;ClickEvent&gt;() | Fired when an add action is click. Current ClickEvent is passed | EventEmitter |
 
 <!-- End AutoDoc components-name=BoardComponent-outputsClass -->
 
-## Interfaces
+### Interfaces
 <!-- Start AutoDoc Interfaces -->
 | Name          | Type      | Description                                                         |
 | ------------- | --------- | ------------------------------------------------------------------- |

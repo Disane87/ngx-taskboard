@@ -127,6 +127,9 @@ export class BoardComponent implements OnInit {
   /** Placeholder for the input with the filter row */
   @Input() filterRowPlaceholder: string = 'Search for items';
 
+  /** SPlaceholde rfor the input with the filter row*/
+  @Input() filterRowPlaceholder: string = 'Search for items';
+
   /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
   @Input() filter: string = '';
 

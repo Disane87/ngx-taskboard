@@ -39,7 +39,7 @@
           [class.sticky-top]="stickyHorizontalHeaderKeys && verticalScrolling">
           <div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">
             <div class="d-flex flex-row w-100">
-              <div class="boardname flex-fill">{{ boardName }}</div>
+              <div class="boardname">{{ boardName }}</div>
               <div class="h-v-actions align-self-center">
                 <fa-icon [icon]="['fas', vCollapsed ? 'chevron-down' : 'chevron-up']" [fixedWidth]="true"
                   (click)="toggleCollapseGroup('vertical', vCollapsed)"></fa-icon>
