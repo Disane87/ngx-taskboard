@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "scripts": {
     "release": "release-it --ci",
-    "lint": "tslint --project \"tsconfig.json\" --fix",
+    "lint": "ng lint ngx-taskboard-lib --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard-lib",
     "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
     "prebuild": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
@@ -12,7 +12,7 @@
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
     "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
     "start": "ng serve --open",
-    "semantic-release:run": "npm run lint && npm test && npm unlink && npm run build && npm run semantic-release:test -- --no-ci"
+    "semantic-release:run": "npm run lint && npm test && npm unlink && npm run build && npm run semantic-release:test"
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",
@@ -75,8 +75,7 @@
     "email": "mfranke87@icloud.com",
     "url": "https://byte-style.de"
   },
-  "badges": [
-    {
+  "badges": [{
       "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
       "description": "License",
       "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
@@ -98,7 +97,6 @@
     "name": "Marco Franke",
     "email": "mfranke87@icloud.com"
   }],
-
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
@@ -132,13 +130,16 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "angular-tslint-rules": "^1.18.0",
     "auto-changelog": "^1.15.0",
-    "codelyzer": "~4.5.0",
+    "codecov.io": "^0.1.6",
+    "codelyzer": "^4.5.0",
     "doctoc": "^1.4.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
     "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage": "^2.0.1",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",

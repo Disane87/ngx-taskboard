@@ -25,7 +25,7 @@ export interface CollapseState {
 
 /**
  * Object to determine the scrollability
- * 
+ *
  * @export
  */
 export interface Scrollable {
@@ -55,7 +55,7 @@ export interface GroupKeys {
 
 /**
  * Object for the headings in which you can set color etc.
- * 
+ *
  * @export
  */
 export interface GroupHeading {

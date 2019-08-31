@@ -1,24 +1,27 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {},
-	"extensions": {
-		"recommendations": [
-			"hookyqr.githubissues",
-			"donjayamanne.githistory",
-			"eamodio.gitlens",
-			"coenraads.bracket-pair-colorizer",
-			"angular.ng-template",
-			"mikael.angular-beastcode",
-			"hookyqr.beautify",
-			"robinbentley.sass-indented",
-			"glen-84.sass-lint",
-			"ms-vscode.vscode-typescript-tslint-plugin",
-			"wakatime.vscode-wakatime",
-			"thekalinga.bootstrap4-vscode"
-		]
-	}
+  "folders": [{
+    "path": "."
+  }],
+
+  "settings": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "hookyqr.githubissues",
+      "donjayamanne.githistory",
+      "eamodio.gitlens",
+      "coenraads.bracket-pair-colorizer",
+      "angular.ng-template",
+      "mikael.angular-beastcode",
+      "hookyqr.beautify",
+      "robinbentley.sass-indented",
+      "glen-84.sass-lint",
+      "ms-vscode.vscode-typescript-tslint-plugin",
+      "wakatime.vscode-wakatime",
+      "thekalinga.bootstrap4-vscode"
+    ]
+  }
 }

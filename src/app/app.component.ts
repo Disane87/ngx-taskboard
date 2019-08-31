@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { GroupHeading } from 'projects/ngx-taskboard-lib/src/lib/types';
 
 @Component({
@@ -8,12 +8,12 @@ import { GroupHeading } from 'projects/ngx-taskboard-lib/src/lib/types';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public showcaseMode = false;
+  showcaseMode = false;
 
-  public hGroupKey = 'status';
-  public vGroupKey = 'name';
+  hGroupKey = 'status';
+  vGroupKey = 'name';
 
-  public hGroupKeys: Array<GroupHeading> = [
+  hGroupKeys: Array<GroupHeading> = [
     { value: 'open', color: '#fff', display: 'TEST', orderId: 1 },
     { value: 'working', color: '#fff', display: 'TEST', orderId: 2 },
     { value: 'closed', color: '#fff', display: 'TEST', orderId: 3 },
@@ -21,7 +21,7 @@ export class AppComponent {
     { value: 'test', color: '#fff', display: 'TEST', orderId: 0 }
   ];
 
-  public vGroupKeys = [
+  vGroupKeys = [
     { value: 'Karina', color: '#fff', display: 'MF', orderId: 5 },
     { value: 'Christoph', color: '#fff', display: 'MF', orderId: 4 },
     { value: 'Daniel', color: '#fff', display: 'MF', orderId: 3 },
@@ -39,7 +39,7 @@ export class AppComponent {
     { value: 'm11', color: '#fff', display: 'MF', orderId: 1 },
     { value: 'm12', color: '#fff', display: 'MF', orderId: 1 },
     { value: 'm13', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm14', color: '#fff', display: 'MF', orderId: 1 },
+    { value: 'm14', color: '#fff', display: 'MF', orderId: 1 }
   ];
 
   // public items = [{
@@ -73,15 +73,15 @@ export class AppComponent {
   // public hGroupKey = 'status';
   // public vGroupKey = 'name';
 
-  public items: Array<object> = [];
+  items: Array<object> = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private readonly http: HttpClient) {
 
   }
 
   ngOnInit(): void {
 
-    this.http.get('https://next.json-generator.com/api/json/get/N1Mv5ylNw').toPromise().then((data: object[]) => {
+    this.http.get('https://next.json-generator.com/api/json/get/N1Mv5ylNw').toPromise().then((data: Array<object>) => {
       this.items = data;
     });
 
