@@ -15,8 +15,9 @@
   - [Configuration](#configuration)
     - [Properties](#properties)
     - [Events](#events)
-  - [Interfaces](#interfaces)
+    - [Interfaces](#interfaces)
   - [Examples](#examples)
+    - [Basic examples](#basic-examples)
 - [Contributing](#contributing)
   - [Installation the project](#installation-the-project)
 
@@ -171,7 +172,9 @@ export class AppComponent {
 
 ## Examples
 
-Following soon
+### Basic examples
+<iframe src="https://stackblitz.com/edit/disane-ngx-taskboard?embed=1&file=src/app/app.component.html&hideExplorer=1&hideNavigation=1&view=preview" width="800" height="600">
+</iframe>
 
 # Contributing
 
