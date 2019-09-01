@@ -1,169 +1,45 @@
-<!-- <pre>{{ hHeadings | json }}</pre>
-<pre>{{ vHeadings | json }}</pre> -->
-
 <div class="h-100 d-flex flex-column align-items-stretch border-0" [class.small]="smallText" style="overflow: hidden">
   <div class="d-flex flex-column h-100">
     <ngx-taskboard-filter-search-bar [placeholder]="filterRowPlaceholder"></ngx-taskboard-filter-search-bar>
     <div class="d-flex flex-row align-items-stretch flex-fill h-100 ">
 
-      <div class="backlog border-right" *ngIf="showBacklog" [style.width]="backlogWidth">
-        <div class="card border-right-0 border-top-0 border-left-0 w-100 h-100">
-          <div class="{{hHeaderClass}} d-flex flex-row justify-content-between">
-            {{ backlogName }}
+      <ng-container *ngTemplateOutlet="backlogColumn"></ng-container>
 
-            <div class="actions ml-3">
-              <fa-icon [icon]="['fas','plus-square']" [fixedWidth]="true"></fa-icon>
-              <!-- <fa-icon [icon]="['fas','chevron-left']" [fixedWidth]="true"></fa-icon> -->
-            </div>
-          </div>
-          <ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"
-            (drop)="drop($event, null, null)">
-            <div class=" ungrouped-item" *ngFor="let item of getUngroupedItems()" draggable="true"
-              (dragstart)="dragStart($event, item)" (dragend)="dragEnd($event, item)">
-              <ng-container *ngIf="itemTemplate">
-                <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
-              </ng-container>
-
-              <ng-container *ngIf="!itemTemplate">
-                <ng-container *ngTemplateOutlet="defaultItemTemplate; context: { item: item }"></ng-container>
-              </ng-container>
-            </div>
-          </ul>
-        </div>
-
-      </div>
       <div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-x-auto]="horizontalScrolling"
         [class.overflow-y-auto]="verticalScrolling" [class.border-bottom]="(scrollable && verticalScrolling)">
 
-        <div class="headings d-flex flex-row align-items-stretch w-100" [ngStyle]="scrollBarStyle()"
-          [class.sticky-top]="stickyHorizontalHeaderKeys && verticalScrolling">
-          <div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">
-            <div class="d-flex flex-row w-100">
-              <div class="boardname">{{ boardName }}</div>
-              <div class="h-v-actions align-self-center">
-                <fa-icon [icon]="['fas', vCollapsed ? 'chevron-down' : 'chevron-up']" [fixedWidth]="true"
-                  (click)="toggleCollapseGroup('vertical', vCollapsed)"></fa-icon>
-              </div>
-            </div>
-          </div>
-
-          <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header"
-            [class.bg-white]="collapseState(hGroup)" [class.border-bottom-0]="collapseState(hGroup)"
-            [class.col]="!collapseState(hGroup) && !(scrollable && horizontalScrolling)"
-            *ngFor="let hGroup of hHeadings; let hLast = last" [class.h-collapsed]="collapseState(hGroup)"
-            [ngStyle]="getColumnWidth()" [class.border-right]="(scrollable && horizontalScrolling) && hLast">
-            <div class="" *ngIf="!collapseState(hGroup)">
-              <ng-container [ngIf]="hHeaderTemplate"
-                *ngTemplateOutlet="hHeaderTemplate; context: { groupName: hGroup }">
-              </ng-container>
-              <ng-container *ngIf="!hHeaderTemplate">
-                {{ getValue(hGroup) || 'Ungrouped' }}
-              </ng-container>
-            </div>
-            <div *ngIf="!collapseState(hGroup)">
-              <ng-content
-                *ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, hGroup: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }">
-              </ng-content>
-            </div>
-          </div>
-
-        </div>
+        <ng-container *ngTemplateOutlet="columnHeadings"></ng-container>
 
         <div class="d-flex flex-column row-content align-items-stretch"
           [class.flex-fill]="!(scrollable && verticalScrolling)">
+          <ng-container *ngFor="let vGroup of vHeadings">
 
-          <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)" *ngFor="let vGroup of vHeadings">
+            <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)">
+              <ng-container *ngTemplateOutlet="rowHeadings; context: { vGroup: vGroup }"></ng-container>
+              <ng-container *ngFor="let hGroup of hHeadings; let hLast = last">
 
-            <div class="col-2 {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between" *ngIf="vGroupKey">
-              <div class="vertical-group-header h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill">
+                <div class="cell-item border-left {{cellClass}} bg-white d-flex flex-column"
+                  [class.col]="!collapseState(hGroup) && !(scrollable && horizontalScrolling)"
+                  [class.border-bottom-0]="collapseState(hGroup)" [class.v-collapsed]="collapseState(vGroup)"
+                  [class.h-collapsed]="collapseState(hGroup)" [ngStyle]="getColumnWidth()"
+                  [class.border-right]="(scrollable && horizontalScrolling) && hLast">
 
-                <ng-container [ngIf]="vHeaderTemplate"
-                  *ngTemplateOutlet="vHeaderTemplate; context: { groupName: vGroup }">
-                </ng-container>
-                <ng-container *ngIf="!vHeaderTemplate">
-                  {{ getValue(vGroup) || 'Ungrouped' }}
-                </ng-container>
-              </div>
+                  <ng-container *ngTemplateOutlet="cellItem; context: { hGroup: hGroup, vGroup: vGroup } "></ng-container>
 
-              <div class="vertical-actions d-flex flex-column" [class.flex-column]="!collapseState(vGroup)"
-                [class.flex-row]="collapseState(vGroup)" [class.flex-row-reverse]="collapseState(vGroup)">
-                <div class="align-self-start flex-fill">
-                  <ng-content
-                    *ngTemplateOutlet="cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? 'chevron-up' : 'chevron-down'  }">
-                  </ng-content>
+                  
                 </div>
-                <div class="align-self-start">
-                  <ng-content class="align-self-end"
-                    *ngTemplateOutlet="cardAction; context: { withNew: vAddNewItems, group: { hGroup: null, vGroup: vGroup}, collapser: false }">
-                  </ng-content>
-                </div>
-              </div>
-
+              </ng-container>
             </div>
-
-            <ng-container *ngFor="let hGroup of hHeadings; let hLast = last">
-
-              <div class="cell-item border-left {{cellClass}} bg-white d-flex flex-column"
-                [class.col]="!collapseState(hGroup) && !(scrollable && horizontalScrolling)"
-                [class.border-bottom-0]="collapseState(hGroup)" [class.v-collapsed]="collapseState(vGroup)"
-                [class.h-collapsed]="collapseState(hGroup)" [ngStyle]="getColumnWidth()"
-                [class.border-right]="(scrollable && horizontalScrolling) && hLast">
-
-
-
-                <ng-container *ngIf="!collapseState(vGroup) && !collapseState(hGroup)">
-
-                  <div class="cell-items flex-fill" (dragover)="dragOver($event, vGroup, hGroup)"
-                    (drop)="drop($event, vGroup, hGroup)">
-                    <ng-container *ngFor="let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))">
-
-                      <div class="item-container p-0 m-0" draggable="true" (dragstart)="dragStart($event, item)"
-                        (dragend)="dragEnd($event, item)">
-                        <ng-container *ngIf="itemTemplate">
-                          <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
-                        </ng-container>
-
-                        <ng-container *ngIf="!itemTemplate">
-                          <ng-container *ngTemplateOutlet="defaultItemTemplate; context: { item: item }"></ng-container>
-                        </ng-container>
-                      </div>
-
-                    </ng-container>
-                  </div>
-                  <div class="cell-actions d-flex flex-row align-self-end">
-                    <ng-content
-                      *ngTemplateOutlet="cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }">
-                    </ng-content>
-                  </div>
-
-                </ng-container>
-                <ng-container *ngIf="collapseState(vGroup) && !collapseState(hGroup)">
-                  <div class="text-center" (dragover)="dragOver($event, vGroup, hGroup)"
-                    (drop)="drop($event, vGroup, hGroup)">
-                    <ng-container [ngIf]="noElementsTemplate"
-                      *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length, filter: this.filter }">
-                    </ng-container>
-                    <ng-container *ngIf="!noElementsTemplate">
-                      {{ getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length }} elements
-                      <span *ngIf="filter !== ''" class="code"> (filtered by <code>{{filter}}</code>)</span>
-                    </ng-container>
-                  </div>
-                </ng-container>
-                <ng-container *ngIf="collapseState(hGroup)">
-
-                </ng-container>
-                <!-- {{ collapseState(hGroup) }} / {{ collapseState(vGroup) }} -->
-
-              </div>
-            </ng-container>
-          </div>
+          </ng-container>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
+
+
+<!-- Templates -->
 <ng-template #cardAction let-withNew="withNew" let-group="group" let-chevronIcon="chevronIcon"
   let-collapser="collapser">
 
@@ -193,4 +69,141 @@
       </div>
     </div>
   </div>
+</ng-template>
+
+<ng-template #backlogColumn>
+  <div class="backlog border-right" *ngIf="showBacklog" [style.width]="backlogWidth">
+    <div class="card border-right-0 border-top-0 border-left-0 w-100 h-100">
+      <div class="{{hHeaderClass}} d-flex flex-row justify-content-between">
+
+        {{ backlogName }}
+
+        <div class="actions ml-3">
+          <fa-icon [icon]="['fas','plus-square']" [fixedWidth]="true"></fa-icon>
+        </div>
+      </div>
+
+      <ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"
+        (drop)="drop($event, null, null)">
+        <div class=" ungrouped-item" *ngFor="let item of getUngroupedItems()" draggable="true"
+          (dragstart)="dragStart($event, item)" (dragend)="dragEnd($event, item)">
+          <ng-container *ngIf="itemTemplate">
+            <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
+          </ng-container>
+
+          <ng-container *ngIf="!itemTemplate">
+            <ng-container *ngTemplateOutlet="defaultItemTemplate; context: { item: item }"></ng-container>
+          </ng-container>
+        </div>
+      </ul>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #columnHeadings>
+  <div class="headings d-flex flex-row align-items-stretch w-100" [ngStyle]="scrollBarStyle()"
+    [class.sticky-top]="stickyHorizontalHeaderKeys && verticalScrolling">
+    <div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">
+      <div class="d-flex flex-row w-100">
+        <div class="boardname">{{ boardName }}</div>
+        <div class="h-v-actions align-self-center">
+          <fa-icon [icon]="['fas', vCollapsed ? 'chevron-down' : 'chevron-up']" [fixedWidth]="true"
+            (click)="toggleCollapseGroup('vertical', vCollapsed)"></fa-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header"
+      [class.bg-white]="collapseState(hGroup)" [class.border-bottom-0]="collapseState(hGroup)"
+      [class.col]="!collapseState(hGroup) && !(scrollable && horizontalScrolling)"
+      *ngFor="let hGroup of hHeadings; let hLast = last" [class.h-collapsed]="collapseState(hGroup)"
+      [ngStyle]="getColumnWidth()" [class.border-right]="(scrollable && horizontalScrolling) && hLast">
+      <div class="" *ngIf="!collapseState(hGroup)">
+        <ng-container [ngIf]="hHeaderTemplate" *ngTemplateOutlet="hHeaderTemplate; context: { groupName: hGroup }">
+        </ng-container>
+        <ng-container *ngIf="!hHeaderTemplate">
+          {{ getValue(hGroup) || 'Ungrouped' }}
+        </ng-container>
+      </div>
+      <div *ngIf="!collapseState(hGroup)">
+        <ng-content
+          *ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, hGroup: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }">
+        </ng-content>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #rowHeadings let-vGroup="vGroup">
+  <div class="col-2 {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between" *ngIf="vGroupKey">
+    <div class="vertical-group-header h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill">
+
+      <ng-container [ngIf]="vHeaderTemplate" *ngTemplateOutlet="vHeaderTemplate; context: { groupName: vGroup }">
+      </ng-container>
+      <ng-container *ngIf="!vHeaderTemplate">
+        {{ getValue(vGroup) || 'Ungrouped' }}
+      </ng-container>
+    </div>
+
+    <div class="vertical-actions d-flex flex-column" [class.flex-column]="!collapseState(vGroup)"
+      [class.flex-row]="collapseState(vGroup)" [class.flex-row-reverse]="collapseState(vGroup)">
+      <div class="align-self-start flex-fill">
+        <ng-content
+          *ngTemplateOutlet="cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? 'chevron-up' : 'chevron-down'  }">
+        </ng-content>
+      </div>
+      <div class="align-self-start">
+        <ng-content class="align-self-end"
+          *ngTemplateOutlet="cardAction; context: { withNew: vAddNewItems, group: { hGroup: null, vGroup: vGroup}, collapser: false }">
+        </ng-content>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #cellItem let-vGroup="vGroup" let-hGroup="hGroup">
+    <ng-container *ngIf="!collapseState(vGroup) && !collapseState(hGroup)">
+
+        <div class="cell-items flex-fill" (dragover)="dragOver($event, vGroup, hGroup)"
+          (drop)="drop($event, vGroup, hGroup)">
+          <ng-container *ngFor="let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))">
+
+            <div class="item-container p-0 m-0" draggable="true" (dragstart)="dragStart($event, item)"
+              (dragend)="dragEnd($event, item)">
+              <ng-container *ngIf="itemTemplate">
+                <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
+              </ng-container>
+
+              <ng-container *ngIf="!itemTemplate">
+                <ng-container *ngTemplateOutlet="defaultItemTemplate; context: { item: item }">
+                </ng-container>
+              </ng-container>
+            </div>
+
+          </ng-container>
+        </div>
+        <div class="cell-actions d-flex flex-row align-self-end">
+          <ng-content
+            *ngTemplateOutlet="cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }">
+          </ng-content>
+        </div>
+
+      </ng-container>
+
+      <ng-container *ngIf="collapseState(vGroup) && !collapseState(hGroup)">
+          <div class="text-center" (dragover)="dragOver($event, vGroup, hGroup)"
+            (drop)="drop($event, vGroup, hGroup)">
+            <ng-container [ngIf]="noElementsTemplate"
+              *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length, filter: this.filter }">
+            </ng-container>
+            <ng-container *ngIf="!noElementsTemplate">
+              {{ getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length }} elements
+              <span *ngIf="filter !== ''" class="code"> (filtered by <code>{{filter}}</code>)</span>
+            </ng-container>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="collapseState(hGroup)">
+
+        </ng-container>
 </ng-template>
