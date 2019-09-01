@@ -4,10 +4,10 @@
   "scripts": {
     "release": "release-it --ci",
     "lint": "ng lint ngx-taskboard-lib --fix",
+    "prebuild": "npx doctoc ./README.MD && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard-lib",
     "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
-    "build:pre": "npx doctoc ./README.MD && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
-    "semantic-release:test": "npx semantic-release -b dev",
+    "semantic-release": "npx semantic-release",
     "build:watch": "ng build ngx-taskboard-lib --watch",
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
     "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
@@ -15,55 +15,7 @@
     "semantic-release:run": "npm run lint && npm run build:pre && npm run build && npm run semantic-release:test",
     "commit": "npx git-cz"
   },
-  "auto-changelog": {
-    "output": "CHANGELOG.md",
-    "commitLimit": false,
-    "package": true,
-    "replaceText": {
-      "FIX: ": "",
-      "NEW: ": "",
-      "IMPROVE: ": "",
-      "DOC: ": ""
-    }
-  },
   "license": "MIT",
-  "release-it": {
-    "npm": {
-      "publishPath": "./dist/ngx-taskboard"
-    },
-    "safeBump": false,
-    "verbose": true,
-    "dry-run": true,
-    "git": {
-      "tagName": "v${version}",
-      "requireCleanWorkingDir": false,
-      "requireUpstream": true,
-      "requireCommits": true,
-      "addUntrackedFiles": false,
-      "commit": true,
-      "commitMessage": "🚀 Release ${version}",
-      "tag": true,
-      "tagAnnotation": "💻 ${version}",
-      "tagArgs": "",
-      "push": true,
-      "pushArgs": "--follow-tags",
-      "pushRepo": "origin"
-    },
-    "github": {
-      "release": true
-    },
-    "hooks": {
-      "before:init": [
-        "npm run lint",
-        "npm test"
-      ],
-      "after:init": "echo 👏 after init: ${version}",
-      "before:bump": "echo 👏 before bump: ${version} ",
-      "after:bump": "npm run build && npm run prebuild && npx auto-changelog",
-      "after:git:release": "echo After git push, before github release",
-      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
-    }
-  },
   "private": false,
   "repository": {
     "directory": "github",
