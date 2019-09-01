@@ -41,7 +41,7 @@ jobs:
       script:
         
         - ls
-        - npm run semantic-release
+        - npm run semantic-release:run
       on:
         branch: master
 
