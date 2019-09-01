@@ -22,7 +22,6 @@ stages:
   - name: "Lint"
   - name: "Test"
   - name: "Publish"
-    if: branch = master AND type = push
   - name: "Stackblitz"
 
 jobs:
@@ -47,8 +46,12 @@ jobs:
 
     - stage: "Stackblitz"
 
-notifications:
-  webhooks: https://www.travisbuddy.com/  
-  on_success: never
+deploy:
+    provider: script
+    skip_cleanup: true
+    script:
+      # if: branch = master AND type = push
+      - nvm install lts/*
+      - npm run semantic-release
 # after_success:
 # - bash <(curl -s https://codecov.io/bash)
