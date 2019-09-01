@@ -1,3 +1,11 @@
+## [1.2.4](https://github.com/Disane87/ngx-taskboard/compare/v1.2.3...v1.2.4) (2019-09-01)
+
+
+### Bug Fixes
+
+* **travis:** fixed ([b2a9a97](https://github.com/Disane87/ngx-taskboard/commit/b2a9a97))
+* tarvis and shit ([eb27b2e](https://github.com/Disane87/ngx-taskboard/commit/eb27b2e))
+
 ## [1.2.3](https://github.com/Disane87/ngx-taskboard/compare/v1.2.2...v1.2.3) (2019-09-01)
 
 
