@@ -22,7 +22,7 @@ stages:
   - name: "Lint"
   - name: "Test"
   - name: "Publish"
-    if: branch = master
+    if: branch = master AND type = push
   - name: "Stackblitz"
 
 jobs:
@@ -42,11 +42,13 @@ jobs:
 
     - stage: "Publish"  
       script:
-        - npm run semantic-release:run
+        - npm run semantic-release
         - echo "Running Publish against $(node -v) ..."
 
     - stage: "Stackblitz"
-  
 
+notifications:
+  webhooks: https://www.travisbuddy.com/  
+  on_success: never
 # after_success:
 # - bash <(curl -s https://codecov.io/bash)
