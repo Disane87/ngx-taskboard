@@ -6,6 +6,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { TaskboardService } from '../taskboard.service';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fas, far, fab);
+
+
 describe('MyLibComponent', () => {
   let component: BoardComponent;
   let fixture: ComponentFixture<BoardComponent>;
