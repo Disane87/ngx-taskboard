@@ -42,6 +42,8 @@ jobs:
       script:
         - echo "Running Test against $(node -v) ..."
         - npm run test
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
     - stage: "Stackblitz"
 
@@ -56,5 +58,3 @@ jobs:
         on:
           branch: master
 
-after_success:
-- bash <(curl -s https://codecov.io/bash)
