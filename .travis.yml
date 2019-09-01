@@ -45,7 +45,7 @@ deploy:
     provider: script
     skip_cleanup: true
     script:
-      # if: branch = master AND type = push
+      if: branch = master
       - nvm install lts/*
       - npm run semantic-release
 
