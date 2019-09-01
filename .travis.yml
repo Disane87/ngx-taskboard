@@ -45,7 +45,7 @@ jobs:
       skip_cleanup: true
       script:
         
-        - nvm install lts/*
+        - ls
         - npm run semantic-release
       on:
         branch: master
