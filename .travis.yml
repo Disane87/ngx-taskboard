@@ -48,13 +48,11 @@ jobs:
     - stage: "Stackblitz"
 
     - stage: "Publish"
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script:
-          
-          - ls
-          - npm run semantic-release:run
-        on:
-          branch: master
+      script:
+        
+        - ls
+        - npm run semantic-release:run
+      on:
+        branch: master
+
 

@@ -29,7 +29,7 @@
         {
             "type": "npm",
             "label": "build",
-            "script": "build",
+            "script": "build:watch",
             "problemMatcher": [
                 "$tsc-watch"
             ],
