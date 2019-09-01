@@ -25,27 +25,31 @@ jobs:
     - stage: "Build"    
       script:
         - echo "Running Build against $(node -v) ..."
+        - npm run build
 
     - stage: "Lint"  
       script:
         - echo "Running Lint against $(node -v) ..."
+        - npm run lint
     
     - stage: "Test"  
       script:
         - echo "Running Test against $(node -v) ..."
+        - npm run test
+        - codecov
 
     - stage: "Stackblitz"
 
     - stage: "Publish"
       deploy:
-      provider: script
-      skip_cleanup: true
-      script:
-        
-        - ls
-        - npm run semantic-release:run
-      on:
-        branch: master
+        provider: script
+        skip_cleanup: true
+        script:
+          
+          - ls
+          - npm run semantic-release:run
+        on:
+          branch: master
 
 
 
