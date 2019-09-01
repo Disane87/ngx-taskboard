@@ -1,3 +1,11 @@
+## [1.2.3](https://github.com/Disane87/ngx-taskboard/compare/v1.2.2...v1.2.3) (2019-09-01)
+
+
+### Bug Fixes
+
+* auto release gen on pr with travis ([0cf7847](https://github.com/Disane87/ngx-taskboard/commit/0cf7847))
+* changed travis ci ([469c9aa](https://github.com/Disane87/ngx-taskboard/commit/469c9aa))
+
 ## [1.2.2](https://github.com/Disane87/ngx-taskboard/compare/v1.2.1...v1.2.2) (2019-08-30)
 
 
