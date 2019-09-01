@@ -15,10 +15,8 @@ script: echo "Running tests against $(node -v) ..."
 install:
   - npm install 
 
-# stages:
-#   - name: "Build"
-    
-
+stages:
+  - name: "Build"
   - name: "Lint"
   - name: "Test"
   - name: "Publish"
@@ -27,8 +25,7 @@ install:
 
 jobs:
   include:
-    - stage: "Build"
-      
+    - stage: "Build"    
       script:
         - echo "Running Build against $(node -v) ..."
 
