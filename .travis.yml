@@ -8,8 +8,9 @@ node_js:
 
 script: echo "Running tests against $(node -v) ..."
 
+# npm ci instead of npm install https://medium.com/hackernoon/how-to-speed-up-continuous-integration-build-with-new-npm-ci-and-package-lock-json-7647f91751a
 install:
-  - npm install 
+  - npm ci 
 
 addons:
   chrome: stable
