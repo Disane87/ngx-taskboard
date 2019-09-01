@@ -1,20 +1,21 @@
-dist: trusty
-sudo: false
+if: branch = master
+  dist: trusty
+  sudo: false
 
-branches:
-  only: 
-    - master
+  branches:
+    only: 
+      - master
 
-language: node_js
-node_js:
-  - '8'
+  language: node_js
+  node_js:
+    - '8'
 
-cache:
-  directories:
-    - ./node_modules
+  cache:
+    directories:
+      - ./node_modules
 
-install:
-  - npm install
+  install:
+    - npm install
 
-script:
-  - npm run semantic-release:run
+  script:
+    - npm run semantic-release:run
