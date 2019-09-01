@@ -16,6 +16,7 @@
 
             <div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)">
               <ng-container *ngTemplateOutlet="rowHeadings; context: { vGroup: vGroup }"></ng-container>
+              
               <ng-container *ngFor="let hGroup of hHeadings; let hLast = last">
 
                 <div class="cell-item border-left {{cellClass}} bg-white d-flex flex-column"
@@ -24,9 +25,8 @@
                   [class.h-collapsed]="collapseState(hGroup)" [ngStyle]="getColumnWidth()"
                   [class.border-right]="(scrollable && horizontalScrolling) && hLast">
 
-                  <ng-container *ngTemplateOutlet="cellItem; context: { hGroup: hGroup, vGroup: vGroup } "></ng-container>
-
-                  
+                  <ng-container *ngTemplateOutlet="cellItem; context: { hGroup: hGroup, vGroup: vGroup } ">
+                  </ng-container>
                 </div>
               </ng-container>
             </div>
@@ -36,8 +36,6 @@
     </div>
   </div>
 </div>
-
-
 
 <!-- Templates -->
 <ng-template #cardAction let-withNew="withNew" let-group="group" let-chevronIcon="chevronIcon"
@@ -163,47 +161,46 @@
 </ng-template>
 
 <ng-template #cellItem let-vGroup="vGroup" let-hGroup="hGroup">
-    <ng-container *ngIf="!collapseState(vGroup) && !collapseState(hGroup)">
+  <ng-container *ngIf="!collapseState(vGroup) && !collapseState(hGroup)">
 
-        <div class="cell-items flex-fill" (dragover)="dragOver($event, vGroup, hGroup)"
-          (drop)="drop($event, vGroup, hGroup)">
-          <ng-container *ngFor="let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))">
+    <div class="cell-items flex-fill" (dragover)="dragOver($event, vGroup, hGroup)"
+      (drop)="drop($event, vGroup, hGroup)">
+      <ng-container *ngFor="let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))">
 
-            <div class="item-container p-0 m-0" draggable="true" (dragstart)="dragStart($event, item)"
-              (dragend)="dragEnd($event, item)">
-              <ng-container *ngIf="itemTemplate">
-                <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
-              </ng-container>
-
-              <ng-container *ngIf="!itemTemplate">
-                <ng-container *ngTemplateOutlet="defaultItemTemplate; context: { item: item }">
-                </ng-container>
-              </ng-container>
-            </div>
-
+        <div class="item-container p-0 m-0" draggable="true" (dragstart)="dragStart($event, item)"
+          (dragend)="dragEnd($event, item)">
+          <ng-container *ngIf="itemTemplate">
+            <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
           </ng-container>
-        </div>
-        <div class="cell-actions d-flex flex-row align-self-end">
-          <ng-content
-            *ngTemplateOutlet="cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }">
-          </ng-content>
+
+          <ng-container *ngIf="!itemTemplate">
+            <ng-container *ngTemplateOutlet="defaultItemTemplate; context: { item: item }">
+            </ng-container>
+          </ng-container>
         </div>
 
       </ng-container>
+    </div>
+    <div class="cell-actions d-flex flex-row align-self-end">
+      <ng-content
+        *ngTemplateOutlet="cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }">
+      </ng-content>
+    </div>
 
-      <ng-container *ngIf="collapseState(vGroup) && !collapseState(hGroup)">
-          <div class="text-center" (dragover)="dragOver($event, vGroup, hGroup)"
-            (drop)="drop($event, vGroup, hGroup)">
-            <ng-container [ngIf]="noElementsTemplate"
-              *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length, filter: this.filter }">
-            </ng-container>
-            <ng-container *ngIf="!noElementsTemplate">
-              {{ getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length }} elements
-              <span *ngIf="filter !== ''" class="code"> (filtered by <code>{{filter}}</code>)</span>
-            </ng-container>
-          </div>
-        </ng-container>
-        <ng-container *ngIf="collapseState(hGroup)">
+  </ng-container>
 
-        </ng-container>
+  <ng-container *ngIf="collapseState(vGroup) && !collapseState(hGroup)">
+    <div class="text-center" (dragover)="dragOver($event, vGroup, hGroup)" (drop)="drop($event, vGroup, hGroup)">
+      <ng-container [ngIf]="noElementsTemplate"
+        *ngTemplateOutlet="noElementsTemplate; context: { count: getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length, filter: this.filter }">
+      </ng-container>
+      <ng-container *ngIf="!noElementsTemplate">
+        {{ getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length }} elements
+        <span *ngIf="filter !== ''" class="code"> (filtered by <code>{{filter}}</code>)</span>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="collapseState(hGroup)">
+
+  </ng-container>
 </ng-template>
