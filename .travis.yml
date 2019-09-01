@@ -46,3 +46,7 @@ jobs:
         - echo "Running Publish against $(node -v) ..."
 
     - stage: "Stackblitz"
+  
+
+# after_success:
+# - bash <(curl -s https://codecov.io/bash)
