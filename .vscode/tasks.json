@@ -1,0 +1,51 @@
+{
+// Unter https://go.microsoft.com/fwlink/?LinkId=733558
+// finden Sie Informationen zum Format von "tasks.json"
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "label": "start",
+            "script": "start",
+            "problemMatcher": [
+                "$tsc-watch"
+            ],
+            "isBackground": true,
+            "dependsOn": ["link"]
+        },
+        
+        {
+            "type": "npm",
+            "label": "link",
+            "script": "link",
+            "problemMatcher": [
+                "$tsc-watch"
+            ],
+            "isBackground": false,
+            "dependsOn": ["build"]
+            
+        },
+
+        {
+            "type": "npm",
+            "label": "build",
+            "script": "build",
+            "problemMatcher": [
+                "$tsc-watch"
+            ],
+            "isBackground": true,
+            "dependsOn": ["unlink"]
+            
+        },
+
+        {
+            "type": "npm",
+            "label": "unlink",
+            "script": "unlink",
+            "problemMatcher": [
+                "$tsc-watch"
+            ],
+            "isBackground": true,
+        },
+    ]
+}
