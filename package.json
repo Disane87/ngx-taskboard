@@ -6,7 +6,7 @@
     "lint": "ng lint ngx-taskboard-lib --fix",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard-lib",
     "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
-    "build:pre": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
+    "build:pre": "npx doctoc ./README.MD && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
     "semantic-release:test": "npx semantic-release -b dev",
     "build:watch": "ng build ngx-taskboard-lib --watch",
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
@@ -160,10 +160,5 @@
     "tslib": "^1.9.0",
     "tslint": "^5.19.0",
     "typescript": "^3.2.4"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
