@@ -188,6 +188,6 @@ npm install
 ```
 
 
-If you use [Visual Studio Code](https://code.visualstudio.com/), just use the included ``ngx-taskboard.code-workspace`, install recommended extensions and hit `F5` to debug.
+If you use [Visual Studio Code](https://code.visualstudio.com/), just use the included `ngx-taskboard.code-workspace`, install recommended extensions and hit `F5` to debug.
 
 And now, have some fun! 😊
