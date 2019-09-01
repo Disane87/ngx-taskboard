@@ -1,4 +1,5 @@
 
+codecov: true
 dist: trusty
 sudo: false
 language: node_js
@@ -8,8 +9,13 @@ node_js:
 
 script: echo "Running tests against $(node -v) ..."
 
+# npm ci instead of npm install https://medium.com/hackernoon/how-to-speed-up-continuous-integration-build-with-new-npm-ci-and-package-lock-json-7647f91751a
 install:
-  - npm install 
+  - npm ci 
+
+addons:
+  chrome: stable
+
 
 
 stages:
@@ -25,29 +31,30 @@ jobs:
     - stage: "Build"    
       script:
         - echo "Running Build against $(node -v) ..."
+        - npm run build
 
     - stage: "Lint"  
       script:
         - echo "Running Lint against $(node -v) ..."
+        - npm run lint
     
     - stage: "Test"  
       script:
         - echo "Running Test against $(node -v) ..."
+        - npm run test
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
     - stage: "Stackblitz"
 
     - stage: "Publish"
       deploy:
-      provider: script
-      skip_cleanup: true
-      script:
-        
-        - ls
-        - npm run semantic-release:run
-      on:
-        branch: master
+        provider: script
+        skip_cleanup: true
+        script:
+          
+          - ls
+          - npm run semantic-release:run
+        on:
+          branch: master
 
-
-
-# after_success:
-# - bash <(curl -s https://codecov.io/bash)
