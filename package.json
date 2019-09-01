@@ -4,7 +4,7 @@
   "scripts": {
     "release": "release-it --ci",
     "lint": "ng lint ngx-taskboard-lib --fix",
-    "build:pre": "npx doctoc ./README.MD && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
+    "build:pre": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard-lib",
     "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
     "semantic-release": "npx semantic-release",
