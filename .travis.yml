@@ -15,36 +15,31 @@ script: echo "Running tests against $(node -v) ..."
 install:
   - npm install 
 
-stages:
-  - name: "Build"
+# stages:
+#   - name: "Build"
     
 
-  - name: "Lint"
-  - name: "Test"
-  - name: "Publish"
-  - name: "Stackblitz"
+#   - name: "Lint"
+#   - name: "Test"
+#   - name: "Publish"
+#   - name: "Stackblitz"
 
-jobs:
-  include:
-    - stage: "Build"
+# jobs:
+#   include:
+#     - stage: "Build"
       
-      script:
-        - echo "Running Build against $(node -v) ..."
+#       script:
+#         - echo "Running Build against $(node -v) ..."
 
-    - stage: "Lint"  
-      script:
-        - echo "Running Lint against $(node -v) ..."
+#     - stage: "Lint"  
+#       script:
+#         - echo "Running Lint against $(node -v) ..."
     
-    - stage: "Test"  
-      script:
-        - echo "Running Test against $(node -v) ..."
+#     - stage: "Test"  
+#       script:
+#         - echo "Running Test against $(node -v) ..."
 
-    - stage: "Publish"  
-      script:
-        - npm run semantic-release
-        - echo "Running Publish against $(node -v) ..."
-
-    - stage: "Stackblitz"
+#     - stage: "Stackblitz"
 
 deploy:
     provider: script
