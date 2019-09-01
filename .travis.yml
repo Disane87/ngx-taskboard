@@ -19,35 +19,41 @@ install:
 #   - name: "Build"
     
 
-#   - name: "Lint"
-#   - name: "Test"
-#   - name: "Publish"
-#   - name: "Stackblitz"
+  - name: "Lint"
+  - name: "Test"
+  - name: "Publish"
+    if: branch = master
+  - name: "Stackblitz"
 
-# jobs:
-#   include:
-#     - stage: "Build"
+jobs:
+  include:
+    - stage: "Build"
       
-#       script:
-#         - echo "Running Build against $(node -v) ..."
+      script:
+        - echo "Running Build against $(node -v) ..."
 
-#     - stage: "Lint"  
-#       script:
-#         - echo "Running Lint against $(node -v) ..."
+    - stage: "Lint"  
+      script:
+        - echo "Running Lint against $(node -v) ..."
     
-#     - stage: "Test"  
-#       script:
-#         - echo "Running Test against $(node -v) ..."
+    - stage: "Test"  
+      script:
+        - echo "Running Test against $(node -v) ..."
 
-#     - stage: "Stackblitz"
+    - stage: "Stackblitz"
 
-deploy:
-    provider: script
-    skip_cleanup: true
-    script:
-      if: branch = master
-      - nvm install lts/*
-      - npm run semantic-release
+    - stage: "Publish"
+      deploy:
+      provider: script
+      skip_cleanup: true
+      script:
+        
+        - nvm install lts/*
+        - npm run semantic-release
+      on:
+        branch: master
+
+
 
 # after_success:
 # - bash <(curl -s https://codecov.io/bash)
