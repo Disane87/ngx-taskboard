@@ -7,7 +7,6 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [ngx-taskboard](#ngx-taskboard)
 - [Description](#description)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
@@ -149,11 +148,11 @@ export class AppComponent {
 ### Events
 
 <!-- Start AutoDoc components-name=BoardComponent-outputsClass -->
-| Name               | Default value                        | Description                                                     | Type         |
-| ------------------ | ------------------------------------ | --------------------------------------------------------------- | ------------ |
-| dragStarted        | new EventEmitter&lt;object&gt;()     | Fired when the user drags an item. Current item is passed       | EventEmitter |
-| dropped            | new EventEmitter&lt;object&gt;()     | Fired when an item is dropped. Current item is passed           | EventEmitter |
-| elementCreateClick | new EventEmitter&lt;ClickEvent&gt;() | Fired when an add action is click. Current ClickEvent is passed | EventEmitter |
+| Name               | Default value                        | Description                                                      | Type         |
+| ------------------ | ------------------------------------ | ---------------------------------------------------------------- | ------------ |
+| dragStarted        | new EventEmitter&lt;object&gt;()     | Fired when the user drags an item. Current item is passed        | EventEmitter |
+| dropped            | new EventEmitter&lt;object&gt;()     | Fired when an item is dropped. Current item is passed            | EventEmitter |
+| elementCreateClick | new EventEmitter&lt;ClickEvent&gt;() | Fired when an add action is click. Current ClickEvent is passed  | EventEmitter |
 
 <!-- End AutoDoc components-name=BoardComponent-outputsClass -->
 
@@ -173,8 +172,7 @@ export class AppComponent {
 ## Examples
 
 ### Basic examples
-<iframe src="https://stackblitz.com/edit/disane-ngx-taskboard?embed=1&file=src/app/app.component.html&hideExplorer=1&hideNavigation=1&view=preview" width="800" height="600">
-</iframe>
+https://stackblitz.com/edit/disane-ngx-taskboard?embed=1&file=src/app/app.component.html&hideExplorer=1&hideNavigation=1&view=preview
 
 # Contributing
 
@@ -189,18 +187,7 @@ Installing deps:
 npm install
 ```
 
-then
-```bash
-npm run build:watch 
-```
-then 
-```bash
-npm run link
-```
-then
-```bash
-npm run start
-```
+
+If you use [Visual Studio Code](https://code.visualstudio.com/), just use the included ``ngx-taskboard.code-workspace`, install recommended extensions and hit `F5` to debug.
 
 And now, have some fun! 😊
-w, have some fun! 😊
