@@ -19,7 +19,6 @@ stages:
 jobs:
   include:
     - stage: Build
-      if: branch = master
-      
+      if: branch = master      
       script:
         - npm run semantic-release:run
