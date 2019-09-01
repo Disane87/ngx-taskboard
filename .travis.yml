@@ -17,6 +17,7 @@ addons:
   chrome: stable
 
 
+
 stages:
   - name: "Build"
   - name: "Lint"
@@ -54,8 +55,6 @@ jobs:
           - npm run semantic-release:run
         on:
           branch: master
-
-
 
 # after_success:
 # - bash <(curl -s https://codecov.io/bash)
