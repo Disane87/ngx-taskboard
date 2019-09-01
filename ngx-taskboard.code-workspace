@@ -22,7 +22,8 @@
       "ms-vscode.vscode-typescript-tslint-plugin",
       "wakatime.vscode-wakatime",
       "thekalinga.bootstrap4-vscode",
-	  "msjsdiag.debugger-for-chrome"
+	  "msjsdiag.debugger-for-chrome",
+	  "KnisterPeter.vscode-commitizen"
     ]
   }
 }

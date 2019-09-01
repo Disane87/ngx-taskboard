@@ -12,7 +12,8 @@
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
     "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
     "start": "ng serve --open",
-    "semantic-release:run": "npm run lint && npm run build:pre && npm run build && npm run semantic-release:test"
+    "semantic-release:run": "npm run lint && npm run build:pre && npm run build && npm run semantic-release:test",
+    "commit": "npx git-cz"
   },
   "auto-changelog": {
     "output": "CHANGELOG.md",
@@ -137,6 +138,8 @@
     "auto-changelog": "^1.15.0",
     "codecov.io": "^0.1.6",
     "codelyzer": "^4.5.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
     "doctoc": "^1.4.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -157,5 +160,10 @@
     "tslib": "^1.9.0",
     "tslint": "^5.19.0",
     "typescript": "^3.2.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
