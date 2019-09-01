@@ -22,7 +22,7 @@ install:
   - name: "Lint"
   - name: "Test"
   - name: "Publish"
-    if: branch = master
+    if: branch = master AND type = push
   - name: "Stackblitz"
 
 jobs:
