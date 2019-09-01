@@ -11,7 +11,7 @@
     "build:watch": "ng build ngx-taskboard-lib --watch",
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
     "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
-    "start": "ng serve --open",
+    "start": "ng serve",
     "semantic-release:run": "npm run lint && npm run build:pre && npm run build && npm run semantic-release",
     "commit": "npx git-cz",
     "test": "ng test ngx-taskboard-lib --watch=false --code-coverage"

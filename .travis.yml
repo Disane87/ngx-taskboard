@@ -11,6 +11,9 @@ script: echo "Running tests against $(node -v) ..."
 install:
   - npm install 
 
+addons:
+  chrome: stable
+
 
 stages:
   - name: "Build"
