@@ -2,6 +2,7 @@
 dist: trusty
 sudo: false
 language: node_js
+cache: npm
 node_js:
   - '8'
 
@@ -9,6 +10,7 @@ script: echo "Running tests against $(node -v) ..."
 
 install:
   - npm install 
+
 
 stages:
   - name: "Build"
