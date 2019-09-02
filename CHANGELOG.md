@@ -1,3 +1,11 @@
+## [1.2.8](https://github.com/Disane87/ngx-taskboard/compare/v1.2.7...v1.2.8) (2019-09-02)
+
+
+### Bug Fixes
+
+* **readme:** merge from master into dev ([74fc922](https://github.com/Disane87/ngx-taskboard/commit/74fc922))
+* **readme:** Readme fixed ([b8f9eee](https://github.com/Disane87/ngx-taskboard/commit/b8f9eee))
+
 ## [1.2.7](https://github.com/Disane87/ngx-taskboard/compare/v1.2.6...v1.2.7) (2019-09-01)
 
 
