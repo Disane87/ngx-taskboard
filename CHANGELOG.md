@@ -1,3 +1,15 @@
+## [1.2.7](https://github.com/Disane87/ngx-taskboard/compare/v1.2.6...v1.2.7) (2019-09-01)
+
+
+### Bug Fixes
+
+* **row collapser:** Row collapser was misplaced ([7bb6064](https://github.com/Disane87/ngx-taskboard/commit/7bb6064)), closes [#55](https://github.com/Disane87/ngx-taskboard/issues/55)
+
+
+### Performance Improvements
+
+* **travis & npm:** using npm ci instead of npm install ([6db2206](https://github.com/Disane87/ngx-taskboard/commit/6db2206))
+
 ## [1.2.6](https://github.com/Disane87/ngx-taskboard/compare/v1.2.5...v1.2.6) (2019-09-01)
 
 
