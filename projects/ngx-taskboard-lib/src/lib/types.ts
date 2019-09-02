@@ -5,12 +5,12 @@
  * @export
  */
 export interface CardItem {
-    id: number;
-    name: string;
-    status?: string;
-    color?: string;
-    user?: string;
-    priority?: number;
+	id: number;
+	name: string;
+	status?: string;
+	color?: string;
+	user?: string;
+	priority?: number;
 }
 
 /**
@@ -19,8 +19,8 @@ export interface CardItem {
  * @export
  */
 export interface CollapseState {
-    name: string;
-    collapsed: boolean;
+	name: string;
+	collapsed: boolean;
 }
 
 /**
@@ -29,8 +29,8 @@ export interface CollapseState {
  * @export
  */
 export interface Scrollable {
-    hScroll: boolean;
-    vScroll: boolean;
+	hScroll: boolean;
+	vScroll: boolean;
 }
 
 /**
@@ -39,14 +39,14 @@ export interface Scrollable {
  * @export
  */
 export interface ClickEvent {
-    item: object;
-    hGroup: string | GroupHeading;
-    vGroup: string | GroupHeading;
+	item: object;
+	hGroup: string | GroupHeading;
+	vGroup: string | GroupHeading;
 }
 
 /** Event which is fired when an item is dropped */
 export interface DropEvent extends ClickEvent {
-    itemBeforeChange: object;
+	itemBeforeChange: object;
 }
 
 
@@ -56,8 +56,8 @@ export interface DropEvent extends ClickEvent {
  * @export
  */
 export interface GroupKeys {
-    hGroupKey: string;
-    vGroupKey: string;
+	hGroupKey: string;
+	vGroupKey: string;
 }
 
 /**
@@ -66,8 +66,8 @@ export interface GroupKeys {
  * @export
  */
 export interface GroupHeading {
-    value: string;
-    display: string;
-    color: string;
-    orderId: number;
+	value: string;
+	display: string;
+	color: string;
+	orderId: number;
 }

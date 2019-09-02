@@ -19,9 +19,9 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 library.add(fas, far, fab);
 
 @NgModule({
-  declarations: [BoardComponent, FilterSearchBarComponent],
-  imports: [BrowserModule, FontAwesomeModule, FormsModule, TypeaheadModule.forRoot(), BrowserAnimationsModule],
-  providers: [TaskboardService],
-  exports: [BoardComponent]
+	declarations: [BoardComponent, FilterSearchBarComponent],
+	imports: [BrowserModule, FontAwesomeModule, FormsModule, TypeaheadModule.forRoot(), BrowserAnimationsModule],
+	providers: [TaskboardService],
+	exports: [BoardComponent]
 })
 export class NgxTaskboardModule { }
