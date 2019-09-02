@@ -19,6 +19,7 @@
           "options": {
             "preserveSymlinks": true,
             "outputPath": "dist/ngx-taskboard",
+            "vendorSourceMap": true,
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

@@ -6,7 +6,7 @@ import {
   TemplateRef, DoCheck, AfterViewInit
 } from '@angular/core';
 import { TaskboardService } from '../taskboard.service';
-import { CardItem, ClickEvent, CollapseState, GroupHeading, GroupKeys, Scrollable } from '../types';
+import { CardItem, ClickEvent, CollapseState, GroupHeading, GroupKeys, Scrollable, DropEvent } from '../types';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -143,7 +143,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
   @Output() readonly dragStarted = new EventEmitter<object>();
 
   /** Fired when an item is dropped. Current item is passed  */
-  @Output() readonly dropped = new EventEmitter<object>();
+  @Output() readonly dropped = new EventEmitter<DropEvent>();
 
   /** Fired when an add action is click. Current ClickEvent is passed */
   @Output() readonly elementCreateClick = new EventEmitter<ClickEvent>();
@@ -193,7 +193,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     this.checkIfContentNeedsToScroll();
   }
 
-  checkIfContentNeedsToScroll(): void {
+  private checkIfContentNeedsToScroll(): void {
     const { hScroll: h, vScroll: v } = this.containerIsScrollable('.column-cards');
     this.horizontalScrolling = h;
     this.verticalScrolling = v;
@@ -204,7 +204,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     // Add 'implements AfterViewInit' to the class.
   }
 
-  prepareBoard(): void {
+  private prepareBoard(): void {
     this.generateHeadings();
 
     this.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));
@@ -212,7 +212,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
   }
 
-  generateHeadings(): void {
+  /**
+   * Generates the appropiate headings
+   * @memberOf BoardComponent
+   */
+  private generateHeadings(): void {
     if (this.invertGroupDirection) {
       const vGkey = this.vGroupKey;
       const hGkey = this.hGroupKey;
@@ -225,11 +229,20 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     this.hHeadings = this.getHeadings(this.hGroupKeys, this.hGroupKey);
   }
 
-  generateCollapseStates(array: Array<string | GroupHeading>, diretion: 'h' | 'v'): Array<CollapseState> {
+  private generateCollapseStates(array: Array<string | GroupHeading>, diretion: 'h' | 'v'): Array<CollapseState> {
     return array.map(item => ({ name: this.getValue(item), collapsed: (diretion === 'h') ? this.hCollapsed : this.vCollapsed }));
   }
 
-  getItemsOfGroup(vValue: string, hValue: string): Array<CardItem | object> {
+  /**
+   * Gets all items of a cell (row / col)
+   *
+   * @param vValue Value of the row
+   * @param hValue Value of the column
+   * @returns Array of all items of a cell
+   *
+   * @memberOf BoardComponent
+   */
+  public getItemsOfGroup(vValue: string, hValue: string): Array<CardItem | object> {
     // console.log('getItemsOfGroup');
 
     let items = this.items.filter(item => {
@@ -290,7 +303,15 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
       })) : items;
   }
 
-  toggleCollapseGroup(direction: string, collapsed: boolean): void {
+  /**
+   * Toggles in entire group (all rows or all columns)
+   *
+   * @param direction Direction to toggle
+   * @param collapsed Current collapse state
+   *
+   * @memberOf BoardComponent
+   */
+  public toggleCollapseGroup(direction: string, collapsed: boolean): void {
     const groupKeysToToggle =
       this.collapseStates.filter(item => (direction === 'vertical' ? this.vHeadings : this.hHeadings)
         .some(i =>
@@ -307,18 +328,26 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     }
   }
 
-  getValue(item: string | GroupHeading): string {
+  /**
+   * Gets the value of an item
+   *
+   * @param item Item to get the value from
+   * @returns Value of item
+   *
+   * @memberOf BoardComponent
+   */
+  public getValue(item: string | GroupHeading): string {
     return ((item as GroupHeading).value ? (item as GroupHeading).value : item as string);
   }
 
-  determineCorrectGroupKeys(item: object): GroupKeys {
+  private determineCorrectGroupKeys(item: object): GroupKeys {
     return {
       hGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),
       vGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey)
     };
   }
 
-  getCaseInsensitivePropKey(item: object, propKey: string): string {
+  private getCaseInsensitivePropKey(item: object, propKey: string): string {
     if (item) {
       return Object.keys(item)
         .find(key => (key !== '' && key !== undefined && key !== undefined)
@@ -330,7 +359,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     return '';
   }
 
-  getHeadingsFromItems(groupKey: string = this.vGroupKey): Array<string> {
+  private getHeadingsFromItems(groupKey: string = this.vGroupKey): Array<string> {
     const keys = (this.items as Array<object>).map((item: any) =>
       item[Object.keys(item)
         .find(key => key.toLowerCase() === groupKey.toLowerCase())]
@@ -340,7 +369,14 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
       arr.indexOf(elem) === pos && (this.showUngroupedInBacklog && (elem !== '' && elem !== undefined)));
   }
 
-  getUngroupedItems(): Array<CardItem> | Array<object> {
+  /**
+   * Gets ungrouped items (which could not be put into rows or cols)
+   *
+   * @returns Array of ungrouped items
+   *
+   * @memberOf BoardComponent
+   */
+  public getUngroupedItems(): Array<CardItem | object> {
     if (this.showUngroupedInBacklog) {
       return this.items.filter(item => {
         const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
@@ -356,7 +392,14 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     return [];
   }
 
-  toggleCollapse(group: { hGroup: string, vGroup: string }): void {
+  /**
+   * Toggles an elements collapse state
+   *
+   * @param group Column and row value
+   *
+   * @memberOf BoardComponent
+   */
+  public toggleCollapse(group: { hGroup: string, vGroup: string }): void {
 
     const part = this.getValue(group.hGroup || group.vGroup);
     // console.log("Toggle: " + part);
@@ -365,33 +408,73 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     this.collapseStates.find(item => item.name === part).collapsed = !collapseState;
   }
 
-  collapseState(part: string | GroupHeading): boolean {
+  /**
+   * Gets the current collapse state of a specific item
+   *
+   * @param collapseItem Item to get the collapse state
+   * @returns true if collapsed, false when expanded
+   *
+   * @memberOf BoardComponent
+   */
+  public collapseState(collapseItem: string | GroupHeading): boolean {
 
-    if (typeof (part) === 'object') {
-      part = (part).value;
+    if (typeof (collapseItem) === 'object') {
+      collapseItem = (collapseItem).value;
     }
 
-    const foundCollapsedState = this.collapseStates.find(item => item.name === this.getValue(part)).collapsed;
+    const foundCollapsedState = this.collapseStates.find(item => item.name === this.getValue(collapseItem)).collapsed;
     // console.log('collapseState', part, foundCollapsedState);
 
     return foundCollapsedState;
   }
 
-  dragStart(event: DragEvent, item: CardItem): void {
+  /**
+   * Handler which is called when an item starts to drag
+   *
+   * @param event Native drag event
+   * @param item CardItem which is dragged
+   *
+   * @memberOf BoardComponent
+   */
+  public dragStart(event: DragEvent, item: CardItem): void {
     this.dragItem = item;
     this.dragStarted.emit(this.dragItem);
   }
 
-  dragEnd(event: DragEvent, item: CardItem): void {
+  /**
+   * Handler which is called, when the drag of an item ends
+   *
+   * @param event Native drag event
+   * @param item CardItem which is dragged
+   *
+   * @memberOf BoardComponent
+   */
+  public dragEnd(event: DragEvent, item: CardItem): void {
     this.dragItem = undefined;
-
   }
 
-  createElement(group: ClickEvent): void {
+
+  /**
+   * Handler which is called, when a new item should be created (click on a add icon)
+   *
+   * @param group Row and column value
+   *
+   * @memberOf BoardComponent
+   */
+  public createElement(group: ClickEvent): void {
     this.elementCreateClick.emit(group);
   }
 
-  drop(event: DragEvent, vRow: string, hRow: string): void {
+  /**
+   * Handler which is called when an item is dropped
+   *
+   * @param event Native drag event
+   * @param vRow Row item
+   * @param hRow Column item
+   *
+   * @memberOf BoardComponent
+   */
+  public drop(event: DragEvent, vRow: string | GroupHeading, hRow: string | GroupHeading): void {
     event.preventDefault();
     if (event.currentTarget) {
       const placeholderEl = (event.currentTarget as HTMLElement).querySelector('.placeholder');
@@ -403,15 +486,30 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     }
 
     const groupKeys: GroupKeys = this.determineCorrectGroupKeys(this.dragItem);
+    const dragItemBeforeChange = this.dragItem;
 
     this.dragItem[groupKeys.vGroupKey] = vRow;
     this.dragItem[groupKeys.hGroupKey] = hRow;
 
-    this.dropped.emit(this.dragItem);
+    this.dropped.emit({
+      hGroup: hRow,
+      vGroup: vRow,
+      item: this.dragItem,
+      itemBeforeChange: dragItemBeforeChange
+    });
     this.dragItem = undefined;
   }
 
-  dragOver(event: DragEvent, vRow: string, hRow: string): void {
+  /**
+   * Handler which is called when an item is dragged over a cell
+   *
+   * @param event Native html drag event
+   * @param vRow Row item
+   * @param hRow Column item
+   *
+   * @memberOf BoardComponent
+   */
+  public dragOver(event: DragEvent, vRow: string | GroupHeading, hRow: string | GroupHeading): void {
     if (this.dragItem) {
       event.preventDefault();
 
@@ -445,7 +543,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     }
   }
 
-  containerIsScrollable(containerName: string): Scrollable {
+  private containerIsScrollable(containerName: string): Scrollable {
     const container = this.elRef.nativeElement.querySelector(containerName);
     if (container) {
       const hasHorizontalScrollbar = container.scrollWidth > container.clientWidth;
@@ -460,14 +558,28 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     return null;
   }
 
-  scrollBarStyle(): object {
+  /**
+   * Determines the style of a container which includes the scrollbar
+   *
+   * @returns Style of the container the scrollbar is applied to
+   *
+   * @memberOf BoardComponent
+   */
+  public scrollBarStyle(): object {
 
     return {
       'padding-right': `${this.calculateScrollBarWidth()}px`
     };
   }
 
-  getColumnWidth(): object {
+  /**
+   * Gets the current width of a scrollbar
+   *
+   * @returns Object with native css style
+   *
+   * @memberOf BoardComponent
+   */
+  public getColumnWidth(): object {
     if (!this.scrollable) { return {}; }
 
     return {
@@ -475,14 +587,14 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
     };
   }
 
-  calculateScrollBarWidth(): number {
+  private calculateScrollBarWidth(): number {
     const headingsRowWidth = this.elRef.nativeElement.querySelector('.headings').clientWidth;
     const contentWidth = this.elRef.nativeElement.querySelector('.row-content').clientWidth;
 
     return headingsRowWidth - contentWidth;
   }
 
-  createPlaceholderElement(id: string): HTMLElement {
+  private createPlaceholderElement(id: string): HTMLElement {
     if (this.dragoverPlaceholderTemplate) {
       return this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);
     }

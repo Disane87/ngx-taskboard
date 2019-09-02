@@ -39,9 +39,16 @@ export interface Scrollable {
  * @export
  */
 export interface ClickEvent {
-    hGroup: string;
-    vGroup: string;
+    item: object;
+    hGroup: string | GroupHeading;
+    vGroup: string | GroupHeading;
 }
+
+/** Event which is fired when an item is dropped */
+export interface DropEvent extends ClickEvent {
+    itemBeforeChange: object;
+}
+
 
 /**
  * Group keys to determine the correct groups internally
