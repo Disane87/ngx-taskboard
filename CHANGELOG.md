@@ -1,3 +1,10 @@
+## [1.2.11](https://github.com/Disane87/ngx-taskboard/compare/v1.2.10...v1.2.11) (2019-09-02)
+
+
+### Bug Fixes
+
+* **build:** Copy -File script was broken ([1d4f860](https://github.com/Disane87/ngx-taskboard/commit/1d4f860))
+
 ## [1.2.10](https://github.com/Disane87/ngx-taskboard/compare/v1.2.9...v1.2.10) (2019-09-02)
 
 
