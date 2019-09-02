@@ -1,3 +1,10 @@
+## [1.2.9](https://github.com/Disane87/ngx-taskboard/compare/v1.2.8...v1.2.9) (2019-09-02)
+
+
+### Bug Fixes
+
+* **package.json:** readme missing in package.json ([ec8ec85](https://github.com/Disane87/ngx-taskboard/commit/ec8ec85))
+
 ## [1.2.8](https://github.com/Disane87/ngx-taskboard/compare/v1.2.7...v1.2.8) (2019-09-02)
 
 
