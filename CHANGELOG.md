@@ -1,3 +1,10 @@
+## [1.2.12](https://github.com/Disane87/ngx-taskboard/compare/v1.2.11...v1.2.12) (2019-09-02)
+
+
+### Bug Fixes
+
+* Fixed the emitting value ([4e17882](https://github.com/Disane87/ngx-taskboard/commit/4e17882)), closes [#62](https://github.com/Disane87/ngx-taskboard/issues/62)
+
 ## [1.2.11](https://github.com/Disane87/ngx-taskboard/compare/v1.2.10...v1.2.11) (2019-09-02)
 
 
