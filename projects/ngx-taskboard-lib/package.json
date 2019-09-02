@@ -1,41 +1,44 @@
 {
-  "name": "@disane/ngx-taskboard",
-  "version": "1.2.0",
-  "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
-  },
-  "repository": {
-    "directory": "github",
-    "url": "https://github.com/Disane87/ngx-taskboard.git",
-    "type": "git"
-  },
-  "readme": "",
-  "author": {
-    "name": "Marco Franke",
-    "email": "mfranke87@icloud.com",
-    "url": "https://byte-style.de"
-  },
-  "badges": [{
-      "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
-      "description": "License",
-      "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
+  {
+    "name": "@disane/ngx-taskboard",
+    "version": "1.2.0",
+    "license": "MIT",
+    "private": false,
+    "repository": {
+      "directory": "github",
+      "url": "https://github.com/Disane87/ngx-taskboard.git",
+      "type": "git"
     },
-    {
-      "url": "https://img.shields.io/github/issues/Disane87/ngx-taskboard",
-      "description": "Issues",
-      "href": "https://github.com/Disane87/ngx-taskboard/issues"
+    "readme": "README.md",
+    "author": {
+      "name": "Marco Franke",
+      "email": "mfranke87@icloud.com",
+      "url": "https://byte-style.de"
     },
-    {
-      "url": "https://img.shields.io/github/stars/Disane87/ngx-taskboard",
-      "description": "Stars",
-      "href": "https://github.com/Disane87/ngx-taskboard/stargazers"
+    "badges": [{
+        "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
+        "description": "License",
+        "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
+      },
+      {
+        "url": "https://img.shields.io/github/issues/Disane87/ngx-taskboard",
+        "description": "Issues",
+        "href": "https://github.com/Disane87/ngx-taskboard/issues"
+      },
+      {
+        "url": "https://img.shields.io/github/stars/Disane87/ngx-taskboard",
+        "description": "Stars",
+        "href": "https://github.com/Disane87/ngx-taskboard/stargazers"
+      }
+    ],
+    "description": "Yet another angular taskboard",
+    "homepage": "https://ngx-taskboard.disane.de",
+    "maintainers": [{
+      "name": "disane",
+      "email": "mfranke87@icloud.com"
+    }],
+    "peerDependencies": {
+      "@angular/common": "^7.2.0",
+      "@angular/core": "^7.2.0"
     }
-  ],
-  "description": "Yet another angular taskboard",
-  "homepage": "https://ngx-taskboard.disane.de",
-  "maintainers": [{
-    "name": "Marco Franke",
-    "email": "mfranke87@icloud.com"
-  }]
-}
+  }
