@@ -23,14 +23,13 @@
     "url": "https://github.com/Disane87/ngx-taskboard.git",
     "type": "git"
   },
-  "readme": "",
+  "readme": "README.md",
   "author": {
     "name": "Marco Franke",
     "email": "mfranke87@icloud.com",
     "url": "https://byte-style.de"
   },
-  "badges": [
-    {
+  "badges": [{
       "url": "https://img.shields.io/github/license/Disane87/ngx-taskboard",
       "description": "License",
       "href": "https://github.com/Disane87/ngx-taskboard/blob/master/LICENSE"
@@ -48,12 +47,10 @@
   ],
   "description": "Yet another angular taskboard",
   "homepage": "https://ngx-taskboard.disane.de",
-  "maintainers": [
-    {
-      "name": "disane",
-      "email": "mfranke87@icloud.com"
-    }
-  ],
+  "maintainers": [{
+    "name": "disane",
+    "email": "mfranke87@icloud.com"
+  }],
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
