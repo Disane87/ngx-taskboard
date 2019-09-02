@@ -1,3 +1,11 @@
+## [1.2.10](https://github.com/Disane87/ngx-taskboard/compare/v1.2.9...v1.2.10) (2019-09-02)
+
+
+### Bug Fixes
+
+* **build:** Missing readme in ./dist ([3594fd6](https://github.com/Disane87/ngx-taskboard/commit/3594fd6))
+* **package.json:** Package.json in lib was broken ([63f75d8](https://github.com/Disane87/ngx-taskboard/commit/63f75d8))
+
 ## [1.2.9](https://github.com/Disane87/ngx-taskboard/compare/v1.2.8...v1.2.9) (2019-09-02)
 
 
