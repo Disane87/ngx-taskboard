@@ -486,7 +486,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		}
 
 		const groupKeys: GroupKeys = this.determineCorrectGroupKeys(this.dragItem);
-		const dragItemBeforeChange = this.dragItem;
+		const dragItemBeforeChange = { ...this.dragItem };
 
 		this.dragItem[groupKeys.vGroupKey] = this.getValue(vRow);
 		this.dragItem[groupKeys.hGroupKey] = this.getValue(hRow);
