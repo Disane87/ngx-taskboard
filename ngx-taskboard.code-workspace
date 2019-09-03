@@ -7,23 +7,25 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.tslint": true
     }
+	"typescript.referencesCodeLens.enabled": true
   },
   "extensions": {
     "recommendations": [
-      "hookyqr.githubissues",
+	  "GitHub.vscode-pull-request-github",
+	  "mhutchie.git-graph,
       "donjayamanne.githistory",
       "eamodio.gitlens",
       "coenraads.bracket-pair-colorizer",
       "angular.ng-template",
       "mikael.angular-beastcode",
       "hookyqr.beautify",
-      "robinbentley.sass-indented",
       "glen-84.sass-lint",
       "ms-vscode.vscode-typescript-tslint-plugin",
       "wakatime.vscode-wakatime",
       "thekalinga.bootstrap4-vscode",
 	  "msjsdiag.debugger-for-chrome",
-	  "KnisterPeter.vscode-commitizen"
+	  "KnisterPeter.vscode-commitizen",
+	  "KnisterPeter.vscode-github"
     ]
   }
 }
