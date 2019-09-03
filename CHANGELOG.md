@@ -1,3 +1,10 @@
+## [1.2.14](https://github.com/Disane87/ngx-taskboard/compare/v1.2.13...v1.2.14) (2019-09-03)
+
+
+### Bug Fixes
+
+* Object copy without ref of the dragged item ([267bae0](https://github.com/Disane87/ngx-taskboard/commit/267bae0)), closes [#66](https://github.com/Disane87/ngx-taskboard/issues/66)
+
 ## [1.2.13](https://github.com/Disane87/ngx-taskboard/compare/v1.2.12...v1.2.13) (2019-09-03)
 
 
