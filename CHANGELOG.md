@@ -1,3 +1,10 @@
+## [1.2.13](https://github.com/Disane87/ngx-taskboard/compare/v1.2.12...v1.2.13) (2019-09-03)
+
+
+### Bug Fixes
+
+* Fixes an error when dragged and set the new values ([b536d57](https://github.com/Disane87/ngx-taskboard/commit/b536d57)), closes [#64](https://github.com/Disane87/ngx-taskboard/issues/64)
+
 ## [1.2.12](https://github.com/Disane87/ngx-taskboard/compare/v1.2.11...v1.2.12) (2019-09-02)
 
 
