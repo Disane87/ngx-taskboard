@@ -169,6 +169,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	private readonly collapseStates: Array<CollapseState> = [];
 
 	private dragItem: CardItem;
+	private nativeDragItem: HTMLElement;
 	private placeholderSet = false;
 	private currentDragZone: string;
 
@@ -205,11 +206,40 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	}
 
 	private prepareBoard(): void {
-		this.generateHeadings();
 
-		this.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));
-		this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
+		this.checkPrerequisites().then(() => {
+			this.generateHeadings();
 
+			this.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));
+			this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
+		});
+
+
+
+	}
+
+	private checkPrerequisites(): Promise<boolean> {
+		if (this.checkIfPropIsObject(this.hGroupKeys[0])) {
+			const hasValueProperty = this.hGroupKeys.every((item: GroupHeading) => item.value != null);
+			if (!hasValueProperty) {
+				throw new Error((`Column headers are objects but field 'value' is missing in one or more items.`));
+			}
+
+		}
+
+		if (this.checkIfPropIsObject(this.vGroupKeys[0])) {
+			const hasValueProperty = this.vGroupKeys.every((item: GroupHeading) => item.value != null);
+			if (!hasValueProperty) {
+				throw new Error((`Row headers are objects but field 'value' is missing in one or more items.`));
+			}
+
+		}
+
+		return Promise.resolve(true);
+	}
+
+	private checkIfPropIsObject(prop: any): boolean {
+		return typeof (prop) === 'object';
 	}
 
 	/**
@@ -297,7 +327,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 		return (this.filter !== '') ? items.filter((item, index, array) =>
 			(this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {
-				const found = item[key] !== undefined && typeof (item[key]) !== 'number' && ((item[key] as string).indexOf(this.filter) > -1 ? true : false);
+				const found = item[key] !== null && typeof (item[key]) !== 'number' && ((item[key] as string).indexOf(this.filter) > -1 ? true : false);
 				// found && console.info(`Searching "${item[key]}" for "${this.filter}" | Found ${found}`);
 				return found;
 			})) : items;
@@ -337,7 +367,10 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 * @memberOf BoardComponent
 	 */
 	public getValue(item: string | GroupHeading): string {
-		return ((item as GroupHeading).value ? (item as GroupHeading).value : item as string);
+		if (item as GroupHeading) {
+			return ((item as GroupHeading).value ? (item as GroupHeading).value : item as string);
+		}
+		return '';
 	}
 
 	private determineCorrectGroupKeys(item: object): GroupKeys {
@@ -422,10 +455,14 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			collapseItem = (collapseItem).value;
 		}
 
-		const foundCollapsedState = this.collapseStates.find(item => item.name === this.getValue(collapseItem)).collapsed;
-		// console.log('collapseState', part, foundCollapsedState);
+		const foundItem = this.collapseStates.find(item => item.name === this.getValue(collapseItem));
+		if (foundItem) {
+			const foundCollapsedState = foundItem.collapsed;
+			// console.log('collapseState', part, foundCollapsedState);
 
-		return foundCollapsedState;
+			return foundCollapsedState;
+		}
+		return false;
 	}
 
 	/**
@@ -438,6 +475,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	public dragStart(event: DragEvent, item: CardItem): void {
 		this.dragItem = item;
+		this.nativeDragItem = (event.currentTarget as HTMLElement);
 		this.dragStarted.emit(this.dragItem);
 	}
 
@@ -495,7 +533,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			hGroup: hRow,
 			vGroup: vRow,
 			item: this.dragItem,
-			itemBeforeChange: dragItemBeforeChange
+			itemBeforeChange: dragItemBeforeChange,
+			nativeItemElement: this.nativeDragItem
 		});
 		this.dragItem = undefined;
 	}

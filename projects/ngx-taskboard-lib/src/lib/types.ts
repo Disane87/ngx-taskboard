@@ -47,6 +47,7 @@ export interface ClickEvent {
 /** Event which is fired when an item is dropped */
 export interface DropEvent extends ClickEvent {
 	itemBeforeChange: object;
+	nativeItemElement?: HTMLElement;
 }
 
 
