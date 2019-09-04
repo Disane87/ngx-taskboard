@@ -212,10 +212,9 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 			this.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));
 			this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
+
+			this.cd.markForCheck();
 		});
-
-
-
 	}
 
 	private checkPrerequisites(): Promise<boolean> {

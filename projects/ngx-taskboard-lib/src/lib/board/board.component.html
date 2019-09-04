@@ -119,7 +119,7 @@
       </div>
       <div *ngIf="!collapseState(hGroup)">
         <ng-content
-          *ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, hGroup: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }">
+          *ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, group: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }">
         </ng-content>
       </div>
     </div>

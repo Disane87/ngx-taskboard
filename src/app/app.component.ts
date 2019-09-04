@@ -8,38 +8,42 @@ import { GroupHeading } from 'projects/ngx-taskboard-lib/src/lib/types';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  showcaseMode = false;
 
+  constructor(private readonly http: HttpClient) {
+
+  }
+  showcaseMode = false;
   hGroupKey = 'status';
   vGroupKey = 'name';
 
+  public events: Array<Event> = [];
   hGroupKeys: Array<GroupHeading> = [
-    { value: 'open', color: '#fff', display: 'TEST', orderId: 1 },
-    { value: 'working', color: '#fff', display: 'TEST', orderId: 2 },
-    { value: 'closed', color: '#fff', display: 'TEST', orderId: 3 },
-    { value: 'pending', color: '#fff', display: 'TEST', orderId: 4 },
-    { value: 'test', color: '#fff', display: 'TEST', orderId: 0 }
+	{ value: 'open', color: '#fff', display: 'TEST', orderId: 1 },
+	{ value: 'working', color: '#fff', display: 'TEST', orderId: 2 },
+	{ value: 'closed', color: '#fff', display: 'TEST', orderId: 3 },
+	{ value: 'pending', color: '#fff', display: 'TEST', orderId: 4 },
+	{ value: 'test', color: '#fff', display: 'TEST', orderId: 0 }
   ];
 
   vGroupKeys = [
-    { value: 'Karina', color: '#fff', display: 'MF', orderId: 5 },
-    { value: 'Christoph', color: '#fff', display: 'MF', orderId: 4 },
-    { value: 'Daniel', color: '#fff', display: 'MF', orderId: 3 },
-    { value: 'Malian', color: '#fff', display: 'MF', orderId: 2 },
-    { value: 'm1', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm2', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm3', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm4', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm5', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm6', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm7', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm8', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm9', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm10', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm11', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm12', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm13', color: '#fff', display: 'MF', orderId: 1 },
-    { value: 'm14', color: '#fff', display: 'MF', orderId: 1 }
+	{ value: 'Karina', color: '#fff', display: 'MF', orderId: 5 },
+	{ value: 'Christoph', color: '#fff', display: 'MF', orderId: 4 },
+	{ value: 'Daniel', color: '#fff', display: 'MF', orderId: 3 },
+	{ value: 'Malian', color: '#fff', display: 'MF', orderId: 2 },
+	{ value: 'm1', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm2', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm3', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm4', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm5', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm6', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm7', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm8', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm9', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm10', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm11', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm12', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm13', color: '#fff', display: 'MF', orderId: 1 },
+	{ value: 'm14', color: '#fff', display: 'MF', orderId: 1 }
   ];
 
   // public items = [{
@@ -75,15 +79,21 @@ export class AppComponent {
 
   items: Array<object> = [];
 
-  constructor(private readonly http: HttpClient) {
-
+  catchEvent(name: string, data: object) {
+	// this.events[name] = data;
+	this.events.push({name, data });
   }
 
   ngOnInit(): void {
 
-    this.http.get('https://next.json-generator.com/api/json/get/N1Mv5ylNw').toPromise().then((data: Array<object>) => {
-      this.items = data;
-    });
+	this.http.get('https://next.json-generator.com/api/json/get/N1Mv5ylNw').toPromise().then((data: Array<object>) => {
+		this.items = data;
+	});
 
   }
+}
+
+interface Event {
+  name: string;
+  data: object;
 }
