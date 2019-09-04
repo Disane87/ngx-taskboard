@@ -1,3 +1,10 @@
+## [1.2.15](https://github.com/Disane87/ngx-taskboard/compare/v1.2.14...v1.2.15) (2019-09-04)
+
+
+### Bug Fixes
+
+* Items with value „null“ were breaking the board ([daca6ba](https://github.com/Disane87/ngx-taskboard/commit/daca6ba)), closes [#69](https://github.com/Disane87/ngx-taskboard/issues/69)
+
 ## [1.2.14](https://github.com/Disane87/ngx-taskboard/compare/v1.2.13...v1.2.14) (2019-09-03)
 
 
