@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { GroupHeading } from 'projects/ngx-taskboard-lib/src/lib/types';
+import { CollapseState } from '@disane/ngx-taskboard';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,11 @@ export class AppComponent {
   showcaseMode = false;
   hGroupKey = 'status';
   vGroupKey = 'name';
+
+  public collapseState: Array<CollapseState> = [
+	{ name: 'm1', collapsed: false },
+	{ name: 'm12', collapsed: false },
+  ];
 
   public events: Array<Event> = [];
   hGroupKeys: Array<GroupHeading> = [

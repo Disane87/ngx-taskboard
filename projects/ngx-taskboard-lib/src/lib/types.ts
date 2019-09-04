@@ -72,3 +72,15 @@ export interface GroupHeading {
 	color: string;
 	orderId: number;
 }
+
+/**
+ * Object for the headings in which you can set color etc.
+ *
+ * @export
+ */
+export interface CollapseEvent {
+	group: string | GroupHeading;
+	collapsed: boolean;
+
+	overallCollapseState: Array<CollapseState>;
+}

@@ -6,7 +6,7 @@ import {
 	TemplateRef, DoCheck, AfterViewInit
 } from '@angular/core';
 import { TaskboardService } from '../taskboard.service';
-import { CardItem, ClickEvent, CollapseState, GroupHeading, GroupKeys, Scrollable, DropEvent } from '../types';
+import { CardItem, ClickEvent, CollapseState, GroupHeading, GroupKeys, Scrollable, DropEvent, CollapseEvent } from '../types';
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -139,6 +139,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	@Input() filterOnProperties: Array<string> = [];
 
+	/**
+	 * The collapse state which is applied when set initially
+	 */
+	@Input() initialCollapseState: Array<CollapseState> = [];
+
 	/** Fired when the user drags an item. Current item is passed */
 	@Output() readonly dragStarted = new EventEmitter<object>();
 
@@ -147,6 +152,9 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/** Fired when an add action is click. Current ClickEvent is passed */
 	@Output() readonly elementCreateClick = new EventEmitter<ClickEvent>();
+
+	/** Fired when a heading is collapsed. CollapseEvent is emitted */
+	@Output() readonly headingCollapsed = new EventEmitter<CollapseEvent>();
 	hHeadings: Array<string | GroupHeading> = [];
 	vHeadings: Array<string | GroupHeading> = [];
 
@@ -211,9 +219,20 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			this.generateHeadings();
 
 			this.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));
+			this.matchAndSetInitialCollapseState();
+
 			this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
 
 			this.cd.markForCheck();
+		});
+	}
+
+	private matchAndSetInitialCollapseState() {
+		this.initialCollapseState.forEach(item => {
+			const foundCollapseState = this.collapseStates.find(cS => cS.name.toLowerCase() == item.name.toLowerCase());
+			if (foundCollapseState && foundCollapseState.collapsed != item.collapsed) {
+				foundCollapseState.collapsed = item.collapsed;
+			}
 		});
 	}
 
@@ -355,6 +374,12 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 				this.hCollapsed = !collapsed;
 			}
 		}
+
+		this.headingCollapsed.emit({
+			group: direction,
+			collapsed: !collapsed,
+			overallCollapseState: this.collapseStates
+		});
 	}
 
 	/**
@@ -431,13 +456,19 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 *
 	 * @memberOf BoardComponent
 	 */
-	public toggleCollapse(group: { hGroup: string, vGroup: string }): void {
+	public toggleCollapse(group: { hGroup: string | GroupHeading, vGroup: string | GroupHeading }): void {
 
 		const part = this.getValue(group.hGroup || group.vGroup);
 		// console.log("Toggle: " + part);
 
 		const collapseState = this.collapseState(part);
 		this.collapseStates.find(item => item.name === part).collapsed = !collapseState;
+
+		this.headingCollapsed.emit({
+			group: group.hGroup || group.vGroup,
+			collapsed: !collapseState,
+			overallCollapseState: this.collapseStates
+		});
 	}
 
 	/**
