@@ -6,7 +6,7 @@
       <ng-container *ngTemplateOutlet="backlogColumn"></ng-container>
 
       <div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-x-auto]="horizontalScrolling"
-        [class.overflow-y-auto]="verticalScrolling" [class.border-bottom]="(scrollable && verticalScrolling)">
+        [class.overflow-y-auto]="verticalScrolling" (scroll)="scrolling($event)" [class.border-bottom]="(scrollable && verticalScrolling)">
 
         <ng-container *ngTemplateOutlet="columnHeadings"></ng-container>
 

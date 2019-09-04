@@ -13,7 +13,7 @@
 				[showUngroupedInBacklog]="true" [itemTemplate]="itemTemplate" [vCollapsed]="true"
 				(elementCreateClick)="catchEvent('elementCreateClick', $event)"
 				(dropped)="catchEvent('dropped', $event)" (dragStarted)="catchEvent('dragStarted', $event)"
-				(headingCollapsed)="catchEvent('headingCollapsed', $event)">
+				(headingCollapsed)="catchEvent('headingCollapsed', $event)" (isScrolling)="catchEvent('isScrolling', $event)" (scrollEnded)="catchEvent('scrollEnded', $event)" (scrolledToEnd)="catchEvent('scrolledToEnd', $event)">
 			</ngx-taskboard>
 		</div>
 

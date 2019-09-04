@@ -84,3 +84,15 @@ export interface CollapseEvent {
 
 	overallCollapseState: Array<CollapseState>;
 }
+
+
+export interface ScrollEvent {
+	axis: 'x' | 'y';
+	distance: number;
+
+	maxDistance: number;
+
+	isScrolling?: boolean;
+
+	hasReachedEnd?: boolean;
+}

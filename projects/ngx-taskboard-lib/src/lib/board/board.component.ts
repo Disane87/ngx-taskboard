@@ -6,7 +6,8 @@ import {
 	TemplateRef, DoCheck, AfterViewInit
 } from '@angular/core';
 import { TaskboardService } from '../taskboard.service';
-import { CardItem, ClickEvent, CollapseState, GroupHeading, GroupKeys, Scrollable, DropEvent, CollapseEvent } from '../types';
+import { CardItem, ClickEvent, CollapseState, GroupHeading, GroupKeys, Scrollable, DropEvent, CollapseEvent, ScrollEvent } from '../types';
+import { isDirectiveInstance } from '@angular/core/src/render3/context_discovery';
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -155,6 +156,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/** Fired when a heading is collapsed. CollapseEvent is emitted */
 	@Output() readonly headingCollapsed = new EventEmitter<CollapseEvent>();
+
+	@Output() readonly isScrolling = new EventEmitter<ScrollEvent>();
+	@Output() readonly scrolledToEnd = new EventEmitter<ScrollEvent>();
+
+	@Output() readonly scrollEnded = new EventEmitter<ScrollEvent>();
 	hHeadings: Array<string | GroupHeading> = [];
 	vHeadings: Array<string | GroupHeading> = [];
 
@@ -181,6 +187,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	private placeholderSet = false;
 	private currentDragZone: string;
 
+	private isScrollingTimeout = 0;
+
 	constructor(
 		private readonly renderer: Renderer2,
 		private readonly elRef: ElementRef,
@@ -202,17 +210,27 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		this.checkIfContentNeedsToScroll();
 	}
 
-	private checkIfContentNeedsToScroll(): void {
-		const { hScroll: h, vScroll: v } = this.containerIsScrollable('.column-cards');
-		this.horizontalScrolling = h;
-		this.verticalScrolling = v;
-	}
 
 	ngAfterViewInit(): void {
 		// Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
 		// Add 'implements AfterViewInit' to the class.
 	}
 
+	/**
+	 * Checks if content needs to scroll
+	 */
+	private checkIfContentNeedsToScroll(): void {
+		const { hScroll: h, vScroll: v } = this.containerIsScrollable('.column-cards');
+		this.horizontalScrolling = h;
+		this.verticalScrolling = v;
+
+		this.cd.markForCheck();
+	}
+
+
+	/**
+	 * Prepares board
+	 */
 	private prepareBoard(): void {
 
 		this.checkPrerequisites().then(() => {
@@ -223,10 +241,14 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 			this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
 
-			this.cd.markForCheck();
+			// this.cd.markForCheck();
+			this.checkIfContentNeedsToScroll();
 		});
 	}
 
+	/**
+	 * Matches and set initial collapse state
+	 */
 	private matchAndSetInitialCollapseState() {
 		this.initialCollapseState.forEach(item => {
 			const foundCollapseState = this.collapseStates.find(cS => cS.name.toLowerCase() == item.name.toLowerCase());
@@ -236,6 +258,10 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		});
 	}
 
+	/**
+	 * Checks prerequisites
+	 * @returns prerequisites
+	 */
 	private checkPrerequisites(): Promise<boolean> {
 		if (this.checkIfPropIsObject(this.hGroupKeys[0])) {
 			const hasValueProperty = this.hGroupKeys.every((item: GroupHeading) => item.value != null);
@@ -256,6 +282,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		return Promise.resolve(true);
 	}
 
+	/**
+	 * Checks if prop is object
+	 * @param prop
+	 * @returns true if if prop is object
+	 */
 	private checkIfPropIsObject(prop: any): boolean {
 		return typeof (prop) === 'object';
 	}
@@ -277,6 +308,12 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		this.hHeadings = this.getHeadings(this.hGroupKeys, this.hGroupKey);
 	}
 
+	/**
+	 * Generates collapse states
+	 * @param array
+	 * @param diretion
+	 * @returns collapse states
+	 */
 	private generateCollapseStates(array: Array<string | GroupHeading>, diretion: 'h' | 'v'): Array<CollapseState> {
 		return array.map(item => ({ name: this.getValue(item), collapsed: (diretion === 'h') ? this.hCollapsed : this.vCollapsed }));
 	}
@@ -380,6 +417,9 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			collapsed: !collapsed,
 			overallCollapseState: this.collapseStates
 		});
+
+		setTimeout(() => this.cd.markForCheck(), 100);
+
 	}
 
 	/**
@@ -397,6 +437,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		return '';
 	}
 
+	/**
+	 * Determines correct group keys
+	 * @param item
+	 * @returns correct group keys
+	 */
 	private determineCorrectGroupKeys(item: object): GroupKeys {
 		return {
 			hGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),
@@ -404,6 +449,12 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		};
 	}
 
+	/**
+	 * Gets case insensitive prop key
+	 * @param item
+	 * @param propKey
+	 * @returns case insensitive prop key
+	 */
 	private getCaseInsensitivePropKey(item: object, propKey: string): string {
 		if (item) {
 			return Object.keys(item)
@@ -416,6 +467,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		return '';
 	}
 
+	/**
+	 * Gets headings from items
+	 * @param [groupKey]
+	 * @returns headings from items
+	 */
 	private getHeadingsFromItems(groupKey: string = this.vGroupKey): Array<string> {
 		const keys = (this.items as Array<object>).map((item: any) =>
 			item[Object.keys(item)
@@ -612,6 +668,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		}
 	}
 
+	/**
+	 * Checks if container is scrollable
+	 * @param containerName
+	 * @returns is scrollable
+	 */
 	private containerIsScrollable(containerName: string): Scrollable {
 		const container = this.elRef.nativeElement.querySelector(containerName);
 		if (container) {
@@ -663,6 +724,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		return headingsRowWidth - contentWidth;
 	}
 
+	/**
+	 * Creates placeholder element
+	 * @param id
+	 * @returns placeholder element
+	 */
 	private createPlaceholderElement(id: string): HTMLElement {
 		if (this.dragoverPlaceholderTemplate) {
 			return this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);
@@ -678,12 +744,104 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		return placeholderElement;
 	}
 
+	/**
+	 * Gets headings
+	 * @param keys
+	 * @param key
+	 * @returns headings
+	 */
 	private getHeadings(keys: Array<any>, key: string): Array<string | GroupHeading> {
 		if ((keys.length > 0 && (keys[0] as GroupHeading).value !== '')) {
 			return keys.sort((a: GroupHeading, b: GroupHeading) => a.orderId - b.orderId);
 		}
 
 		return this.getHeadingsFromItems(key);
+
+	}
+
+	/**
+	 * Scrolling board component
+	 * @param event Event
+	 */
+	public scrolling(event: Event) {
+		const target =  (event.currentTarget as HTMLElement);
+		const {scrollTop, scrollLeft}  = { scrollTop: target.scrollTop, scrollLeft: target.scrollLeft };
+
+		const scrollAxis: 'x' | 'y' = (scrollTop > 0 ) ? 'y' : 'x';
+
+		// console.log(`scrollTop ${scrollTop} | scrollLeft ${scrollLeft}`);
+
+		// /** Check if scrollbar end is hitted */
+		// this.detectIfscrollbarHitsTheEnd(target).then(() => {
+		// 	const scrollStateHitEnd = this.getScrollState(target);
+
+		// 	scrollStateHitEnd.hasReachedEnd = true;
+		// 	scrollStateHitEnd.isScrolling = false;
+		// 	this.scrolledToEnd.emit(scrollStateHitEnd);
+
+		// });
+
+		// Clear our timeout throughout the scroll
+		this.detectIfUserHasEndedScrolling().then(() => {
+			const scrollStateEnded = this.getScrollState(target);
+			scrollStateEnded.hasReachedEnd = false;
+			scrollStateEnded.isScrolling = false;
+			if (Math.round(scrollStateEnded.distance) != Math.round(scrollStateEnded.maxDistance)) {
+				scrollStateEnded.hasReachedEnd = false;
+				this.scrollEnded.emit(scrollStateEnded);
+			} else {
+				scrollStateEnded.hasReachedEnd = true;
+				this.scrolledToEnd.emit(scrollStateEnded);
+			}
+		});
+
+		const scrollState = this.getScrollState(target);
+		scrollState.hasReachedEnd = false;
+		scrollState.isScrolling = true;
+		this.isScrolling.emit(scrollState);
+	}
+
+	private getScrollState(target: HTMLElement): ScrollEvent {
+		const {scrollTop, scrollLeft}  = { scrollTop: target.scrollTop, scrollLeft: target.scrollLeft };
+		const scrollAxis: 'x' | 'y' = (scrollTop > 0 ) ? 'y' : 'x';
+
+		const currentDistance = (scrollAxis == 'y' ? target.scrollTop : target.scrollWidth);
+		const maximumDistance =  (scrollAxis == 'y' ? target.scrollHeight - target.clientHeight : target.scrollWidth - target.clientWidth);
+
+		return {
+			axis: scrollAxis,
+			distance: currentDistance,
+			maxDistance: maximumDistance
+		};
+	}
+
+	/**
+	 * Detects if scrollbar hits the end
+	 * @param target
+	 * @returns if scrollbar hits the end
+	 */
+	private detectIfscrollbarHitsTheEnd(target: HTMLElement): Promise < boolean > {
+		return new Promise((res, rej) => {
+			if (target.offsetHeight + target.scrollTop == target.scrollHeight) {
+				return res(true);
+			}
+		});
+	}
+
+	/**
+	 * Detects if user has ended scrolling
+	 * Got from: https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/
+	 * @returns if user has ended scrolling
+	 */
+	private detectIfUserHasEndedScrolling(): Promise < boolean > {
+		return new Promise((res, rej) => {
+			window.clearTimeout(this.isScrollingTimeout);
+			// Set a timeout to run after scrolling ends
+			this.isScrollingTimeout = window.setTimeout(() => {
+				// Run the callback
+				return res(true);
+			}, 66);
+		});
 
 	}
 }
