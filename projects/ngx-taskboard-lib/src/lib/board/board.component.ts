@@ -764,10 +764,10 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 * @param event Event
 	 */
 	public scrolling(event: Event) {
-		const target =  (event.currentTarget as HTMLElement);
-		const {scrollTop, scrollLeft}  = { scrollTop: target.scrollTop, scrollLeft: target.scrollLeft };
+		const target = (event.currentTarget as HTMLElement);
+		const { scrollTop, scrollLeft } = { scrollTop: target.scrollTop, scrollLeft: target.scrollLeft };
 
-		const scrollAxis: 'x' | 'y' = (scrollTop > 0 ) ? 'y' : 'x';
+		const scrollAxis: 'x' | 'y' = (scrollTop > 0) ? 'y' : 'x';
 
 		// console.log(`scrollTop ${scrollTop} | scrollLeft ${scrollLeft}`);
 
@@ -792,6 +792,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			} else {
 				scrollStateEnded.hasReachedEnd = true;
 				this.scrolledToEnd.emit(scrollStateEnded);
+				this.scrollEnded.emit(scrollStateEnded);
 			}
 		});
 
@@ -802,11 +803,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	}
 
 	private getScrollState(target: HTMLElement): ScrollEvent {
-		const {scrollTop, scrollLeft}  = { scrollTop: target.scrollTop, scrollLeft: target.scrollLeft };
-		const scrollAxis: 'x' | 'y' = (scrollTop > 0 ) ? 'y' : 'x';
+		const { scrollTop, scrollLeft } = { scrollTop: target.scrollTop, scrollLeft: target.scrollLeft };
+		const scrollAxis: 'x' | 'y' = (scrollTop > 0) ? 'y' : 'x';
 
 		const currentDistance = (scrollAxis == 'y' ? target.scrollTop : target.scrollWidth);
-		const maximumDistance =  (scrollAxis == 'y' ? target.scrollHeight - target.clientHeight : target.scrollWidth - target.clientWidth);
+		const maximumDistance = (scrollAxis == 'y' ? target.scrollHeight - target.clientHeight : target.scrollWidth - target.clientWidth);
 
 		return {
 			axis: scrollAxis,
@@ -820,7 +821,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 * @param target
 	 * @returns if scrollbar hits the end
 	 */
-	private detectIfscrollbarHitsTheEnd(target: HTMLElement): Promise < boolean > {
+	private detectIfscrollbarHitsTheEnd(target: HTMLElement): Promise<boolean> {
 		return new Promise((res, rej) => {
 			if (target.offsetHeight + target.scrollTop == target.scrollHeight) {
 				return res(true);
@@ -833,7 +834,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 * Got from: https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/
 	 * @returns if user has ended scrolling
 	 */
-	private detectIfUserHasEndedScrolling(): Promise < boolean > {
+	private detectIfUserHasEndedScrolling(): Promise<boolean> {
 		return new Promise((res, rej) => {
 			window.clearTimeout(this.isScrollingTimeout);
 			// Set a timeout to run after scrolling ends
