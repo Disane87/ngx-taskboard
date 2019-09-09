@@ -11,12 +11,12 @@ import { TaskboardService } from '../taskboard.service';
 })
 export class FilterSearchBarComponent implements OnInit {
 
-	filter: string;
-	filterChanged: Subject<string> = new Subject<string>();
-	filterOnProperties: Array<string> = [];
-	filterOnPropertiesChanged: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
+	public filter: string;
+	public filterChanged: Subject<string> = new Subject<string>();
+	public filterOnProperties: string[] = [];
+	public filterOnPropertiesChanged: EventEmitter<string[]> = new EventEmitter<string[]>();
 
-	@Input() placeholder = 'Search for Items';
+	@Input() public placeholder = 'Search for Items';
 
 	constructor(public taskboardService: TaskboardService) {
 		this.filterChanged.pipe(
@@ -28,10 +28,10 @@ export class FilterSearchBarComponent implements OnInit {
 			});
 	}
 
-	ngOnInit() {
+	public ngOnInit() {
 	}
 
-	changed(text) {
+	public changed(text) {
 		this.filterChanged.next(text);
 	}
 }

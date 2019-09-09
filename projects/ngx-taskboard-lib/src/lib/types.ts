@@ -82,7 +82,7 @@ export interface CollapseEvent {
 	group: string | GroupHeading;
 	collapsed: boolean;
 
-	overallCollapseState: Array<CollapseState>;
+	overallCollapseState: CollapseState[];
 }
 
 

@@ -1,13 +1,12 @@
 import {
-	ChangeDetectionStrategy,
-	ChangeDetectorRef, Component, ElementRef,
-	EventEmitter, HostListener, Input,
-	OnInit, Output, Renderer2,
-	TemplateRef, DoCheck, AfterViewInit
+	AfterViewInit,
+	ChangeDetectionStrategy, ChangeDetectorRef, Component,
+	DoCheck, ElementRef, EventEmitter,
+	HostListener, Input, OnInit,
+	Output, Renderer2, TemplateRef
 } from '@angular/core';
 import { TaskboardService } from '../taskboard.service';
-import { CardItem, ClickEvent, CollapseState, GroupHeading, GroupKeys, Scrollable, DropEvent, CollapseEvent, ScrollEvent } from '../types';
-import { isDirectiveInstance } from '@angular/core/src/render3/context_discovery';
+import { CardItem, ClickEvent, CollapseEvent, CollapseState, DropEvent, GroupHeading, GroupKeys, Scrollable, ScrollEvent } from '../types';
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -17,170 +16,178 @@ import { isDirectiveInstance } from '@angular/core/src/render3/context_discovery
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
-	@Input() set items(items: Array<object | CardItem>) {
+	@Input() set items(items: (object | CardItem)[]) {
 		this._items = items;
 		if (items.length > 0) {
 			this.prepareBoard();
 		}
 	}
-	get items(): Array<object | CardItem> {
+	get items(): (object | CardItem)[] {
 		return this._items;
 	}
 
 	/** Shows the blacklog on onit */
-	@Input() showBacklog = true;
+	@Input() public showBacklog = true;
 
 	/** Name of the backlog row */
-	@Input() backlogName = 'Backlog';
+	@Input() public backlogName = 'Backlog';
 
 	/**
 	 * Grouping keys for columns (if not passed, the keys will be determined out of the items)
 	 * Caution: If you don't pass any headings manually, only the columns are shown, which have data.
 	 * If you want to show emtpy rows, please set them
 	 */
-	@Input() hGroupKeys: Array<string | GroupHeading> = [];
+	@Input() public hGroupKeys: (string | GroupHeading)[] = [];
 
 	/**
 	 * Grouping keys for rows (if not passed, the keys will be determined out of the items)
 	 * Caution: If you don't pass any headings manually, only the rows are shown, which have data.
 	 * If you want to show emtpy rows, please set them
 	 */
-	@Input() vGroupKeys: Array<string | GroupHeading> = [];
+	@Input() public vGroupKeys: (string | GroupHeading)[] = [];
 
 	/** Show add buttons on the column headings */
-	@Input() hAddNewItems = true;
+	@Input() public hAddNewItems = true;
 
 	/** Show add buttons on the row headings */
-	@Input() vAddNewItems = true;
+	@Input() public vAddNewItems = true;
 
 	/** Show add buttons in the cells for columns and rows */
-	@Input() cellAddNewItems = true;
+	@Input() public cellAddNewItems = true;
 
 	/** Key to group data for rows */
-	@Input() vGroupKey = '';
+	@Input() public vGroupKey = '';
 
 	/** Key to group data for columns */
-	@Input() hGroupKey = '';
+	@Input() public hGroupKey = '';
 
 	/** Sort items by property */
-	@Input() sortBy = '';
+	@Input() public sortBy = '';
 
 	/** Board name to show between row and column header */
-	@Input() boardName = '';
+	@Input() public boardName = '';
 
 	/** Invert rows and columns */
-	@Input() invertGroupDirection = false;
+	@Input() public invertGroupDirection = false;
 
 	/** All items which can't be grouped into rows and columns are stored into the backlog  */
-	@Input() showUngroupedInBacklog = true;
+	@Input() public showUngroupedInBacklog = true;
 
 	/** Decrease overall font size */
-	@Input() smallText = false;
+	@Input() public smallText = false;
 
 	/** Template for items to render. "item" object ist passed (see examples) */
-	@Input() itemTemplate: TemplateRef<any> = null;
+	@Input() public itemTemplate: TemplateRef<any> = null;
 
 	/** Template for collapsed rows to render. "count" object ist passed (see examples) */
-	@Input() noElementsTemplate: TemplateRef<any> = null;
+	@Input() public noElementsTemplate: TemplateRef<any> = null;
 
 	/** Template for column headers. Current groupName will be passed (see examples) */
-	@Input() hHeaderTemplate: TemplateRef<any> = null;
+	@Input() public hHeaderTemplate: TemplateRef<any> = null;
 
 	/** Template for row headers. Current groupName will be passed (see examples) */
-	@Input() vHeaderTemplate: TemplateRef<any> = null;
+	@Input() public vHeaderTemplate: TemplateRef<any> = null;
 
 	/** Template for actions, add and collapse buttons (see examples) */
-	@Input() actionsTemplate: TemplateRef<any> = null;
+	@Input() public actionsTemplate: TemplateRef<any> = null;
 
 	/** Template for the placeholder element which will be generated when an item is draged over a cell */
-	@Input() dragoverPlaceholderTemplate: TemplateRef<any> = null;
+	@Input() public dragoverPlaceholderTemplate: TemplateRef<any> = null;
 
 	/** Default css class for row header */
-	@Input() vHeaderClass = 'card-header';
+	@Input() public vHeaderClass = 'card-header';
 
 	/** Default css class for column header */
-	@Input() hHeaderClass = 'card-header card-header-bg';
+	@Input() public hHeaderClass = 'card-header card-header-bg';
 
 	/** If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */
-	@Input() stickyHorizontalHeaderKeys = true;
+	@Input() public stickyHorizontalHeaderKeys = true;
 
 	/** If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */
-	@Input() stickyVerticalHeaderKeys = false;
+	@Input() public stickyVerticalHeaderKeys = false;
 
 	/** Default css class for cell header */
-	@Input() cellClass = 'card-header';
+	@Input() public cellClass = 'card-header';
 
 	/** Column width (in px) which is applied to the columns when the content is scollable */
-	@Input() columnWidth = 200;
+	@Input() public columnWidth = 200;
 
 	/** Width of the backlog row, when activated. You can use all valid css units. Default is columnWidth  */
-	@Input() backlogWidth = `${this.columnWidth}px`;
+	@Input() public backlogWidth = `${this.columnWidth}px`;
 
 	/** Allow to collapse the rows */
-	@Input() vCollapsable = true;
+	@Input() public vCollapsable = true;
 
 	/** Rows are collapsed or not on init */
-	@Input() vCollapsed = false;
+	@Input() public vCollapsed = false;
 
 	/** Columns are collapsed or not on init */
-	@Input() hCollapsed = false;
+	@Input() public hCollapsed = false;
 
 	/** Shows the filter row to search items by filter in filterOnProperties array */
-	@Input() showFilterRow = true;
+	@Input() public showFilterRow = true;
 
 	/** Placeholder for the input with the filter row */
-	@Input() filterRowPlaceholder = 'Search for items';
+	@Input() public filterRowPlaceholder = 'Search for items';
 
 	/** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */
-	@Input() filter = '';
+	@Input() public filter = '';
 
 	/**
 	 * Specify the properties which will be searched for the given term
 	 * in filter. If not properties are given, all will be searched
 	 */
-	@Input() filterOnProperties: Array<string> = [];
+	@Input() public filterOnProperties: string[] = [];
 
 	/**
 	 * The collapse state which is applied when set initially
 	 */
-	@Input() initialCollapseState: Array<CollapseState> = [];
+	@Input() public initialCollapseState: CollapseState[] = [];
 
 	/** Fired when the user drags an item. Current item is passed */
-	@Output() readonly dragStarted = new EventEmitter<object>();
+	@Output() public readonly dragStarted = new EventEmitter<object>();
 
 	/** Fired when an item is dropped. Current item is passed  */
-	@Output() readonly dropped = new EventEmitter<DropEvent>();
+	@Output() public readonly dropped = new EventEmitter<DropEvent>();
 
 	/** Fired when an add action is click. Current ClickEvent is passed */
-	@Output() readonly elementCreateClick = new EventEmitter<ClickEvent>();
+	@Output() public readonly elementCreateClick = new EventEmitter<ClickEvent>();
 
 	/** Fired when a heading is collapsed. CollapseEvent is emitted */
-	@Output() readonly headingCollapsed = new EventEmitter<CollapseEvent>();
+	@Output() public readonly headingCollapsed = new EventEmitter<CollapseEvent>();
 
-	@Output() readonly isScrolling = new EventEmitter<ScrollEvent>();
-	@Output() readonly scrolledToEnd = new EventEmitter<ScrollEvent>();
+	@Output() public readonly isScrolling = new EventEmitter<ScrollEvent>();
+	@Output() public readonly scrolledToEnd = new EventEmitter<ScrollEvent>();
 
-	@Output() readonly scrollEnded = new EventEmitter<ScrollEvent>();
-	hHeadings: Array<string | GroupHeading> = [];
-	vHeadings: Array<string | GroupHeading> = [];
+	@Output() public readonly scrollEnded = new EventEmitter<ScrollEvent>();
+
+	/**
+	 * Column headings
+	 */
+	public hHeadings: (string | GroupHeading)[] = [];
+
+	/**
+	 * Row headings
+	 */
+	public vHeadings: (string | GroupHeading)[] = [];
 
 	/**
 	 * If set to true, the rows and columns are scrollable and will be out of the viewport.
 	 * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)
 	 */
-	scrollable = false;
+	public scrollable = false;
 
 	/** If set to true, rows are scrollable */
-	verticalScrolling = false;
+	public verticalScrolling = false;
 
 	/** If set to true, columns are scrollable */
-	horizontalScrolling = false;
+	public horizontalScrolling = false;
 
 	/** Items to display */
 	// tslint:disable-next-line: variable-name
-	private _items: Array<object | CardItem> = [];
+	private _items: (object | CardItem)[] = [];
 
-	private readonly collapseStates: Array<CollapseState> = [];
+	private readonly collapseStates: CollapseState[] = [];
 
 	private dragItem: CardItem;
 	private nativeDragItem: HTMLElement;
@@ -196,22 +203,22 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		private readonly taskboardService: TaskboardService
 	) { }
 
-	@HostListener('window:resize', ['$event']) onResize(event) {
+	@HostListener('window:resize', ['$event']) public onResize() {
 		this.checkIfContentNeedsToScroll();
 	}
 
-	ngOnInit(): void {
+	public ngOnInit(): void {
 		if (this.items.length > 0) {
 			this.prepareBoard();
 		}
 	}
 
-	ngDoCheck(): void {
+	public ngDoCheck(): void {
 		this.checkIfContentNeedsToScroll();
 	}
 
 
-	ngAfterViewInit(): void {
+	public ngAfterViewInit(): void {
 		// Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
 		// Add 'implements AfterViewInit' to the class.
 	}
@@ -251,8 +258,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	private matchAndSetInitialCollapseState() {
 		this.initialCollapseState.forEach(item => {
-			const foundCollapseState = this.collapseStates.find(cS => cS.name.toLowerCase() == item.name.toLowerCase());
-			if (foundCollapseState && foundCollapseState.collapsed != item.collapsed) {
+			const foundCollapseState = this.collapseStates.find(cS => cS.name.toLowerCase() === item.name.toLowerCase());
+			if (foundCollapseState && foundCollapseState.collapsed !== item.collapsed) {
 				foundCollapseState.collapsed = item.collapsed;
 			}
 		});
@@ -284,7 +291,6 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/**
 	 * Checks if prop is object
-	 * @param prop
 	 * @returns true if if prop is object
 	 */
 	private checkIfPropIsObject(prop: any): boolean {
@@ -310,12 +316,12 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/**
 	 * Generates collapse states
-	 * @param array
-	 * @param diretion
+	 * @param array Array of collapse states
+	 * @param diretion Generate collapse states for vertical or horizontal groups
 	 * @returns collapse states
 	 */
-	private generateCollapseStates(array: Array<string | GroupHeading>, diretion: 'h' | 'v'): Array<CollapseState> {
-		return array.map(item => ({ name: this.getValue(item), collapsed: (diretion === 'h') ? this.hCollapsed : this.vCollapsed }));
+	private generateCollapseStates(array: (string | GroupHeading)[], direction: 'h' | 'v'): CollapseState[] {
+		return array.map(item => ({ name: this.getValue(item), collapsed: (direction === 'h') ? this.hCollapsed : this.vCollapsed }));
 	}
 
 	/**
@@ -327,7 +333,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 *
 	 * @memberOf BoardComponent
 	 */
-	public getItemsOfGroup(vValue: string, hValue: string): Array<CardItem | object> {
+	public getItemsOfGroup(vValue: string, hValue: string): (CardItem | object)[] {
 		// console.log('getItemsOfGroup');
 
 		let items = this.items.filter(item => {
@@ -335,7 +341,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			if (this.taskboardService.objectProperties.length === 0) {
 				this.taskboardService.objectProperties = Object.keys(item);
 			}
-			const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
+			const groupKeys: GroupKeys = this.determineCorrectGroupKeys();
 
 			const vItem = this.getValue(item[groupKeys.vGroupKey]);
 			const hItem = this.getValue(item[groupKeys.hGroupKey]);
@@ -354,7 +360,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		}
 
 		if (this.sortBy !== '') {
-			const fieldType = typeof (items.some(item => items[0][this.sortBy] !== undefined && items[0][this.sortBy] !== null)[this.sortBy]);
+			const fieldType = typeof (items.some(() => items[0][this.sortBy] !== undefined && items[0][this.sortBy] !== null)[this.sortBy]);
 			if (fieldType) {
 				items = items.sort((a, b) => {
 
@@ -380,7 +386,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			}
 		}
 
-		return (this.filter !== '') ? items.filter((item, index, array) =>
+		return (this.filter !== '') ? items.filter((item) =>
 			(this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {
 				const found = item[key] !== null && typeof (item[key]) !== 'number' && ((item[key] as string).indexOf(this.filter) > -1 ? true : false);
 				// found && console.info(`Searching "${item[key]}" for "${this.filter}" | Found ${found}`);
@@ -439,10 +445,10 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/**
 	 * Determines correct group keys
-	 * @param item
+	 * @param item Item object to check
 	 * @returns correct group keys
 	 */
-	private determineCorrectGroupKeys(item: object): GroupKeys {
+	private determineCorrectGroupKeys(): GroupKeys {
 		return {
 			hGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),
 			vGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey)
@@ -451,8 +457,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/**
 	 * Gets case insensitive prop key
-	 * @param item
-	 * @param propKey
+	 * @param item Item object
+	 * @param propKey property key
 	 * @returns case insensitive prop key
 	 */
 	private getCaseInsensitivePropKey(item: object, propKey: string): string {
@@ -469,11 +475,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/**
 	 * Gets headings from items
-	 * @param [groupKey]
+	 * @param [groupKey] key to get the group keys
 	 * @returns headings from items
 	 */
-	private getHeadingsFromItems(groupKey: string = this.vGroupKey): Array<string> {
-		const keys = (this.items as Array<object>).map((item: any) =>
+	private getHeadingsFromItems(groupKey: string = this.vGroupKey): string[] {
+		const keys = (this.items as object[]).map((item: any) =>
 			item[Object.keys(item)
 				.find(key => key.toLowerCase() === groupKey.toLowerCase())]
 		);
@@ -489,10 +495,10 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 *
 	 * @memberOf BoardComponent
 	 */
-	public getUngroupedItems(): Array<CardItem | object> {
+	public getUngroupedItems(): (CardItem | object)[] {
 		if (this.showUngroupedInBacklog) {
 			return this.items.filter(item => {
-				const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);
+				const groupKeys: GroupKeys = this.determineCorrectGroupKeys();
 				const isUngrouped =
 					(item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '')
 					||
@@ -573,7 +579,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 *
 	 * @memberOf BoardComponent
 	 */
-	public dragEnd(event: DragEvent, item: CardItem): void {
+	public dragEnd(): void {
 		this.dragItem = undefined;
 	}
 
@@ -609,7 +615,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			this.placeholderSet = false;
 		}
 
-		const groupKeys: GroupKeys = this.determineCorrectGroupKeys(this.dragItem);
+		const groupKeys: GroupKeys = this.determineCorrectGroupKeys();
 		const dragItemBeforeChange = { ...this.dragItem };
 
 		this.dragItem[groupKeys.vGroupKey] = this.getValue(vRow);
@@ -661,7 +667,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			this.currentDragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();
 
 			if (!this.placeholderSet) {
-				const placeholderElement = this.createPlaceholderElement(this.currentDragZone);
+				const placeholderElement = this.createPlaceholderElement();
 				this.renderer.appendChild(event.currentTarget, placeholderElement);
 				this.placeholderSet = true;
 			}
@@ -670,7 +676,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/**
 	 * Checks if container is scrollable
-	 * @param containerName
+	 * @param containerName Container to check if scrollable
 	 * @returns is scrollable
 	 */
 	private containerIsScrollable(containerName: string): Scrollable {
@@ -726,10 +732,9 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/**
 	 * Creates placeholder element
-	 * @param id
 	 * @returns placeholder element
 	 */
-	private createPlaceholderElement(id: string): HTMLElement {
+	private createPlaceholderElement(): HTMLElement {
 		if (this.dragoverPlaceholderTemplate) {
 			return this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);
 		}
@@ -746,11 +751,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	/**
 	 * Gets headings
-	 * @param keys
-	 * @param key
+	 * @param keys key array
+	 * @param key key to check
 	 * @returns headings
 	 */
-	private getHeadings(keys: Array<any>, key: string): Array<string | GroupHeading> {
+	private getHeadings(keys: any[], key: string): (string | GroupHeading)[] {
 		if ((keys.length > 0 && (keys[0] as GroupHeading).value !== '')) {
 			return keys.sort((a: GroupHeading, b: GroupHeading) => a.orderId - b.orderId);
 		}
@@ -765,28 +770,13 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	public scrolling(event: Event) {
 		const target = (event.currentTarget as HTMLElement);
-		const { scrollTop, scrollLeft } = { scrollTop: target.scrollTop, scrollLeft: target.scrollLeft };
-
-		const scrollAxis: 'x' | 'y' = (scrollTop > 0) ? 'y' : 'x';
-
-		// console.log(`scrollTop ${scrollTop} | scrollLeft ${scrollLeft}`);
-
-		// /** Check if scrollbar end is hitted */
-		// this.detectIfscrollbarHitsTheEnd(target).then(() => {
-		// 	const scrollStateHitEnd = this.getScrollState(target);
-
-		// 	scrollStateHitEnd.hasReachedEnd = true;
-		// 	scrollStateHitEnd.isScrolling = false;
-		// 	this.scrolledToEnd.emit(scrollStateHitEnd);
-
-		// });
 
 		// Clear our timeout throughout the scroll
 		this.detectIfUserHasEndedScrolling().then(() => {
 			const scrollStateEnded = this.getScrollState(target);
 			scrollStateEnded.hasReachedEnd = false;
 			scrollStateEnded.isScrolling = false;
-			if (Math.round(scrollStateEnded.distance) != Math.round(scrollStateEnded.maxDistance)) {
+			if (Math.round(scrollStateEnded.distance) !== Math.round(scrollStateEnded.maxDistance)) {
 				scrollStateEnded.hasReachedEnd = false;
 				this.scrollEnded.emit(scrollStateEnded);
 			} else {
@@ -803,11 +793,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	}
 
 	private getScrollState(target: HTMLElement): ScrollEvent {
-		const { scrollTop, scrollLeft } = { scrollTop: target.scrollTop, scrollLeft: target.scrollLeft };
+		const scrollTop = target.scrollTop;
 		const scrollAxis: 'x' | 'y' = (scrollTop > 0) ? 'y' : 'x';
 
-		const currentDistance = (scrollAxis == 'y' ? target.scrollTop : target.scrollWidth);
-		const maximumDistance = (scrollAxis == 'y' ? target.scrollHeight - target.clientHeight : target.scrollWidth - target.clientWidth);
+		const currentDistance = (scrollAxis === 'y' ? target.scrollTop : target.scrollWidth);
+		const maximumDistance = (scrollAxis === 'y' ? target.scrollHeight - target.clientHeight : target.scrollWidth - target.clientWidth);
 
 		return {
 			axis: scrollAxis,
@@ -816,18 +806,6 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		};
 	}
 
-	/**
-	 * Detects if scrollbar hits the end
-	 * @param target
-	 * @returns if scrollbar hits the end
-	 */
-	private detectIfscrollbarHitsTheEnd(target: HTMLElement): Promise<boolean> {
-		return new Promise((res, rej) => {
-			if (target.offsetHeight + target.scrollTop == target.scrollHeight) {
-				return res(true);
-			}
-		});
-	}
 
 	/**
 	 * Detects if user has ended scrolling
@@ -835,7 +813,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 * @returns if user has ended scrolling
 	 */
 	private detectIfUserHasEndedScrolling(): Promise<boolean> {
-		return new Promise((res, rej) => {
+		return new Promise((res) => {
 			window.clearTimeout(this.isScrollingTimeout);
 			// Set a timeout to run after scrolling ends
 			this.isScrollingTimeout = window.setTimeout(() => {

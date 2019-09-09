@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoardComponent } from './board.component';
-import { FilterSearchBarComponent } from '../filter-search-bar/filter-search-bar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FilterSearchBarComponent } from '../filter-search-bar/filter-search-bar.component';
 import { TaskboardService } from '../taskboard.service';
+import { BoardComponent } from './board.component';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
