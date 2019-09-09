@@ -6,7 +6,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [ngx-taskboard](#ngx-taskboard)
+
 - [Description](#description)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
@@ -162,10 +162,13 @@ export class AppComponent {
 | ------------- | --------- | ------------------------------------------------------------------- |
 | CardItem      | interface | Item to render                                                      |
 | ClickEvent    | interface | Datatype which is emitted when an item should be added              |
+| CollapseEvent | interface | Object for the headings in which you can set color etc.             |
 | CollapseState | interface | All the collapse stated of every group item (horizontal / vertical) |
+| DropEvent     | interface | Event which is fired when an item is dropped                        |
 | GroupHeading  | interface | Object for the headings in which you can set color etc.             |
 | GroupKeys     | interface | Group keys to determine the correct groups internally               |
 | Scrollable    | interface | Object to determine the scrollability                               |
+| ScrollEvent   | interface |                                                                     |
 
 <!-- End AutoDoc Interfaces -->
 
