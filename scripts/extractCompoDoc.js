@@ -7,7 +7,7 @@ var fs = require('fs');
 
 var documentationJson = require('../docs/documentation.json');
 // var readmeFile = 'projects/ngx-taskboard/README.MD';
-var readmeFile = 'README.MD';
+var readmeFile = 'README.md';
 var readmeFilePath = path.join(process.cwd(), readmeFile);
 
 main();

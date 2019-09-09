@@ -11,7 +11,7 @@
     "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
     "start": "ng serve",
     "semantic-release:run": "npm run lint && npm run build:pre && npm run build && node ./scripts/copyFile.js && npm run semantic-release",
-    "test:release": "npm run semantic-release:run -- -d -b dev",
+    "test:release": "npm run semantic-release -- -d -b dev",
     "commit": "npx git-cz",
     "test": "ng test ngx-taskboard-lib --watch=false --code-coverage"
   },

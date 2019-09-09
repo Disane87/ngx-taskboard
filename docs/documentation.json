@@ -362,7 +362,7 @@
     "components": [
         {
             "name": "BoardComponent",
-            "id": "component-BoardComponent-3baaf54dbf35441981971d81d3e7fee1",
+            "id": "component-BoardComponent-15bec6fd8910c098b8ba602e08305ef5",
             "file": "projects/ngx-taskboard-lib/src/lib/board/board.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -793,7 +793,7 @@
                     "optional": false,
                     "returnType": "number",
                     "typeParameters": [],
-                    "line": 726,
+                    "line": 727,
                     "modifierKind": [
                         112
                     ]
@@ -804,7 +804,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 229,
+                    "line": 230,
                     "description": "<p>Checks if content needs to scroll</p>\n",
                     "modifierKind": [
                         112
@@ -821,7 +821,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 296,
+                    "line": 297,
                     "description": "<p>Checks if prop is object</p>\n",
                     "modifierKind": [
                         112
@@ -836,8 +836,8 @@
                         },
                         {
                             "tagName": {
-                                "pos": 9897,
-                                "end": 9904,
+                                "pos": 9887,
+                                "end": 9894,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -851,7 +851,7 @@
                     "optional": false,
                     "returnType": "Promise<boolean>",
                     "typeParameters": [],
-                    "line": 272,
+                    "line": 273,
                     "description": "<p>Checks prerequisites</p>\n",
                     "modifierKind": [
                         112
@@ -859,8 +859,8 @@
                     "jsdoctags": [
                         {
                             "tagName": {
-                                "pos": 9140,
-                                "end": 9147,
+                                "pos": 9130,
+                                "end": 9137,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -879,7 +879,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 544,
+                    "line": 545,
                     "description": "<p>Gets the current collapse state of a specific item</p>\n",
                     "modifierKind": [
                         114
@@ -887,15 +887,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 16957,
-                                "end": 16969,
+                                "pos": 16947,
+                                "end": 16959,
                                 "flags": 0,
                                 "escapedText": "collapseItem"
                             },
                             "type": "string | GroupHeading",
                             "tagName": {
-                                "pos": 16951,
-                                "end": 16956,
+                                "pos": 16941,
+                                "end": 16946,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -903,8 +903,8 @@
                         },
                         {
                             "tagName": {
-                                "pos": 17007,
-                                "end": 17014,
+                                "pos": 16997,
+                                "end": 17004,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -923,7 +923,7 @@
                     "optional": false,
                     "returnType": "Scrollable",
                     "typeParameters": [],
-                    "line": 682,
+                    "line": 683,
                     "description": "<p>Checks if container is scrollable</p>\n",
                     "modifierKind": [
                         112
@@ -931,15 +931,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 20829,
-                                "end": 20842,
+                                "pos": 20819,
+                                "end": 20832,
                                 "flags": 0,
                                 "escapedText": "containerName"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 20823,
-                                "end": 20828,
+                                "pos": 20813,
+                                "end": 20818,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -947,8 +947,8 @@
                         },
                         {
                             "tagName": {
-                                "pos": 20882,
-                                "end": 20889,
+                                "pos": 20872,
+                                "end": 20879,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -967,7 +967,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 594,
+                    "line": 595,
                     "description": "<p>Handler which is called, when a new item should be created (click on a add icon)</p>\n",
                     "modifierKind": [
                         114
@@ -975,15 +975,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 18307,
-                                "end": 18312,
+                                "pos": 18297,
+                                "end": 18302,
                                 "flags": 0,
                                 "escapedText": "group"
                             },
                             "type": "ClickEvent",
                             "tagName": {
-                                "pos": 18301,
-                                "end": 18306,
+                                "pos": 18291,
+                                "end": 18296,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -997,7 +997,7 @@
                     "optional": false,
                     "returnType": "HTMLElement",
                     "typeParameters": [],
-                    "line": 737,
+                    "line": 738,
                     "description": "<p>Creates placeholder element</p>\n",
                     "modifierKind": [
                         112
@@ -1005,8 +1005,8 @@
                     "jsdoctags": [
                         {
                             "tagName": {
-                                "pos": 22279,
-                                "end": 22286,
+                                "pos": 22269,
+                                "end": 22276,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1020,7 +1020,7 @@
                     "optional": false,
                     "returnType": "Promise<boolean>",
                     "typeParameters": [],
-                    "line": 815,
+                    "line": 816,
                     "description": "<p>Detects if user has ended scrolling\nGot from: <a href=\"https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/\">https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/</a></p>\n",
                     "modifierKind": [
                         112
@@ -1028,8 +1028,8 @@
                     "jsdoctags": [
                         {
                             "tagName": {
-                                "pos": 24965,
-                                "end": 24972,
+                                "pos": 24955,
+                                "end": 24962,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1043,7 +1043,7 @@
                     "optional": false,
                     "returnType": "GroupKeys",
                     "typeParameters": [],
-                    "line": 451,
+                    "line": 452,
                     "description": "<p>Determines correct group keys</p>\n",
                     "modifierKind": [
                         112
@@ -1051,8 +1051,8 @@
                     "jsdoctags": [
                         {
                             "tagName": {
-                                "pos": 14402,
-                                "end": 14409,
+                                "pos": 14392,
+                                "end": 14399,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1066,7 +1066,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 582,
+                    "line": 583,
                     "description": "<p>Handler which is called, when the drag of an item ends</p>\n",
                     "modifierKind": [
                         114
@@ -1092,7 +1092,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 643,
+                    "line": 644,
                     "description": "<p>Handler which is called when an item is dragged over a cell</p>\n",
                     "modifierKind": [
                         114
@@ -1100,15 +1100,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 19639,
-                                "end": 19644,
+                                "pos": 19629,
+                                "end": 19634,
                                 "flags": 0,
                                 "escapedText": "event"
                             },
                             "type": "DragEvent",
                             "tagName": {
-                                "pos": 19633,
-                                "end": 19638,
+                                "pos": 19623,
+                                "end": 19628,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1116,15 +1116,15 @@
                         },
                         {
                             "name": {
-                                "pos": 19680,
-                                "end": 19684,
+                                "pos": 19670,
+                                "end": 19674,
                                 "flags": 0,
                                 "escapedText": "vRow"
                             },
                             "type": "string | GroupHeading",
                             "tagName": {
-                                "pos": 19674,
-                                "end": 19679,
+                                "pos": 19664,
+                                "end": 19669,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1132,15 +1132,15 @@
                         },
                         {
                             "name": {
-                                "pos": 19706,
-                                "end": 19710,
+                                "pos": 19696,
+                                "end": 19700,
                                 "flags": 0,
                                 "escapedText": "hRow"
                             },
                             "type": "string | GroupHeading",
                             "tagName": {
-                                "pos": 19700,
-                                "end": 19705,
+                                "pos": 19690,
+                                "end": 19695,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1163,7 +1163,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 568,
+                    "line": 569,
                     "description": "<p>Handler which is called when an item starts to drag</p>\n",
                     "modifierKind": [
                         114
@@ -1171,15 +1171,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 17638,
-                                "end": 17643,
+                                "pos": 17628,
+                                "end": 17633,
                                 "flags": 0,
                                 "escapedText": "event"
                             },
                             "type": "DragEvent",
                             "tagName": {
-                                "pos": 17632,
-                                "end": 17637,
+                                "pos": 17622,
+                                "end": 17627,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1187,15 +1187,15 @@
                         },
                         {
                             "name": {
-                                "pos": 17674,
-                                "end": 17678,
+                                "pos": 17664,
+                                "end": 17668,
                                 "flags": 0,
                                 "escapedText": "item"
                             },
                             "type": "CardItem",
                             "tagName": {
-                                "pos": 17668,
-                                "end": 17673,
+                                "pos": 17658,
+                                "end": 17663,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1222,7 +1222,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 607,
+                    "line": 608,
                     "description": "<p>Handler which is called when an item is dropped</p>\n",
                     "modifierKind": [
                         114
@@ -1230,15 +1230,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 18547,
-                                "end": 18552,
+                                "pos": 18537,
+                                "end": 18542,
                                 "flags": 0,
                                 "escapedText": "event"
                             },
                             "type": "DragEvent",
                             "tagName": {
-                                "pos": 18541,
-                                "end": 18546,
+                                "pos": 18531,
+                                "end": 18536,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1246,15 +1246,15 @@
                         },
                         {
                             "name": {
-                                "pos": 18583,
-                                "end": 18587,
+                                "pos": 18573,
+                                "end": 18577,
                                 "flags": 0,
                                 "escapedText": "vRow"
                             },
                             "type": "string | GroupHeading",
                             "tagName": {
-                                "pos": 18577,
-                                "end": 18582,
+                                "pos": 18567,
+                                "end": 18572,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1262,15 +1262,15 @@
                         },
                         {
                             "name": {
-                                "pos": 18609,
-                                "end": 18613,
+                                "pos": 18599,
+                                "end": 18603,
                                 "flags": 0,
                                 "escapedText": "hRow"
                             },
                             "type": "string | GroupHeading",
                             "tagName": {
-                                "pos": 18603,
-                                "end": 18608,
+                                "pos": 18593,
+                                "end": 18598,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1293,7 +1293,7 @@
                     "optional": false,
                     "returnType": "CollapseState[]",
                     "typeParameters": [],
-                    "line": 323,
+                    "line": 324,
                     "description": "<p>Generates collapse states</p>\n",
                     "modifierKind": [
                         112
@@ -1301,15 +1301,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 10517,
-                                "end": 10522,
+                                "pos": 10507,
+                                "end": 10512,
                                 "flags": 0,
                                 "escapedText": "array"
                             },
                             "type": "(string | GroupHeading)[]",
                             "tagName": {
-                                "pos": 10511,
-                                "end": 10516,
+                                "pos": 10501,
+                                "end": 10506,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1324,8 +1324,8 @@
                         },
                         {
                             "tagName": {
-                                "pos": 10634,
-                                "end": 10641,
+                                "pos": 10624,
+                                "end": 10631,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1339,7 +1339,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 304,
+                    "line": 305,
                     "description": "<p>Generates the appropiate headings</p>\n",
                     "modifierKind": [
                         112
@@ -1361,7 +1361,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 464,
+                    "line": 465,
                     "description": "<p>Gets case insensitive prop key</p>\n",
                     "modifierKind": [
                         112
@@ -1369,15 +1369,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 14719,
-                                "end": 14723,
+                                "pos": 14709,
+                                "end": 14713,
                                 "flags": 0,
                                 "escapedText": "item"
                             },
                             "type": "object",
                             "tagName": {
-                                "pos": 14713,
-                                "end": 14718,
+                                "pos": 14703,
+                                "end": 14708,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1385,15 +1385,15 @@
                         },
                         {
                             "name": {
-                                "pos": 14748,
-                                "end": 14755,
+                                "pos": 14738,
+                                "end": 14745,
                                 "flags": 0,
                                 "escapedText": "propKey"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 14742,
-                                "end": 14747,
+                                "pos": 14732,
+                                "end": 14737,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1401,8 +1401,8 @@
                         },
                         {
                             "tagName": {
-                                "pos": 14775,
-                                "end": 14782,
+                                "pos": 14765,
+                                "end": 14772,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1416,7 +1416,7 @@
                     "optional": false,
                     "returnType": "object",
                     "typeParameters": [],
-                    "line": 718,
+                    "line": 719,
                     "description": "<p>Gets the current width of a scrollbar</p>\n",
                     "modifierKind": [
                         114
@@ -1424,8 +1424,8 @@
                     "jsdoctags": [
                         {
                             "tagName": {
-                                "pos": 21731,
-                                "end": 21738,
+                                "pos": 21721,
+                                "end": 21728,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1448,7 +1448,7 @@
                     "optional": false,
                     "returnType": "[]",
                     "typeParameters": [],
-                    "line": 758,
+                    "line": 759,
                     "description": "<p>Gets headings</p>\n",
                     "modifierKind": [
                         112
@@ -1456,15 +1456,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 23014,
-                                "end": 23018,
+                                "pos": 23004,
+                                "end": 23008,
                                 "flags": 0,
                                 "escapedText": "keys"
                             },
                             "type": "any[]",
                             "tagName": {
-                                "pos": 23008,
-                                "end": 23013,
+                                "pos": 22998,
+                                "end": 23003,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1472,15 +1472,15 @@
                         },
                         {
                             "name": {
-                                "pos": 23041,
-                                "end": 23044,
+                                "pos": 23031,
+                                "end": 23034,
                                 "flags": 0,
                                 "escapedText": "key"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 23035,
-                                "end": 23040,
+                                "pos": 23025,
+                                "end": 23030,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1488,8 +1488,8 @@
                         },
                         {
                             "tagName": {
-                                "pos": 23064,
-                                "end": 23071,
+                                "pos": 23054,
+                                "end": 23061,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1509,7 +1509,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 481,
+                    "line": 482,
                     "description": "<p>Gets headings from items</p>\n",
                     "modifierKind": [
                         112
@@ -1517,16 +1517,16 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 15159,
-                                "end": 15167,
+                                "pos": 15149,
+                                "end": 15157,
                                 "flags": 0,
                                 "escapedText": "groupKey"
                             },
                             "type": "string",
                             "defaultValue": "this.vGroupKey",
                             "tagName": {
-                                "pos": 15152,
-                                "end": 15157,
+                                "pos": 15142,
+                                "end": 15147,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1534,8 +1534,8 @@
                         },
                         {
                             "tagName": {
-                                "pos": 15201,
-                                "end": 15208,
+                                "pos": 15191,
+                                "end": 15198,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1558,7 +1558,7 @@
                     "optional": false,
                     "returnType": "[]",
                     "typeParameters": [],
-                    "line": 336,
+                    "line": 337,
                     "description": "<p>Gets all items of a cell (row / col)</p>\n",
                     "modifierKind": [
                         114
@@ -1566,15 +1566,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 10973,
-                                "end": 10979,
+                                "pos": 10963,
+                                "end": 10969,
                                 "flags": 0,
                                 "escapedText": "vValue"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 10967,
-                                "end": 10972,
+                                "pos": 10957,
+                                "end": 10962,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1582,15 +1582,15 @@
                         },
                         {
                             "name": {
-                                "pos": 11009,
-                                "end": 11015,
+                                "pos": 10999,
+                                "end": 11005,
                                 "flags": 0,
                                 "escapedText": "hValue"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 11003,
-                                "end": 11008,
+                                "pos": 10993,
+                                "end": 10998,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1598,8 +1598,8 @@
                         },
                         {
                             "tagName": {
-                                "pos": 11042,
-                                "end": 11049,
+                                "pos": 11032,
+                                "end": 11039,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1618,7 +1618,7 @@
                     "optional": false,
                     "returnType": "ScrollEvent",
                     "typeParameters": [],
-                    "line": 795,
+                    "line": 796,
                     "modifierKind": [
                         112
                     ],
@@ -1638,7 +1638,7 @@
                     "optional": false,
                     "returnType": "[]",
                     "typeParameters": [],
-                    "line": 498,
+                    "line": 499,
                     "description": "<p>Gets ungrouped items (which could not be put into rows or cols)</p>\n",
                     "modifierKind": [
                         114
@@ -1646,8 +1646,8 @@
                     "jsdoctags": [
                         {
                             "tagName": {
-                                "pos": 15711,
-                                "end": 15718,
+                                "pos": 15701,
+                                "end": 15708,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1666,7 +1666,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 439,
+                    "line": 440,
                     "description": "<p>Gets the value of an item</p>\n",
                     "modifierKind": [
                         114
@@ -1674,15 +1674,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 14012,
-                                "end": 14016,
+                                "pos": 14002,
+                                "end": 14006,
                                 "flags": 0,
                                 "escapedText": "item"
                             },
                             "type": "string | GroupHeading",
                             "tagName": {
-                                "pos": 14006,
-                                "end": 14011,
+                                "pos": 13996,
+                                "end": 14001,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1690,8 +1690,8 @@
                         },
                         {
                             "tagName": {
-                                "pos": 14050,
-                                "end": 14057,
+                                "pos": 14040,
+                                "end": 14047,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1705,7 +1705,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 259,
+                    "line": 260,
                     "description": "<p>Matches and set initial collapse state</p>\n",
                     "modifierKind": [
                         112
@@ -1717,7 +1717,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 221,
+                    "line": 222,
                     "modifierKind": [
                         114
                     ]
@@ -1728,7 +1728,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 216,
+                    "line": 217,
                     "modifierKind": [
                         114
                     ]
@@ -1739,7 +1739,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 210,
+                    "line": 211,
                     "modifierKind": [
                         114
                     ]
@@ -1750,7 +1750,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 241,
+                    "line": 242,
                     "description": "<p>Prepares board</p>\n",
                     "modifierKind": [
                         112
@@ -1762,7 +1762,7 @@
                     "optional": false,
                     "returnType": "object",
                     "typeParameters": [],
-                    "line": 704,
+                    "line": 705,
                     "description": "<p>Determines the style of a container which includes the scrollbar</p>\n",
                     "modifierKind": [
                         114
@@ -1770,8 +1770,8 @@
                     "jsdoctags": [
                         {
                             "tagName": {
-                                "pos": 21450,
-                                "end": 21457,
+                                "pos": 21440,
+                                "end": 21447,
                                 "flags": 0,
                                 "escapedText": "returns"
                             },
@@ -1790,7 +1790,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 771,
+                    "line": 772,
                     "description": "<p>Scrolling board component</p>\n",
                     "modifierKind": [
                         114
@@ -1798,15 +1798,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 23423,
-                                "end": 23428,
+                                "pos": 23413,
+                                "end": 23418,
                                 "flags": 0,
                                 "escapedText": "event"
                             },
                             "type": "Event",
                             "tagName": {
-                                "pos": 23417,
-                                "end": 23422,
+                                "pos": 23407,
+                                "end": 23412,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1825,7 +1825,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 521,
+                    "line": 522,
                     "description": "<p>Toggles an elements collapse state</p>\n",
                     "modifierKind": [
                         114
@@ -1833,15 +1833,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 16302,
-                                "end": 16307,
+                                "pos": 16292,
+                                "end": 16297,
                                 "flags": 0,
                                 "escapedText": "group"
                             },
                             "type": "literal type",
                             "tagName": {
-                                "pos": 16296,
-                                "end": 16301,
+                                "pos": 16286,
+                                "end": 16291,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1864,7 +1864,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 405,
+                    "line": 406,
                     "description": "<p>Toggles in entire group (all rows or all columns)</p>\n",
                     "modifierKind": [
                         114
@@ -1872,15 +1872,15 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 13111,
-                                "end": 13120,
+                                "pos": 13101,
+                                "end": 13110,
                                 "flags": 0,
                                 "escapedText": "direction"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 13105,
-                                "end": 13110,
+                                "pos": 13095,
+                                "end": 13100,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1888,15 +1888,15 @@
                         },
                         {
                             "name": {
-                                "pos": 13153,
-                                "end": 13162,
+                                "pos": 13143,
+                                "end": 13152,
                                 "flags": 0,
                                 "escapedText": "collapsed"
                             },
                             "type": "boolean",
                             "tagName": {
-                                "pos": 13147,
-                                "end": 13152,
+                                "pos": 13137,
+                                "end": 13142,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1910,16 +1910,14 @@
                 {
                     "name": "window:resize",
                     "args": [],
-                    "argsDecorator": [
-                        "$event"
-                    ],
-                    "line": 206
+                    "argsDecorator": [],
+                    "line": 207
                 }
             ],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\r\n\tAfterViewInit,\r\n\tChangeDetectionStrategy, ChangeDetectorRef, Component,\r\n\tDoCheck, ElementRef, EventEmitter,\r\n\tHostListener, Input, OnInit,\r\n\tOutput, Renderer2, TemplateRef\r\n} from '@angular/core';\r\nimport { TaskboardService } from '../taskboard.service';\r\nimport { CardItem, ClickEvent, CollapseEvent, CollapseState, DropEvent, GroupHeading, GroupKeys, Scrollable, ScrollEvent } from '../types';\r\n\r\n@Component({\r\n\t// tslint:disable-next-line: component-selector\r\n\tselector: 'ngx-taskboard',\r\n\ttemplateUrl: './board.component.html',\r\n\tstyleUrls: ['./board.component.scss'],\r\n\tchangeDetection: ChangeDetectionStrategy.OnPush\r\n})\r\nexport class BoardComponent implements OnInit, DoCheck, AfterViewInit {\r\n\t@Input() set items(items: (object | CardItem)[]) {\r\n\t\tthis._items = items;\r\n\t\tif (items.length > 0) {\r\n\t\t\tthis.prepareBoard();\r\n\t\t}\r\n\t}\r\n\tget items(): (object | CardItem)[] {\r\n\t\treturn this._items;\r\n\t}\r\n\r\n\t/** Shows the blacklog on onit */\r\n\t@Input() public showBacklog = true;\r\n\r\n\t/** Name of the backlog row */\r\n\t@Input() public backlogName = 'Backlog';\r\n\r\n\t/**\r\n\t * Grouping keys for columns (if not passed, the keys will be determined out of the items)\r\n\t * Caution: If you don't pass any headings manually, only the columns are shown, which have data.\r\n\t * If you want to show emtpy rows, please set them\r\n\t */\r\n\t@Input() public hGroupKeys: (string | GroupHeading)[] = [];\r\n\r\n\t/**\r\n\t * Grouping keys for rows (if not passed, the keys will be determined out of the items)\r\n\t * Caution: If you don't pass any headings manually, only the rows are shown, which have data.\r\n\t * If you want to show emtpy rows, please set them\r\n\t */\r\n\t@Input() public vGroupKeys: (string | GroupHeading)[] = [];\r\n\r\n\t/** Show add buttons on the column headings */\r\n\t@Input() public hAddNewItems = true;\r\n\r\n\t/** Show add buttons on the row headings */\r\n\t@Input() public vAddNewItems = true;\r\n\r\n\t/** Show add buttons in the cells for columns and rows */\r\n\t@Input() public cellAddNewItems = true;\r\n\r\n\t/** Key to group data for rows */\r\n\t@Input() public vGroupKey = '';\r\n\r\n\t/** Key to group data for columns */\r\n\t@Input() public hGroupKey = '';\r\n\r\n\t/** Sort items by property */\r\n\t@Input() public sortBy = '';\r\n\r\n\t/** Board name to show between row and column header */\r\n\t@Input() public boardName = '';\r\n\r\n\t/** Invert rows and columns */\r\n\t@Input() public invertGroupDirection = false;\r\n\r\n\t/** All items which can't be grouped into rows and columns are stored into the backlog  */\r\n\t@Input() public showUngroupedInBacklog = true;\r\n\r\n\t/** Decrease overall font size */\r\n\t@Input() public smallText = false;\r\n\r\n\t/** Template for items to render. \"item\" object ist passed (see examples) */\r\n\t@Input() public itemTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for collapsed rows to render. \"count\" object ist passed (see examples) */\r\n\t@Input() public noElementsTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for column headers. Current groupName will be passed (see examples) */\r\n\t@Input() public hHeaderTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for row headers. Current groupName will be passed (see examples) */\r\n\t@Input() public vHeaderTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for actions, add and collapse buttons (see examples) */\r\n\t@Input() public actionsTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for the placeholder element which will be generated when an item is draged over a cell */\r\n\t@Input() public dragoverPlaceholderTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Default css class for row header */\r\n\t@Input() public vHeaderClass = 'card-header';\r\n\r\n\t/** Default css class for column header */\r\n\t@Input() public hHeaderClass = 'card-header card-header-bg';\r\n\r\n\t/** If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */\r\n\t@Input() public stickyHorizontalHeaderKeys = true;\r\n\r\n\t/** If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */\r\n\t@Input() public stickyVerticalHeaderKeys = false;\r\n\r\n\t/** Default css class for cell header */\r\n\t@Input() public cellClass = 'card-header';\r\n\r\n\t/** Column width (in px) which is applied to the columns when the content is scollable */\r\n\t@Input() public columnWidth = 200;\r\n\r\n\t/** Width of the backlog row, when activated. You can use all valid css units. Default is columnWidth  */\r\n\t@Input() public backlogWidth = `${this.columnWidth}px`;\r\n\r\n\t/** Allow to collapse the rows */\r\n\t@Input() public vCollapsable = true;\r\n\r\n\t/** Rows are collapsed or not on init */\r\n\t@Input() public vCollapsed = false;\r\n\r\n\t/** Columns are collapsed or not on init */\r\n\t@Input() public hCollapsed = false;\r\n\r\n\t/** Shows the filter row to search items by filter in filterOnProperties array */\r\n\t@Input() public showFilterRow = true;\r\n\r\n\t/** Placeholder for the input with the filter row */\r\n\t@Input() public filterRowPlaceholder = 'Search for items';\r\n\r\n\t/** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */\r\n\t@Input() public filter = '';\r\n\r\n\t/**\r\n\t * Specify the properties which will be searched for the given term\r\n\t * in filter. If not properties are given, all will be searched\r\n\t */\r\n\t@Input() public filterOnProperties: string[] = [];\r\n\r\n\t/**\r\n\t * The collapse state which is applied when set initially\r\n\t */\r\n\t@Input() public initialCollapseState: CollapseState[] = [];\r\n\r\n\t/** Fired when the user drags an item. Current item is passed */\r\n\t@Output() public readonly dragStarted = new EventEmitter<object>();\r\n\r\n\t/** Fired when an item is dropped. Current item is passed  */\r\n\t@Output() public readonly dropped = new EventEmitter<DropEvent>();\r\n\r\n\t/** Fired when an add action is click. Current ClickEvent is passed */\r\n\t@Output() public readonly elementCreateClick = new EventEmitter<ClickEvent>();\r\n\r\n\t/** Fired when a heading is collapsed. CollapseEvent is emitted */\r\n\t@Output() public readonly headingCollapsed = new EventEmitter<CollapseEvent>();\r\n\r\n\t@Output() public readonly isScrolling = new EventEmitter<ScrollEvent>();\r\n\t@Output() public readonly scrolledToEnd = new EventEmitter<ScrollEvent>();\r\n\r\n\t@Output() public readonly scrollEnded = new EventEmitter<ScrollEvent>();\r\n\r\n\t/**\r\n\t * Column headings\r\n\t */\r\n\tpublic hHeadings: (string | GroupHeading)[] = [];\r\n\r\n\t/**\r\n\t * Row headings\r\n\t */\r\n\tpublic vHeadings: (string | GroupHeading)[] = [];\r\n\r\n\t/**\r\n\t * If set to true, the rows and columns are scrollable and will be out of the viewport.\r\n\t * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)\r\n\t */\r\n\tpublic scrollable = false;\r\n\r\n\t/** If set to true, rows are scrollable */\r\n\tpublic verticalScrolling = false;\r\n\r\n\t/** If set to true, columns are scrollable */\r\n\tpublic horizontalScrolling = false;\r\n\r\n\t/** Items to display */\r\n\t// tslint:disable-next-line: variable-name\r\n\tprivate _items: (object | CardItem)[] = [];\r\n\r\n\tprivate readonly collapseStates: CollapseState[] = [];\r\n\r\n\tprivate dragItem: CardItem;\r\n\tprivate nativeDragItem: HTMLElement;\r\n\tprivate placeholderSet = false;\r\n\tprivate currentDragZone: string;\r\n\r\n\tprivate isScrollingTimeout = 0;\r\n\r\n\tconstructor(\r\n\t\tprivate readonly renderer: Renderer2,\r\n\t\tprivate readonly elRef: ElementRef,\r\n\t\tprivate readonly cd: ChangeDetectorRef,\r\n\t\tprivate readonly taskboardService: TaskboardService\r\n\t) { }\r\n\r\n\t@HostListener('window:resize', ['$event']) public onResize() {\r\n\t\tthis.checkIfContentNeedsToScroll();\r\n\t}\r\n\r\n\tpublic ngOnInit(): void {\r\n\t\tif (this.items.length > 0) {\r\n\t\t\tthis.prepareBoard();\r\n\t\t}\r\n\t}\r\n\r\n\tpublic ngDoCheck(): void {\r\n\t\tthis.checkIfContentNeedsToScroll();\r\n\t}\r\n\r\n\r\n\tpublic ngAfterViewInit(): void {\r\n\t\t// Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.\r\n\t\t// Add 'implements AfterViewInit' to the class.\r\n\t}\r\n\r\n\t/**\r\n\t * Checks if content needs to scroll\r\n\t */\r\n\tprivate checkIfContentNeedsToScroll(): void {\r\n\t\tconst { hScroll: h, vScroll: v } = this.containerIsScrollable('.column-cards');\r\n\t\tthis.horizontalScrolling = h;\r\n\t\tthis.verticalScrolling = v;\r\n\r\n\t\tthis.cd.markForCheck();\r\n\t}\r\n\r\n\r\n\t/**\r\n\t * Prepares board\r\n\t */\r\n\tprivate prepareBoard(): void {\r\n\r\n\t\tthis.checkPrerequisites().then(() => {\r\n\t\t\tthis.generateHeadings();\r\n\r\n\t\t\tthis.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));\r\n\t\t\tthis.matchAndSetInitialCollapseState();\r\n\r\n\t\t\tthis.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);\r\n\r\n\t\t\t// this.cd.markForCheck();\r\n\t\t\tthis.checkIfContentNeedsToScroll();\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Matches and set initial collapse state\r\n\t */\r\n\tprivate matchAndSetInitialCollapseState() {\r\n\t\tthis.initialCollapseState.forEach(item => {\r\n\t\t\tconst foundCollapseState = this.collapseStates.find(cS => cS.name.toLowerCase() === item.name.toLowerCase());\r\n\t\t\tif (foundCollapseState && foundCollapseState.collapsed !== item.collapsed) {\r\n\t\t\t\tfoundCollapseState.collapsed = item.collapsed;\r\n\t\t\t}\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Checks prerequisites\r\n\t * @returns prerequisites\r\n\t */\r\n\tprivate checkPrerequisites(): Promise<boolean> {\r\n\t\tif (this.checkIfPropIsObject(this.hGroupKeys[0])) {\r\n\t\t\tconst hasValueProperty = this.hGroupKeys.every((item: GroupHeading) => item.value != null);\r\n\t\t\tif (!hasValueProperty) {\r\n\t\t\t\tthrow new Error((`Column headers are objects but field 'value' is missing in one or more items.`));\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\tif (this.checkIfPropIsObject(this.vGroupKeys[0])) {\r\n\t\t\tconst hasValueProperty = this.vGroupKeys.every((item: GroupHeading) => item.value != null);\r\n\t\t\tif (!hasValueProperty) {\r\n\t\t\t\tthrow new Error((`Row headers are objects but field 'value' is missing in one or more items.`));\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\treturn Promise.resolve(true);\r\n\t}\r\n\r\n\t/**\r\n\t * Checks if prop is object\r\n\t * @returns true if if prop is object\r\n\t */\r\n\tprivate checkIfPropIsObject(prop: any): boolean {\r\n\t\treturn typeof (prop) === 'object';\r\n\t}\r\n\r\n\t/**\r\n\t * Generates the appropiate headings\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tprivate generateHeadings(): void {\r\n\t\tif (this.invertGroupDirection) {\r\n\t\t\tconst vGkey = this.vGroupKey;\r\n\t\t\tconst hGkey = this.hGroupKey;\r\n\r\n\t\t\tthis.hGroupKey = vGkey;\r\n\t\t\tthis.vGroupKey = hGkey;\r\n\t\t}\r\n\r\n\t\tthis.vHeadings = this.getHeadings(this.vGroupKeys, this.vGroupKey);\r\n\t\tthis.hHeadings = this.getHeadings(this.hGroupKeys, this.hGroupKey);\r\n\t}\r\n\r\n\t/**\r\n\t * Generates collapse states\r\n\t * @param array Array of collapse states\r\n\t * @param diretion Generate collapse states for vertical or horizontal groups\r\n\t * @returns collapse states\r\n\t */\r\n\tprivate generateCollapseStates(array: (string | GroupHeading)[], direction: 'h' | 'v'): CollapseState[] {\r\n\t\treturn array.map(item => ({ name: this.getValue(item), collapsed: (direction === 'h') ? this.hCollapsed : this.vCollapsed }));\r\n\t}\r\n\r\n\t/**\r\n\t * Gets all items of a cell (row / col)\r\n\t *\r\n\t * @param vValue Value of the row\r\n\t * @param hValue Value of the column\r\n\t * @returns Array of all items of a cell\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getItemsOfGroup(vValue: string, hValue: string): (CardItem | object)[] {\r\n\t\t// console.log('getItemsOfGroup');\r\n\r\n\t\tlet items = this.items.filter(item => {\r\n\r\n\t\t\tif (this.taskboardService.objectProperties.length === 0) {\r\n\t\t\t\tthis.taskboardService.objectProperties = Object.keys(item);\r\n\t\t\t}\r\n\t\t\tconst groupKeys: GroupKeys = this.determineCorrectGroupKeys();\r\n\r\n\t\t\tconst vItem = this.getValue(item[groupKeys.vGroupKey]);\r\n\t\t\tconst hItem = this.getValue(item[groupKeys.hGroupKey]);\r\n\r\n\t\t\tif (hItem === undefined || hItem === undefined && vItem === undefined || vItem === undefined) {\r\n\t\t\t\treturn false;\r\n\t\t\t}\r\n\r\n\t\t\tconst found = vItem.toLowerCase() === vValue.toLowerCase() && hItem.toLowerCase() === hValue.toLowerCase();\r\n\r\n\t\t\treturn found;\r\n\t\t});\r\n\r\n\t\tif (this.showUngroupedInBacklog) {\r\n\t\t\titems = items.filter(item => item[this.vGroupKey] !== '' && item[this.hGroupKey] !== '');\r\n\t\t}\r\n\r\n\t\tif (this.sortBy !== '') {\r\n\t\t\tconst fieldType = typeof (items.some(() => items[0][this.sortBy] !== undefined && items[0][this.sortBy] !== null)[this.sortBy]);\r\n\t\t\tif (fieldType) {\r\n\t\t\t\titems = items.sort((a, b) => {\r\n\r\n\t\t\t\t\tconst aField = a[this.sortBy];\r\n\t\t\t\t\tconst bField = b[this.sortBy];\r\n\r\n\t\t\t\t\tif (fieldType === 'number') {\r\n\t\t\t\t\t\treturn bField - aField;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\tif (fieldType === 'string') {\r\n\t\t\t\t\t\tif (aField < bField) {\r\n\t\t\t\t\t\t\treturn -1;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif (aField > bField) {\r\n\t\t\t\t\t\t\treturn 1;\r\n\t\t\t\t\t\t}\r\n\r\n\t\t\t\t\t\treturn 0;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn (this.filter !== '') ? items.filter((item) =>\r\n\t\t\t(this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {\r\n\t\t\t\tconst found = item[key] !== null && typeof (item[key]) !== 'number' && ((item[key] as string).indexOf(this.filter) > -1 ? true : false);\r\n\t\t\t\t// found && console.info(`Searching \"${item[key]}\" for \"${this.filter}\" | Found ${found}`);\r\n\t\t\t\treturn found;\r\n\t\t\t})) : items;\r\n\t}\r\n\r\n\t/**\r\n\t * Toggles in entire group (all rows or all columns)\r\n\t *\r\n\t * @param direction Direction to toggle\r\n\t * @param collapsed Current collapse state\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic toggleCollapseGroup(direction: string, collapsed: boolean): void {\r\n\t\tconst groupKeysToToggle =\r\n\t\t\tthis.collapseStates.filter(item => (direction === 'vertical' ? this.vHeadings : this.hHeadings)\r\n\t\t\t\t.some(i =>\r\n\t\t\t\t\tthis.getValue(i)\r\n\t\t\t\t\t\t.toLowerCase() === item.name.toLowerCase()));\r\n\r\n\t\tgroupKeysToToggle.forEach(item => item.collapsed = !collapsed);\r\n\t\tif (groupKeysToToggle.length > 0) {\r\n\t\t\tif (direction === 'vertical') {\r\n\t\t\t\tthis.vCollapsed = !collapsed;\r\n\t\t\t} else {\r\n\t\t\t\tthis.hCollapsed = !collapsed;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tthis.headingCollapsed.emit({\r\n\t\t\tgroup: direction,\r\n\t\t\tcollapsed: !collapsed,\r\n\t\t\toverallCollapseState: this.collapseStates\r\n\t\t});\r\n\r\n\t\tsetTimeout(() => this.cd.markForCheck(), 100);\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Gets the value of an item\r\n\t *\r\n\t * @param item Item to get the value from\r\n\t * @returns Value of item\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getValue(item: string | GroupHeading): string {\r\n\t\tif (item as GroupHeading) {\r\n\t\t\treturn ((item as GroupHeading).value ? (item as GroupHeading).value : item as string);\r\n\t\t}\r\n\t\treturn '';\r\n\t}\r\n\r\n\t/**\r\n\t * Determines correct group keys\r\n\t * @param item Item object to check\r\n\t * @returns correct group keys\r\n\t */\r\n\tprivate determineCorrectGroupKeys(): GroupKeys {\r\n\t\treturn {\r\n\t\t\thGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),\r\n\t\t\tvGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey)\r\n\t\t};\r\n\t}\r\n\r\n\t/**\r\n\t * Gets case insensitive prop key\r\n\t * @param item Item object\r\n\t * @param propKey property key\r\n\t * @returns case insensitive prop key\r\n\t */\r\n\tprivate getCaseInsensitivePropKey(item: object, propKey: string): string {\r\n\t\tif (item) {\r\n\t\t\treturn Object.keys(item)\r\n\t\t\t\t.find(key => (key !== '' && key !== undefined && key !== undefined)\r\n\t\t\t\t\t? key.toLowerCase() === propKey.toLowerCase()\r\n\t\t\t\t\t: false\r\n\t\t\t\t);\r\n\t\t}\r\n\r\n\t\treturn '';\r\n\t}\r\n\r\n\t/**\r\n\t * Gets headings from items\r\n\t * @param [groupKey] key to get the group keys\r\n\t * @returns headings from items\r\n\t */\r\n\tprivate getHeadingsFromItems(groupKey: string = this.vGroupKey): string[] {\r\n\t\tconst keys = (this.items as object[]).map((item: any) =>\r\n\t\t\titem[Object.keys(item)\r\n\t\t\t\t.find(key => key.toLowerCase() === groupKey.toLowerCase())]\r\n\t\t);\r\n\r\n\t\treturn keys.filter((elem, pos, arr) =>\r\n\t\t\tarr.indexOf(elem) === pos && (this.showUngroupedInBacklog && (elem !== '' && elem !== undefined)));\r\n\t}\r\n\r\n\t/**\r\n\t * Gets ungrouped items (which could not be put into rows or cols)\r\n\t *\r\n\t * @returns Array of ungrouped items\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getUngroupedItems(): (CardItem | object)[] {\r\n\t\tif (this.showUngroupedInBacklog) {\r\n\t\t\treturn this.items.filter(item => {\r\n\t\t\t\tconst groupKeys: GroupKeys = this.determineCorrectGroupKeys();\r\n\t\t\t\tconst isUngrouped =\r\n\t\t\t\t\t(item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '')\r\n\t\t\t\t\t||\r\n\t\t\t\t\t(item[groupKeys.vGroupKey] === null && item[groupKeys.hGroupKey] === null);\r\n\r\n\t\t\t\treturn isUngrouped;\r\n\t\t\t});\r\n\t\t}\r\n\r\n\t\treturn [];\r\n\t}\r\n\r\n\t/**\r\n\t * Toggles an elements collapse state\r\n\t *\r\n\t * @param group Column and row value\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic toggleCollapse(group: { hGroup: string | GroupHeading, vGroup: string | GroupHeading }): void {\r\n\r\n\t\tconst part = this.getValue(group.hGroup || group.vGroup);\r\n\t\t// console.log(\"Toggle: \" + part);\r\n\r\n\t\tconst collapseState = this.collapseState(part);\r\n\t\tthis.collapseStates.find(item => item.name === part).collapsed = !collapseState;\r\n\r\n\t\tthis.headingCollapsed.emit({\r\n\t\t\tgroup: group.hGroup || group.vGroup,\r\n\t\t\tcollapsed: !collapseState,\r\n\t\t\toverallCollapseState: this.collapseStates\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Gets the current collapse state of a specific item\r\n\t *\r\n\t * @param collapseItem Item to get the collapse state\r\n\t * @returns true if collapsed, false when expanded\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic collapseState(collapseItem: string | GroupHeading): boolean {\r\n\r\n\t\tif (typeof (collapseItem) === 'object') {\r\n\t\t\tcollapseItem = (collapseItem).value;\r\n\t\t}\r\n\r\n\t\tconst foundItem = this.collapseStates.find(item => item.name === this.getValue(collapseItem));\r\n\t\tif (foundItem) {\r\n\t\t\tconst foundCollapsedState = foundItem.collapsed;\r\n\t\t\t// console.log('collapseState', part, foundCollapsedState);\r\n\r\n\t\t\treturn foundCollapsedState;\r\n\t\t}\r\n\t\treturn false;\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called when an item starts to drag\r\n\t *\r\n\t * @param event Native drag event\r\n\t * @param item CardItem which is dragged\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic dragStart(event: DragEvent, item: CardItem): void {\r\n\t\tthis.dragItem = item;\r\n\t\tthis.nativeDragItem = (event.currentTarget as HTMLElement);\r\n\t\tthis.dragStarted.emit(this.dragItem);\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called, when the drag of an item ends\r\n\t *\r\n\t * @param event Native drag event\r\n\t * @param item CardItem which is dragged\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic dragEnd(): void {\r\n\t\tthis.dragItem = undefined;\r\n\t}\r\n\r\n\r\n\t/**\r\n\t * Handler which is called, when a new item should be created (click on a add icon)\r\n\t *\r\n\t * @param group Row and column value\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic createElement(group: ClickEvent): void {\r\n\t\tthis.elementCreateClick.emit(group);\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called when an item is dropped\r\n\t *\r\n\t * @param event Native drag event\r\n\t * @param vRow Row item\r\n\t * @param hRow Column item\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic drop(event: DragEvent, vRow: string | GroupHeading, hRow: string | GroupHeading): void {\r\n\t\tevent.preventDefault();\r\n\t\tif (event.currentTarget) {\r\n\t\t\tconst placeholderEl = (event.currentTarget as HTMLElement).querySelector('.placeholder');\r\n\t\t\tif (placeholderEl) {\r\n\t\t\t\tthis.renderer.removeChild(placeholderEl.parentNode, placeholderEl);\r\n\t\t\t}\r\n\t\t\tthis.currentDragZone = '';\r\n\t\t\tthis.placeholderSet = false;\r\n\t\t}\r\n\r\n\t\tconst groupKeys: GroupKeys = this.determineCorrectGroupKeys();\r\n\t\tconst dragItemBeforeChange = { ...this.dragItem };\r\n\r\n\t\tthis.dragItem[groupKeys.vGroupKey] = this.getValue(vRow);\r\n\t\tthis.dragItem[groupKeys.hGroupKey] = this.getValue(hRow);\r\n\r\n\t\tthis.dropped.emit({\r\n\t\t\thGroup: hRow,\r\n\t\t\tvGroup: vRow,\r\n\t\t\titem: this.dragItem,\r\n\t\t\titemBeforeChange: dragItemBeforeChange,\r\n\t\t\tnativeItemElement: this.nativeDragItem\r\n\t\t});\r\n\t\tthis.dragItem = undefined;\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called when an item is dragged over a cell\r\n\t *\r\n\t * @param event Native html drag event\r\n\t * @param vRow Row item\r\n\t * @param hRow Column item\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic dragOver(event: DragEvent, vRow: string | GroupHeading, hRow: string | GroupHeading): void {\r\n\t\tif (this.dragItem) {\r\n\t\t\tevent.preventDefault();\r\n\r\n\t\t\tif (vRow === undefined) {\r\n\t\t\t\tvRow = '';\r\n\t\t\t}\r\n\r\n\t\t\tif (hRow === undefined) {\r\n\t\t\t\thRow = '';\r\n\t\t\t}\r\n\r\n\t\t\tvRow = this.getValue(vRow);\r\n\t\t\thRow = this.getValue(hRow);\r\n\r\n\t\t\tconst dragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();\r\n\t\t\tif (dragZone !== this.currentDragZone && this.currentDragZone !== '') {\r\n\t\t\t\tconst lastPlaceholder = document.getElementById(this.currentDragZone);\r\n\t\t\t\tif (lastPlaceholder) {\r\n\t\t\t\t\tthis.renderer.removeChild(lastPlaceholder.parentNode, lastPlaceholder);\r\n\t\t\t\t\tthis.placeholderSet = false;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\tthis.currentDragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();\r\n\r\n\t\t\tif (!this.placeholderSet) {\r\n\t\t\t\tconst placeholderElement = this.createPlaceholderElement();\r\n\t\t\t\tthis.renderer.appendChild(event.currentTarget, placeholderElement);\r\n\t\t\t\tthis.placeholderSet = true;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t/**\r\n\t * Checks if container is scrollable\r\n\t * @param containerName Container to check if scrollable\r\n\t * @returns is scrollable\r\n\t */\r\n\tprivate containerIsScrollable(containerName: string): Scrollable {\r\n\t\tconst container = this.elRef.nativeElement.querySelector(containerName);\r\n\t\tif (container) {\r\n\t\t\tconst hasHorizontalScrollbar = container.scrollWidth > container.clientWidth;\r\n\t\t\tconst hasVerticalScrollbar = container.scrollHeight > container.clientHeight;\r\n\r\n\t\t\treturn {\r\n\t\t\t\thScroll: hasHorizontalScrollbar,\r\n\t\t\t\tvScroll: hasVerticalScrollbar\r\n\t\t\t};\r\n\t\t}\r\n\r\n\t\treturn null;\r\n\t}\r\n\r\n\t/**\r\n\t * Determines the style of a container which includes the scrollbar\r\n\t *\r\n\t * @returns Style of the container the scrollbar is applied to\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic scrollBarStyle(): object {\r\n\r\n\t\treturn {\r\n\t\t\t'padding-right': `${this.calculateScrollBarWidth()}px`\r\n\t\t};\r\n\t}\r\n\r\n\t/**\r\n\t * Gets the current width of a scrollbar\r\n\t *\r\n\t * @returns Object with native css style\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getColumnWidth(): object {\r\n\t\tif (!this.scrollable) { return {}; }\r\n\r\n\t\treturn {\r\n\t\t\t'min-width': `${this.columnWidth}px`\r\n\t\t};\r\n\t}\r\n\r\n\tprivate calculateScrollBarWidth(): number {\r\n\t\tconst headingsRowWidth = this.elRef.nativeElement.querySelector('.headings').clientWidth;\r\n\t\tconst contentWidth = this.elRef.nativeElement.querySelector('.row-content').clientWidth;\r\n\r\n\t\treturn headingsRowWidth - contentWidth;\r\n\t}\r\n\r\n\t/**\r\n\t * Creates placeholder element\r\n\t * @returns placeholder element\r\n\t */\r\n\tprivate createPlaceholderElement(): HTMLElement {\r\n\t\tif (this.dragoverPlaceholderTemplate) {\r\n\t\t\treturn this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);\r\n\t\t}\r\n\r\n\t\tconst placeholderElement: HTMLElement = this.renderer.createElement('div');\r\n\t\tthis.renderer.setStyle(placeholderElement, 'border', '1px dashed gray');\r\n\t\tthis.renderer.setStyle(placeholderElement, 'width', '100%');\r\n\t\tthis.renderer.setStyle(placeholderElement, 'height', '50px');\r\n\t\tthis.renderer.setAttribute(placeholderElement, 'id', this.currentDragZone);\r\n\t\tthis.renderer.setAttribute(placeholderElement, 'class', 'placeholder');\r\n\r\n\t\treturn placeholderElement;\r\n\t}\r\n\r\n\t/**\r\n\t * Gets headings\r\n\t * @param keys key array\r\n\t * @param key key to check\r\n\t * @returns headings\r\n\t */\r\n\tprivate getHeadings(keys: any[], key: string): (string | GroupHeading)[] {\r\n\t\tif ((keys.length > 0 && (keys[0] as GroupHeading).value !== '')) {\r\n\t\t\treturn keys.sort((a: GroupHeading, b: GroupHeading) => a.orderId - b.orderId);\r\n\t\t}\r\n\r\n\t\treturn this.getHeadingsFromItems(key);\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Scrolling board component\r\n\t * @param event Event\r\n\t */\r\n\tpublic scrolling(event: Event) {\r\n\t\tconst target = (event.currentTarget as HTMLElement);\r\n\r\n\t\t// Clear our timeout throughout the scroll\r\n\t\tthis.detectIfUserHasEndedScrolling().then(() => {\r\n\t\t\tconst scrollStateEnded = this.getScrollState(target);\r\n\t\t\tscrollStateEnded.hasReachedEnd = false;\r\n\t\t\tscrollStateEnded.isScrolling = false;\r\n\t\t\tif (Math.round(scrollStateEnded.distance) !== Math.round(scrollStateEnded.maxDistance)) {\r\n\t\t\t\tscrollStateEnded.hasReachedEnd = false;\r\n\t\t\t\tthis.scrollEnded.emit(scrollStateEnded);\r\n\t\t\t} else {\r\n\t\t\t\tscrollStateEnded.hasReachedEnd = true;\r\n\t\t\t\tthis.scrolledToEnd.emit(scrollStateEnded);\r\n\t\t\t\tthis.scrollEnded.emit(scrollStateEnded);\r\n\t\t\t}\r\n\t\t});\r\n\r\n\t\tconst scrollState = this.getScrollState(target);\r\n\t\tscrollState.hasReachedEnd = false;\r\n\t\tscrollState.isScrolling = true;\r\n\t\tthis.isScrolling.emit(scrollState);\r\n\t}\r\n\r\n\tprivate getScrollState(target: HTMLElement): ScrollEvent {\r\n\t\tconst scrollTop = target.scrollTop;\r\n\t\tconst scrollAxis: 'x' | 'y' = (scrollTop > 0) ? 'y' : 'x';\r\n\r\n\t\tconst currentDistance = (scrollAxis === 'y' ? target.scrollTop : target.scrollWidth);\r\n\t\tconst maximumDistance = (scrollAxis === 'y' ? target.scrollHeight - target.clientHeight : target.scrollWidth - target.clientWidth);\r\n\r\n\t\treturn {\r\n\t\t\taxis: scrollAxis,\r\n\t\t\tdistance: currentDistance,\r\n\t\t\tmaxDistance: maximumDistance\r\n\t\t};\r\n\t}\r\n\r\n\r\n\t/**\r\n\t * Detects if user has ended scrolling\r\n\t * Got from: https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/\r\n\t * @returns if user has ended scrolling\r\n\t */\r\n\tprivate detectIfUserHasEndedScrolling(): Promise<boolean> {\r\n\t\treturn new Promise((res) => {\r\n\t\t\twindow.clearTimeout(this.isScrollingTimeout);\r\n\t\t\t// Set a timeout to run after scrolling ends\r\n\t\t\tthis.isScrollingTimeout = window.setTimeout(() => {\r\n\t\t\t\t// Run the callback\r\n\t\t\t\treturn res(true);\r\n\t\t\t}, 66);\r\n\t\t});\r\n\r\n\t}\r\n}\r\n",
+            "sourceCode": "import {\r\n\tAfterViewInit,\r\n\tChangeDetectionStrategy, ChangeDetectorRef, Component,\r\n\tDoCheck, ElementRef, EventEmitter,\r\n\tHostListener, Input, OnInit,\r\n\tOutput, Renderer2, TemplateRef\r\n} from '@angular/core';\r\nimport { TaskboardService } from '../taskboard.service';\r\nimport { CardItem, ClickEvent, CollapseEvent, CollapseState, DropEvent, GroupHeading, GroupKeys, Scrollable, ScrollEvent } from '../types';\r\n\r\n@Component({\r\n\t// tslint:disable-next-line: component-selector\r\n\tselector: 'ngx-taskboard',\r\n\ttemplateUrl: './board.component.html',\r\n\tstyleUrls: ['./board.component.scss'],\r\n\tchangeDetection: ChangeDetectionStrategy.OnPush\r\n})\r\nexport class BoardComponent implements OnInit, DoCheck, AfterViewInit {\r\n\t@Input() set items(items: (object | CardItem)[]) {\r\n\t\tthis._items = items;\r\n\t\tif (items.length > 0) {\r\n\t\t\tthis.prepareBoard();\r\n\t\t}\r\n\t}\r\n\tget items(): (object | CardItem)[] {\r\n\t\treturn this._items;\r\n\t}\r\n\r\n\t/** Shows the blacklog on onit */\r\n\t@Input() public showBacklog = true;\r\n\r\n\t/** Name of the backlog row */\r\n\t@Input() public backlogName = 'Backlog';\r\n\r\n\t/**\r\n\t * Grouping keys for columns (if not passed, the keys will be determined out of the items)\r\n\t * Caution: If you don't pass any headings manually, only the columns are shown, which have data.\r\n\t * If you want to show emtpy rows, please set them\r\n\t */\r\n\t@Input() public hGroupKeys: (string | GroupHeading)[] = [];\r\n\r\n\t/**\r\n\t * Grouping keys for rows (if not passed, the keys will be determined out of the items)\r\n\t * Caution: If you don't pass any headings manually, only the rows are shown, which have data.\r\n\t * If you want to show emtpy rows, please set them\r\n\t */\r\n\t@Input() public vGroupKeys: (string | GroupHeading)[] = [];\r\n\r\n\t/** Show add buttons on the column headings */\r\n\t@Input() public hAddNewItems = true;\r\n\r\n\t/** Show add buttons on the row headings */\r\n\t@Input() public vAddNewItems = true;\r\n\r\n\t/** Show add buttons in the cells for columns and rows */\r\n\t@Input() public cellAddNewItems = true;\r\n\r\n\t/** Key to group data for rows */\r\n\t@Input() public vGroupKey = '';\r\n\r\n\t/** Key to group data for columns */\r\n\t@Input() public hGroupKey = '';\r\n\r\n\t/** Sort items by property */\r\n\t@Input() public sortBy = '';\r\n\r\n\t/** Board name to show between row and column header */\r\n\t@Input() public boardName = '';\r\n\r\n\t/** Invert rows and columns */\r\n\t@Input() public invertGroupDirection = false;\r\n\r\n\t/** All items which can't be grouped into rows and columns are stored into the backlog  */\r\n\t@Input() public showUngroupedInBacklog = true;\r\n\r\n\t/** Decrease overall font size */\r\n\t@Input() public smallText = false;\r\n\r\n\t/** Template for items to render. \"item\" object ist passed (see examples) */\r\n\t@Input() public itemTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for collapsed rows to render. \"count\" object ist passed (see examples) */\r\n\t@Input() public noElementsTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for column headers. Current groupName will be passed (see examples) */\r\n\t@Input() public hHeaderTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for row headers. Current groupName will be passed (see examples) */\r\n\t@Input() public vHeaderTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for actions, add and collapse buttons (see examples) */\r\n\t@Input() public actionsTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for the placeholder element which will be generated when an item is draged over a cell */\r\n\t@Input() public dragoverPlaceholderTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Default css class for row header */\r\n\t@Input() public vHeaderClass = 'card-header';\r\n\r\n\t/** Default css class for column header */\r\n\t@Input() public hHeaderClass = 'card-header card-header-bg';\r\n\r\n\t/** If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */\r\n\t@Input() public stickyHorizontalHeaderKeys = true;\r\n\r\n\t/** If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */\r\n\t@Input() public stickyVerticalHeaderKeys = false;\r\n\r\n\t/** Default css class for cell header */\r\n\t@Input() public cellClass = 'card-header';\r\n\r\n\t/** Column width (in px) which is applied to the columns when the content is scollable */\r\n\t@Input() public columnWidth = 200;\r\n\r\n\t/** Width of the backlog row, when activated. You can use all valid css units. Default is columnWidth  */\r\n\t@Input() public backlogWidth = `${this.columnWidth}px`;\r\n\r\n\t/** Allow to collapse the rows */\r\n\t@Input() public vCollapsable = true;\r\n\r\n\t/** Rows are collapsed or not on init */\r\n\t@Input() public vCollapsed = false;\r\n\r\n\t/** Columns are collapsed or not on init */\r\n\t@Input() public hCollapsed = false;\r\n\r\n\t/** Shows the filter row to search items by filter in filterOnProperties array */\r\n\t@Input() public showFilterRow = true;\r\n\r\n\t/** Placeholder for the input with the filter row */\r\n\t@Input() public filterRowPlaceholder = 'Search for items';\r\n\r\n\t/** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */\r\n\t@Input() public filter = '';\r\n\r\n\t/**\r\n\t * Specify the properties which will be searched for the given term\r\n\t * in filter. If not properties are given, all will be searched\r\n\t */\r\n\t@Input() public filterOnProperties: string[] = [];\r\n\r\n\t/**\r\n\t * The collapse state which is applied when set initially\r\n\t */\r\n\t@Input() public initialCollapseState: CollapseState[] = [];\r\n\r\n\t/** Fired when the user drags an item. Current item is passed */\r\n\t@Output() public readonly dragStarted = new EventEmitter<object>();\r\n\r\n\t/** Fired when an item is dropped. Current item is passed  */\r\n\t@Output() public readonly dropped = new EventEmitter<DropEvent>();\r\n\r\n\t/** Fired when an add action is click. Current ClickEvent is passed */\r\n\t@Output() public readonly elementCreateClick = new EventEmitter<ClickEvent>();\r\n\r\n\t/** Fired when a heading is collapsed. CollapseEvent is emitted */\r\n\t@Output() public readonly headingCollapsed = new EventEmitter<CollapseEvent>();\r\n\r\n\t@Output() public readonly isScrolling = new EventEmitter<ScrollEvent>();\r\n\t@Output() public readonly scrolledToEnd = new EventEmitter<ScrollEvent>();\r\n\r\n\t@Output() public readonly scrollEnded = new EventEmitter<ScrollEvent>();\r\n\r\n\t/**\r\n\t * Column headings\r\n\t */\r\n\tpublic hHeadings: (string | GroupHeading)[] = [];\r\n\r\n\t/**\r\n\t * Row headings\r\n\t */\r\n\tpublic vHeadings: (string | GroupHeading)[] = [];\r\n\r\n\t/**\r\n\t * If set to true, the rows and columns are scrollable and will be out of the viewport.\r\n\t * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)\r\n\t */\r\n\tpublic scrollable = false;\r\n\r\n\t/** If set to true, rows are scrollable */\r\n\tpublic verticalScrolling = false;\r\n\r\n\t/** If set to true, columns are scrollable */\r\n\tpublic horizontalScrolling = false;\r\n\r\n\t/** Items to display */\r\n\t// tslint:disable-next-line: variable-name\r\n\tprivate _items: (object | CardItem)[] = [];\r\n\r\n\tprivate readonly collapseStates: CollapseState[] = [];\r\n\r\n\tprivate dragItem: CardItem;\r\n\tprivate nativeDragItem: HTMLElement;\r\n\tprivate placeholderSet = false;\r\n\tprivate currentDragZone: string;\r\n\r\n\tprivate isScrollingTimeout = 0;\r\n\r\n\tconstructor(\r\n\t\tprivate readonly renderer: Renderer2,\r\n\t\tprivate readonly elRef: ElementRef,\r\n\t\tprivate readonly cd: ChangeDetectorRef,\r\n\t\tprivate readonly taskboardService: TaskboardService\r\n\t) { }\r\n\r\n\t@HostListener('window:resize')\r\n\tpublic onResize() {\r\n\t\tthis.checkIfContentNeedsToScroll();\r\n\t}\r\n\r\n\tpublic ngOnInit(): void {\r\n\t\tif (this.items.length > 0) {\r\n\t\t\tthis.prepareBoard();\r\n\t\t}\r\n\t}\r\n\r\n\tpublic ngDoCheck(): void {\r\n\t\tthis.checkIfContentNeedsToScroll();\r\n\t}\r\n\r\n\r\n\tpublic ngAfterViewInit(): void {\r\n\t\t// Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.\r\n\t\t// Add 'implements AfterViewInit' to the class.\r\n\t}\r\n\r\n\t/**\r\n\t * Checks if content needs to scroll\r\n\t */\r\n\tprivate checkIfContentNeedsToScroll(): void {\r\n\t\tconst { hScroll: h, vScroll: v } = this.containerIsScrollable('.column-cards');\r\n\t\tthis.horizontalScrolling = h;\r\n\t\tthis.verticalScrolling = v;\r\n\r\n\t\tthis.cd.markForCheck();\r\n\t}\r\n\r\n\r\n\t/**\r\n\t * Prepares board\r\n\t */\r\n\tprivate prepareBoard(): void {\r\n\r\n\t\tthis.checkPrerequisites().then(() => {\r\n\t\t\tthis.generateHeadings();\r\n\r\n\t\t\tthis.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));\r\n\t\t\tthis.matchAndSetInitialCollapseState();\r\n\r\n\t\t\tthis.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);\r\n\r\n\t\t\t// this.cd.markForCheck();\r\n\t\t\tthis.checkIfContentNeedsToScroll();\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Matches and set initial collapse state\r\n\t */\r\n\tprivate matchAndSetInitialCollapseState() {\r\n\t\tthis.initialCollapseState.forEach(item => {\r\n\t\t\tconst foundCollapseState = this.collapseStates.find(cS => cS.name.toLowerCase() === item.name.toLowerCase());\r\n\t\t\tif (foundCollapseState && foundCollapseState.collapsed !== item.collapsed) {\r\n\t\t\t\tfoundCollapseState.collapsed = item.collapsed;\r\n\t\t\t}\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Checks prerequisites\r\n\t * @returns prerequisites\r\n\t */\r\n\tprivate checkPrerequisites(): Promise<boolean> {\r\n\t\tif (this.checkIfPropIsObject(this.hGroupKeys[0])) {\r\n\t\t\tconst hasValueProperty = this.hGroupKeys.every((item: GroupHeading) => item.value != null);\r\n\t\t\tif (!hasValueProperty) {\r\n\t\t\t\tthrow new Error((`Column headers are objects but field 'value' is missing in one or more items.`));\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\tif (this.checkIfPropIsObject(this.vGroupKeys[0])) {\r\n\t\t\tconst hasValueProperty = this.vGroupKeys.every((item: GroupHeading) => item.value != null);\r\n\t\t\tif (!hasValueProperty) {\r\n\t\t\t\tthrow new Error((`Row headers are objects but field 'value' is missing in one or more items.`));\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\treturn Promise.resolve(true);\r\n\t}\r\n\r\n\t/**\r\n\t * Checks if prop is object\r\n\t * @returns true if if prop is object\r\n\t */\r\n\tprivate checkIfPropIsObject(prop: any): boolean {\r\n\t\treturn typeof (prop) === 'object';\r\n\t}\r\n\r\n\t/**\r\n\t * Generates the appropiate headings\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tprivate generateHeadings(): void {\r\n\t\tif (this.invertGroupDirection) {\r\n\t\t\tconst vGkey = this.vGroupKey;\r\n\t\t\tconst hGkey = this.hGroupKey;\r\n\r\n\t\t\tthis.hGroupKey = vGkey;\r\n\t\t\tthis.vGroupKey = hGkey;\r\n\t\t}\r\n\r\n\t\tthis.vHeadings = this.getHeadings(this.vGroupKeys, this.vGroupKey);\r\n\t\tthis.hHeadings = this.getHeadings(this.hGroupKeys, this.hGroupKey);\r\n\t}\r\n\r\n\t/**\r\n\t * Generates collapse states\r\n\t * @param array Array of collapse states\r\n\t * @param diretion Generate collapse states for vertical or horizontal groups\r\n\t * @returns collapse states\r\n\t */\r\n\tprivate generateCollapseStates(array: (string | GroupHeading)[], direction: 'h' | 'v'): CollapseState[] {\r\n\t\treturn array.map(item => ({ name: this.getValue(item), collapsed: (direction === 'h') ? this.hCollapsed : this.vCollapsed }));\r\n\t}\r\n\r\n\t/**\r\n\t * Gets all items of a cell (row / col)\r\n\t *\r\n\t * @param vValue Value of the row\r\n\t * @param hValue Value of the column\r\n\t * @returns Array of all items of a cell\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getItemsOfGroup(vValue: string, hValue: string): (CardItem | object)[] {\r\n\t\t// console.log('getItemsOfGroup');\r\n\r\n\t\tlet items = this.items.filter(item => {\r\n\r\n\t\t\tif (this.taskboardService.objectProperties.length === 0) {\r\n\t\t\t\tthis.taskboardService.objectProperties = Object.keys(item);\r\n\t\t\t}\r\n\t\t\tconst groupKeys: GroupKeys = this.determineCorrectGroupKeys();\r\n\r\n\t\t\tconst vItem = this.getValue(item[groupKeys.vGroupKey]);\r\n\t\t\tconst hItem = this.getValue(item[groupKeys.hGroupKey]);\r\n\r\n\t\t\tif (hItem === undefined || hItem === undefined && vItem === undefined || vItem === undefined) {\r\n\t\t\t\treturn false;\r\n\t\t\t}\r\n\r\n\t\t\tconst found = vItem.toLowerCase() === vValue.toLowerCase() && hItem.toLowerCase() === hValue.toLowerCase();\r\n\r\n\t\t\treturn found;\r\n\t\t});\r\n\r\n\t\tif (this.showUngroupedInBacklog) {\r\n\t\t\titems = items.filter(item => item[this.vGroupKey] !== '' && item[this.hGroupKey] !== '');\r\n\t\t}\r\n\r\n\t\tif (this.sortBy !== '') {\r\n\t\t\tconst fieldType = typeof (items.some(() => items[0][this.sortBy] !== undefined && items[0][this.sortBy] !== null)[this.sortBy]);\r\n\t\t\tif (fieldType) {\r\n\t\t\t\titems = items.sort((a, b) => {\r\n\r\n\t\t\t\t\tconst aField = a[this.sortBy];\r\n\t\t\t\t\tconst bField = b[this.sortBy];\r\n\r\n\t\t\t\t\tif (fieldType === 'number') {\r\n\t\t\t\t\t\treturn bField - aField;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\tif (fieldType === 'string') {\r\n\t\t\t\t\t\tif (aField < bField) {\r\n\t\t\t\t\t\t\treturn -1;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif (aField > bField) {\r\n\t\t\t\t\t\t\treturn 1;\r\n\t\t\t\t\t\t}\r\n\r\n\t\t\t\t\t\treturn 0;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn (this.filter !== '') ? items.filter((item) =>\r\n\t\t\t(this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {\r\n\t\t\t\tconst found = item[key] !== null && typeof (item[key]) !== 'number' && ((item[key] as string).indexOf(this.filter) > -1 ? true : false);\r\n\t\t\t\t// found && console.info(`Searching \"${item[key]}\" for \"${this.filter}\" | Found ${found}`);\r\n\t\t\t\treturn found;\r\n\t\t\t})) : items;\r\n\t}\r\n\r\n\t/**\r\n\t * Toggles in entire group (all rows or all columns)\r\n\t *\r\n\t * @param direction Direction to toggle\r\n\t * @param collapsed Current collapse state\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic toggleCollapseGroup(direction: string, collapsed: boolean): void {\r\n\t\tconst groupKeysToToggle =\r\n\t\t\tthis.collapseStates.filter(item => (direction === 'vertical' ? this.vHeadings : this.hHeadings)\r\n\t\t\t\t.some(i =>\r\n\t\t\t\t\tthis.getValue(i)\r\n\t\t\t\t\t\t.toLowerCase() === item.name.toLowerCase()));\r\n\r\n\t\tgroupKeysToToggle.forEach(item => item.collapsed = !collapsed);\r\n\t\tif (groupKeysToToggle.length > 0) {\r\n\t\t\tif (direction === 'vertical') {\r\n\t\t\t\tthis.vCollapsed = !collapsed;\r\n\t\t\t} else {\r\n\t\t\t\tthis.hCollapsed = !collapsed;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tthis.headingCollapsed.emit({\r\n\t\t\tgroup: direction,\r\n\t\t\tcollapsed: !collapsed,\r\n\t\t\toverallCollapseState: this.collapseStates\r\n\t\t});\r\n\r\n\t\tsetTimeout(() => this.cd.markForCheck(), 100);\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Gets the value of an item\r\n\t *\r\n\t * @param item Item to get the value from\r\n\t * @returns Value of item\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getValue(item: string | GroupHeading): string {\r\n\t\tif (item as GroupHeading) {\r\n\t\t\treturn ((item as GroupHeading).value ? (item as GroupHeading).value : item as string);\r\n\t\t}\r\n\t\treturn '';\r\n\t}\r\n\r\n\t/**\r\n\t * Determines correct group keys\r\n\t * @param item Item object to check\r\n\t * @returns correct group keys\r\n\t */\r\n\tprivate determineCorrectGroupKeys(): GroupKeys {\r\n\t\treturn {\r\n\t\t\thGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),\r\n\t\t\tvGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey)\r\n\t\t};\r\n\t}\r\n\r\n\t/**\r\n\t * Gets case insensitive prop key\r\n\t * @param item Item object\r\n\t * @param propKey property key\r\n\t * @returns case insensitive prop key\r\n\t */\r\n\tprivate getCaseInsensitivePropKey(item: object, propKey: string): string {\r\n\t\tif (item) {\r\n\t\t\treturn Object.keys(item)\r\n\t\t\t\t.find(key => (key !== '' && key !== undefined && key !== undefined)\r\n\t\t\t\t\t? key.toLowerCase() === propKey.toLowerCase()\r\n\t\t\t\t\t: false\r\n\t\t\t\t);\r\n\t\t}\r\n\r\n\t\treturn '';\r\n\t}\r\n\r\n\t/**\r\n\t * Gets headings from items\r\n\t * @param [groupKey] key to get the group keys\r\n\t * @returns headings from items\r\n\t */\r\n\tprivate getHeadingsFromItems(groupKey: string = this.vGroupKey): string[] {\r\n\t\tconst keys = (this.items as object[]).map((item: any) =>\r\n\t\t\titem[Object.keys(item)\r\n\t\t\t\t.find(key => key.toLowerCase() === groupKey.toLowerCase())]\r\n\t\t);\r\n\r\n\t\treturn keys.filter((elem, pos, arr) =>\r\n\t\t\tarr.indexOf(elem) === pos && (this.showUngroupedInBacklog && (elem !== '' && elem !== undefined)));\r\n\t}\r\n\r\n\t/**\r\n\t * Gets ungrouped items (which could not be put into rows or cols)\r\n\t *\r\n\t * @returns Array of ungrouped items\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getUngroupedItems(): (CardItem | object)[] {\r\n\t\tif (this.showUngroupedInBacklog) {\r\n\t\t\treturn this.items.filter(item => {\r\n\t\t\t\tconst groupKeys: GroupKeys = this.determineCorrectGroupKeys();\r\n\t\t\t\tconst isUngrouped =\r\n\t\t\t\t\t(item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '')\r\n\t\t\t\t\t||\r\n\t\t\t\t\t(item[groupKeys.vGroupKey] === null && item[groupKeys.hGroupKey] === null);\r\n\r\n\t\t\t\treturn isUngrouped;\r\n\t\t\t});\r\n\t\t}\r\n\r\n\t\treturn [];\r\n\t}\r\n\r\n\t/**\r\n\t * Toggles an elements collapse state\r\n\t *\r\n\t * @param group Column and row value\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic toggleCollapse(group: { hGroup: string | GroupHeading, vGroup: string | GroupHeading }): void {\r\n\r\n\t\tconst part = this.getValue(group.hGroup || group.vGroup);\r\n\t\t// console.log(\"Toggle: \" + part);\r\n\r\n\t\tconst collapseState = this.collapseState(part);\r\n\t\tthis.collapseStates.find(item => item.name === part).collapsed = !collapseState;\r\n\r\n\t\tthis.headingCollapsed.emit({\r\n\t\t\tgroup: group.hGroup || group.vGroup,\r\n\t\t\tcollapsed: !collapseState,\r\n\t\t\toverallCollapseState: this.collapseStates\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Gets the current collapse state of a specific item\r\n\t *\r\n\t * @param collapseItem Item to get the collapse state\r\n\t * @returns true if collapsed, false when expanded\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic collapseState(collapseItem: string | GroupHeading): boolean {\r\n\r\n\t\tif (typeof (collapseItem) === 'object') {\r\n\t\t\tcollapseItem = (collapseItem).value;\r\n\t\t}\r\n\r\n\t\tconst foundItem = this.collapseStates.find(item => item.name === this.getValue(collapseItem));\r\n\t\tif (foundItem) {\r\n\t\t\tconst foundCollapsedState = foundItem.collapsed;\r\n\t\t\t// console.log('collapseState', part, foundCollapsedState);\r\n\r\n\t\t\treturn foundCollapsedState;\r\n\t\t}\r\n\t\treturn false;\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called when an item starts to drag\r\n\t *\r\n\t * @param event Native drag event\r\n\t * @param item CardItem which is dragged\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic dragStart(event: DragEvent, item: CardItem): void {\r\n\t\tthis.dragItem = item;\r\n\t\tthis.nativeDragItem = (event.currentTarget as HTMLElement);\r\n\t\tthis.dragStarted.emit(this.dragItem);\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called, when the drag of an item ends\r\n\t *\r\n\t * @param event Native drag event\r\n\t * @param item CardItem which is dragged\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic dragEnd(): void {\r\n\t\tthis.dragItem = undefined;\r\n\t}\r\n\r\n\r\n\t/**\r\n\t * Handler which is called, when a new item should be created (click on a add icon)\r\n\t *\r\n\t * @param group Row and column value\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic createElement(group: ClickEvent): void {\r\n\t\tthis.elementCreateClick.emit(group);\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called when an item is dropped\r\n\t *\r\n\t * @param event Native drag event\r\n\t * @param vRow Row item\r\n\t * @param hRow Column item\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic drop(event: DragEvent, vRow: string | GroupHeading, hRow: string | GroupHeading): void {\r\n\t\tevent.preventDefault();\r\n\t\tif (event.currentTarget) {\r\n\t\t\tconst placeholderEl = (event.currentTarget as HTMLElement).querySelector('.placeholder');\r\n\t\t\tif (placeholderEl) {\r\n\t\t\t\tthis.renderer.removeChild(placeholderEl.parentNode, placeholderEl);\r\n\t\t\t}\r\n\t\t\tthis.currentDragZone = '';\r\n\t\t\tthis.placeholderSet = false;\r\n\t\t}\r\n\r\n\t\tconst groupKeys: GroupKeys = this.determineCorrectGroupKeys();\r\n\t\tconst dragItemBeforeChange = { ...this.dragItem };\r\n\r\n\t\tthis.dragItem[groupKeys.vGroupKey] = this.getValue(vRow);\r\n\t\tthis.dragItem[groupKeys.hGroupKey] = this.getValue(hRow);\r\n\r\n\t\tthis.dropped.emit({\r\n\t\t\thGroup: hRow,\r\n\t\t\tvGroup: vRow,\r\n\t\t\titem: this.dragItem,\r\n\t\t\titemBeforeChange: dragItemBeforeChange,\r\n\t\t\tnativeItemElement: this.nativeDragItem\r\n\t\t});\r\n\t\tthis.dragItem = undefined;\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called when an item is dragged over a cell\r\n\t *\r\n\t * @param event Native html drag event\r\n\t * @param vRow Row item\r\n\t * @param hRow Column item\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic dragOver(event: DragEvent, vRow: string | GroupHeading, hRow: string | GroupHeading): void {\r\n\t\tif (this.dragItem) {\r\n\t\t\tevent.preventDefault();\r\n\r\n\t\t\tif (vRow === undefined) {\r\n\t\t\t\tvRow = '';\r\n\t\t\t}\r\n\r\n\t\t\tif (hRow === undefined) {\r\n\t\t\t\thRow = '';\r\n\t\t\t}\r\n\r\n\t\t\tvRow = this.getValue(vRow);\r\n\t\t\thRow = this.getValue(hRow);\r\n\r\n\t\t\tconst dragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();\r\n\t\t\tif (dragZone !== this.currentDragZone && this.currentDragZone !== '') {\r\n\t\t\t\tconst lastPlaceholder = document.getElementById(this.currentDragZone);\r\n\t\t\t\tif (lastPlaceholder) {\r\n\t\t\t\t\tthis.renderer.removeChild(lastPlaceholder.parentNode, lastPlaceholder);\r\n\t\t\t\t\tthis.placeholderSet = false;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\tthis.currentDragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();\r\n\r\n\t\t\tif (!this.placeholderSet) {\r\n\t\t\t\tconst placeholderElement = this.createPlaceholderElement();\r\n\t\t\t\tthis.renderer.appendChild(event.currentTarget, placeholderElement);\r\n\t\t\t\tthis.placeholderSet = true;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t/**\r\n\t * Checks if container is scrollable\r\n\t * @param containerName Container to check if scrollable\r\n\t * @returns is scrollable\r\n\t */\r\n\tprivate containerIsScrollable(containerName: string): Scrollable {\r\n\t\tconst container = this.elRef.nativeElement.querySelector(containerName);\r\n\t\tif (container) {\r\n\t\t\tconst hasHorizontalScrollbar = container.scrollWidth > container.clientWidth;\r\n\t\t\tconst hasVerticalScrollbar = container.scrollHeight > container.clientHeight;\r\n\r\n\t\t\treturn {\r\n\t\t\t\thScroll: hasHorizontalScrollbar,\r\n\t\t\t\tvScroll: hasVerticalScrollbar\r\n\t\t\t};\r\n\t\t}\r\n\r\n\t\treturn null;\r\n\t}\r\n\r\n\t/**\r\n\t * Determines the style of a container which includes the scrollbar\r\n\t *\r\n\t * @returns Style of the container the scrollbar is applied to\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic scrollBarStyle(): object {\r\n\r\n\t\treturn {\r\n\t\t\t'padding-right': `${this.calculateScrollBarWidth()}px`\r\n\t\t};\r\n\t}\r\n\r\n\t/**\r\n\t * Gets the current width of a scrollbar\r\n\t *\r\n\t * @returns Object with native css style\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getColumnWidth(): object {\r\n\t\tif (!this.scrollable) { return {}; }\r\n\r\n\t\treturn {\r\n\t\t\t'min-width': `${this.columnWidth}px`\r\n\t\t};\r\n\t}\r\n\r\n\tprivate calculateScrollBarWidth(): number {\r\n\t\tconst headingsRowWidth = this.elRef.nativeElement.querySelector('.headings').clientWidth;\r\n\t\tconst contentWidth = this.elRef.nativeElement.querySelector('.row-content').clientWidth;\r\n\r\n\t\treturn headingsRowWidth - contentWidth;\r\n\t}\r\n\r\n\t/**\r\n\t * Creates placeholder element\r\n\t * @returns placeholder element\r\n\t */\r\n\tprivate createPlaceholderElement(): HTMLElement {\r\n\t\tif (this.dragoverPlaceholderTemplate) {\r\n\t\t\treturn this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);\r\n\t\t}\r\n\r\n\t\tconst placeholderElement: HTMLElement = this.renderer.createElement('div');\r\n\t\tthis.renderer.setStyle(placeholderElement, 'border', '1px dashed gray');\r\n\t\tthis.renderer.setStyle(placeholderElement, 'width', '100%');\r\n\t\tthis.renderer.setStyle(placeholderElement, 'height', '50px');\r\n\t\tthis.renderer.setAttribute(placeholderElement, 'id', this.currentDragZone);\r\n\t\tthis.renderer.setAttribute(placeholderElement, 'class', 'placeholder');\r\n\r\n\t\treturn placeholderElement;\r\n\t}\r\n\r\n\t/**\r\n\t * Gets headings\r\n\t * @param keys key array\r\n\t * @param key key to check\r\n\t * @returns headings\r\n\t */\r\n\tprivate getHeadings(keys: any[], key: string): (string | GroupHeading)[] {\r\n\t\tif ((keys.length > 0 && (keys[0] as GroupHeading).value !== '')) {\r\n\t\t\treturn keys.sort((a: GroupHeading, b: GroupHeading) => a.orderId - b.orderId);\r\n\t\t}\r\n\r\n\t\treturn this.getHeadingsFromItems(key);\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Scrolling board component\r\n\t * @param event Event\r\n\t */\r\n\tpublic scrolling(event: Event) {\r\n\t\tconst target = (event.currentTarget as HTMLElement);\r\n\r\n\t\t// Clear our timeout throughout the scroll\r\n\t\tthis.detectIfUserHasEndedScrolling().then(() => {\r\n\t\t\tconst scrollStateEnded = this.getScrollState(target);\r\n\t\t\tscrollStateEnded.hasReachedEnd = false;\r\n\t\t\tscrollStateEnded.isScrolling = false;\r\n\t\t\tif (Math.round(scrollStateEnded.distance) !== Math.round(scrollStateEnded.maxDistance)) {\r\n\t\t\t\tscrollStateEnded.hasReachedEnd = false;\r\n\t\t\t\tthis.scrollEnded.emit(scrollStateEnded);\r\n\t\t\t} else {\r\n\t\t\t\tscrollStateEnded.hasReachedEnd = true;\r\n\t\t\t\tthis.scrolledToEnd.emit(scrollStateEnded);\r\n\t\t\t\tthis.scrollEnded.emit(scrollStateEnded);\r\n\t\t\t}\r\n\t\t});\r\n\r\n\t\tconst scrollState = this.getScrollState(target);\r\n\t\tscrollState.hasReachedEnd = false;\r\n\t\tscrollState.isScrolling = true;\r\n\t\tthis.isScrolling.emit(scrollState);\r\n\t}\r\n\r\n\tprivate getScrollState(target: HTMLElement): ScrollEvent {\r\n\t\tconst scrollTop = target.scrollTop;\r\n\t\tconst scrollAxis: 'x' | 'y' = (scrollTop > 0) ? 'y' : 'x';\r\n\r\n\t\tconst currentDistance = (scrollAxis === 'y' ? target.scrollTop : target.scrollWidth);\r\n\t\tconst maximumDistance = (scrollAxis === 'y' ? target.scrollHeight - target.clientHeight : target.scrollWidth - target.clientWidth);\r\n\r\n\t\treturn {\r\n\t\t\taxis: scrollAxis,\r\n\t\t\tdistance: currentDistance,\r\n\t\t\tmaxDistance: maximumDistance\r\n\t\t};\r\n\t}\r\n\r\n\r\n\t/**\r\n\t * Detects if user has ended scrolling\r\n\t * Got from: https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/\r\n\t * @returns if user has ended scrolling\r\n\t */\r\n\tprivate detectIfUserHasEndedScrolling(): Promise<boolean> {\r\n\t\treturn new Promise((res) => {\r\n\t\t\twindow.clearTimeout(this.isScrollingTimeout);\r\n\t\t\t// Set a timeout to run after scrolling ends\r\n\t\t\tthis.isScrollingTimeout = window.setTimeout(() => {\r\n\t\t\t\t// Run the callback\r\n\t\t\t\treturn res(true);\r\n\t\t\t}, 66);\r\n\t\t});\r\n\r\n\t}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2018,7 +2016,7 @@
                     }
                 }
             },
-            "templateData": "<div class=\"h-100 d-flex flex-column align-items-stretch border-0\" [class.small]=\"smallText\" style=\"overflow: hidden\">\r\n  <div class=\"d-flex flex-column h-100\">\r\n    <ngx-taskboard-filter-search-bar [placeholder]=\"filterRowPlaceholder\"></ngx-taskboard-filter-search-bar>\r\n    <div class=\"d-flex flex-row align-items-stretch flex-fill h-100 \">\r\n\r\n      <ng-container *ngTemplateOutlet=\"backlogColumn\"></ng-container>\r\n\r\n      <div class=\"column-cards d-flex flex-column flex-fill h-100\" [class.overflow-x-auto]=\"horizontalScrolling\"\r\n        [class.overflow-y-auto]=\"verticalScrolling\" (scroll)=\"scrolling($event)\" [class.border-bottom]=\"(scrollable && verticalScrolling)\">\r\n\r\n        <ng-container *ngTemplateOutlet=\"columnHeadings\"></ng-container>\r\n\r\n        <div class=\"d-flex flex-column row-content align-items-stretch\"\r\n          [class.flex-fill]=\"!(scrollable && verticalScrolling)\">\r\n          <ng-container *ngFor=\"let vGroup of vHeadings\">\r\n\r\n            <div class=\"d-flex flex-row\" [class.flex-fill]=\"!collapseState(vGroup)\">\r\n              <ng-container *ngTemplateOutlet=\"rowHeadings; context: { vGroup: vGroup }\"></ng-container>\r\n\r\n              <ng-container *ngFor=\"let hGroup of hHeadings; let hLast = last\">\r\n\r\n                <ng-container *ngTemplateOutlet=\"cellItem; context: { hGroup: hGroup, vGroup: vGroup, hLast: hLast } \">\r\n                </ng-container>\r\n\r\n              </ng-container>\r\n            </div>\r\n          </ng-container>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!-- Templates -->\r\n<ng-template #cardAction let-withNew=\"withNew\" let-group=\"group\" let-chevronIcon=\"chevronIcon\"\r\n  let-collapser=\"collapser\">\r\n\r\n  <ng-container [ngIf]=\"actionsTemplate\"\r\n    *ngTemplateOutlet=\"actionsTemplate; context: { actionConfig: { group: group, chevronIcon: chevronIcon, collapser: collapser  }  }\">\r\n  </ng-container>\r\n  <ng-container *ngIf=\"!actionsTemplate\">\r\n    <div class=\"actions ml-3\" *ngIf=\"vGroupKey\">\r\n      <fa-icon [icon]=\"['fas','plus-square']\" [fixedWidth]=\"true\" *ngIf=\"withNew\" (click)=\"createElement(group)\">\r\n      </fa-icon>\r\n      <fa-icon [icon]=\"['fas',chevronIcon ? chevronIcon : 'chevron-left']\" [fixedWidth]=\"true\"\r\n        (click)=\"toggleCollapse(group)\" *ngIf=\"(collapser != null ? collapser : true)\"></fa-icon>\r\n    </div>\r\n  </ng-container>\r\n</ng-template>\r\n\r\n<ng-template #defaultItemTemplate let-item=\"item\">\r\n  <div class=\"card mb-1 border-bottom-0 border-top-0\" style=\"border-left: 5px solid; border-radius: 0;\"\r\n    [style.border-left-color]=\"item?.color\">\r\n    <div class=\"card-header border-top d-flex flex-row justify-content-between\">\r\n      <div class=\"\">\r\n        <span class=\"font-weight-bold\">#{{item.id}}</span>\r\n        <span class=\"ml-3\">{{ item.name }}</span>\r\n        <span class=\"ml-3\">{{ item.priority }}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n\r\n<!-- Layout parts -->\r\n<ng-template #backlogColumn>\r\n  <div class=\"backlog border-right\" *ngIf=\"showBacklog\" [style.width]=\"backlogWidth\">\r\n    <div class=\"card border-right-0 border-top-0 border-left-0 w-100 h-100\">\r\n      <div class=\"{{hHeaderClass}} d-flex flex-row justify-content-between\">\r\n\r\n        {{ backlogName }}\r\n\r\n        <div class=\"actions ml-3\">\r\n          <fa-icon [icon]=\"['fas','plus-square']\" [fixedWidth]=\"true\"></fa-icon>\r\n        </div>\r\n      </div>\r\n\r\n      <ul class=\"list-group list-group-flush p-3 h-100\" (dragover)=\"dragOver($event, null, null)\"\r\n        (drop)=\"drop($event, null, null)\">\r\n        <div class=\" ungrouped-item\" *ngFor=\"let item of getUngroupedItems()\" draggable=\"true\"\r\n          (dragstart)=\"dragStart($event, item)\" (dragend)=\"dragEnd($event, item)\">\r\n          <ng-container *ngIf=\"itemTemplate\">\r\n            <ng-container *ngTemplateOutlet=\"itemTemplate; context { item: item }\"></ng-container>\r\n          </ng-container>\r\n\r\n          <ng-container *ngIf=\"!itemTemplate\">\r\n            <ng-container *ngTemplateOutlet=\"defaultItemTemplate; context: { item: item }\"></ng-container>\r\n          </ng-container>\r\n        </div>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #columnHeadings>\r\n  <div class=\"headings d-flex flex-row align-items-stretch w-100\" [ngStyle]=\"scrollBarStyle()\"\r\n    [class.sticky-top]=\"stickyHorizontalHeaderKeys && verticalScrolling\">\r\n    <div class=\"col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row\" *ngIf=\"vGroupKey\">\r\n      <div class=\"d-flex flex-row w-100\">\r\n        <div class=\"boardname flex-fill\">{{ boardName }}</div>\r\n        <div class=\"h-v-actions align-self-end\">\r\n          <fa-icon [icon]=\"['fas', vCollapsed ? 'chevron-down' : 'chevron-up']\" [fixedWidth]=\"true\"\r\n            (click)=\"toggleCollapseGroup('vertical', vCollapsed)\"></fa-icon>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header\"\r\n      [class.bg-white]=\"collapseState(hGroup)\" [class.border-bottom-0]=\"collapseState(hGroup)\"\r\n      [class.col]=\"!collapseState(hGroup) && !(scrollable && horizontalScrolling)\"\r\n      *ngFor=\"let hGroup of hHeadings; let hLast = last\" [class.h-collapsed]=\"collapseState(hGroup)\"\r\n      [ngStyle]=\"getColumnWidth()\" [class.border-right]=\"(scrollable && horizontalScrolling) && hLast\">\r\n      <div class=\"\" *ngIf=\"!collapseState(hGroup)\">\r\n        <ng-container [ngIf]=\"hHeaderTemplate\" *ngTemplateOutlet=\"hHeaderTemplate; context: { groupName: hGroup }\">\r\n        </ng-container>\r\n        <ng-container *ngIf=\"!hHeaderTemplate\">\r\n          {{ getValue(hGroup) || 'Ungrouped' }}\r\n        </ng-container>\r\n      </div>\r\n      <div *ngIf=\"!collapseState(hGroup)\">\r\n        <ng-content\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: hAddNewItems, group: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }\">\r\n        </ng-content>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #rowHeadings let-vGroup=\"vGroup\">\r\n  <div class=\"col-2 {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between\" *ngIf=\"vGroupKey\">\r\n    <div class=\"vertical-group-header h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill\">\r\n\r\n      <ng-container [ngIf]=\"vHeaderTemplate\" *ngTemplateOutlet=\"vHeaderTemplate; context: { groupName: vGroup }\">\r\n      </ng-container>\r\n      <ng-container *ngIf=\"!vHeaderTemplate\">\r\n        {{ getValue(vGroup) || 'Ungrouped' }}\r\n      </ng-container>\r\n    </div>\r\n\r\n    <div class=\"vertical-actions d-flex flex-column\" [class.flex-column]=\"!collapseState(vGroup)\"\r\n      [class.flex-row]=\"collapseState(vGroup)\" [class.flex-row-reverse]=\"collapseState(vGroup)\">\r\n      <div class=\"align-self-start flex-fill\">\r\n        <ng-content\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? 'chevron-up' : 'chevron-down'  }\">\r\n        </ng-content>\r\n      </div>\r\n      <div class=\"align-self-start\">\r\n        <ng-content class=\"align-self-end\"\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: vAddNewItems, group: { hGroup: null, vGroup: vGroup}, collapser: false }\">\r\n        </ng-content>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #cellItem let-vGroup=\"vGroup\" let-hGroup=\"hGroup\" let-hLast=\"hLast\">\r\n  <div class=\"cell-item border-left {{cellClass}} bg-white d-flex flex-column\"\r\n    [class.col]=\"!collapseState(hGroup) && !(scrollable && horizontalScrolling)\"\r\n    [class.border-bottom-0]=\"collapseState(hGroup)\" [class.v-collapsed]=\"collapseState(vGroup)\"\r\n    [class.h-collapsed]=\"collapseState(hGroup)\" [ngStyle]=\"getColumnWidth()\"\r\n    [class.border-right]=\"(scrollable && horizontalScrolling) && hLast\">\r\n\r\n\r\n    <ng-container *ngIf=\"!collapseState(vGroup) && !collapseState(hGroup)\">\r\n\r\n      <div class=\"cell-items flex-fill\" (dragover)=\"dragOver($event, vGroup, hGroup)\"\r\n        (drop)=\"drop($event, vGroup, hGroup)\">\r\n        <ng-container *ngFor=\"let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))\">\r\n\r\n          <div class=\"item-container p-0 m-0\" draggable=\"true\" (dragstart)=\"dragStart($event, item)\"\r\n            (dragend)=\"dragEnd($event, item)\">\r\n            <ng-container *ngIf=\"itemTemplate\">\r\n              <ng-container *ngTemplateOutlet=\"itemTemplate; context { item: item }\"></ng-container>\r\n            </ng-container>\r\n\r\n            <ng-container *ngIf=\"!itemTemplate\">\r\n              <ng-container *ngTemplateOutlet=\"defaultItemTemplate; context: { item: item }\">\r\n              </ng-container>\r\n            </ng-container>\r\n          </div>\r\n\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"cell-actions d-flex flex-row align-self-end\">\r\n        <ng-content\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }\">\r\n        </ng-content>\r\n      </div>\r\n\r\n    </ng-container>\r\n\r\n    <ng-container *ngIf=\"collapseState(vGroup) && !collapseState(hGroup)\">\r\n      <div class=\"text-center\" (dragover)=\"dragOver($event, vGroup, hGroup)\" (drop)=\"drop($event, vGroup, hGroup)\">\r\n        <ng-container [ngIf]=\"noElementsTemplate\"\r\n          *ngTemplateOutlet=\"noElementsTemplate; context: { count: getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length, filter: this.filter }\">\r\n        </ng-container>\r\n        <ng-container *ngIf=\"!noElementsTemplate\">\r\n          {{ getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length }} elements\r\n          <span *ngIf=\"filter !== ''\" class=\"code\"> (filtered by <code>{{filter}}</code>)</span>\r\n        </ng-container>\r\n      </div>\r\n    </ng-container>\r\n    <ng-container *ngIf=\"collapseState(hGroup)\">\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n\r\n</ng-template>\r\n"
+            "templateData": "<div class=\"h-100 d-flex flex-column align-items-stretch border-0\" [class.small]=\"smallText\" style=\"overflow: hidden\">\r\n  <div class=\"d-flex flex-column h-100\">\r\n    <ngx-taskboard-filter-search-bar [placeholder]=\"filterRowPlaceholder\"></ngx-taskboard-filter-search-bar>\r\n    <div class=\"d-flex flex-row align-items-stretch flex-fill h-100 \">\r\n\r\n      <ng-container *ngTemplateOutlet=\"backlogColumn\"></ng-container>\r\n\r\n      <div class=\"column-cards d-flex flex-column flex-fill h-100\" [class.overflow-x-auto]=\"horizontalScrolling\"\r\n        [class.overflow-y-auto]=\"verticalScrolling\" (scroll)=\"scrolling($event)\" [class.border-bottom]=\"(scrollable && verticalScrolling)\">\r\n\r\n        <ng-container *ngTemplateOutlet=\"columnHeadings\"></ng-container>\r\n\r\n        <div class=\"d-flex flex-column row-content align-items-stretch\"\r\n          [class.flex-fill]=\"!(scrollable && verticalScrolling)\">\r\n          <ng-container *ngFor=\"let vGroup of vHeadings\">\r\n\r\n            <div class=\"d-flex flex-row\" [class.flex-fill]=\"!collapseState(vGroup)\">\r\n              <ng-container *ngTemplateOutlet=\"rowHeadings; context: { vGroup: vGroup }\"></ng-container>\r\n\r\n              <ng-container *ngFor=\"let hGroup of hHeadings; let hLast = last\">\r\n\r\n                <ng-container *ngTemplateOutlet=\"cellItem; context: { hGroup: hGroup, vGroup: vGroup, hLast: hLast } \">\r\n                </ng-container>\r\n\r\n              </ng-container>\r\n            </div>\r\n          </ng-container>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!-- Templates -->\r\n<ng-template #cardAction let-withNew=\"withNew\" let-group=\"group\" let-chevronIcon=\"chevronIcon\"\r\n  let-collapser=\"collapser\">\r\n\r\n  <ng-container [ngIf]=\"actionsTemplate\"\r\n    *ngTemplateOutlet=\"actionsTemplate; context: { actionConfig: { group: group, chevronIcon: chevronIcon, collapser: collapser  }  }\">\r\n  </ng-container>\r\n  <ng-container *ngIf=\"!actionsTemplate\">\r\n    <div class=\"actions ml-3\" *ngIf=\"vGroupKey\">\r\n      <fa-icon [icon]=\"['fas','plus-square']\" [fixedWidth]=\"true\" *ngIf=\"withNew\" (click)=\"createElement(group)\">\r\n      </fa-icon>\r\n      <fa-icon [icon]=\"['fas',chevronIcon ? chevronIcon : 'chevron-left']\" [fixedWidth]=\"true\"\r\n        (click)=\"toggleCollapse(group)\" *ngIf=\"(collapser != null ? collapser : true)\"></fa-icon>\r\n    </div>\r\n  </ng-container>\r\n</ng-template>\r\n\r\n<ng-template #defaultItemTemplate let-item=\"item\">\r\n  <div class=\"card mb-1 border-bottom-0 border-top-0\" style=\"border-left: 5px solid; border-radius: 0;\"\r\n    [style.border-left-color]=\"item?.color\">\r\n    <div class=\"card-header border-top d-flex flex-row justify-content-between\">\r\n      <div class=\"\">\r\n        <span class=\"font-weight-bold\">#{{item.id}}</span>\r\n        <span class=\"ml-3\">{{ item.name }}</span>\r\n        <span class=\"ml-3\">{{ item.priority }}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n\r\n<!-- Layout parts -->\r\n<ng-template #backlogColumn>\r\n  <div class=\"backlog border-right\" *ngIf=\"showBacklog\" [style.width]=\"backlogWidth\">\r\n    <div class=\"card border-right-0 border-top-0 border-left-0 w-100 h-100\">\r\n      <div class=\"{{hHeaderClass}} d-flex flex-row justify-content-between\">\r\n\r\n        {{ backlogName }}\r\n\r\n        <div class=\"actions ml-3\">\r\n          <fa-icon [icon]=\"['fas','plus-square']\" [fixedWidth]=\"true\"></fa-icon>\r\n        </div>\r\n      </div>\r\n\r\n      <ul class=\"list-group list-group-flush p-3 h-100\" (dragover)=\"dragOver($event, null, null)\"\r\n        (drop)=\"drop($event, null, null)\">\r\n        <div class=\" ungrouped-item\" *ngFor=\"let item of getUngroupedItems()\" draggable=\"true\"\r\n          (dragstart)=\"dragStart($event, item)\" (dragend)=\"dragEnd()\">\r\n          <ng-container *ngIf=\"itemTemplate\">\r\n            <ng-container *ngTemplateOutlet=\"itemTemplate; context { item: item }\"></ng-container>\r\n          </ng-container>\r\n\r\n          <ng-container *ngIf=\"!itemTemplate\">\r\n            <ng-container *ngTemplateOutlet=\"defaultItemTemplate; context: { item: item }\"></ng-container>\r\n          </ng-container>\r\n        </div>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #columnHeadings>\r\n  <div class=\"headings d-flex flex-row align-items-stretch w-100\" [ngStyle]=\"scrollBarStyle()\"\r\n    [class.sticky-top]=\"stickyHorizontalHeaderKeys && verticalScrolling\">\r\n    <div class=\"col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row\" *ngIf=\"vGroupKey\">\r\n      <div class=\"d-flex flex-row w-100\">\r\n        <div class=\"boardname flex-fill\">{{ boardName }}</div>\r\n        <div class=\"h-v-actions align-self-end\">\r\n          <fa-icon [icon]=\"['fas', vCollapsed ? 'chevron-down' : 'chevron-up']\" [fixedWidth]=\"true\"\r\n            (click)=\"toggleCollapseGroup('vertical', vCollapsed)\"></fa-icon>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header\"\r\n      [class.bg-white]=\"collapseState(hGroup)\" [class.border-bottom-0]=\"collapseState(hGroup)\"\r\n      [class.col]=\"!collapseState(hGroup) && !(scrollable && horizontalScrolling)\"\r\n      *ngFor=\"let hGroup of hHeadings; let hLast = last\" [class.h-collapsed]=\"collapseState(hGroup)\"\r\n      [ngStyle]=\"getColumnWidth()\" [class.border-right]=\"(scrollable && horizontalScrolling) && hLast\">\r\n      <div class=\"\" *ngIf=\"!collapseState(hGroup)\">\r\n        <ng-container [ngIf]=\"hHeaderTemplate\" *ngTemplateOutlet=\"hHeaderTemplate; context: { groupName: hGroup }\">\r\n        </ng-container>\r\n        <ng-container *ngIf=\"!hHeaderTemplate\">\r\n          {{ getValue(hGroup) || 'Ungrouped' }}\r\n        </ng-container>\r\n      </div>\r\n      <div *ngIf=\"!collapseState(hGroup)\">\r\n        <ng-content\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: hAddNewItems, group: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }\">\r\n        </ng-content>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #rowHeadings let-vGroup=\"vGroup\">\r\n  <div class=\"col-2 {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between\" *ngIf=\"vGroupKey\">\r\n    <div class=\"vertical-group-header h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill\">\r\n\r\n      <ng-container [ngIf]=\"vHeaderTemplate\" *ngTemplateOutlet=\"vHeaderTemplate; context: { groupName: vGroup }\">\r\n      </ng-container>\r\n      <ng-container *ngIf=\"!vHeaderTemplate\">\r\n        {{ getValue(vGroup) || 'Ungrouped' }}\r\n      </ng-container>\r\n    </div>\r\n\r\n    <div class=\"vertical-actions d-flex flex-column\" [class.flex-column]=\"!collapseState(vGroup)\"\r\n      [class.flex-row]=\"collapseState(vGroup)\" [class.flex-row-reverse]=\"collapseState(vGroup)\">\r\n      <div class=\"align-self-start flex-fill\">\r\n        <ng-content\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? 'chevron-up' : 'chevron-down'  }\">\r\n        </ng-content>\r\n      </div>\r\n      <div class=\"align-self-start\">\r\n        <ng-content class=\"align-self-end\"\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: vAddNewItems, group: { hGroup: null, vGroup: vGroup}, collapser: false }\">\r\n        </ng-content>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #cellItem let-vGroup=\"vGroup\" let-hGroup=\"hGroup\" let-hLast=\"hLast\">\r\n  <div class=\"cell-item border-left {{cellClass}} bg-white d-flex flex-column\"\r\n    [class.col]=\"!collapseState(hGroup) && !(scrollable && horizontalScrolling)\"\r\n    [class.border-bottom-0]=\"collapseState(hGroup)\" [class.v-collapsed]=\"collapseState(vGroup)\"\r\n    [class.h-collapsed]=\"collapseState(hGroup)\" [ngStyle]=\"getColumnWidth()\"\r\n    [class.border-right]=\"(scrollable && horizontalScrolling) && hLast\">\r\n\r\n\r\n    <ng-container *ngIf=\"!collapseState(vGroup) && !collapseState(hGroup)\">\r\n\r\n      <div class=\"cell-items flex-fill\" (dragover)=\"dragOver($event, vGroup, hGroup)\"\r\n        (drop)=\"drop($event, vGroup, hGroup)\">\r\n        <ng-container *ngFor=\"let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))\">\r\n\r\n          <div class=\"item-container p-0 m-0\" draggable=\"true\" (dragstart)=\"dragStart($event, item)\"\r\n            (dragend)=\"dragEnd()\">\r\n            <ng-container *ngIf=\"itemTemplate\">\r\n              <ng-container *ngTemplateOutlet=\"itemTemplate; context { item: item }\"></ng-container>\r\n            </ng-container>\r\n\r\n            <ng-container *ngIf=\"!itemTemplate\">\r\n              <ng-container *ngTemplateOutlet=\"defaultItemTemplate; context: { item: item }\">\r\n              </ng-container>\r\n            </ng-container>\r\n          </div>\r\n\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"cell-actions d-flex flex-row align-self-end\">\r\n        <ng-content\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }\">\r\n        </ng-content>\r\n      </div>\r\n\r\n    </ng-container>\r\n\r\n    <ng-container *ngIf=\"collapseState(vGroup) && !collapseState(hGroup)\">\r\n      <div class=\"text-center\" (dragover)=\"dragOver($event, vGroup, hGroup)\" (drop)=\"drop($event, vGroup, hGroup)\">\r\n        <ng-container [ngIf]=\"noElementsTemplate\"\r\n          *ngTemplateOutlet=\"noElementsTemplate; context: { count: getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length, filter: this.filter }\">\r\n        </ng-container>\r\n        <ng-container *ngIf=\"!noElementsTemplate\">\r\n          {{ getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length }} elements\r\n          <span *ngIf=\"filter !== ''\" class=\"code\"> (filtered by <code>{{filter}}</code>)</span>\r\n        </ng-container>\r\n      </div>\r\n    </ng-container>\r\n    <ng-container *ngIf=\"collapseState(hGroup)\">\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n\r\n</ng-template>\r\n"
         },
         {
             "name": "FilterSearchBarComponent",

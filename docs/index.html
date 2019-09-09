@@ -191,7 +191,7 @@ export class AppComponent {
 <td>filterOnProperties</td>
 <td>[]</td>
 <td>Specify the properties which will be searched for the given termin filter. If not properties are given, all will be searched</td>
-<td>Array&lt;string&gt;</td>
+<td>string[]</td>
 </tr>
 <tr>
 <td>filterRowPlaceholder</td>
@@ -221,7 +221,7 @@ export class AppComponent {
 <td>hGroupKeys</td>
 <td>[]</td>
 <td>Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them</td>
-<td>Array&lt;string | GroupHeading&gt;</td>
+<td>(string | GroupHeading)[]</td>
 </tr>
 <tr>
 <td>hHeaderClass</td>
@@ -236,6 +236,12 @@ export class AppComponent {
 <td>TemplateRef&lt;any&gt;</td>
 </tr>
 <tr>
+<td>initialCollapseState</td>
+<td>[]</td>
+<td>The collapse state which is applied when set initially</td>
+<td>CollapseState[]</td>
+</tr>
+<tr>
 <td>invertGroupDirection</td>
 <td>false</td>
 <td>Invert rows and columns</td>
@@ -245,7 +251,7 @@ export class AppComponent {
 <td>items</td>
 <td></td>
 <td></td>
-<td></td>
+<td>[]</td>
 </tr>
 <tr>
 <td>itemTemplate</td>
@@ -329,7 +335,7 @@ export class AppComponent {
 <td>vGroupKeys</td>
 <td>[]</td>
 <td>Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them</td>
-<td>Array&lt;string | GroupHeading&gt;</td>
+<td>(string | GroupHeading)[]</td>
 </tr>
 <tr>
 <td>vHeaderClass</td>
@@ -367,7 +373,7 @@ export class AppComponent {
 </tr>
 <tr>
 <td>dropped</td>
-<td>new EventEmitter&lt;object&gt;()</td>
+<td>new EventEmitter&lt;DropEvent&gt;()</td>
 <td>Fired when an item is dropped. Current item is passed</td>
 <td>EventEmitter</td>
 </tr>
@@ -375,6 +381,30 @@ export class AppComponent {
 <td>elementCreateClick</td>
 <td>new EventEmitter&lt;ClickEvent&gt;()</td>
 <td>Fired when an add action is click. Current ClickEvent is passed</td>
+<td>EventEmitter</td>
+</tr>
+<tr>
+<td>headingCollapsed</td>
+<td>new EventEmitter&lt;CollapseEvent&gt;()</td>
+<td>Fired when a heading is collapsed. CollapseEvent is emitted</td>
+<td>EventEmitter</td>
+</tr>
+<tr>
+<td>isScrolling</td>
+<td>new EventEmitter<ScrollEvent>()</td>
+<td></td>
+<td>EventEmitter</td>
+</tr>
+<tr>
+<td>scrolledToEnd</td>
+<td>new EventEmitter<ScrollEvent>()</td>
+<td></td>
+<td>EventEmitter</td>
+</tr>
+<tr>
+<td>scrollEnded</td>
+<td>new EventEmitter<ScrollEvent>()</td>
+<td></td>
 <td>EventEmitter</td>
 </tr>
 </tbody>
@@ -403,9 +433,19 @@ export class AppComponent {
 <td>Datatype which is emitted when an item should be added</td>
 </tr>
 <tr>
+<td>CollapseEvent</td>
+<td>interface</td>
+<td>Object for the headings in which you can set color etc.</td>
+</tr>
+<tr>
 <td>CollapseState</td>
 <td>interface</td>
 <td>All the collapse stated of every group item (horizontal / vertical)</td>
+</tr>
+<tr>
+<td>DropEvent</td>
+<td>interface</td>
+<td>Event which is fired when an item is dropped</td>
 </tr>
 <tr>
 <td>GroupHeading</td>
@@ -421,6 +461,11 @@ export class AppComponent {
 <td>Scrollable</td>
 <td>interface</td>
 <td>Object to determine the scrollability</td>
+</tr>
+<tr>
+<td>ScrollEvent</td>
+<td>interface</td>
+<td></td>
 </tr>
 </tbody>
 </table>

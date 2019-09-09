@@ -203,7 +203,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		private readonly taskboardService: TaskboardService
 	) { }
 
-	@HostListener('window:resize', ['$event']) public onResize() {
+	@HostListener('window:resize')
+	public onResize() {
 		this.checkIfContentNeedsToScroll();
 	}
 

@@ -78,7 +78,7 @@
       <ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"
         (drop)="drop($event, null, null)">
         <div class=" ungrouped-item" *ngFor="let item of getUngroupedItems()" draggable="true"
-          (dragstart)="dragStart($event, item)" (dragend)="dragEnd($event, item)">
+          (dragstart)="dragStart($event, item)" (dragend)="dragEnd()">
           <ng-container *ngIf="itemTemplate">
             <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
           </ng-container>
@@ -169,7 +169,7 @@
         <ng-container *ngFor="let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))">
 
           <div class="item-container p-0 m-0" draggable="true" (dragstart)="dragStart($event, item)"
-            (dragend)="dragEnd($event, item)">
+            (dragend)="dragEnd()">
             <ng-container *ngIf="itemTemplate">
               <ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
             </ng-container>

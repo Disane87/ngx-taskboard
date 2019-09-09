@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "license": "MIT",
   "private": false,
+  "keywords": ["taskboard", "angular", "ngx", "kanban", "typescript", "team planning", "issues"],
   "repository": {
     "directory": "github",
     "url": "https://github.com/Disane87/ngx-taskboard.git",
