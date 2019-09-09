@@ -6,7 +6,7 @@ import {
 	Output, Renderer2, TemplateRef
 } from '@angular/core';
 import { TaskboardService } from '../taskboard.service';
-import { CardItem, ClickEvent, CollapseEvent, CollapseState, DropEvent, GroupHeading, GroupKeys, Scrollable, ScrollEvent } from '../types';
+import { CardItem, ClickEvent, CollapseEvent, CollapseState, DropEvent, GroupHeading, GroupKeys, Scrollable, ScrollEvent, ScrollState } from '../types';
 
 @Component({
 	// tslint:disable-next-line: component-selector
@@ -144,6 +144,10 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	@Input() public initialCollapseState: CollapseState[] = [];
 
+	@Input() public scrollStates: ScrollState;
+
+	// OUTPUTS
+
 	/** Fired when the user drags an item. Current item is passed */
 	@Output() public readonly dragStarted = new EventEmitter<object>();
 
@@ -196,6 +200,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	private isScrollingTimeout = 0;
 
+	private scrollableContainer = '.column-cards';
+
 	constructor(
 		private readonly renderer: Renderer2,
 		private readonly elRef: ElementRef,
@@ -216,6 +222,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	public ngDoCheck(): void {
 		this.checkIfContentNeedsToScroll();
+
 	}
 
 
@@ -225,14 +232,22 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	}
 
 	/**
-	 * Checks if content needs to scroll
+	 * Checks if content needs to scroll and restore the scrollstate if needed
 	 */
-	private checkIfContentNeedsToScroll(): void {
-		const { hScroll: h, vScroll: v } = this.containerIsScrollable('.column-cards');
+	private checkIfContentNeedsToScroll() {
+		const { hScroll: h, vScroll: v } = this.containerIsScrollable(this.scrollableContainer);
 		this.horizontalScrolling = h;
 		this.verticalScrolling = v;
 
 		this.cd.markForCheck();
+		if (this.scrollStates && (this.horizontalScrolling || this.verticalScrolling)) {
+			setTimeout(() => {
+				if (this.restoreScrollState(h, v, this.scrollStates )) {
+					this.scrollStates = null;
+				}
+			}, 500);
+
+		}
 	}
 
 
@@ -248,10 +263,25 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			this.matchAndSetInitialCollapseState();
 
 			this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
-
-			// this.cd.markForCheck();
 			this.checkIfContentNeedsToScroll();
+
 		});
+	}
+
+	private restoreScrollState(hScrollable: boolean, vScrollable: boolean, scrollState: ScrollState): boolean {
+		const scrollContainer: HTMLElement = this.elRef.nativeElement.querySelector(this.scrollableContainer);
+
+		if (scrollContainer && scrollState) {
+			if (vScrollable) {
+				scrollContainer.scrollTop = scrollState.scrollTop;
+			}
+
+			if (hScrollable) {
+				scrollContainer.scrollLeft = scrollState.scrollLeft;
+			}
+			return true;
+		}
+		return false;
 	}
 
 	/**

@@ -85,7 +85,9 @@ export interface CollapseEvent {
 	overallCollapseState: CollapseState[];
 }
 
-
+/**
+ * Scroll event
+ */
 export interface ScrollEvent {
 	axis: 'x' | 'y';
 	distance: number;
@@ -95,4 +97,12 @@ export interface ScrollEvent {
 	isScrolling?: boolean;
 
 	hasReachedEnd?: boolean;
+}
+
+/**
+ * Scroll state
+ */
+export interface ScrollState {
+	scrollTop: number;
+	scrollLeft: number;
 }
