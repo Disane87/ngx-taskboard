@@ -5,12 +5,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxTaskboardModule } from '@disane/ngx-taskboard';
 import { AppComponent } from './app.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+
+library.add(fas, far, fab);
+
 @NgModule({
   declarations: [
-    AppComponent
+	AppComponent
   ],
   imports: [
-    BrowserModule, NgxTaskboardModule, HttpClientModule
+	BrowserModule, NgxTaskboardModule, HttpClientModule, FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

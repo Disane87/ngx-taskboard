@@ -31,7 +31,7 @@
                    <div class="content-data">
 
 <h1 id="ngx-taskboard">ngx-taskboard</h1>
-<p><img src="https://api.codeclimate.com/v1/badges/e7183f0854e6cf832261/maintainability" alt="badge" class="img-responsive"> <a href="https://codecov.io/gh/Disane87/ngx-taskboard"><img src="https://codecov.io/gh/Disane87/ngx-taskboard/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a> <img src="https://img.shields.io/npm/v/@disane/ngx-taskboard" alt="badge" class="img-responsive"> <img src="https://img.shields.io/bundlephobia/minzip/@disane/ngx-taskboard" alt="npm bundle size (scoped)" class="img-responsive"></p>
+<p><img src="https://api.codeclimate.com/v1/badges/e7183f0854e6cf832261/maintainability" alt="badge" class="img-responsive"> <a href="https://codecov.io/gh/Disane87/ngx-taskboard"><img src="https://codecov.io/gh/Disane87/ngx-taskboard/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a> <img src="https://img.shields.io/npm/v/@disane/ngx-taskboard" alt="badge" class="img-responsive"> <img src="https://img.shields.io/bundlephobia/minzip/@disane/ngx-taskboard" alt="npm bundle size (scoped)" class="img-responsive"> <a href="https://travis-ci.org/Disane87/ngx-taskboard"><img src="https://travis-ci.org/Disane87/ngx-taskboard.svg?branch=master" alt="Build Status" class="img-responsive"></a> <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly" class="img-responsive"></a></p>
 <p><code>ngx-taskboard</code> is an implemention of my on taskboard, because all other taskboards are not that what I need. Feel free to contribute or leave some important feedback! Head over to the <a href="https://github.com/Disane87/ngx-taskboard/issues">issues</a> when you have questions or found a bug or leave a PR if you have som additions. Styling is made with <a href="https://github.com/twbs/bootstrap">Bootstrap</a>, so it&#39;s 100% compatible.</p>
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -45,13 +45,15 @@
 <li><a href="#configuration">Configuration</a><ul>
 <li><a href="#properties">Properties</a></li>
 <li><a href="#events">Events</a></li>
-</ul>
-</li>
 <li><a href="#interfaces">Interfaces</a></li>
-<li><a href="#examples">Examples</a></li>
 </ul>
 </li>
-<li><a href="#limitations">Limitations</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#basic-examples">Basic examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#contributing">Contributing</a><ul>
 <li><a href="#installation-the-project">Installation the project</a></li>
 </ul>
@@ -144,6 +146,12 @@ export class AppComponent {
 <td></td>
 </tr>
 <tr>
+<td>backlogWidth</td>
+<td><code>${this.columnWidth}px</code></td>
+<td>Width of the backlog row, when activated. You can use all valid css units. Default is columnWidth</td>
+<td></td>
+</tr>
+<tr>
 <td>boardName</td>
 <td>&#39;&#39;</td>
 <td>Board name to show between row and column header</td>
@@ -182,8 +190,8 @@ export class AppComponent {
 <tr>
 <td>filterOnProperties</td>
 <td>[]</td>
-<td>Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched</td>
-<td>Array&lt;string&gt;</td>
+<td>Specify the properties which will be searched for the given termin filter. If not properties are given, all will be searched</td>
+<td>string[]</td>
 </tr>
 <tr>
 <td>filterRowPlaceholder</td>
@@ -213,7 +221,7 @@ export class AppComponent {
 <td>hGroupKeys</td>
 <td>[]</td>
 <td>Grouping keys for columns (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.If you want to show emtpy rows, please set them</td>
-<td>Array&lt;string&gt;</td>
+<td>(string | GroupHeading)[]</td>
 </tr>
 <tr>
 <td>hHeaderClass</td>
@@ -228,6 +236,12 @@ export class AppComponent {
 <td>TemplateRef&lt;any&gt;</td>
 </tr>
 <tr>
+<td>initialCollapseState</td>
+<td>[]</td>
+<td>The collapse state which is applied when set initially</td>
+<td>CollapseState[]</td>
+</tr>
+<tr>
 <td>invertGroupDirection</td>
 <td>false</td>
 <td>Invert rows and columns</td>
@@ -235,9 +249,9 @@ export class AppComponent {
 </tr>
 <tr>
 <td>items</td>
+<td></td>
+<td></td>
 <td>[]</td>
-<td>Items to display</td>
-<td>Array&lt;CardItem&gt; | Array<object></td>
 </tr>
 <tr>
 <td>itemTemplate</td>
@@ -250,12 +264,6 @@ export class AppComponent {
 <td>null</td>
 <td>Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples)</td>
 <td>TemplateRef&lt;any&gt;</td>
-</tr>
-<tr>
-<td>scrollable</td>
-<td>false</td>
-<td>If set to true, the rows and columns are scrollable and will be out of the viewport.If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)</td>
-<td></td>
 </tr>
 <tr>
 <td>showBacklog</td>
@@ -327,7 +335,7 @@ export class AppComponent {
 <td>vGroupKeys</td>
 <td>[]</td>
 <td>Grouping keys for rows (if not passed, the keys will be determined out of the items)Caution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.If you want to show emtpy rows, please set them</td>
-<td>Array&lt;string&gt;</td>
+<td>(string | GroupHeading)[]</td>
 </tr>
 <tr>
 <td>vHeaderClass</td>
@@ -365,7 +373,7 @@ export class AppComponent {
 </tr>
 <tr>
 <td>dropped</td>
-<td>new EventEmitter&lt;object&gt;()</td>
+<td>new EventEmitter&lt;DropEvent&gt;()</td>
 <td>Fired when an item is dropped. Current item is passed</td>
 <td>EventEmitter</td>
 </tr>
@@ -375,11 +383,35 @@ export class AppComponent {
 <td>Fired when an add action is click. Current ClickEvent is passed</td>
 <td>EventEmitter</td>
 </tr>
+<tr>
+<td>headingCollapsed</td>
+<td>new EventEmitter&lt;CollapseEvent&gt;()</td>
+<td>Fired when a heading is collapsed. CollapseEvent is emitted</td>
+<td>EventEmitter</td>
+</tr>
+<tr>
+<td>isScrolling</td>
+<td>new EventEmitter<ScrollEvent>()</td>
+<td></td>
+<td>EventEmitter</td>
+</tr>
+<tr>
+<td>scrolledToEnd</td>
+<td>new EventEmitter<ScrollEvent>()</td>
+<td></td>
+<td>EventEmitter</td>
+</tr>
+<tr>
+<td>scrollEnded</td>
+<td>new EventEmitter<ScrollEvent>()</td>
+<td></td>
+<td>EventEmitter</td>
+</tr>
 </tbody>
 </table>
 <!-- End AutoDoc components-name=BoardComponent-outputsClass -->
 
-<h2 id="interfaces">Interfaces</h2>
+<h3 id="interfaces">Interfaces</h3>
 <!-- Start AutoDoc Interfaces -->
 <table class="table table-bordered compodoc-table">
 <thead>
@@ -401,9 +433,19 @@ export class AppComponent {
 <td>Datatype which is emitted when an item should be added</td>
 </tr>
 <tr>
+<td>CollapseEvent</td>
+<td>interface</td>
+<td>Object for the headings in which you can set color etc.</td>
+</tr>
+<tr>
 <td>CollapseState</td>
 <td>interface</td>
 <td>All the collapse stated of every group item (horizontal / vertical)</td>
+</tr>
+<tr>
+<td>DropEvent</td>
+<td>interface</td>
+<td>Event which is fired when an item is dropped</td>
 </tr>
 <tr>
 <td>GroupHeading</td>
@@ -420,25 +462,23 @@ export class AppComponent {
 <td>interface</td>
 <td>Object to determine the scrollability</td>
 </tr>
+<tr>
+<td>ScrollEvent</td>
+<td>interface</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <!-- End AutoDoc Interfaces -->
 
 <h2 id="examples">Examples</h2>
-<p>Following soon</p>
-<h1 id="limitations">Limitations</h1>
-<ul>
-<li>Scrolling actually not possible</li>
-</ul>
+<h3 id="basic-examples">Basic examples</h3>
+<p><a href="https://stackblitz.com/edit/disane-ngx-taskboard?embed=1&amp;file=src/app/app.component.html&amp;hideExplorer=1&amp;hideNavigation=1&amp;view=preview">https://stackblitz.com/edit/disane-ngx-taskboard?embed=1&amp;file=src/app/app.component.html&amp;hideExplorer=1&amp;hideNavigation=1&amp;view=preview</a></p>
 <h1 id="contributing">Contributing</h1>
 <h2 id="installation-the-project">Installation the project</h2>
-<div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/Disane87/ngx-taskboard.git .</code></pre></div><p>Since this is a Angular library, you have can&#39;t start it as standalone, like a normal Angular application. Instead, you have to build it with <code>ng build . --watch</code> and link it with <code>npm link</code>. The link process creates a symlink to your global <code>npm</code> which you can access from other projects.</p>
-<p>In your test or real project, you have to add the package, but only with another command <code>npm link @disane/ngx-taskboard --save</code>. This means, you are not obtaining the package from <code>npm</code>, instead you are symlinking it to you global <code>npm</code> which has a reference to the above created link in your project.</p>
-<p>This is a bit odd, but you can read more about it <a href="https://docs.npmjs.com/cli/link">here</a>.</p>
-<p>If you have an existing Angular library project with a tets application, you can work here with <a href="https://github.blog/2016-02-01-working-with-submodules/">submoduling</a> in git, instead of a <code>git clone</code>:</p>
-<p>git submodule add <a href="https://github.com/Disane87/ngx-taskboard.git%60">https://github.com/Disane87/ngx-taskboard.git`</a></p>
-<p>And now, have some fun! 😊
-w, have some fun! 😊</p>
+<div><pre class="line-numbers"><code class="language-bash">git clone https://github.com/Disane87/ngx-taskboard.git .</code></pre></div><p>Installing deps:</p>
+<div><pre class="line-numbers"><code class="language-bash">npm install</code></pre></div><p>If you use <a href="https://code.visualstudio.com/">Visual Studio Code</a>, just use the included <code>ngx-taskboard.code-workspace</code>, install recommended extensions and hit <code>F5</code> to debug.</p>
+<p>And now, have some fun! 😊</p>
 
 
 

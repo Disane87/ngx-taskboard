@@ -230,12 +230,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface CardItem {
-    id: number;
-    name: string;
-    status?: string;
-    color?: string;
-    user?: string;
-    priority?: number;
+	id: number;
+	name: string;
+	status?: string;
+	color?: string;
+	user?: string;
+	priority?: number;
 }
 
 /**
@@ -244,18 +244,18 @@
  * @export
  */
 export interface CollapseState {
-    name: string;
-    collapsed: boolean;
+	name: string;
+	collapsed: boolean;
 }
 
 /**
  * Object to determine the scrollability
- * 
+ *
  * @export
  */
 export interface Scrollable {
-    hScroll: boolean;
-    vScroll: boolean;
+	hScroll: boolean;
+	vScroll: boolean;
 }
 
 /**
@@ -264,9 +264,17 @@ export interface Scrollable {
  * @export
  */
 export interface ClickEvent {
-    hGroup: string;
-    vGroup: string;
+	item: object;
+	hGroup: string | GroupHeading;
+	vGroup: string | GroupHeading;
 }
+
+/** Event which is fired when an item is dropped */
+export interface DropEvent extends ClickEvent {
+	itemBeforeChange: object;
+	nativeItemElement?: HTMLElement;
+}
+
 
 /**
  * Group keys to determine the correct groups internally
@@ -274,21 +282,46 @@ export interface ClickEvent {
  * @export
  */
 export interface GroupKeys {
-    hGroupKey: string;
-    vGroupKey: string;
+	hGroupKey: string;
+	vGroupKey: string;
 }
 
 /**
  * Object for the headings in which you can set color etc.
- * 
+ *
  * @export
  */
 export interface GroupHeading {
-    value: string;
-    display: string;
-    color: string;
-    orderId: number;
-}</code></pre>
+	value: string;
+	display: string;
+	color: string;
+	orderId: number;
+}
+
+/**
+ * Object for the headings in which you can set color etc.
+ *
+ * @export
+ */
+export interface CollapseEvent {
+	group: string | GroupHeading;
+	collapsed: boolean;
+
+	overallCollapseState: CollapseState[];
+}
+
+
+export interface ScrollEvent {
+	axis: &#x27;x&#x27; | &#x27;y&#x27;;
+	distance: number;
+
+	maxDistance: number;
+
+	isScrolling?: boolean;
+
+	hasReachedEnd?: boolean;
+}
+</code></pre>
     </div>
 </div>
 

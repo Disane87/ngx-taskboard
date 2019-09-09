@@ -5,6 +5,6 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class TaskboardService {
 
-	filterChanged$ = new EventEmitter<string>();
-	objectProperties: Array<string> = [];
+	public filterChanged$ = new EventEmitter<string>();
+	public objectProperties: string[] = [];
 }

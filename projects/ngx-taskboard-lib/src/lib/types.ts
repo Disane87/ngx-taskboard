@@ -72,3 +72,37 @@ export interface GroupHeading {
 	color: string;
 	orderId: number;
 }
+
+/**
+ * Object for the headings in which you can set color etc.
+ *
+ * @export
+ */
+export interface CollapseEvent {
+	group: string | GroupHeading;
+	collapsed: boolean;
+
+	overallCollapseState: CollapseState[];
+}
+
+/**
+ * Scroll event
+ */
+export interface ScrollEvent {
+	axis: 'x' | 'y';
+	distance: number;
+
+	maxDistance: number;
+
+	isScrolling?: boolean;
+
+	hasReachedEnd?: boolean;
+}
+
+/**
+ * Scroll state
+ */
+export interface ScrollState {
+	scrollTop: number;
+	scrollLeft: number;
+}

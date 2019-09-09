@@ -2,17 +2,16 @@
   "name": "@disane/ngx-taskboard",
   "version": "1.2.0",
   "scripts": {
-    "release": "release-it --ci",
     "lint": "ng lint ngx-taskboard-lib --fix",
     "build:pre": "npx doctoc ./README.md && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json && npx compodoc --output ./docs/ --tsconfig ./projects/ngx-taskboard-lib/tsconfig.lib.json --exportFormat json && node ./scripts/extractCompoDoc.js",
     "build": "ng config -g cli.warnings.versionMismatch false && ng build ngx-taskboard-lib",
-    "test:release": "npm run release -- patch --no-increment --no-npm --no-git.commit --no-git.tag --no-git.push --no-github.release",
     "semantic-release": "npx semantic-release",
     "build:watch": "ng build ngx-taskboard-lib --watch",
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
     "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
     "start": "ng serve",
     "semantic-release:run": "npm run lint && npm run build:pre && npm run build && node ./scripts/copyFile.js && npm run semantic-release",
+    "test:release": "npm run semantic-release -- -d -b dev",
     "commit": "npx git-cz",
     "test": "ng test ngx-taskboard-lib --watch=false --code-coverage"
   },
