@@ -3,10 +3,10 @@
     "interfaces": [
         {
             "name": "CardItem",
-            "id": "interface-CardItem-d13816702e715b16b8d75ca624776de4",
+            "id": "interface-CardItem-279b44857db260f0e6838ab731e23c97",
             "file": "projects/ngx-taskboard-lib/src/lib/types.ts",
             "type": "interface",
-            "sourceCode": "export interface CardItem {\r\n    id: number;\r\n    name: string;\r\n    status?: string;\r\n    color?: string;\r\n    user?: string;\r\n    priority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n    name: string;\r\n    collapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n * \r\n * @export\r\n */\r\nexport interface Scrollable {\r\n    hScroll: boolean;\r\n    vScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n    hGroup: string;\r\n    vGroup: string;\r\n}\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n    hGroupKey: string;\r\n    vGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n * \r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n    value: string;\r\n    display: string;\r\n    color: string;\r\n    orderId: number;\r\n}",
+            "sourceCode": "export interface CardItem {\r\n\tid: number;\r\n\tname: string;\r\n\tstatus?: string;\r\n\tcolor?: string;\r\n\tuser?: string;\r\n\tpriority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n\tname: string;\r\n\tcollapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n *\r\n * @export\r\n */\r\nexport interface Scrollable {\r\n\thScroll: boolean;\r\n\tvScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n\titem: object;\r\n\thGroup: string | GroupHeading;\r\n\tvGroup: string | GroupHeading;\r\n}\r\n\r\n/** Event which is fired when an item is dropped */\r\nexport interface DropEvent extends ClickEvent {\r\n\titemBeforeChange: object;\r\n\tnativeItemElement?: HTMLElement;\r\n}\r\n\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n\thGroupKey: string;\r\n\tvGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n\tvalue: string;\r\n\tdisplay: string;\r\n\tcolor: string;\r\n\torderId: number;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface CollapseEvent {\r\n\tgroup: string | GroupHeading;\r\n\tcollapsed: boolean;\r\n\r\n\toverallCollapseState: CollapseState[];\r\n}\r\n\r\n\r\nexport interface ScrollEvent {\r\n\taxis: 'x' | 'y';\r\n\tdistance: number;\r\n\r\n\tmaxDistance: number;\r\n\r\n\tisScrolling?: boolean;\r\n\r\n\thasReachedEnd?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "color",
@@ -58,24 +58,31 @@
         },
         {
             "name": "ClickEvent",
-            "id": "interface-ClickEvent-d13816702e715b16b8d75ca624776de4",
+            "id": "interface-ClickEvent-279b44857db260f0e6838ab731e23c97",
             "file": "projects/ngx-taskboard-lib/src/lib/types.ts",
             "type": "interface",
-            "sourceCode": "export interface CardItem {\r\n    id: number;\r\n    name: string;\r\n    status?: string;\r\n    color?: string;\r\n    user?: string;\r\n    priority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n    name: string;\r\n    collapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n * \r\n * @export\r\n */\r\nexport interface Scrollable {\r\n    hScroll: boolean;\r\n    vScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n    hGroup: string;\r\n    vGroup: string;\r\n}\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n    hGroupKey: string;\r\n    vGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n * \r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n    value: string;\r\n    display: string;\r\n    color: string;\r\n    orderId: number;\r\n}",
+            "sourceCode": "export interface CardItem {\r\n\tid: number;\r\n\tname: string;\r\n\tstatus?: string;\r\n\tcolor?: string;\r\n\tuser?: string;\r\n\tpriority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n\tname: string;\r\n\tcollapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n *\r\n * @export\r\n */\r\nexport interface Scrollable {\r\n\thScroll: boolean;\r\n\tvScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n\titem: object;\r\n\thGroup: string | GroupHeading;\r\n\tvGroup: string | GroupHeading;\r\n}\r\n\r\n/** Event which is fired when an item is dropped */\r\nexport interface DropEvent extends ClickEvent {\r\n\titemBeforeChange: object;\r\n\tnativeItemElement?: HTMLElement;\r\n}\r\n\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n\thGroupKey: string;\r\n\tvGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n\tvalue: string;\r\n\tdisplay: string;\r\n\tcolor: string;\r\n\torderId: number;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface CollapseEvent {\r\n\tgroup: string | GroupHeading;\r\n\tcollapsed: boolean;\r\n\r\n\toverallCollapseState: CollapseState[];\r\n}\r\n\r\n\r\nexport interface ScrollEvent {\r\n\taxis: 'x' | 'y';\r\n\tdistance: number;\r\n\r\n\tmaxDistance: number;\r\n\r\n\tisScrolling?: boolean;\r\n\r\n\thasReachedEnd?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "hGroup",
-                    "type": "string",
+                    "type": "string | GroupHeading",
+                    "optional": false,
+                    "description": "",
+                    "line": 43
+                },
+                {
+                    "name": "item",
+                    "type": "object",
                     "optional": false,
                     "description": "",
                     "line": 42
                 },
                 {
                     "name": "vGroup",
-                    "type": "string",
+                    "type": "string | GroupHeading",
                     "optional": false,
                     "description": "",
-                    "line": 43
+                    "line": 44
                 }
             ],
             "indexSignatures": [],
@@ -84,11 +91,45 @@
             "methods": []
         },
         {
-            "name": "CollapseState",
-            "id": "interface-CollapseState-d13816702e715b16b8d75ca624776de4",
+            "name": "CollapseEvent",
+            "id": "interface-CollapseEvent-279b44857db260f0e6838ab731e23c97",
             "file": "projects/ngx-taskboard-lib/src/lib/types.ts",
             "type": "interface",
-            "sourceCode": "export interface CardItem {\r\n    id: number;\r\n    name: string;\r\n    status?: string;\r\n    color?: string;\r\n    user?: string;\r\n    priority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n    name: string;\r\n    collapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n * \r\n * @export\r\n */\r\nexport interface Scrollable {\r\n    hScroll: boolean;\r\n    vScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n    hGroup: string;\r\n    vGroup: string;\r\n}\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n    hGroupKey: string;\r\n    vGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n * \r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n    value: string;\r\n    display: string;\r\n    color: string;\r\n    orderId: number;\r\n}",
+            "sourceCode": "export interface CardItem {\r\n\tid: number;\r\n\tname: string;\r\n\tstatus?: string;\r\n\tcolor?: string;\r\n\tuser?: string;\r\n\tpriority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n\tname: string;\r\n\tcollapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n *\r\n * @export\r\n */\r\nexport interface Scrollable {\r\n\thScroll: boolean;\r\n\tvScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n\titem: object;\r\n\thGroup: string | GroupHeading;\r\n\tvGroup: string | GroupHeading;\r\n}\r\n\r\n/** Event which is fired when an item is dropped */\r\nexport interface DropEvent extends ClickEvent {\r\n\titemBeforeChange: object;\r\n\tnativeItemElement?: HTMLElement;\r\n}\r\n\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n\thGroupKey: string;\r\n\tvGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n\tvalue: string;\r\n\tdisplay: string;\r\n\tcolor: string;\r\n\torderId: number;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface CollapseEvent {\r\n\tgroup: string | GroupHeading;\r\n\tcollapsed: boolean;\r\n\r\n\toverallCollapseState: CollapseState[];\r\n}\r\n\r\n\r\nexport interface ScrollEvent {\r\n\taxis: 'x' | 'y';\r\n\tdistance: number;\r\n\r\n\tmaxDistance: number;\r\n\r\n\tisScrolling?: boolean;\r\n\r\n\thasReachedEnd?: boolean;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "collapsed",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 83
+                },
+                {
+                    "name": "group",
+                    "type": "string | GroupHeading",
+                    "optional": false,
+                    "description": "",
+                    "line": 82
+                },
+                {
+                    "name": "overallCollapseState",
+                    "type": "CollapseState[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 85
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "description": "<p>Object for the headings in which you can set color etc.</p>\n",
+            "methods": []
+        },
+        {
+            "name": "CollapseState",
+            "id": "interface-CollapseState-279b44857db260f0e6838ab731e23c97",
+            "file": "projects/ngx-taskboard-lib/src/lib/types.ts",
+            "type": "interface",
+            "sourceCode": "export interface CardItem {\r\n\tid: number;\r\n\tname: string;\r\n\tstatus?: string;\r\n\tcolor?: string;\r\n\tuser?: string;\r\n\tpriority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n\tname: string;\r\n\tcollapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n *\r\n * @export\r\n */\r\nexport interface Scrollable {\r\n\thScroll: boolean;\r\n\tvScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n\titem: object;\r\n\thGroup: string | GroupHeading;\r\n\tvGroup: string | GroupHeading;\r\n}\r\n\r\n/** Event which is fired when an item is dropped */\r\nexport interface DropEvent extends ClickEvent {\r\n\titemBeforeChange: object;\r\n\tnativeItemElement?: HTMLElement;\r\n}\r\n\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n\thGroupKey: string;\r\n\tvGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n\tvalue: string;\r\n\tdisplay: string;\r\n\tcolor: string;\r\n\torderId: number;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface CollapseEvent {\r\n\tgroup: string | GroupHeading;\r\n\tcollapsed: boolean;\r\n\r\n\toverallCollapseState: CollapseState[];\r\n}\r\n\r\n\r\nexport interface ScrollEvent {\r\n\taxis: 'x' | 'y';\r\n\tdistance: number;\r\n\r\n\tmaxDistance: number;\r\n\r\n\tisScrolling?: boolean;\r\n\r\n\thasReachedEnd?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "collapsed",
@@ -111,39 +152,67 @@
             "methods": []
         },
         {
-            "name": "GroupHeading",
-            "id": "interface-GroupHeading-d13816702e715b16b8d75ca624776de4",
+            "name": "DropEvent",
+            "id": "interface-DropEvent-279b44857db260f0e6838ab731e23c97",
             "file": "projects/ngx-taskboard-lib/src/lib/types.ts",
             "type": "interface",
-            "sourceCode": "export interface CardItem {\r\n    id: number;\r\n    name: string;\r\n    status?: string;\r\n    color?: string;\r\n    user?: string;\r\n    priority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n    name: string;\r\n    collapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n * \r\n * @export\r\n */\r\nexport interface Scrollable {\r\n    hScroll: boolean;\r\n    vScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n    hGroup: string;\r\n    vGroup: string;\r\n}\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n    hGroupKey: string;\r\n    vGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n * \r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n    value: string;\r\n    display: string;\r\n    color: string;\r\n    orderId: number;\r\n}",
+            "sourceCode": "export interface CardItem {\r\n\tid: number;\r\n\tname: string;\r\n\tstatus?: string;\r\n\tcolor?: string;\r\n\tuser?: string;\r\n\tpriority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n\tname: string;\r\n\tcollapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n *\r\n * @export\r\n */\r\nexport interface Scrollable {\r\n\thScroll: boolean;\r\n\tvScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n\titem: object;\r\n\thGroup: string | GroupHeading;\r\n\tvGroup: string | GroupHeading;\r\n}\r\n\r\n/** Event which is fired when an item is dropped */\r\nexport interface DropEvent extends ClickEvent {\r\n\titemBeforeChange: object;\r\n\tnativeItemElement?: HTMLElement;\r\n}\r\n\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n\thGroupKey: string;\r\n\tvGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n\tvalue: string;\r\n\tdisplay: string;\r\n\tcolor: string;\r\n\torderId: number;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface CollapseEvent {\r\n\tgroup: string | GroupHeading;\r\n\tcollapsed: boolean;\r\n\r\n\toverallCollapseState: CollapseState[];\r\n}\r\n\r\n\r\nexport interface ScrollEvent {\r\n\taxis: 'x' | 'y';\r\n\tdistance: number;\r\n\r\n\tmaxDistance: number;\r\n\r\n\tisScrolling?: boolean;\r\n\r\n\thasReachedEnd?: boolean;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "itemBeforeChange",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 49
+                },
+                {
+                    "name": "nativeItemElement",
+                    "type": "HTMLElement",
+                    "optional": true,
+                    "description": "",
+                    "line": 50
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "description": "<p>Event which is fired when an item is dropped </p>\n",
+            "methods": [],
+            "extends": "ClickEvent"
+        },
+        {
+            "name": "GroupHeading",
+            "id": "interface-GroupHeading-279b44857db260f0e6838ab731e23c97",
+            "file": "projects/ngx-taskboard-lib/src/lib/types.ts",
+            "type": "interface",
+            "sourceCode": "export interface CardItem {\r\n\tid: number;\r\n\tname: string;\r\n\tstatus?: string;\r\n\tcolor?: string;\r\n\tuser?: string;\r\n\tpriority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n\tname: string;\r\n\tcollapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n *\r\n * @export\r\n */\r\nexport interface Scrollable {\r\n\thScroll: boolean;\r\n\tvScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n\titem: object;\r\n\thGroup: string | GroupHeading;\r\n\tvGroup: string | GroupHeading;\r\n}\r\n\r\n/** Event which is fired when an item is dropped */\r\nexport interface DropEvent extends ClickEvent {\r\n\titemBeforeChange: object;\r\n\tnativeItemElement?: HTMLElement;\r\n}\r\n\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n\thGroupKey: string;\r\n\tvGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n\tvalue: string;\r\n\tdisplay: string;\r\n\tcolor: string;\r\n\torderId: number;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface CollapseEvent {\r\n\tgroup: string | GroupHeading;\r\n\tcollapsed: boolean;\r\n\r\n\toverallCollapseState: CollapseState[];\r\n}\r\n\r\n\r\nexport interface ScrollEvent {\r\n\taxis: 'x' | 'y';\r\n\tdistance: number;\r\n\r\n\tmaxDistance: number;\r\n\r\n\tisScrolling?: boolean;\r\n\r\n\thasReachedEnd?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "color",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 64
+                    "line": 72
                 },
                 {
                     "name": "display",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 63
+                    "line": 71
                 },
                 {
                     "name": "orderId",
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 65
+                    "line": 73
                 },
                 {
                     "name": "value",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 62
+                    "line": 70
                 }
             ],
             "indexSignatures": [],
@@ -153,24 +222,24 @@
         },
         {
             "name": "GroupKeys",
-            "id": "interface-GroupKeys-d13816702e715b16b8d75ca624776de4",
+            "id": "interface-GroupKeys-279b44857db260f0e6838ab731e23c97",
             "file": "projects/ngx-taskboard-lib/src/lib/types.ts",
             "type": "interface",
-            "sourceCode": "export interface CardItem {\r\n    id: number;\r\n    name: string;\r\n    status?: string;\r\n    color?: string;\r\n    user?: string;\r\n    priority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n    name: string;\r\n    collapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n * \r\n * @export\r\n */\r\nexport interface Scrollable {\r\n    hScroll: boolean;\r\n    vScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n    hGroup: string;\r\n    vGroup: string;\r\n}\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n    hGroupKey: string;\r\n    vGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n * \r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n    value: string;\r\n    display: string;\r\n    color: string;\r\n    orderId: number;\r\n}",
+            "sourceCode": "export interface CardItem {\r\n\tid: number;\r\n\tname: string;\r\n\tstatus?: string;\r\n\tcolor?: string;\r\n\tuser?: string;\r\n\tpriority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n\tname: string;\r\n\tcollapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n *\r\n * @export\r\n */\r\nexport interface Scrollable {\r\n\thScroll: boolean;\r\n\tvScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n\titem: object;\r\n\thGroup: string | GroupHeading;\r\n\tvGroup: string | GroupHeading;\r\n}\r\n\r\n/** Event which is fired when an item is dropped */\r\nexport interface DropEvent extends ClickEvent {\r\n\titemBeforeChange: object;\r\n\tnativeItemElement?: HTMLElement;\r\n}\r\n\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n\thGroupKey: string;\r\n\tvGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n\tvalue: string;\r\n\tdisplay: string;\r\n\tcolor: string;\r\n\torderId: number;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface CollapseEvent {\r\n\tgroup: string | GroupHeading;\r\n\tcollapsed: boolean;\r\n\r\n\toverallCollapseState: CollapseState[];\r\n}\r\n\r\n\r\nexport interface ScrollEvent {\r\n\taxis: 'x' | 'y';\r\n\tdistance: number;\r\n\r\n\tmaxDistance: number;\r\n\r\n\tisScrolling?: boolean;\r\n\r\n\thasReachedEnd?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "hGroupKey",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 52
+                    "line": 60
                 },
                 {
                     "name": "vGroupKey",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 53
+                    "line": 61
                 }
             ],
             "indexSignatures": [],
@@ -180,10 +249,10 @@
         },
         {
             "name": "Scrollable",
-            "id": "interface-Scrollable-d13816702e715b16b8d75ca624776de4",
+            "id": "interface-Scrollable-279b44857db260f0e6838ab731e23c97",
             "file": "projects/ngx-taskboard-lib/src/lib/types.ts",
             "type": "interface",
-            "sourceCode": "export interface CardItem {\r\n    id: number;\r\n    name: string;\r\n    status?: string;\r\n    color?: string;\r\n    user?: string;\r\n    priority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n    name: string;\r\n    collapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n * \r\n * @export\r\n */\r\nexport interface Scrollable {\r\n    hScroll: boolean;\r\n    vScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n    hGroup: string;\r\n    vGroup: string;\r\n}\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n    hGroupKey: string;\r\n    vGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n * \r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n    value: string;\r\n    display: string;\r\n    color: string;\r\n    orderId: number;\r\n}",
+            "sourceCode": "export interface CardItem {\r\n\tid: number;\r\n\tname: string;\r\n\tstatus?: string;\r\n\tcolor?: string;\r\n\tuser?: string;\r\n\tpriority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n\tname: string;\r\n\tcollapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n *\r\n * @export\r\n */\r\nexport interface Scrollable {\r\n\thScroll: boolean;\r\n\tvScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n\titem: object;\r\n\thGroup: string | GroupHeading;\r\n\tvGroup: string | GroupHeading;\r\n}\r\n\r\n/** Event which is fired when an item is dropped */\r\nexport interface DropEvent extends ClickEvent {\r\n\titemBeforeChange: object;\r\n\tnativeItemElement?: HTMLElement;\r\n}\r\n\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n\thGroupKey: string;\r\n\tvGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n\tvalue: string;\r\n\tdisplay: string;\r\n\tcolor: string;\r\n\torderId: number;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface CollapseEvent {\r\n\tgroup: string | GroupHeading;\r\n\tcollapsed: boolean;\r\n\r\n\toverallCollapseState: CollapseState[];\r\n}\r\n\r\n\r\nexport interface ScrollEvent {\r\n\taxis: 'x' | 'y';\r\n\tdistance: number;\r\n\r\n\tmaxDistance: number;\r\n\r\n\tisScrolling?: boolean;\r\n\r\n\thasReachedEnd?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "hScroll",
@@ -204,12 +273,59 @@
             "kind": 150,
             "description": "<p>Object to determine the scrollability</p>\n",
             "methods": []
+        },
+        {
+            "name": "ScrollEvent",
+            "id": "interface-ScrollEvent-279b44857db260f0e6838ab731e23c97",
+            "file": "projects/ngx-taskboard-lib/src/lib/types.ts",
+            "type": "interface",
+            "sourceCode": "export interface CardItem {\r\n\tid: number;\r\n\tname: string;\r\n\tstatus?: string;\r\n\tcolor?: string;\r\n\tuser?: string;\r\n\tpriority?: number;\r\n}\r\n\r\n/**\r\n * All the collapse stated of every group item (horizontal / vertical)\r\n *\r\n * @export\r\n */\r\nexport interface CollapseState {\r\n\tname: string;\r\n\tcollapsed: boolean;\r\n}\r\n\r\n/**\r\n * Object to determine the scrollability\r\n *\r\n * @export\r\n */\r\nexport interface Scrollable {\r\n\thScroll: boolean;\r\n\tvScroll: boolean;\r\n}\r\n\r\n/**\r\n * Datatype which is emitted when an item should be added\r\n *\r\n * @export\r\n */\r\nexport interface ClickEvent {\r\n\titem: object;\r\n\thGroup: string | GroupHeading;\r\n\tvGroup: string | GroupHeading;\r\n}\r\n\r\n/** Event which is fired when an item is dropped */\r\nexport interface DropEvent extends ClickEvent {\r\n\titemBeforeChange: object;\r\n\tnativeItemElement?: HTMLElement;\r\n}\r\n\r\n\r\n/**\r\n * Group keys to determine the correct groups internally\r\n *\r\n * @export\r\n */\r\nexport interface GroupKeys {\r\n\thGroupKey: string;\r\n\tvGroupKey: string;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface GroupHeading {\r\n\tvalue: string;\r\n\tdisplay: string;\r\n\tcolor: string;\r\n\torderId: number;\r\n}\r\n\r\n/**\r\n * Object for the headings in which you can set color etc.\r\n *\r\n * @export\r\n */\r\nexport interface CollapseEvent {\r\n\tgroup: string | GroupHeading;\r\n\tcollapsed: boolean;\r\n\r\n\toverallCollapseState: CollapseState[];\r\n}\r\n\r\n\r\nexport interface ScrollEvent {\r\n\taxis: 'x' | 'y';\r\n\tdistance: number;\r\n\r\n\tmaxDistance: number;\r\n\r\n\tisScrolling?: boolean;\r\n\r\n\thasReachedEnd?: boolean;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "axis",
+                    "type": "\"x\" | \"y\"",
+                    "optional": false,
+                    "description": "",
+                    "line": 90
+                },
+                {
+                    "name": "distance",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 91
+                },
+                {
+                    "name": "hasReachedEnd",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 97
+                },
+                {
+                    "name": "isScrolling",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 95
+                },
+                {
+                    "name": "maxDistance",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 93
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
         }
     ],
     "injectables": [
         {
             "name": "TaskboardService",
-            "id": "injectable-TaskboardService-7062e0e5e14bcd052efe4ad1e05ad837",
+            "id": "injectable-TaskboardService-08a731e2ab2d64431ff63b45861f216a",
             "file": "projects/ngx-taskboard-lib/src/lib/taskboard.service.ts",
             "properties": [
                 {
@@ -237,13 +353,7 @@
             ],
             "methods": [],
             "description": "",
-            "sourceCode": "import { EventEmitter, Injectable } from \"@angular/core\";\r\n\r\n@Injectable({\r\n  providedIn: \"root\",\r\n})\r\nexport class TaskboardService {\r\n\r\n  public filterChanged$ = new EventEmitter<string>();\r\n  public objectProperties: string[] = [];\r\n\r\n  constructor() { }\r\n}\r\n",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 9
-            },
+            "sourceCode": "import { EventEmitter, Injectable } from '@angular/core';\r\n\r\n@Injectable({\r\n\tprovidedIn: 'root'\r\n})\r\nexport class TaskboardService {\r\n\r\n\tpublic filterChanged$ = new EventEmitter<string>();\r\n\tpublic objectProperties: string[] = [];\r\n}\r\n",
             "type": "injectable"
         }
     ],
@@ -252,7 +362,7 @@
     "components": [
         {
             "name": "BoardComponent",
-            "id": "component-BoardComponent-e27fa3b05f55252c58dc7ef2c516931e",
+            "id": "component-BoardComponent-3baaf54dbf35441981971d81d3e7fee1",
             "file": "projects/ngx-taskboard-lib/src/lib/board/board.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -274,243 +384,225 @@
                     "name": "actionsTemplate",
                     "defaultValue": "null",
                     "description": "<p>Template for actions, add and collapse buttons (see examples) </p>\n",
-                    "line": 89,
+                    "line": 92,
                     "type": "TemplateRef<any>"
                 },
                 {
                     "name": "backlogName",
                     "defaultValue": "'Backlog'",
                     "description": "<p>Name of the backlog row </p>\n",
-                    "line": 18,
-                    "type": "string"
+                    "line": 33
                 },
                 {
                     "name": "backlogWidth",
                     "defaultValue": "`${this.columnWidth}px`",
                     "description": "<p>Width of the backlog row, when activated. You can use all valid css units. Default is columnWidth  </p>\n",
-                    "line": 113,
-                    "type": "string"
+                    "line": 116
                 },
                 {
                     "name": "boardName",
                     "defaultValue": "''",
                     "description": "<p>Board name to show between row and column header </p>\n",
-                    "line": 65,
-                    "type": "string"
+                    "line": 68
                 },
                 {
                     "name": "cellAddNewItems",
                     "defaultValue": "true",
                     "description": "<p>Show add buttons in the cells for columns and rows </p>\n",
-                    "line": 53,
-                    "type": "boolean"
+                    "line": 56
                 },
                 {
                     "name": "cellClass",
                     "defaultValue": "'card-header'",
                     "description": "<p>Default css class for cell header </p>\n",
-                    "line": 107,
-                    "type": "string"
+                    "line": 110
                 },
                 {
                     "name": "columnWidth",
                     "defaultValue": "200",
                     "description": "<p>Column width (in px) which is applied to the columns when the content is scollable </p>\n",
-                    "line": 110,
-                    "type": "number"
+                    "line": 113
                 },
                 {
                     "name": "dragoverPlaceholderTemplate",
                     "defaultValue": "null",
                     "description": "<p>Template for the placeholder element which will be generated when an item is draged over a cell </p>\n",
-                    "line": 92,
+                    "line": 95,
                     "type": "TemplateRef<any>"
                 },
                 {
                     "name": "filter",
                     "defaultValue": "''",
                     "description": "<p>Predefined filter for the searchbar. If set, the items are filtered by the term on init. </p>\n",
-                    "line": 131,
-                    "type": "string"
+                    "line": 134
                 },
                 {
                     "name": "filterOnProperties",
                     "defaultValue": "[]",
-                    "description": "<p>Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched </p>\n",
-                    "line": 134,
-                    "type": "Array<string>"
+                    "description": "<p>Specify the properties which will be searched for the given term\nin filter. If not properties are given, all will be searched</p>\n",
+                    "line": 140,
+                    "type": "string[]"
                 },
                 {
                     "name": "filterRowPlaceholder",
                     "defaultValue": "'Search for items'",
                     "description": "<p>Placeholder for the input with the filter row </p>\n",
-                    "line": 128,
-                    "type": "string"
+                    "line": 131
                 },
                 {
                     "name": "hAddNewItems",
                     "defaultValue": "true",
                     "description": "<p>Show add buttons on the column headings </p>\n",
-                    "line": 47,
-                    "type": "boolean"
+                    "line": 50
                 },
                 {
                     "name": "hCollapsed",
                     "defaultValue": "false",
                     "description": "<p>Columns are collapsed or not on init </p>\n",
-                    "line": 122,
-                    "type": "boolean"
+                    "line": 125
                 },
                 {
                     "name": "hGroupKey",
                     "defaultValue": "''",
                     "description": "<p>Key to group data for columns </p>\n",
-                    "line": 59,
-                    "type": "string"
+                    "line": 62
                 },
                 {
                     "name": "hGroupKeys",
                     "defaultValue": "[]",
                     "description": "<p>Grouping keys for columns (if not passed, the keys will be determined out of the items)\nCaution: If you don&#39;t pass any headings manually, only the columns are shown, which have data.\nIf you want to show emtpy rows, please set them</p>\n",
-                    "line": 37,
-                    "type": "Array<string | GroupHeading>"
+                    "line": 40,
+                    "type": "(string | GroupHeading)[]"
                 },
                 {
                     "name": "hHeaderClass",
                     "defaultValue": "'card-header card-header-bg'",
                     "description": "<p>Default css class for column header </p>\n",
-                    "line": 98,
-                    "type": "string"
+                    "line": 101
                 },
                 {
                     "name": "hHeaderTemplate",
                     "defaultValue": "null",
                     "description": "<p>Template for column headers. Current groupName will be passed (see examples) </p>\n",
-                    "line": 83,
+                    "line": 86,
                     "type": "TemplateRef<any>"
+                },
+                {
+                    "name": "initialCollapseState",
+                    "defaultValue": "[]",
+                    "description": "<p>The collapse state which is applied when set initially</p>\n",
+                    "line": 145,
+                    "type": "CollapseState[]"
                 },
                 {
                     "name": "invertGroupDirection",
                     "defaultValue": "false",
                     "description": "<p>Invert rows and columns </p>\n",
-                    "line": 68,
-                    "type": "boolean"
+                    "line": 71
                 },
                 {
                     "name": "items",
-                    "line": 22,
-                    "type": ""
+                    "line": 19,
+                    "type": "[]"
                 },
                 {
                     "name": "itemTemplate",
                     "defaultValue": "null",
                     "description": "<p>Template for items to render. &quot;item&quot; object ist passed (see examples) </p>\n",
-                    "line": 77,
+                    "line": 80,
                     "type": "TemplateRef<any>"
                 },
                 {
                     "name": "noElementsTemplate",
                     "defaultValue": "null",
                     "description": "<p>Template for collapsed rows to render. &quot;count&quot; object ist passed (see examples) </p>\n",
-                    "line": 80,
+                    "line": 83,
                     "type": "TemplateRef<any>"
                 },
                 {
                     "name": "showBacklog",
                     "defaultValue": "true",
                     "description": "<p>Shows the blacklog on onit </p>\n",
-                    "line": 15,
-                    "type": "boolean"
+                    "line": 30
                 },
                 {
                     "name": "showFilterRow",
                     "defaultValue": "true",
                     "description": "<p>Shows the filter row to search items by filter in filterOnProperties array </p>\n",
-                    "line": 125,
-                    "type": "boolean"
+                    "line": 128
                 },
                 {
                     "name": "showUngroupedInBacklog",
                     "defaultValue": "true",
                     "description": "<p>All items which can&#39;t be grouped into rows and columns are stored into the backlog  </p>\n",
-                    "line": 71,
-                    "type": "boolean"
+                    "line": 74
                 },
                 {
                     "name": "smallText",
                     "defaultValue": "false",
                     "description": "<p>Decrease overall font size </p>\n",
-                    "line": 74,
-                    "type": "boolean"
+                    "line": 77
                 },
                 {
                     "name": "sortBy",
                     "defaultValue": "''",
                     "description": "<p>Sort items by property </p>\n",
-                    "line": 62,
-                    "type": "string"
+                    "line": 65
                 },
                 {
                     "name": "stickyHorizontalHeaderKeys",
                     "defaultValue": "true",
                     "description": "<p>If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true </p>\n",
-                    "line": 101,
-                    "type": "boolean"
+                    "line": 104
                 },
                 {
                     "name": "stickyVerticalHeaderKeys",
                     "defaultValue": "false",
                     "description": "<p>If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true </p>\n",
-                    "line": 104,
-                    "type": "boolean"
+                    "line": 107
                 },
                 {
                     "name": "vAddNewItems",
                     "defaultValue": "true",
                     "description": "<p>Show add buttons on the row headings </p>\n",
-                    "line": 50,
-                    "type": "boolean"
+                    "line": 53
                 },
                 {
                     "name": "vCollapsable",
                     "defaultValue": "true",
                     "description": "<p>Allow to collapse the rows </p>\n",
-                    "line": 116,
-                    "type": "boolean"
+                    "line": 119
                 },
                 {
                     "name": "vCollapsed",
                     "defaultValue": "false",
                     "description": "<p>Rows are collapsed or not on init </p>\n",
-                    "line": 119,
-                    "type": "boolean"
+                    "line": 122
                 },
                 {
                     "name": "vGroupKey",
                     "defaultValue": "''",
                     "description": "<p>Key to group data for rows </p>\n",
-                    "line": 56,
-                    "type": "string"
+                    "line": 59
                 },
                 {
                     "name": "vGroupKeys",
                     "defaultValue": "[]",
                     "description": "<p>Grouping keys for rows (if not passed, the keys will be determined out of the items)\nCaution: If you don&#39;t pass any headings manually, only the rows are shown, which have data.\nIf you want to show emtpy rows, please set them</p>\n",
-                    "line": 44,
-                    "type": "Array<string | GroupHeading>"
+                    "line": 47,
+                    "type": "(string | GroupHeading)[]"
                 },
                 {
                     "name": "vHeaderClass",
                     "defaultValue": "'card-header'",
                     "description": "<p>Default css class for row header </p>\n",
-                    "line": 95,
-                    "type": "string"
+                    "line": 98
                 },
                 {
                     "name": "vHeaderTemplate",
                     "defaultValue": "null",
                     "description": "<p>Template for row headers. Current groupName will be passed (see examples) </p>\n",
-                    "line": 86,
+                    "line": 89,
                     "type": "TemplateRef<any>"
                 }
             ],
@@ -519,21 +611,46 @@
                     "name": "dragStarted",
                     "defaultValue": "new EventEmitter<object>()",
                     "description": "<p>Fired when the user drags an item. Current item is passed </p>\n",
-                    "line": 137,
+                    "line": 148,
                     "type": "EventEmitter"
                 },
                 {
                     "name": "dropped",
-                    "defaultValue": "new EventEmitter<object>()",
+                    "defaultValue": "new EventEmitter<DropEvent>()",
                     "description": "<p>Fired when an item is dropped. Current item is passed  </p>\n",
-                    "line": 140,
+                    "line": 151,
                     "type": "EventEmitter"
                 },
                 {
                     "name": "elementCreateClick",
                     "defaultValue": "new EventEmitter<ClickEvent>()",
                     "description": "<p>Fired when an add action is click. Current ClickEvent is passed </p>\n",
-                    "line": 143,
+                    "line": 154,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "headingCollapsed",
+                    "defaultValue": "new EventEmitter<CollapseEvent>()",
+                    "description": "<p>Fired when a heading is collapsed. CollapseEvent is emitted </p>\n",
+                    "line": 157,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "isScrolling",
+                    "defaultValue": "new EventEmitter<ScrollEvent>()",
+                    "line": 159,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "scrolledToEnd",
+                    "defaultValue": "new EventEmitter<ScrollEvent>()",
+                    "line": 160,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "scrollEnded",
+                    "defaultValue": "new EventEmitter<ScrollEvent>()",
+                    "line": 162,
                     "type": "EventEmitter"
                 }
             ],
@@ -541,10 +658,10 @@
                 {
                     "name": "_items",
                     "defaultValue": "[]",
-                    "type": "Array<object | CardItem>",
+                    "type": "(object | CardItem)[]",
                     "optional": false,
                     "description": "<p>Items to display </p>\n",
-                    "line": 21,
+                    "line": 188,
                     "modifierKind": [
                         112
                     ]
@@ -552,10 +669,10 @@
                 {
                     "name": "collapseStates",
                     "defaultValue": "[]",
-                    "type": "Array<CollapseState>",
+                    "type": "CollapseState[]",
                     "optional": false,
                     "description": "",
-                    "line": 145,
+                    "line": 190,
                     "modifierKind": [
                         112,
                         132
@@ -566,7 +683,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 151,
+                    "line": 195,
                     "modifierKind": [
                         112
                     ]
@@ -576,7 +693,7 @@
                     "type": "CardItem",
                     "optional": false,
                     "description": "",
-                    "line": 149,
+                    "line": 192,
                     "modifierKind": [
                         112
                     ]
@@ -584,10 +701,10 @@
                 {
                     "name": "hHeadings",
                     "defaultValue": "[]",
-                    "type": "Array<string | GroupHeading>",
+                    "type": "(string | GroupHeading)[]",
                     "optional": false,
-                    "description": "",
-                    "line": 146,
+                    "description": "<p>Column headings</p>\n",
+                    "line": 167,
                     "modifierKind": [
                         114
                     ]
@@ -595,12 +712,33 @@
                 {
                     "name": "horizontalScrolling",
                     "defaultValue": "false",
-                    "type": "boolean",
+                    "type": "",
                     "optional": false,
                     "description": "<p>If set to true, columns are scrollable </p>\n",
-                    "line": 163,
+                    "line": 184,
                     "modifierKind": [
                         114
+                    ]
+                },
+                {
+                    "name": "isScrollingTimeout",
+                    "defaultValue": "0",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 197,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "nativeDragItem",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 193,
+                    "modifierKind": [
+                        112
                     ]
                 },
                 {
@@ -609,7 +747,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 150,
+                    "line": 194,
                     "modifierKind": [
                         112
                     ]
@@ -617,10 +755,10 @@
                 {
                     "name": "scrollable",
                     "defaultValue": "false",
-                    "type": "boolean",
+                    "type": "",
                     "optional": false,
                     "description": "<p>If set to true, the rows and columns are scrollable and will be out of the viewport.\nIf not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)</p>\n",
-                    "line": 157,
+                    "line": 178,
                     "modifierKind": [
                         114
                     ]
@@ -628,10 +766,10 @@
                 {
                     "name": "verticalScrolling",
                     "defaultValue": "false",
-                    "type": "boolean",
+                    "type": "",
                     "optional": false,
                     "description": "<p>If set to true, rows are scrollable </p>\n",
-                    "line": 160,
+                    "line": 181,
                     "modifierKind": [
                         114
                     ]
@@ -639,10 +777,10 @@
                 {
                     "name": "vHeadings",
                     "defaultValue": "[]",
-                    "type": "Array<string | GroupHeading>",
+                    "type": "(string | GroupHeading)[]",
                     "optional": false,
-                    "description": "",
-                    "line": 147,
+                    "description": "<p>Row headings</p>\n",
+                    "line": 172,
                     "modifierKind": [
                         114
                     ]
@@ -655,7 +793,10 @@
                     "optional": false,
                     "returnType": "number",
                     "typeParameters": [],
-                    "line": 485
+                    "line": 726,
+                    "modifierKind": [
+                        112
+                    ]
                 },
                 {
                     "name": "checkIfContentNeedsToScroll",
@@ -663,27 +804,111 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 187
+                    "line": 229,
+                    "description": "<p>Checks if content needs to scroll</p>\n",
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "checkIfPropIsObject",
+                    "args": [
+                        {
+                            "name": "prop",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 296,
+                    "description": "<p>Checks if prop is object</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "prop",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "tagName": {
+                                "pos": 9897,
+                                "end": 9904,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>true if if prop is object</p>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "checkPrerequisites",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<boolean>",
+                    "typeParameters": [],
+                    "line": 272,
+                    "description": "<p>Checks prerequisites</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 9140,
+                                "end": 9147,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>prerequisites</p>\n"
+                        }
+                    ]
                 },
                 {
                     "name": "collapseState",
                     "args": [
                         {
-                            "name": "part",
+                            "name": "collapseItem",
                             "type": "string | GroupHeading"
                         }
                     ],
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 376,
+                    "line": 544,
+                    "description": "<p>Gets the current collapse state of a specific item</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
                     "jsdoctags": [
                         {
-                            "name": "part",
+                            "name": {
+                                "pos": 16957,
+                                "end": 16969,
+                                "flags": 0,
+                                "escapedText": "collapseItem"
+                            },
                             "type": "string | GroupHeading",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 16951,
+                                "end": 16956,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Item to get the collapse state</p>\n"
+                        },
+                        {
+                            "tagName": {
+                                "pos": 17007,
+                                "end": 17014,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>true if collapsed, false when expanded</p>\n"
                         }
                     ]
                 },
@@ -698,14 +923,36 @@
                     "optional": false,
                     "returnType": "Scrollable",
                     "typeParameters": [],
-                    "line": 456,
+                    "line": 682,
+                    "description": "<p>Checks if container is scrollable</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
                     "jsdoctags": [
                         {
-                            "name": "containerName",
+                            "name": {
+                                "pos": 20829,
+                                "end": 20842,
+                                "flags": 0,
+                                "escapedText": "containerName"
+                            },
                             "type": "string",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 20823,
+                                "end": 20828,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Container to check if scrollable</p>\n"
+                        },
+                        {
+                            "tagName": {
+                                "pos": 20882,
+                                "end": 20889,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>is scrollable</p>\n"
                         }
                     ]
                 },
@@ -720,96 +967,111 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 398,
-                    "jsdoctags": [
-                        {
-                            "name": "group",
-                            "type": "ClickEvent",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "createPlaceholderElement",
-                    "args": [
-                        {
-                            "name": "id",
-                            "type": "string"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "HTMLElement",
-                    "typeParameters": [],
-                    "line": 491,
-                    "jsdoctags": [
-                        {
-                            "name": "id",
-                            "type": "string",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "determineCorrectGroupKeys",
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "object"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "GroupKeys",
-                    "typeParameters": [],
-                    "line": 322,
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "object",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "dragEnd",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "DragEvent"
-                        },
-                        {
-                            "name": "item",
-                            "type": "CardItem"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 393,
+                    "line": 594,
+                    "description": "<p>Handler which is called, when a new item should be created (click on a add icon)</p>\n",
                     "modifierKind": [
                         114
                     ],
                     "jsdoctags": [
                         {
-                            "name": "event",
-                            "type": "DragEvent",
+                            "name": {
+                                "pos": 18307,
+                                "end": 18312,
+                                "flags": 0,
+                                "escapedText": "group"
+                            },
+                            "type": "ClickEvent",
                             "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "item",
-                            "type": "CardItem",
-                            "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 18301,
+                                "end": 18306,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Row and column value</p>\n"
                         }
                     ]
+                },
+                {
+                    "name": "createPlaceholderElement",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "HTMLElement",
+                    "typeParameters": [],
+                    "line": 737,
+                    "description": "<p>Creates placeholder element</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 22279,
+                                "end": 22286,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>placeholder element</p>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "detectIfUserHasEndedScrolling",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<boolean>",
+                    "typeParameters": [],
+                    "line": 815,
+                    "description": "<p>Detects if user has ended scrolling\nGot from: <a href=\"https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/\">https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/</a></p>\n",
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 24965,
+                                "end": 24972,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>if user has ended scrolling</p>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "determineCorrectGroupKeys",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "GroupKeys",
+                    "typeParameters": [],
+                    "line": 451,
+                    "description": "<p>Determines correct group keys</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 14402,
+                                "end": 14409,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>correct group keys</p>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "dragEnd",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 582,
+                    "description": "<p>Handler which is called, when the drag of an item ends</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
+                    "jsdoctags": []
                 },
                 {
                     "name": "dragOver",
@@ -820,41 +1082,69 @@
                         },
                         {
                             "name": "vRow",
-                            "type": "string"
+                            "type": "string | GroupHeading"
                         },
                         {
                             "name": "hRow",
-                            "type": "string"
+                            "type": "string | GroupHeading"
                         }
                     ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 422,
+                    "line": 643,
+                    "description": "<p>Handler which is called when an item is dragged over a cell</p>\n",
                     "modifierKind": [
                         114
                     ],
                     "jsdoctags": [
                         {
-                            "name": "event",
+                            "name": {
+                                "pos": 19639,
+                                "end": 19644,
+                                "flags": 0,
+                                "escapedText": "event"
+                            },
                             "type": "DragEvent",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 19633,
+                                "end": 19638,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Native html drag event</p>\n"
                         },
                         {
-                            "name": "vRow",
-                            "type": "string",
+                            "name": {
+                                "pos": 19680,
+                                "end": 19684,
+                                "flags": 0,
+                                "escapedText": "vRow"
+                            },
+                            "type": "string | GroupHeading",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 19674,
+                                "end": 19679,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Row item</p>\n"
                         },
                         {
-                            "name": "hRow",
-                            "type": "string",
+                            "name": {
+                                "pos": 19706,
+                                "end": 19710,
+                                "flags": 0,
+                                "escapedText": "hRow"
+                            },
+                            "type": "string | GroupHeading",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 19700,
+                                "end": 19705,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Column item</p>\n"
                         }
                     ]
                 },
@@ -873,24 +1163,43 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 388,
+                    "line": 568,
+                    "description": "<p>Handler which is called when an item starts to drag</p>\n",
                     "modifierKind": [
                         114
                     ],
                     "jsdoctags": [
                         {
-                            "name": "event",
+                            "name": {
+                                "pos": 17638,
+                                "end": 17643,
+                                "flags": 0,
+                                "escapedText": "event"
+                            },
                             "type": "DragEvent",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 17632,
+                                "end": 17637,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Native drag event</p>\n"
                         },
                         {
-                            "name": "item",
+                            "name": {
+                                "pos": 17674,
+                                "end": 17678,
+                                "flags": 0,
+                                "escapedText": "item"
+                            },
                             "type": "CardItem",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 17668,
+                                "end": 17673,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>CardItem which is dragged</p>\n"
                         }
                     ]
                 },
@@ -903,41 +1212,69 @@
                         },
                         {
                             "name": "vRow",
-                            "type": "string"
+                            "type": "string | GroupHeading"
                         },
                         {
                             "name": "hRow",
-                            "type": "string"
+                            "type": "string | GroupHeading"
                         }
                     ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 402,
+                    "line": 607,
+                    "description": "<p>Handler which is called when an item is dropped</p>\n",
                     "modifierKind": [
                         114
                     ],
                     "jsdoctags": [
                         {
-                            "name": "event",
+                            "name": {
+                                "pos": 18547,
+                                "end": 18552,
+                                "flags": 0,
+                                "escapedText": "event"
+                            },
                             "type": "DragEvent",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 18541,
+                                "end": 18546,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Native drag event</p>\n"
                         },
                         {
-                            "name": "vRow",
-                            "type": "string",
+                            "name": {
+                                "pos": 18583,
+                                "end": 18587,
+                                "flags": 0,
+                                "escapedText": "vRow"
+                            },
+                            "type": "string | GroupHeading",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 18577,
+                                "end": 18582,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Row item</p>\n"
                         },
                         {
-                            "name": "hRow",
-                            "type": "string",
+                            "name": {
+                                "pos": 18609,
+                                "end": 18613,
+                                "flags": 0,
+                                "escapedText": "hRow"
+                            },
+                            "type": "string | GroupHeading",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 18603,
+                                "end": 18608,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Column item</p>\n"
                         }
                     ]
                 },
@@ -946,31 +1283,53 @@
                     "args": [
                         {
                             "name": "array",
-                            "type": "Array<string | GroupHeading>"
+                            "type": "(string | GroupHeading)[]"
                         },
                         {
-                            "name": "diretion",
+                            "name": "direction",
                             "type": "\"h\" | \"v\""
                         }
                     ],
                     "optional": false,
                     "returnType": "CollapseState[]",
                     "typeParameters": [],
-                    "line": 235,
+                    "line": 323,
+                    "description": "<p>Generates collapse states</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
                     "jsdoctags": [
                         {
-                            "name": "array",
-                            "type": "Array<string | GroupHeading>",
+                            "name": {
+                                "pos": 10517,
+                                "end": 10522,
+                                "flags": 0,
+                                "escapedText": "array"
+                            },
+                            "type": "(string | GroupHeading)[]",
+                            "tagName": {
+                                "pos": 10511,
+                                "end": 10516,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Array of collapse states</p>\n"
+                        },
+                        {
+                            "name": "direction",
+                            "type": "\"h\" | \"v\"",
                             "tagName": {
                                 "text": "param"
                             }
                         },
                         {
-                            "name": "diretion",
-                            "type": "\"h\" | \"v\"",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 10634,
+                                "end": 10641,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>collapse states</p>\n"
                         }
                     ]
                 },
@@ -980,7 +1339,12 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 213
+                    "line": 304,
+                    "description": "<p>Generates the appropiate headings</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": []
                 },
                 {
                     "name": "getCaseInsensitivePropKey",
@@ -997,21 +1361,52 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 329,
+                    "line": 464,
+                    "description": "<p>Gets case insensitive prop key</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
                     "jsdoctags": [
                         {
-                            "name": "item",
+                            "name": {
+                                "pos": 14719,
+                                "end": 14723,
+                                "flags": 0,
+                                "escapedText": "item"
+                            },
                             "type": "object",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 14713,
+                                "end": 14718,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Item object</p>\n"
                         },
                         {
-                            "name": "propKey",
+                            "name": {
+                                "pos": 14748,
+                                "end": 14755,
+                                "flags": 0,
+                                "escapedText": "propKey"
+                            },
                             "type": "string",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 14742,
+                                "end": 14747,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>property key</p>\n"
+                        },
+                        {
+                            "tagName": {
+                                "pos": 14775,
+                                "end": 14782,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>case insensitive prop key</p>\n"
                         }
                     ]
                 },
@@ -1021,14 +1416,29 @@
                     "optional": false,
                     "returnType": "object",
                     "typeParameters": [],
-                    "line": 477
+                    "line": 718,
+                    "description": "<p>Gets the current width of a scrollbar</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 21731,
+                                "end": 21738,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>Object with native css style</p>\n"
+                        }
+                    ]
                 },
                 {
                     "name": "getHeadings",
                     "args": [
                         {
                             "name": "keys",
-                            "type": "Array<any>"
+                            "type": "any[]"
                         },
                         {
                             "name": "key",
@@ -1036,26 +1446,54 @@
                         }
                     ],
                     "optional": false,
-                    "returnType": "Array<string | GroupHeading>",
+                    "returnType": "[]",
                     "typeParameters": [],
-                    "line": 226,
+                    "line": 758,
+                    "description": "<p>Gets headings</p>\n",
                     "modifierKind": [
                         112
                     ],
                     "jsdoctags": [
                         {
-                            "name": "keys",
-                            "type": "Array<any>",
+                            "name": {
+                                "pos": 23014,
+                                "end": 23018,
+                                "flags": 0,
+                                "escapedText": "keys"
+                            },
+                            "type": "any[]",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 23008,
+                                "end": 23013,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>key array</p>\n"
                         },
                         {
-                            "name": "key",
+                            "name": {
+                                "pos": 23041,
+                                "end": 23044,
+                                "flags": 0,
+                                "escapedText": "key"
+                            },
                             "type": "string",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 23035,
+                                "end": 23040,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>key to check</p>\n"
+                        },
+                        {
+                            "tagName": {
+                                "pos": 23064,
+                                "end": 23071,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>headings</p>\n"
                         }
                     ]
                 },
@@ -1069,17 +1507,39 @@
                         }
                     ],
                     "optional": false,
-                    "returnType": "Array<string>",
+                    "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 341,
+                    "line": 481,
+                    "description": "<p>Gets headings from items</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
                     "jsdoctags": [
                         {
-                            "name": "groupKey",
+                            "name": {
+                                "pos": 15159,
+                                "end": 15167,
+                                "flags": 0,
+                                "escapedText": "groupKey"
+                            },
                             "type": "string",
                             "defaultValue": "this.vGroupKey",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 15152,
+                                "end": 15157,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>key to get the group keys</p>\n"
+                        },
+                        {
+                            "tagName": {
+                                "pos": 15201,
+                                "end": 15208,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>headings from items</p>\n"
                         }
                     ]
                 },
@@ -1096,20 +1556,76 @@
                         }
                     ],
                     "optional": false,
-                    "returnType": "Array<CardItem | object>",
+                    "returnType": "[]",
                     "typeParameters": [],
-                    "line": 239,
+                    "line": 336,
+                    "description": "<p>Gets all items of a cell (row / col)</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
                     "jsdoctags": [
                         {
-                            "name": "vValue",
+                            "name": {
+                                "pos": 10973,
+                                "end": 10979,
+                                "flags": 0,
+                                "escapedText": "vValue"
+                            },
                             "type": "string",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 10967,
+                                "end": 10972,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Value of the row</p>\n"
                         },
                         {
-                            "name": "hValue",
+                            "name": {
+                                "pos": 11009,
+                                "end": 11015,
+                                "flags": 0,
+                                "escapedText": "hValue"
+                            },
                             "type": "string",
+                            "tagName": {
+                                "pos": 11003,
+                                "end": 11008,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Value of the column</p>\n"
+                        },
+                        {
+                            "tagName": {
+                                "pos": 11042,
+                                "end": 11049,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>Array of all items of a cell</p>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "getScrollState",
+                    "args": [
+                        {
+                            "name": "target",
+                            "type": "HTMLElement"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "ScrollEvent",
+                    "typeParameters": [],
+                    "line": 795,
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "target",
+                            "type": "HTMLElement",
                             "tagName": {
                                 "text": "param"
                             }
@@ -1120,9 +1636,24 @@
                     "name": "getUngroupedItems",
                     "args": [],
                     "optional": false,
-                    "returnType": "Array | Array",
+                    "returnType": "[]",
                     "typeParameters": [],
-                    "line": 352
+                    "line": 498,
+                    "description": "<p>Gets ungrouped items (which could not be put into rows or cols)</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 15711,
+                                "end": 15718,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>Array of ungrouped items</p>\n"
+                        }
+                    ]
                 },
                 {
                     "name": "getValue",
@@ -1135,15 +1666,49 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 318,
+                    "line": 439,
+                    "description": "<p>Gets the value of an item</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
                     "jsdoctags": [
                         {
-                            "name": "item",
+                            "name": {
+                                "pos": 14012,
+                                "end": 14016,
+                                "flags": 0,
+                                "escapedText": "item"
+                            },
                             "type": "string | GroupHeading",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 14006,
+                                "end": 14011,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Item to get the value from</p>\n"
+                        },
+                        {
+                            "tagName": {
+                                "pos": 14050,
+                                "end": 14057,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>Value of item</p>\n"
                         }
+                    ]
+                },
+                {
+                    "name": "matchAndSetInitialCollapseState",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 259,
+                    "description": "<p>Matches and set initial collapse state</p>\n",
+                    "modifierKind": [
+                        112
                     ]
                 },
                 {
@@ -1152,7 +1717,10 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 194
+                    "line": 221,
+                    "modifierKind": [
+                        114
+                    ]
                 },
                 {
                     "name": "ngDoCheck",
@@ -1160,7 +1728,10 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 183
+                    "line": 216,
+                    "modifierKind": [
+                        114
+                    ]
                 },
                 {
                     "name": "ngOnInit",
@@ -1168,7 +1739,10 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 177
+                    "line": 210,
+                    "modifierKind": [
+                        114
+                    ]
                 },
                 {
                     "name": "prepareBoard",
@@ -1176,7 +1750,11 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 205
+                    "line": 241,
+                    "description": "<p>Prepares board</p>\n",
+                    "modifierKind": [
+                        112
+                    ]
                 },
                 {
                     "name": "scrollBarStyle",
@@ -1184,7 +1762,57 @@
                     "optional": false,
                     "returnType": "object",
                     "typeParameters": [],
-                    "line": 470
+                    "line": 704,
+                    "description": "<p>Determines the style of a container which includes the scrollbar</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 21450,
+                                "end": 21457,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>Style of the container the scrollbar is applied to</p>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "scrolling",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 771,
+                    "description": "<p>Scrolling board component</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 23423,
+                                "end": 23428,
+                                "flags": 0,
+                                "escapedText": "event"
+                            },
+                            "type": "Event",
+                            "tagName": {
+                                "pos": 23417,
+                                "end": 23422,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Event</p>\n"
+                        }
+                    ]
                 },
                 {
                     "name": "toggleCollapse",
@@ -1197,14 +1825,27 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 367,
+                    "line": 521,
+                    "description": "<p>Toggles an elements collapse state</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
                     "jsdoctags": [
                         {
-                            "name": "group",
+                            "name": {
+                                "pos": 16302,
+                                "end": 16307,
+                                "flags": 0,
+                                "escapedText": "group"
+                            },
                             "type": "literal type",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 16296,
+                                "end": 16301,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Column and row value</p>\n"
                         }
                     ]
                 },
@@ -1223,21 +1864,43 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 303,
+                    "line": 405,
+                    "description": "<p>Toggles in entire group (all rows or all columns)</p>\n",
+                    "modifierKind": [
+                        114
+                    ],
                     "jsdoctags": [
                         {
-                            "name": "direction",
+                            "name": {
+                                "pos": 13111,
+                                "end": 13120,
+                                "flags": 0,
+                                "escapedText": "direction"
+                            },
                             "type": "string",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 13105,
+                                "end": 13110,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Direction to toggle</p>\n"
                         },
                         {
-                            "name": "collapsed",
+                            "name": {
+                                "pos": 13153,
+                                "end": 13162,
+                                "flags": 0,
+                                "escapedText": "collapsed"
+                            },
                             "type": "boolean",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 13147,
+                                "end": 13152,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>Current collapse state</p>\n"
                         }
                     ]
                 }
@@ -1246,22 +1909,17 @@
             "hostListeners": [
                 {
                     "name": "window:resize",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": ""
-                        }
-                    ],
+                    "args": [],
                     "argsDecorator": [
                         "$event"
                     ],
-                    "line": 173
+                    "line": 206
                 }
             ],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, TemplateRef, ChangeDetectionStrategy, SimpleChanges, HostListener } from '@angular/core';\r\nimport { CardItem, CollapseState, ClickEvent, GroupKeys, Scrollable, GroupHeading } from '../types';\r\nimport { TaskboardService } from '../taskboard.service';\r\n\r\n@Component({\r\n  // tslint:disable-next-line: component-selector\r\n  selector: 'ngx-taskboard',\r\n  templateUrl: './board.component.html',\r\n  styleUrls: ['./board.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush\r\n})\r\nexport class BoardComponent implements OnInit {\r\n\r\n  /** Shows the blacklog on onit */\r\n  @Input() showBacklog: boolean = true;\r\n\r\n  /** Name of the backlog row */\r\n  @Input() backlogName: string = 'Backlog';\r\n\r\n  /** Items to display */\r\n  private _items: Array<object | CardItem> = [];\r\n  @Input() set items(items: Array<object | CardItem>) {\r\n    this._items = items;\r\n    if (items.length > 0) {\r\n      this.prepareBoard();\r\n    }\r\n  }\r\n  get items(): Array<object | CardItem> {\r\n    return this._items;\r\n  }\r\n\r\n  /**\r\n   * Grouping keys for columns (if not passed, the keys will be determined out of the items)\r\n   * Caution: If you don't pass any headings manually, only the columns are shown, which have data.\r\n   * If you want to show emtpy rows, please set them\r\n   */\r\n  @Input() hGroupKeys: Array<string | GroupHeading> = [];\r\n\r\n  /**\r\n   * Grouping keys for rows (if not passed, the keys will be determined out of the items)\r\n   * Caution: If you don't pass any headings manually, only the rows are shown, which have data.\r\n   * If you want to show emtpy rows, please set them\r\n   */\r\n  @Input() vGroupKeys: Array<string | GroupHeading> = [];\r\n\r\n  /** Show add buttons on the column headings */\r\n  @Input() hAddNewItems: boolean = true;\r\n\r\n  /** Show add buttons on the row headings */\r\n  @Input() vAddNewItems: boolean = true;\r\n\r\n  /** Show add buttons in the cells for columns and rows */\r\n  @Input() cellAddNewItems: boolean = true;\r\n\r\n  /** Key to group data for rows */\r\n  @Input() vGroupKey: string = '';\r\n\r\n  /** Key to group data for columns */\r\n  @Input() hGroupKey: string = '';\r\n\r\n  /** Sort items by property */\r\n  @Input() sortBy: string = '';\r\n\r\n  /** Board name to show between row and column header */\r\n  @Input() boardName: string = '';\r\n\r\n  /** Invert rows and columns */\r\n  @Input() invertGroupDirection: boolean = false;\r\n\r\n  /** All items which can't be grouped into rows and columns are stored into the backlog  */\r\n  @Input() showUngroupedInBacklog: boolean = true;\r\n\r\n  /** Decrease overall font size */\r\n  @Input() smallText: boolean = false;\r\n\r\n  /** Template for items to render. \"item\" object ist passed (see examples) */\r\n  @Input() itemTemplate: TemplateRef<any> = null;\r\n\r\n  /** Template for collapsed rows to render. \"count\" object ist passed (see examples) */\r\n  @Input() noElementsTemplate: TemplateRef<any> = null;\r\n\r\n  /** Template for column headers. Current groupName will be passed (see examples) */\r\n  @Input() hHeaderTemplate: TemplateRef<any> = null;\r\n\r\n  /** Template for row headers. Current groupName will be passed (see examples) */\r\n  @Input() vHeaderTemplate: TemplateRef<any> = null;\r\n\r\n  /** Template for actions, add and collapse buttons (see examples) */\r\n  @Input() actionsTemplate: TemplateRef<any> = null;\r\n\r\n  /** Template for the placeholder element which will be generated when an item is draged over a cell */\r\n  @Input() dragoverPlaceholderTemplate: TemplateRef<any> = null;\r\n\r\n  /** Default css class for row header */\r\n  @Input() vHeaderClass: string = 'card-header';\r\n\r\n  /** Default css class for column header */\r\n  @Input() hHeaderClass: string = 'card-header card-header-bg';\r\n\r\n  /** If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */\r\n  @Input() stickyHorizontalHeaderKeys: boolean = true;\r\n\r\n  /** If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */\r\n  @Input() stickyVerticalHeaderKeys: boolean = false;\r\n\r\n  /** Default css class for cell header */\r\n  @Input() cellClass: string = 'card-header';\r\n\r\n  /** Column width (in px) which is applied to the columns when the content is scollable */\r\n  @Input() columnWidth: number = 200;\r\n\r\n  /** Width of the backlog row, when activated. You can use all valid css units. Default is columnWidth  */\r\n  @Input() backlogWidth: string = `${this.columnWidth}px`;\r\n\r\n  /** Allow to collapse the rows */\r\n  @Input() vCollapsable: boolean = true;\r\n\r\n  /** Rows are collapsed or not on init */\r\n  @Input() vCollapsed: boolean = false;\r\n\r\n  /** Columns are collapsed or not on init */\r\n  @Input() hCollapsed: boolean = false;\r\n\r\n  /** Shows the filter row to search items by filter in filterOnProperties array */\r\n  @Input() showFilterRow: boolean = true;\r\n\r\n  /** Placeholder for the input with the filter row */\r\n  @Input() filterRowPlaceholder: string = 'Search for items';\r\n\r\n  /** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */\r\n  @Input() filter: string = '';\r\n\r\n  /** Specify the properties which will be searched for the given term in filter. If not properties are given, all will be searched */\r\n  @Input() filterOnProperties: Array<string> = [];\r\n\r\n  /** Fired when the user drags an item. Current item is passed */\r\n  @Output() readonly dragStarted = new EventEmitter<object>();\r\n\r\n  /** Fired when an item is dropped. Current item is passed  */\r\n  @Output() readonly dropped = new EventEmitter<object>();\r\n\r\n  /** Fired when an add action is click. Current ClickEvent is passed */\r\n  @Output() readonly elementCreateClick = new EventEmitter<ClickEvent>();\r\n\r\n  private readonly collapseStates: Array<CollapseState> = [];\r\n  public hHeadings: Array<string | GroupHeading> = [];\r\n  public vHeadings: Array<string | GroupHeading> = [];\r\n\r\n  private dragItem: CardItem;\r\n  private placeholderSet = false;\r\n  private currentDragZone: string;\r\n\r\n  /**\r\n  * If set to true, the rows and columns are scrollable and will be out of the viewport.\r\n  * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)\r\n  */\r\n  public scrollable: boolean = false;\r\n\r\n  /** If set to true, rows are scrollable */\r\n  public verticalScrolling: boolean = false;\r\n\r\n  /** If set to true, columns are scrollable */\r\n  public horizontalScrolling: boolean = false;\r\n\r\n  constructor(\r\n    private readonly renderer: Renderer2,\r\n    private readonly elRef: ElementRef,\r\n    private readonly cd: ChangeDetectorRef,\r\n    private taskboardService: TaskboardService\r\n  ) { }\r\n\r\n  @HostListener('window:resize', ['$event'])\r\n  onResize(event) {\r\n    this.checkIfContentNeedsToScroll();\r\n  }\r\n\r\n  ngOnInit() {\r\n    if (this.items.length > 0) {\r\n      this.prepareBoard();\r\n    }\r\n  }\r\n\r\n  ngDoCheck() {\r\n    this.checkIfContentNeedsToScroll();\r\n  }\r\n\r\n  checkIfContentNeedsToScroll() {\r\n    let { hScroll: h, vScroll: v } = this.containerIsScrollable('.column-cards');\r\n    this.horizontalScrolling = h;\r\n    this.verticalScrolling = v;\r\n  }\r\n\r\n\r\n  ngAfterViewInit(): void {\r\n    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.\r\n    //Add 'implements AfterViewInit' to the class.\r\n\r\n    // debugger;\r\n    setTimeout(() => {\r\n\r\n    }, 1000)\r\n\r\n  }\r\n\r\n  prepareBoard() {\r\n    this.generateHeadings();\r\n\r\n    this.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));\r\n    this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);\r\n\r\n  }\r\n\r\n  generateHeadings() {\r\n    if (this.invertGroupDirection) {\r\n      const vGkey = this.vGroupKey;\r\n      const hGkey = this.hGroupKey;\r\n\r\n      this.hGroupKey = vGkey;\r\n      this.vGroupKey = hGkey;\r\n    }\r\n\r\n    this.vHeadings = this.getHeadings(this.vGroupKeys, this.vGroupKey);\r\n    this.hHeadings = this.getHeadings(this.hGroupKeys, this.hGroupKey);\r\n  }\r\n\r\n  private getHeadings(keys: Array<any>, key: string): Array<string | GroupHeading> {\r\n    if ((keys.length > 0 && (keys[0] as GroupHeading).value != '')) {\r\n      return keys.sort((a: GroupHeading, b: GroupHeading) => a.orderId - b.orderId);\r\n    } else {\r\n      return this.getHeadingsFromItems(key);\r\n    }\r\n  }\r\n\r\n\r\n  generateCollapseStates(array: Array<string | GroupHeading>, diretion: 'h' | 'v'): CollapseState[] {\r\n    return array.map(item => ({ name: this.getValue(item), collapsed: (diretion == 'h') ? this.hCollapsed : this.vCollapsed }));\r\n  }\r\n\r\n  getItemsOfGroup(vValue: string, hValue: string): Array<CardItem | object> {\r\n    // console.log('getItemsOfGroup');\r\n\r\n    let items = this.items.filter(item => {\r\n\r\n      if (this.taskboardService.objectProperties.length === 0) {\r\n        this.taskboardService.objectProperties = Object.keys(item);\r\n      }\r\n      const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);\r\n\r\n      const vItem = this.getValue(item[groupKeys.vGroupKey]);\r\n      const hItem = this.getValue(item[groupKeys.hGroupKey]);\r\n\r\n      if (hItem == undefined || hItem == null && vItem === undefined || vItem == null) {\r\n        return false;\r\n      }\r\n\r\n      let found = vItem.toLowerCase() === vValue.toLowerCase() && hItem.toLowerCase() === hValue.toLowerCase();\r\n      // if (found) {\r\n      // console.log(\"Found item: \", found, item)\r\n      // }\r\n      return found;\r\n    });\r\n\r\n    if (this.showUngroupedInBacklog) {\r\n      items = items.filter(item => item[this.vGroupKey] !== '' && item[this.hGroupKey] !== '');\r\n    }\r\n\r\n    if (this.sortBy !== '') {\r\n      /* Detect datatype of sortBy-Field */\r\n      const fieldType = typeof (items.some(item => items[0][this.sortBy] !== undefined && items[0][this.sortBy] !== null)[this.sortBy]);\r\n      if (fieldType) {\r\n        items = items.sort((a, b) => {\r\n\r\n          const aField = a[this.sortBy];\r\n          const bField = b[this.sortBy];\r\n\r\n          if (fieldType === 'number') {\r\n            return bField - aField;\r\n          }\r\n\r\n          if (fieldType === 'string') {\r\n            if (aField < bField) {\r\n              return -1;\r\n            }\r\n            if (aField > bField) {\r\n              return 1;\r\n            }\r\n\r\n            return 0;\r\n          }\r\n\r\n        });\r\n      }\r\n    }\r\n    return (this.filter != '') ? items.filter((item, index, array) => {\r\n      return (this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {\r\n        const found = item[key] != undefined && typeof (item[key]) != 'number' && ((item[key] as string).indexOf(this.filter) > -1 ? true : false);\r\n        // found && console.info(`Searching \"${item[key]}\" for \"${this.filter}\" | Found ${found}`);\r\n        return found;\r\n      });\r\n    }) : items;\r\n  }\r\n\r\n  toggleCollapseGroup(direction: string, collapsed: boolean): void {\r\n    const groupKeysToToggle =\r\n      this.collapseStates.filter(item => (direction === 'vertical' ? this.vHeadings : this.hHeadings)\r\n        .some(i => this.getValue(i).toLowerCase() == item.name.toLowerCase()));\r\n\r\n    groupKeysToToggle.forEach(item => item.collapsed = !collapsed);\r\n    if (groupKeysToToggle.length > 0) {\r\n      if (direction == 'vertical') {\r\n        this.vCollapsed = !collapsed;\r\n      } else {\r\n        this.hCollapsed = !collapsed;\r\n      }\r\n    }\r\n  }\r\n\r\n  getValue(item: string | GroupHeading): string {\r\n    return ((item as GroupHeading).value ? (item as GroupHeading).value : <string>item);\r\n  }\r\n\r\n  determineCorrectGroupKeys(item: object): GroupKeys {\r\n    return {\r\n      hGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),\r\n      vGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey)\r\n    };\r\n  }\r\n\r\n  getCaseInsensitivePropKey(item: object, propKey: string): string {\r\n    if (item) {\r\n      return Object.keys(item).find(\r\n        key => (key != '' && key != null && key != undefined)\r\n          ? key.toLowerCase() === propKey.toLowerCase()\r\n          : false\r\n      );\r\n    }\r\n\r\n    return '';\r\n  }\r\n\r\n  getHeadingsFromItems(groupKey: string = this.vGroupKey): Array<string> {\r\n    const keys = (this.items as Array<object>).map((item: any) =>\r\n      item[Object.keys(item).find(key => key.toLowerCase() === groupKey.toLowerCase())]\r\n    );\r\n\r\n\r\n    return keys.filter((elem, pos, arr) => {\r\n      return arr.indexOf(elem) === pos && (this.showUngroupedInBacklog && (elem !== '' && elem != null));\r\n    });\r\n  }\r\n\r\n  getUngroupedItems(): Array<CardItem> | Array<object> {\r\n    if (this.showUngroupedInBacklog) {\r\n      return this.items.filter(item => {\r\n        const groupKeys: GroupKeys = this.determineCorrectGroupKeys(item);\r\n        const isUngrouped =\r\n          (item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '')\r\n          ||\r\n          (item[groupKeys.vGroupKey] === null && item[groupKeys.hGroupKey] === null);\r\n        return isUngrouped;\r\n      });\r\n    }\r\n\r\n    return [];\r\n  }\r\n\r\n  toggleCollapse(group: { hGroup: string, vGroup: string }): void {\r\n\r\n    const part = this.getValue(group.hGroup || group.vGroup);\r\n    // console.log(\"Toggle: \" + part);\r\n\r\n    const collapseState = this.collapseState(part);\r\n    this.collapseStates.find(item => item.name === part).collapsed = !collapseState;\r\n  }\r\n\r\n  collapseState(part: string | GroupHeading): boolean {\r\n\r\n    if (typeof (part) == 'object') {\r\n      part = (part as GroupHeading).value;\r\n    }\r\n\r\n    let foundCollapsedState = this.collapseStates.find(item => item.name === this.getValue(part)).collapsed;\r\n    // console.log('collapseState', part, foundCollapsedState);\r\n\r\n    return foundCollapsedState;\r\n  }\r\n\r\n  public dragStart(event: DragEvent, item: CardItem) {\r\n    this.dragItem = item;\r\n    this.dragStarted.emit(this.dragItem);\r\n  }\r\n\r\n  public dragEnd(event: DragEvent, item: CardItem) {\r\n    this.dragItem = undefined;\r\n\r\n  }\r\n\r\n  createElement(group: ClickEvent) {\r\n    this.elementCreateClick.emit(group);\r\n  }\r\n\r\n  public drop(event: DragEvent, vRow: string, hRow: string) {\r\n    event.preventDefault();\r\n    if (event.currentTarget) {\r\n      const placeholderEl = (event.currentTarget as HTMLElement).querySelector('.placeholder');\r\n      if (placeholderEl) {\r\n        this.renderer.removeChild(placeholderEl.parentNode, placeholderEl);\r\n      }\r\n      this.currentDragZone = '';\r\n      this.placeholderSet = false;\r\n    }\r\n\r\n    const groupKeys: GroupKeys = this.determineCorrectGroupKeys(this.dragItem);\r\n\r\n    this.dragItem[groupKeys.vGroupKey] = vRow;\r\n    this.dragItem[groupKeys.hGroupKey] = hRow;\r\n\r\n    this.dropped.emit(this.dragItem);\r\n    this.dragItem = undefined;\r\n  }\r\n\r\n  public dragOver(event: DragEvent, vRow: string, hRow: string) {\r\n    if (this.dragItem) {\r\n      event.preventDefault();\r\n\r\n      if (vRow == undefined) {\r\n        vRow = '';\r\n      }\r\n\r\n      if (hRow == undefined) {\r\n        hRow = '';\r\n      }\r\n\r\n      vRow = this.getValue(vRow);\r\n      hRow = this.getValue(hRow);\r\n\r\n      const dragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();\r\n      if (dragZone !== this.currentDragZone && this.currentDragZone !== '') {\r\n        const lastPlaceholder = document.getElementById(this.currentDragZone);\r\n        if (lastPlaceholder) {\r\n          this.renderer.removeChild(lastPlaceholder.parentNode, lastPlaceholder);\r\n          this.placeholderSet = false;\r\n        }\r\n      }\r\n\r\n      this.currentDragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();\r\n\r\n      if (!this.placeholderSet) {\r\n        const placeholderElement = this.createPlaceholderElement(this.currentDragZone);\r\n        this.renderer.appendChild(event.currentTarget, placeholderElement);\r\n        this.placeholderSet = true;\r\n      }\r\n    }\r\n  }\r\n\r\n  containerIsScrollable(containerName: string): Scrollable {\r\n    let container = this.elRef.nativeElement.querySelector(containerName);\r\n    if (container) {\r\n      let hasHorizontalScrollbar = container.scrollWidth > container.clientWidth;\r\n      let hasVerticalScrollbar = container.scrollHeight > container.clientHeight;\r\n\r\n      return {\r\n        hScroll: hasHorizontalScrollbar,\r\n        vScroll: hasVerticalScrollbar\r\n      };\r\n    }\r\n    return null;\r\n  }\r\n\r\n  scrollBarStyle(): object {\r\n\r\n    return {\r\n      'padding-right': `${this.calculateScrollBarWidth()}px`\r\n    };\r\n  }\r\n\r\n  getColumnWidth(): object {\r\n    if (!this.scrollable) { return {}; }\r\n\r\n    return {\r\n      'min-width': `${this.columnWidth}px`\r\n    };\r\n  }\r\n\r\n  calculateScrollBarWidth(): number {\r\n    const headingsRowWidth = this.elRef.nativeElement.querySelector('.headings').clientWidth;\r\n    const contentWidth = this.elRef.nativeElement.querySelector('.row-content').clientWidth;\r\n    return headingsRowWidth - contentWidth;\r\n  }\r\n\r\n  createPlaceholderElement(id: string): HTMLElement {\r\n    if (this.dragoverPlaceholderTemplate) {\r\n      return this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);\r\n    } else {\r\n      const placeholderElement: HTMLElement = this.renderer.createElement('div');\r\n      this.renderer.setStyle(placeholderElement, 'border', '1px dashed gray');\r\n      this.renderer.setStyle(placeholderElement, 'width', '100%');\r\n      this.renderer.setStyle(placeholderElement, 'height', '50px');\r\n      this.renderer.setAttribute(placeholderElement, 'id', this.currentDragZone);\r\n      this.renderer.setAttribute(placeholderElement, 'class', 'placeholder');\r\n\r\n      return placeholderElement;\r\n    }\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n\tAfterViewInit,\r\n\tChangeDetectionStrategy, ChangeDetectorRef, Component,\r\n\tDoCheck, ElementRef, EventEmitter,\r\n\tHostListener, Input, OnInit,\r\n\tOutput, Renderer2, TemplateRef\r\n} from '@angular/core';\r\nimport { TaskboardService } from '../taskboard.service';\r\nimport { CardItem, ClickEvent, CollapseEvent, CollapseState, DropEvent, GroupHeading, GroupKeys, Scrollable, ScrollEvent } from '../types';\r\n\r\n@Component({\r\n\t// tslint:disable-next-line: component-selector\r\n\tselector: 'ngx-taskboard',\r\n\ttemplateUrl: './board.component.html',\r\n\tstyleUrls: ['./board.component.scss'],\r\n\tchangeDetection: ChangeDetectionStrategy.OnPush\r\n})\r\nexport class BoardComponent implements OnInit, DoCheck, AfterViewInit {\r\n\t@Input() set items(items: (object | CardItem)[]) {\r\n\t\tthis._items = items;\r\n\t\tif (items.length > 0) {\r\n\t\t\tthis.prepareBoard();\r\n\t\t}\r\n\t}\r\n\tget items(): (object | CardItem)[] {\r\n\t\treturn this._items;\r\n\t}\r\n\r\n\t/** Shows the blacklog on onit */\r\n\t@Input() public showBacklog = true;\r\n\r\n\t/** Name of the backlog row */\r\n\t@Input() public backlogName = 'Backlog';\r\n\r\n\t/**\r\n\t * Grouping keys for columns (if not passed, the keys will be determined out of the items)\r\n\t * Caution: If you don't pass any headings manually, only the columns are shown, which have data.\r\n\t * If you want to show emtpy rows, please set them\r\n\t */\r\n\t@Input() public hGroupKeys: (string | GroupHeading)[] = [];\r\n\r\n\t/**\r\n\t * Grouping keys for rows (if not passed, the keys will be determined out of the items)\r\n\t * Caution: If you don't pass any headings manually, only the rows are shown, which have data.\r\n\t * If you want to show emtpy rows, please set them\r\n\t */\r\n\t@Input() public vGroupKeys: (string | GroupHeading)[] = [];\r\n\r\n\t/** Show add buttons on the column headings */\r\n\t@Input() public hAddNewItems = true;\r\n\r\n\t/** Show add buttons on the row headings */\r\n\t@Input() public vAddNewItems = true;\r\n\r\n\t/** Show add buttons in the cells for columns and rows */\r\n\t@Input() public cellAddNewItems = true;\r\n\r\n\t/** Key to group data for rows */\r\n\t@Input() public vGroupKey = '';\r\n\r\n\t/** Key to group data for columns */\r\n\t@Input() public hGroupKey = '';\r\n\r\n\t/** Sort items by property */\r\n\t@Input() public sortBy = '';\r\n\r\n\t/** Board name to show between row and column header */\r\n\t@Input() public boardName = '';\r\n\r\n\t/** Invert rows and columns */\r\n\t@Input() public invertGroupDirection = false;\r\n\r\n\t/** All items which can't be grouped into rows and columns are stored into the backlog  */\r\n\t@Input() public showUngroupedInBacklog = true;\r\n\r\n\t/** Decrease overall font size */\r\n\t@Input() public smallText = false;\r\n\r\n\t/** Template for items to render. \"item\" object ist passed (see examples) */\r\n\t@Input() public itemTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for collapsed rows to render. \"count\" object ist passed (see examples) */\r\n\t@Input() public noElementsTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for column headers. Current groupName will be passed (see examples) */\r\n\t@Input() public hHeaderTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for row headers. Current groupName will be passed (see examples) */\r\n\t@Input() public vHeaderTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for actions, add and collapse buttons (see examples) */\r\n\t@Input() public actionsTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Template for the placeholder element which will be generated when an item is draged over a cell */\r\n\t@Input() public dragoverPlaceholderTemplate: TemplateRef<any> = null;\r\n\r\n\t/** Default css class for row header */\r\n\t@Input() public vHeaderClass = 'card-header';\r\n\r\n\t/** Default css class for column header */\r\n\t@Input() public hHeaderClass = 'card-header card-header-bg';\r\n\r\n\t/** If set to true, the horizontal group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */\r\n\t@Input() public stickyHorizontalHeaderKeys = true;\r\n\r\n\t/** If set to true, the vertical group keys are fixed positioned to the top and remain at the top while scrolling. Only applied when scrollable is true */\r\n\t@Input() public stickyVerticalHeaderKeys = false;\r\n\r\n\t/** Default css class for cell header */\r\n\t@Input() public cellClass = 'card-header';\r\n\r\n\t/** Column width (in px) which is applied to the columns when the content is scollable */\r\n\t@Input() public columnWidth = 200;\r\n\r\n\t/** Width of the backlog row, when activated. You can use all valid css units. Default is columnWidth  */\r\n\t@Input() public backlogWidth = `${this.columnWidth}px`;\r\n\r\n\t/** Allow to collapse the rows */\r\n\t@Input() public vCollapsable = true;\r\n\r\n\t/** Rows are collapsed or not on init */\r\n\t@Input() public vCollapsed = false;\r\n\r\n\t/** Columns are collapsed or not on init */\r\n\t@Input() public hCollapsed = false;\r\n\r\n\t/** Shows the filter row to search items by filter in filterOnProperties array */\r\n\t@Input() public showFilterRow = true;\r\n\r\n\t/** Placeholder for the input with the filter row */\r\n\t@Input() public filterRowPlaceholder = 'Search for items';\r\n\r\n\t/** Predefined filter for the searchbar. If set, the items are filtered by the term on init. */\r\n\t@Input() public filter = '';\r\n\r\n\t/**\r\n\t * Specify the properties which will be searched for the given term\r\n\t * in filter. If not properties are given, all will be searched\r\n\t */\r\n\t@Input() public filterOnProperties: string[] = [];\r\n\r\n\t/**\r\n\t * The collapse state which is applied when set initially\r\n\t */\r\n\t@Input() public initialCollapseState: CollapseState[] = [];\r\n\r\n\t/** Fired when the user drags an item. Current item is passed */\r\n\t@Output() public readonly dragStarted = new EventEmitter<object>();\r\n\r\n\t/** Fired when an item is dropped. Current item is passed  */\r\n\t@Output() public readonly dropped = new EventEmitter<DropEvent>();\r\n\r\n\t/** Fired when an add action is click. Current ClickEvent is passed */\r\n\t@Output() public readonly elementCreateClick = new EventEmitter<ClickEvent>();\r\n\r\n\t/** Fired when a heading is collapsed. CollapseEvent is emitted */\r\n\t@Output() public readonly headingCollapsed = new EventEmitter<CollapseEvent>();\r\n\r\n\t@Output() public readonly isScrolling = new EventEmitter<ScrollEvent>();\r\n\t@Output() public readonly scrolledToEnd = new EventEmitter<ScrollEvent>();\r\n\r\n\t@Output() public readonly scrollEnded = new EventEmitter<ScrollEvent>();\r\n\r\n\t/**\r\n\t * Column headings\r\n\t */\r\n\tpublic hHeadings: (string | GroupHeading)[] = [];\r\n\r\n\t/**\r\n\t * Row headings\r\n\t */\r\n\tpublic vHeadings: (string | GroupHeading)[] = [];\r\n\r\n\t/**\r\n\t * If set to true, the rows and columns are scrollable and will be out of the viewport.\r\n\t * If not set, all rows and column will only use 100% of the parent element (aligned by flex/flex-fill)\r\n\t */\r\n\tpublic scrollable = false;\r\n\r\n\t/** If set to true, rows are scrollable */\r\n\tpublic verticalScrolling = false;\r\n\r\n\t/** If set to true, columns are scrollable */\r\n\tpublic horizontalScrolling = false;\r\n\r\n\t/** Items to display */\r\n\t// tslint:disable-next-line: variable-name\r\n\tprivate _items: (object | CardItem)[] = [];\r\n\r\n\tprivate readonly collapseStates: CollapseState[] = [];\r\n\r\n\tprivate dragItem: CardItem;\r\n\tprivate nativeDragItem: HTMLElement;\r\n\tprivate placeholderSet = false;\r\n\tprivate currentDragZone: string;\r\n\r\n\tprivate isScrollingTimeout = 0;\r\n\r\n\tconstructor(\r\n\t\tprivate readonly renderer: Renderer2,\r\n\t\tprivate readonly elRef: ElementRef,\r\n\t\tprivate readonly cd: ChangeDetectorRef,\r\n\t\tprivate readonly taskboardService: TaskboardService\r\n\t) { }\r\n\r\n\t@HostListener('window:resize', ['$event']) public onResize() {\r\n\t\tthis.checkIfContentNeedsToScroll();\r\n\t}\r\n\r\n\tpublic ngOnInit(): void {\r\n\t\tif (this.items.length > 0) {\r\n\t\t\tthis.prepareBoard();\r\n\t\t}\r\n\t}\r\n\r\n\tpublic ngDoCheck(): void {\r\n\t\tthis.checkIfContentNeedsToScroll();\r\n\t}\r\n\r\n\r\n\tpublic ngAfterViewInit(): void {\r\n\t\t// Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.\r\n\t\t// Add 'implements AfterViewInit' to the class.\r\n\t}\r\n\r\n\t/**\r\n\t * Checks if content needs to scroll\r\n\t */\r\n\tprivate checkIfContentNeedsToScroll(): void {\r\n\t\tconst { hScroll: h, vScroll: v } = this.containerIsScrollable('.column-cards');\r\n\t\tthis.horizontalScrolling = h;\r\n\t\tthis.verticalScrolling = v;\r\n\r\n\t\tthis.cd.markForCheck();\r\n\t}\r\n\r\n\r\n\t/**\r\n\t * Prepares board\r\n\t */\r\n\tprivate prepareBoard(): void {\r\n\r\n\t\tthis.checkPrerequisites().then(() => {\r\n\t\t\tthis.generateHeadings();\r\n\r\n\t\t\tthis.collapseStates.push(...this.generateCollapseStates(this.hHeadings, 'h'), ...this.generateCollapseStates(this.vHeadings, 'v'));\r\n\t\t\tthis.matchAndSetInitialCollapseState();\r\n\r\n\t\t\tthis.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);\r\n\r\n\t\t\t// this.cd.markForCheck();\r\n\t\t\tthis.checkIfContentNeedsToScroll();\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Matches and set initial collapse state\r\n\t */\r\n\tprivate matchAndSetInitialCollapseState() {\r\n\t\tthis.initialCollapseState.forEach(item => {\r\n\t\t\tconst foundCollapseState = this.collapseStates.find(cS => cS.name.toLowerCase() === item.name.toLowerCase());\r\n\t\t\tif (foundCollapseState && foundCollapseState.collapsed !== item.collapsed) {\r\n\t\t\t\tfoundCollapseState.collapsed = item.collapsed;\r\n\t\t\t}\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Checks prerequisites\r\n\t * @returns prerequisites\r\n\t */\r\n\tprivate checkPrerequisites(): Promise<boolean> {\r\n\t\tif (this.checkIfPropIsObject(this.hGroupKeys[0])) {\r\n\t\t\tconst hasValueProperty = this.hGroupKeys.every((item: GroupHeading) => item.value != null);\r\n\t\t\tif (!hasValueProperty) {\r\n\t\t\t\tthrow new Error((`Column headers are objects but field 'value' is missing in one or more items.`));\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\tif (this.checkIfPropIsObject(this.vGroupKeys[0])) {\r\n\t\t\tconst hasValueProperty = this.vGroupKeys.every((item: GroupHeading) => item.value != null);\r\n\t\t\tif (!hasValueProperty) {\r\n\t\t\t\tthrow new Error((`Row headers are objects but field 'value' is missing in one or more items.`));\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\treturn Promise.resolve(true);\r\n\t}\r\n\r\n\t/**\r\n\t * Checks if prop is object\r\n\t * @returns true if if prop is object\r\n\t */\r\n\tprivate checkIfPropIsObject(prop: any): boolean {\r\n\t\treturn typeof (prop) === 'object';\r\n\t}\r\n\r\n\t/**\r\n\t * Generates the appropiate headings\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tprivate generateHeadings(): void {\r\n\t\tif (this.invertGroupDirection) {\r\n\t\t\tconst vGkey = this.vGroupKey;\r\n\t\t\tconst hGkey = this.hGroupKey;\r\n\r\n\t\t\tthis.hGroupKey = vGkey;\r\n\t\t\tthis.vGroupKey = hGkey;\r\n\t\t}\r\n\r\n\t\tthis.vHeadings = this.getHeadings(this.vGroupKeys, this.vGroupKey);\r\n\t\tthis.hHeadings = this.getHeadings(this.hGroupKeys, this.hGroupKey);\r\n\t}\r\n\r\n\t/**\r\n\t * Generates collapse states\r\n\t * @param array Array of collapse states\r\n\t * @param diretion Generate collapse states for vertical or horizontal groups\r\n\t * @returns collapse states\r\n\t */\r\n\tprivate generateCollapseStates(array: (string | GroupHeading)[], direction: 'h' | 'v'): CollapseState[] {\r\n\t\treturn array.map(item => ({ name: this.getValue(item), collapsed: (direction === 'h') ? this.hCollapsed : this.vCollapsed }));\r\n\t}\r\n\r\n\t/**\r\n\t * Gets all items of a cell (row / col)\r\n\t *\r\n\t * @param vValue Value of the row\r\n\t * @param hValue Value of the column\r\n\t * @returns Array of all items of a cell\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getItemsOfGroup(vValue: string, hValue: string): (CardItem | object)[] {\r\n\t\t// console.log('getItemsOfGroup');\r\n\r\n\t\tlet items = this.items.filter(item => {\r\n\r\n\t\t\tif (this.taskboardService.objectProperties.length === 0) {\r\n\t\t\t\tthis.taskboardService.objectProperties = Object.keys(item);\r\n\t\t\t}\r\n\t\t\tconst groupKeys: GroupKeys = this.determineCorrectGroupKeys();\r\n\r\n\t\t\tconst vItem = this.getValue(item[groupKeys.vGroupKey]);\r\n\t\t\tconst hItem = this.getValue(item[groupKeys.hGroupKey]);\r\n\r\n\t\t\tif (hItem === undefined || hItem === undefined && vItem === undefined || vItem === undefined) {\r\n\t\t\t\treturn false;\r\n\t\t\t}\r\n\r\n\t\t\tconst found = vItem.toLowerCase() === vValue.toLowerCase() && hItem.toLowerCase() === hValue.toLowerCase();\r\n\r\n\t\t\treturn found;\r\n\t\t});\r\n\r\n\t\tif (this.showUngroupedInBacklog) {\r\n\t\t\titems = items.filter(item => item[this.vGroupKey] !== '' && item[this.hGroupKey] !== '');\r\n\t\t}\r\n\r\n\t\tif (this.sortBy !== '') {\r\n\t\t\tconst fieldType = typeof (items.some(() => items[0][this.sortBy] !== undefined && items[0][this.sortBy] !== null)[this.sortBy]);\r\n\t\t\tif (fieldType) {\r\n\t\t\t\titems = items.sort((a, b) => {\r\n\r\n\t\t\t\t\tconst aField = a[this.sortBy];\r\n\t\t\t\t\tconst bField = b[this.sortBy];\r\n\r\n\t\t\t\t\tif (fieldType === 'number') {\r\n\t\t\t\t\t\treturn bField - aField;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\tif (fieldType === 'string') {\r\n\t\t\t\t\t\tif (aField < bField) {\r\n\t\t\t\t\t\t\treturn -1;\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif (aField > bField) {\r\n\t\t\t\t\t\t\treturn 1;\r\n\t\t\t\t\t\t}\r\n\r\n\t\t\t\t\t\treturn 0;\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\treturn (this.filter !== '') ? items.filter((item) =>\r\n\t\t\t(this.filterOnProperties.length > 0 ? this.filterOnProperties : Object.keys(item)).some(key => {\r\n\t\t\t\tconst found = item[key] !== null && typeof (item[key]) !== 'number' && ((item[key] as string).indexOf(this.filter) > -1 ? true : false);\r\n\t\t\t\t// found && console.info(`Searching \"${item[key]}\" for \"${this.filter}\" | Found ${found}`);\r\n\t\t\t\treturn found;\r\n\t\t\t})) : items;\r\n\t}\r\n\r\n\t/**\r\n\t * Toggles in entire group (all rows or all columns)\r\n\t *\r\n\t * @param direction Direction to toggle\r\n\t * @param collapsed Current collapse state\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic toggleCollapseGroup(direction: string, collapsed: boolean): void {\r\n\t\tconst groupKeysToToggle =\r\n\t\t\tthis.collapseStates.filter(item => (direction === 'vertical' ? this.vHeadings : this.hHeadings)\r\n\t\t\t\t.some(i =>\r\n\t\t\t\t\tthis.getValue(i)\r\n\t\t\t\t\t\t.toLowerCase() === item.name.toLowerCase()));\r\n\r\n\t\tgroupKeysToToggle.forEach(item => item.collapsed = !collapsed);\r\n\t\tif (groupKeysToToggle.length > 0) {\r\n\t\t\tif (direction === 'vertical') {\r\n\t\t\t\tthis.vCollapsed = !collapsed;\r\n\t\t\t} else {\r\n\t\t\t\tthis.hCollapsed = !collapsed;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tthis.headingCollapsed.emit({\r\n\t\t\tgroup: direction,\r\n\t\t\tcollapsed: !collapsed,\r\n\t\t\toverallCollapseState: this.collapseStates\r\n\t\t});\r\n\r\n\t\tsetTimeout(() => this.cd.markForCheck(), 100);\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Gets the value of an item\r\n\t *\r\n\t * @param item Item to get the value from\r\n\t * @returns Value of item\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getValue(item: string | GroupHeading): string {\r\n\t\tif (item as GroupHeading) {\r\n\t\t\treturn ((item as GroupHeading).value ? (item as GroupHeading).value : item as string);\r\n\t\t}\r\n\t\treturn '';\r\n\t}\r\n\r\n\t/**\r\n\t * Determines correct group keys\r\n\t * @param item Item object to check\r\n\t * @returns correct group keys\r\n\t */\r\n\tprivate determineCorrectGroupKeys(): GroupKeys {\r\n\t\treturn {\r\n\t\t\thGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.hGroupKey),\r\n\t\t\tvGroupKey: this.getCaseInsensitivePropKey(this.items[0], this.vGroupKey)\r\n\t\t};\r\n\t}\r\n\r\n\t/**\r\n\t * Gets case insensitive prop key\r\n\t * @param item Item object\r\n\t * @param propKey property key\r\n\t * @returns case insensitive prop key\r\n\t */\r\n\tprivate getCaseInsensitivePropKey(item: object, propKey: string): string {\r\n\t\tif (item) {\r\n\t\t\treturn Object.keys(item)\r\n\t\t\t\t.find(key => (key !== '' && key !== undefined && key !== undefined)\r\n\t\t\t\t\t? key.toLowerCase() === propKey.toLowerCase()\r\n\t\t\t\t\t: false\r\n\t\t\t\t);\r\n\t\t}\r\n\r\n\t\treturn '';\r\n\t}\r\n\r\n\t/**\r\n\t * Gets headings from items\r\n\t * @param [groupKey] key to get the group keys\r\n\t * @returns headings from items\r\n\t */\r\n\tprivate getHeadingsFromItems(groupKey: string = this.vGroupKey): string[] {\r\n\t\tconst keys = (this.items as object[]).map((item: any) =>\r\n\t\t\titem[Object.keys(item)\r\n\t\t\t\t.find(key => key.toLowerCase() === groupKey.toLowerCase())]\r\n\t\t);\r\n\r\n\t\treturn keys.filter((elem, pos, arr) =>\r\n\t\t\tarr.indexOf(elem) === pos && (this.showUngroupedInBacklog && (elem !== '' && elem !== undefined)));\r\n\t}\r\n\r\n\t/**\r\n\t * Gets ungrouped items (which could not be put into rows or cols)\r\n\t *\r\n\t * @returns Array of ungrouped items\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getUngroupedItems(): (CardItem | object)[] {\r\n\t\tif (this.showUngroupedInBacklog) {\r\n\t\t\treturn this.items.filter(item => {\r\n\t\t\t\tconst groupKeys: GroupKeys = this.determineCorrectGroupKeys();\r\n\t\t\t\tconst isUngrouped =\r\n\t\t\t\t\t(item[groupKeys.vGroupKey] === '' && item[groupKeys.hGroupKey] === '')\r\n\t\t\t\t\t||\r\n\t\t\t\t\t(item[groupKeys.vGroupKey] === null && item[groupKeys.hGroupKey] === null);\r\n\r\n\t\t\t\treturn isUngrouped;\r\n\t\t\t});\r\n\t\t}\r\n\r\n\t\treturn [];\r\n\t}\r\n\r\n\t/**\r\n\t * Toggles an elements collapse state\r\n\t *\r\n\t * @param group Column and row value\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic toggleCollapse(group: { hGroup: string | GroupHeading, vGroup: string | GroupHeading }): void {\r\n\r\n\t\tconst part = this.getValue(group.hGroup || group.vGroup);\r\n\t\t// console.log(\"Toggle: \" + part);\r\n\r\n\t\tconst collapseState = this.collapseState(part);\r\n\t\tthis.collapseStates.find(item => item.name === part).collapsed = !collapseState;\r\n\r\n\t\tthis.headingCollapsed.emit({\r\n\t\t\tgroup: group.hGroup || group.vGroup,\r\n\t\t\tcollapsed: !collapseState,\r\n\t\t\toverallCollapseState: this.collapseStates\r\n\t\t});\r\n\t}\r\n\r\n\t/**\r\n\t * Gets the current collapse state of a specific item\r\n\t *\r\n\t * @param collapseItem Item to get the collapse state\r\n\t * @returns true if collapsed, false when expanded\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic collapseState(collapseItem: string | GroupHeading): boolean {\r\n\r\n\t\tif (typeof (collapseItem) === 'object') {\r\n\t\t\tcollapseItem = (collapseItem).value;\r\n\t\t}\r\n\r\n\t\tconst foundItem = this.collapseStates.find(item => item.name === this.getValue(collapseItem));\r\n\t\tif (foundItem) {\r\n\t\t\tconst foundCollapsedState = foundItem.collapsed;\r\n\t\t\t// console.log('collapseState', part, foundCollapsedState);\r\n\r\n\t\t\treturn foundCollapsedState;\r\n\t\t}\r\n\t\treturn false;\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called when an item starts to drag\r\n\t *\r\n\t * @param event Native drag event\r\n\t * @param item CardItem which is dragged\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic dragStart(event: DragEvent, item: CardItem): void {\r\n\t\tthis.dragItem = item;\r\n\t\tthis.nativeDragItem = (event.currentTarget as HTMLElement);\r\n\t\tthis.dragStarted.emit(this.dragItem);\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called, when the drag of an item ends\r\n\t *\r\n\t * @param event Native drag event\r\n\t * @param item CardItem which is dragged\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic dragEnd(): void {\r\n\t\tthis.dragItem = undefined;\r\n\t}\r\n\r\n\r\n\t/**\r\n\t * Handler which is called, when a new item should be created (click on a add icon)\r\n\t *\r\n\t * @param group Row and column value\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic createElement(group: ClickEvent): void {\r\n\t\tthis.elementCreateClick.emit(group);\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called when an item is dropped\r\n\t *\r\n\t * @param event Native drag event\r\n\t * @param vRow Row item\r\n\t * @param hRow Column item\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic drop(event: DragEvent, vRow: string | GroupHeading, hRow: string | GroupHeading): void {\r\n\t\tevent.preventDefault();\r\n\t\tif (event.currentTarget) {\r\n\t\t\tconst placeholderEl = (event.currentTarget as HTMLElement).querySelector('.placeholder');\r\n\t\t\tif (placeholderEl) {\r\n\t\t\t\tthis.renderer.removeChild(placeholderEl.parentNode, placeholderEl);\r\n\t\t\t}\r\n\t\t\tthis.currentDragZone = '';\r\n\t\t\tthis.placeholderSet = false;\r\n\t\t}\r\n\r\n\t\tconst groupKeys: GroupKeys = this.determineCorrectGroupKeys();\r\n\t\tconst dragItemBeforeChange = { ...this.dragItem };\r\n\r\n\t\tthis.dragItem[groupKeys.vGroupKey] = this.getValue(vRow);\r\n\t\tthis.dragItem[groupKeys.hGroupKey] = this.getValue(hRow);\r\n\r\n\t\tthis.dropped.emit({\r\n\t\t\thGroup: hRow,\r\n\t\t\tvGroup: vRow,\r\n\t\t\titem: this.dragItem,\r\n\t\t\titemBeforeChange: dragItemBeforeChange,\r\n\t\t\tnativeItemElement: this.nativeDragItem\r\n\t\t});\r\n\t\tthis.dragItem = undefined;\r\n\t}\r\n\r\n\t/**\r\n\t * Handler which is called when an item is dragged over a cell\r\n\t *\r\n\t * @param event Native html drag event\r\n\t * @param vRow Row item\r\n\t * @param hRow Column item\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic dragOver(event: DragEvent, vRow: string | GroupHeading, hRow: string | GroupHeading): void {\r\n\t\tif (this.dragItem) {\r\n\t\t\tevent.preventDefault();\r\n\r\n\t\t\tif (vRow === undefined) {\r\n\t\t\t\tvRow = '';\r\n\t\t\t}\r\n\r\n\t\t\tif (hRow === undefined) {\r\n\t\t\t\thRow = '';\r\n\t\t\t}\r\n\r\n\t\t\tvRow = this.getValue(vRow);\r\n\t\t\thRow = this.getValue(hRow);\r\n\r\n\t\t\tconst dragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();\r\n\t\t\tif (dragZone !== this.currentDragZone && this.currentDragZone !== '') {\r\n\t\t\t\tconst lastPlaceholder = document.getElementById(this.currentDragZone);\r\n\t\t\t\tif (lastPlaceholder) {\r\n\t\t\t\t\tthis.renderer.removeChild(lastPlaceholder.parentNode, lastPlaceholder);\r\n\t\t\t\t\tthis.placeholderSet = false;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\tthis.currentDragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();\r\n\r\n\t\t\tif (!this.placeholderSet) {\r\n\t\t\t\tconst placeholderElement = this.createPlaceholderElement();\r\n\t\t\t\tthis.renderer.appendChild(event.currentTarget, placeholderElement);\r\n\t\t\t\tthis.placeholderSet = true;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t/**\r\n\t * Checks if container is scrollable\r\n\t * @param containerName Container to check if scrollable\r\n\t * @returns is scrollable\r\n\t */\r\n\tprivate containerIsScrollable(containerName: string): Scrollable {\r\n\t\tconst container = this.elRef.nativeElement.querySelector(containerName);\r\n\t\tif (container) {\r\n\t\t\tconst hasHorizontalScrollbar = container.scrollWidth > container.clientWidth;\r\n\t\t\tconst hasVerticalScrollbar = container.scrollHeight > container.clientHeight;\r\n\r\n\t\t\treturn {\r\n\t\t\t\thScroll: hasHorizontalScrollbar,\r\n\t\t\t\tvScroll: hasVerticalScrollbar\r\n\t\t\t};\r\n\t\t}\r\n\r\n\t\treturn null;\r\n\t}\r\n\r\n\t/**\r\n\t * Determines the style of a container which includes the scrollbar\r\n\t *\r\n\t * @returns Style of the container the scrollbar is applied to\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic scrollBarStyle(): object {\r\n\r\n\t\treturn {\r\n\t\t\t'padding-right': `${this.calculateScrollBarWidth()}px`\r\n\t\t};\r\n\t}\r\n\r\n\t/**\r\n\t * Gets the current width of a scrollbar\r\n\t *\r\n\t * @returns Object with native css style\r\n\t *\r\n\t * @memberOf BoardComponent\r\n\t */\r\n\tpublic getColumnWidth(): object {\r\n\t\tif (!this.scrollable) { return {}; }\r\n\r\n\t\treturn {\r\n\t\t\t'min-width': `${this.columnWidth}px`\r\n\t\t};\r\n\t}\r\n\r\n\tprivate calculateScrollBarWidth(): number {\r\n\t\tconst headingsRowWidth = this.elRef.nativeElement.querySelector('.headings').clientWidth;\r\n\t\tconst contentWidth = this.elRef.nativeElement.querySelector('.row-content').clientWidth;\r\n\r\n\t\treturn headingsRowWidth - contentWidth;\r\n\t}\r\n\r\n\t/**\r\n\t * Creates placeholder element\r\n\t * @returns placeholder element\r\n\t */\r\n\tprivate createPlaceholderElement(): HTMLElement {\r\n\t\tif (this.dragoverPlaceholderTemplate) {\r\n\t\t\treturn this.dragoverPlaceholderTemplate.elementRef.nativeElement.cloneNode(true);\r\n\t\t}\r\n\r\n\t\tconst placeholderElement: HTMLElement = this.renderer.createElement('div');\r\n\t\tthis.renderer.setStyle(placeholderElement, 'border', '1px dashed gray');\r\n\t\tthis.renderer.setStyle(placeholderElement, 'width', '100%');\r\n\t\tthis.renderer.setStyle(placeholderElement, 'height', '50px');\r\n\t\tthis.renderer.setAttribute(placeholderElement, 'id', this.currentDragZone);\r\n\t\tthis.renderer.setAttribute(placeholderElement, 'class', 'placeholder');\r\n\r\n\t\treturn placeholderElement;\r\n\t}\r\n\r\n\t/**\r\n\t * Gets headings\r\n\t * @param keys key array\r\n\t * @param key key to check\r\n\t * @returns headings\r\n\t */\r\n\tprivate getHeadings(keys: any[], key: string): (string | GroupHeading)[] {\r\n\t\tif ((keys.length > 0 && (keys[0] as GroupHeading).value !== '')) {\r\n\t\t\treturn keys.sort((a: GroupHeading, b: GroupHeading) => a.orderId - b.orderId);\r\n\t\t}\r\n\r\n\t\treturn this.getHeadingsFromItems(key);\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Scrolling board component\r\n\t * @param event Event\r\n\t */\r\n\tpublic scrolling(event: Event) {\r\n\t\tconst target = (event.currentTarget as HTMLElement);\r\n\r\n\t\t// Clear our timeout throughout the scroll\r\n\t\tthis.detectIfUserHasEndedScrolling().then(() => {\r\n\t\t\tconst scrollStateEnded = this.getScrollState(target);\r\n\t\t\tscrollStateEnded.hasReachedEnd = false;\r\n\t\t\tscrollStateEnded.isScrolling = false;\r\n\t\t\tif (Math.round(scrollStateEnded.distance) !== Math.round(scrollStateEnded.maxDistance)) {\r\n\t\t\t\tscrollStateEnded.hasReachedEnd = false;\r\n\t\t\t\tthis.scrollEnded.emit(scrollStateEnded);\r\n\t\t\t} else {\r\n\t\t\t\tscrollStateEnded.hasReachedEnd = true;\r\n\t\t\t\tthis.scrolledToEnd.emit(scrollStateEnded);\r\n\t\t\t\tthis.scrollEnded.emit(scrollStateEnded);\r\n\t\t\t}\r\n\t\t});\r\n\r\n\t\tconst scrollState = this.getScrollState(target);\r\n\t\tscrollState.hasReachedEnd = false;\r\n\t\tscrollState.isScrolling = true;\r\n\t\tthis.isScrolling.emit(scrollState);\r\n\t}\r\n\r\n\tprivate getScrollState(target: HTMLElement): ScrollEvent {\r\n\t\tconst scrollTop = target.scrollTop;\r\n\t\tconst scrollAxis: 'x' | 'y' = (scrollTop > 0) ? 'y' : 'x';\r\n\r\n\t\tconst currentDistance = (scrollAxis === 'y' ? target.scrollTop : target.scrollWidth);\r\n\t\tconst maximumDistance = (scrollAxis === 'y' ? target.scrollHeight - target.clientHeight : target.scrollWidth - target.clientWidth);\r\n\r\n\t\treturn {\r\n\t\t\taxis: scrollAxis,\r\n\t\t\tdistance: currentDistance,\r\n\t\t\tmaxDistance: maximumDistance\r\n\t\t};\r\n\t}\r\n\r\n\r\n\t/**\r\n\t * Detects if user has ended scrolling\r\n\t * Got from: https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/\r\n\t * @returns if user has ended scrolling\r\n\t */\r\n\tprivate detectIfUserHasEndedScrolling(): Promise<boolean> {\r\n\t\treturn new Promise((res) => {\r\n\t\t\twindow.clearTimeout(this.isScrollingTimeout);\r\n\t\t\t// Set a timeout to run after scrolling ends\r\n\t\t\tthis.isScrollingTimeout = window.setTimeout(() => {\r\n\t\t\t\t// Run the callback\r\n\t\t\t\treturn res(true);\r\n\t\t\t}, 66);\r\n\t\t});\r\n\r\n\t}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1291,7 +1949,7 @@
                         "type": "TaskboardService"
                     }
                 ],
-                "line": 163,
+                "line": 197,
                 "jsdoctags": [
                     {
                         "name": "renderer",
@@ -1324,7 +1982,9 @@
                 ]
             },
             "implements": [
-                "OnInit"
+                "OnInit",
+                "DoCheck",
+                "AfterViewInit"
             ],
             "accessors": {
                 "items": {
@@ -1335,15 +1995,15 @@
                         "args": [
                             {
                                 "name": "items",
-                                "type": ""
+                                "type": "[]"
                             }
                         ],
                         "returnType": "void",
-                        "line": 22,
+                        "line": 19,
                         "jsdoctags": [
                             {
                                 "name": "items",
-                                "type": "",
+                                "type": "[]",
                                 "tagName": {
                                     "text": "param"
                                 }
@@ -1352,17 +2012,17 @@
                     },
                     "getSignature": {
                         "name": "items",
-                        "type": "",
-                        "returnType": "Array<object | CardItem>",
-                        "line": 28
+                        "type": "[]",
+                        "returnType": "[]",
+                        "line": 25
                     }
                 }
             },
-            "templateData": "<!-- <pre>{{ hHeadings | json }}</pre>\r\n<pre>{{ vHeadings | json }}</pre> -->\r\n\r\n<div class=\"h-100 d-flex flex-column align-items-stretch border-0\" [class.small]=\"smallText\" style=\"overflow: hidden\">\r\n  <div class=\"d-flex flex-column h-100\">\r\n    <ngx-taskboard-filter-search-bar [placeholder]=\"filterRowPlaceholder\"></ngx-taskboard-filter-search-bar>\r\n    <div class=\"d-flex flex-row align-items-stretch flex-fill h-100 \">\r\n\r\n      <div class=\"backlog border-right\" *ngIf=\"showBacklog\" [style.width]=\"backlogWidth\">\r\n        <div class=\"card border-right-0 border-top-0 border-left-0 w-100 h-100\">\r\n          <div class=\"{{hHeaderClass}} d-flex flex-row justify-content-between\">\r\n            {{ backlogName }}\r\n\r\n            <div class=\"actions ml-3\">\r\n              <fa-icon [icon]=\"['fas','plus-square']\" [fixedWidth]=\"true\"></fa-icon>\r\n              <!-- <fa-icon [icon]=\"['fas','chevron-left']\" [fixedWidth]=\"true\"></fa-icon> -->\r\n            </div>\r\n          </div>\r\n          <ul class=\"list-group list-group-flush p-3 h-100\" (dragover)=\"dragOver($event, null, null)\"\r\n            (drop)=\"drop($event, null, null)\">\r\n            <div class=\" ungrouped-item\" *ngFor=\"let item of getUngroupedItems()\" draggable=\"true\"\r\n              (dragstart)=\"dragStart($event, item)\" (dragend)=\"dragEnd($event, item)\">\r\n              <ng-container *ngIf=\"itemTemplate\">\r\n                <ng-container *ngTemplateOutlet=\"itemTemplate; context { item: item }\"></ng-container>\r\n              </ng-container>\r\n\r\n              <ng-container *ngIf=\"!itemTemplate\">\r\n                <ng-container *ngTemplateOutlet=\"defaultItemTemplate; context: { item: item }\"></ng-container>\r\n              </ng-container>\r\n            </div>\r\n          </ul>\r\n        </div>\r\n\r\n      </div>\r\n      <div class=\"column-cards d-flex flex-column flex-fill h-100\" [class.overflow-x-auto]=\"horizontalScrolling\"\r\n        [class.overflow-y-auto]=\"verticalScrolling\" [class.border-bottom]=\"(scrollable && verticalScrolling)\">\r\n\r\n        <div class=\"headings d-flex flex-row align-items-stretch w-100\" [ngStyle]=\"scrollBarStyle()\"\r\n          [class.sticky-top]=\"stickyHorizontalHeaderKeys && verticalScrolling\">\r\n          <div class=\"col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row\" *ngIf=\"vGroupKey\">\r\n            <div class=\"d-flex flex-row w-100\">\r\n              <div class=\"boardname flex-fill\">{{ boardName }}</div>\r\n              <div class=\"h-v-actions align-self-center\">\r\n                <fa-icon [icon]=\"['fas', vCollapsed ? 'chevron-down' : 'chevron-up']\" [fixedWidth]=\"true\"\r\n                  (click)=\"toggleCollapseGroup('vertical', vCollapsed)\"></fa-icon>\r\n              </div>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header\"\r\n            [class.bg-white]=\"collapseState(hGroup)\" [class.border-bottom-0]=\"collapseState(hGroup)\"\r\n            [class.col]=\"!collapseState(hGroup) && !(scrollable && horizontalScrolling)\"\r\n            *ngFor=\"let hGroup of hHeadings; let hLast = last\" [class.h-collapsed]=\"collapseState(hGroup)\"\r\n            [ngStyle]=\"getColumnWidth()\" [class.border-right]=\"(scrollable && horizontalScrolling) && hLast\">\r\n            <div class=\"\" *ngIf=\"!collapseState(hGroup)\">\r\n              <ng-container [ngIf]=\"hHeaderTemplate\"\r\n                *ngTemplateOutlet=\"hHeaderTemplate; context: { groupName: hGroup }\">\r\n              </ng-container>\r\n              <ng-container *ngIf=\"!hHeaderTemplate\">\r\n                {{ getValue(hGroup) || 'Ungrouped' }}\r\n              </ng-container>\r\n            </div>\r\n            <div *ngIf=\"!collapseState(hGroup)\">\r\n              <ng-content\r\n                *ngTemplateOutlet=\"cardAction; context: { withNew: hAddNewItems, hGroup: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }\">\r\n              </ng-content>\r\n            </div>\r\n          </div>\r\n\r\n        </div>\r\n\r\n        <div class=\"d-flex flex-column row-content align-items-stretch\"\r\n          [class.flex-fill]=\"!(scrollable && verticalScrolling)\">\r\n\r\n          <div class=\"d-flex flex-row\" [class.flex-fill]=\"!collapseState(vGroup)\" *ngFor=\"let vGroup of vHeadings\">\r\n\r\n            <div class=\"col-2 {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between\" *ngIf=\"vGroupKey\">\r\n              <div class=\"vertical-group-header h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill\">\r\n\r\n                <ng-container [ngIf]=\"vHeaderTemplate\"\r\n                  *ngTemplateOutlet=\"vHeaderTemplate; context: { groupName: vGroup }\">\r\n                </ng-container>\r\n                <ng-container *ngIf=\"!vHeaderTemplate\">\r\n                  {{ getValue(vGroup) || 'Ungrouped' }}\r\n                </ng-container>\r\n              </div>\r\n\r\n              <div class=\"vertical-actions d-flex flex-column\" [class.flex-column]=\"!collapseState(vGroup)\"\r\n                [class.flex-row]=\"collapseState(vGroup)\" [class.flex-row-reverse]=\"collapseState(vGroup)\">\r\n                <div class=\"align-self-start flex-fill\">\r\n                  <ng-content\r\n                    *ngTemplateOutlet=\"cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? 'chevron-up' : 'chevron-down'  }\">\r\n                  </ng-content>\r\n                </div>\r\n                <div class=\"align-self-start\">\r\n                  <ng-content class=\"align-self-end\"\r\n                    *ngTemplateOutlet=\"cardAction; context: { withNew: vAddNewItems, group: { hGroup: null, vGroup: vGroup}, collapser: false }\">\r\n                  </ng-content>\r\n                </div>\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <ng-container *ngFor=\"let hGroup of hHeadings; let hLast = last\">\r\n\r\n              <div class=\"cell-item border-left {{cellClass}} bg-white d-flex flex-column\"\r\n                [class.col]=\"!collapseState(hGroup) && !(scrollable && horizontalScrolling)\"\r\n                [class.border-bottom-0]=\"collapseState(hGroup)\" [class.v-collapsed]=\"collapseState(vGroup)\"\r\n                [class.h-collapsed]=\"collapseState(hGroup)\" [ngStyle]=\"getColumnWidth()\"\r\n                [class.border-right]=\"(scrollable && horizontalScrolling) && hLast\">\r\n\r\n\r\n\r\n                <ng-container *ngIf=\"!collapseState(vGroup) && !collapseState(hGroup)\">\r\n\r\n                  <div class=\"cell-items flex-fill\" (dragover)=\"dragOver($event, vGroup, hGroup)\"\r\n                    (drop)=\"drop($event, vGroup, hGroup)\">\r\n                    <ng-container *ngFor=\"let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))\">\r\n\r\n                      <div class=\"item-container p-0 m-0\" draggable=\"true\" (dragstart)=\"dragStart($event, item)\"\r\n                        (dragend)=\"dragEnd($event, item)\">\r\n                        <ng-container *ngIf=\"itemTemplate\">\r\n                          <ng-container *ngTemplateOutlet=\"itemTemplate; context { item: item }\"></ng-container>\r\n                        </ng-container>\r\n\r\n                        <ng-container *ngIf=\"!itemTemplate\">\r\n                          <ng-container *ngTemplateOutlet=\"defaultItemTemplate; context: { item: item }\"></ng-container>\r\n                        </ng-container>\r\n                      </div>\r\n\r\n                    </ng-container>\r\n                  </div>\r\n                  <div class=\"cell-actions d-flex flex-row align-self-end\">\r\n                    <ng-content\r\n                      *ngTemplateOutlet=\"cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }\">\r\n                    </ng-content>\r\n                  </div>\r\n\r\n                </ng-container>\r\n                <ng-container *ngIf=\"collapseState(vGroup) && !collapseState(hGroup)\">\r\n                  <div class=\"text-center\" (dragover)=\"dragOver($event, vGroup, hGroup)\"\r\n                    (drop)=\"drop($event, vGroup, hGroup)\">\r\n                    <ng-container [ngIf]=\"noElementsTemplate\"\r\n                      *ngTemplateOutlet=\"noElementsTemplate; context: { count: getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length, filter: this.filter }\">\r\n                    </ng-container>\r\n                    <ng-container *ngIf=\"!noElementsTemplate\">\r\n                      {{ getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length }} elements\r\n                      <span *ngIf=\"filter !== ''\" class=\"code\"> (filtered by <code>{{filter}}</code>)</span>\r\n                    </ng-container>\r\n                  </div>\r\n                </ng-container>\r\n                <ng-container *ngIf=\"collapseState(hGroup)\">\r\n\r\n                </ng-container>\r\n                <!-- {{ collapseState(hGroup) }} / {{ collapseState(vGroup) }} -->\r\n\r\n              </div>\r\n            </ng-container>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n\r\n<ng-template #cardAction let-withNew=\"withNew\" let-group=\"group\" let-chevronIcon=\"chevronIcon\"\r\n  let-collapser=\"collapser\">\r\n\r\n  <ng-container [ngIf]=\"actionsTemplate\"\r\n    *ngTemplateOutlet=\"actionsTemplate; context: { actionConfig: { group: group, chevronIcon: chevronIcon, collapser: collapser  }  }\">\r\n  </ng-container>\r\n  <ng-container *ngIf=\"!actionsTemplate\">\r\n    <div class=\"actions ml-3\" *ngIf=\"vGroupKey\">\r\n      <fa-icon [icon]=\"['fas','plus-square']\" [fixedWidth]=\"true\" *ngIf=\"withNew\" (click)=\"createElement(group)\">\r\n      </fa-icon>\r\n      <fa-icon [icon]=\"['fas',chevronIcon ? chevronIcon : 'chevron-left']\" [fixedWidth]=\"true\"\r\n        (click)=\"toggleCollapse(group)\" *ngIf=\"(collapser != null ? collapser : true)\"></fa-icon>\r\n    </div>\r\n  </ng-container>\r\n\r\n\r\n</ng-template>\r\n\r\n<ng-template #defaultItemTemplate let-item=\"item\">\r\n  <div class=\"card mb-1 border-bottom-0 border-top-0\" style=\"border-left: 5px solid; border-radius: 0;\"\r\n    [style.border-left-color]=\"item?.color\">\r\n    <div class=\"card-header border-top d-flex flex-row justify-content-between\">\r\n      <div class=\"\">\r\n        <span class=\"font-weight-bold\">#{{item.id}}</span>\r\n        <span class=\"ml-3\">{{ item.name }}</span>\r\n        <span class=\"ml-3\">{{ item.priority }}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n"
+            "templateData": "<div class=\"h-100 d-flex flex-column align-items-stretch border-0\" [class.small]=\"smallText\" style=\"overflow: hidden\">\r\n  <div class=\"d-flex flex-column h-100\">\r\n    <ngx-taskboard-filter-search-bar [placeholder]=\"filterRowPlaceholder\"></ngx-taskboard-filter-search-bar>\r\n    <div class=\"d-flex flex-row align-items-stretch flex-fill h-100 \">\r\n\r\n      <ng-container *ngTemplateOutlet=\"backlogColumn\"></ng-container>\r\n\r\n      <div class=\"column-cards d-flex flex-column flex-fill h-100\" [class.overflow-x-auto]=\"horizontalScrolling\"\r\n        [class.overflow-y-auto]=\"verticalScrolling\" (scroll)=\"scrolling($event)\" [class.border-bottom]=\"(scrollable && verticalScrolling)\">\r\n\r\n        <ng-container *ngTemplateOutlet=\"columnHeadings\"></ng-container>\r\n\r\n        <div class=\"d-flex flex-column row-content align-items-stretch\"\r\n          [class.flex-fill]=\"!(scrollable && verticalScrolling)\">\r\n          <ng-container *ngFor=\"let vGroup of vHeadings\">\r\n\r\n            <div class=\"d-flex flex-row\" [class.flex-fill]=\"!collapseState(vGroup)\">\r\n              <ng-container *ngTemplateOutlet=\"rowHeadings; context: { vGroup: vGroup }\"></ng-container>\r\n\r\n              <ng-container *ngFor=\"let hGroup of hHeadings; let hLast = last\">\r\n\r\n                <ng-container *ngTemplateOutlet=\"cellItem; context: { hGroup: hGroup, vGroup: vGroup, hLast: hLast } \">\r\n                </ng-container>\r\n\r\n              </ng-container>\r\n            </div>\r\n          </ng-container>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!-- Templates -->\r\n<ng-template #cardAction let-withNew=\"withNew\" let-group=\"group\" let-chevronIcon=\"chevronIcon\"\r\n  let-collapser=\"collapser\">\r\n\r\n  <ng-container [ngIf]=\"actionsTemplate\"\r\n    *ngTemplateOutlet=\"actionsTemplate; context: { actionConfig: { group: group, chevronIcon: chevronIcon, collapser: collapser  }  }\">\r\n  </ng-container>\r\n  <ng-container *ngIf=\"!actionsTemplate\">\r\n    <div class=\"actions ml-3\" *ngIf=\"vGroupKey\">\r\n      <fa-icon [icon]=\"['fas','plus-square']\" [fixedWidth]=\"true\" *ngIf=\"withNew\" (click)=\"createElement(group)\">\r\n      </fa-icon>\r\n      <fa-icon [icon]=\"['fas',chevronIcon ? chevronIcon : 'chevron-left']\" [fixedWidth]=\"true\"\r\n        (click)=\"toggleCollapse(group)\" *ngIf=\"(collapser != null ? collapser : true)\"></fa-icon>\r\n    </div>\r\n  </ng-container>\r\n</ng-template>\r\n\r\n<ng-template #defaultItemTemplate let-item=\"item\">\r\n  <div class=\"card mb-1 border-bottom-0 border-top-0\" style=\"border-left: 5px solid; border-radius: 0;\"\r\n    [style.border-left-color]=\"item?.color\">\r\n    <div class=\"card-header border-top d-flex flex-row justify-content-between\">\r\n      <div class=\"\">\r\n        <span class=\"font-weight-bold\">#{{item.id}}</span>\r\n        <span class=\"ml-3\">{{ item.name }}</span>\r\n        <span class=\"ml-3\">{{ item.priority }}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n\r\n<!-- Layout parts -->\r\n<ng-template #backlogColumn>\r\n  <div class=\"backlog border-right\" *ngIf=\"showBacklog\" [style.width]=\"backlogWidth\">\r\n    <div class=\"card border-right-0 border-top-0 border-left-0 w-100 h-100\">\r\n      <div class=\"{{hHeaderClass}} d-flex flex-row justify-content-between\">\r\n\r\n        {{ backlogName }}\r\n\r\n        <div class=\"actions ml-3\">\r\n          <fa-icon [icon]=\"['fas','plus-square']\" [fixedWidth]=\"true\"></fa-icon>\r\n        </div>\r\n      </div>\r\n\r\n      <ul class=\"list-group list-group-flush p-3 h-100\" (dragover)=\"dragOver($event, null, null)\"\r\n        (drop)=\"drop($event, null, null)\">\r\n        <div class=\" ungrouped-item\" *ngFor=\"let item of getUngroupedItems()\" draggable=\"true\"\r\n          (dragstart)=\"dragStart($event, item)\" (dragend)=\"dragEnd($event, item)\">\r\n          <ng-container *ngIf=\"itemTemplate\">\r\n            <ng-container *ngTemplateOutlet=\"itemTemplate; context { item: item }\"></ng-container>\r\n          </ng-container>\r\n\r\n          <ng-container *ngIf=\"!itemTemplate\">\r\n            <ng-container *ngTemplateOutlet=\"defaultItemTemplate; context: { item: item }\"></ng-container>\r\n          </ng-container>\r\n        </div>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #columnHeadings>\r\n  <div class=\"headings d-flex flex-row align-items-stretch w-100\" [ngStyle]=\"scrollBarStyle()\"\r\n    [class.sticky-top]=\"stickyHorizontalHeaderKeys && verticalScrolling\">\r\n    <div class=\"col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row\" *ngIf=\"vGroupKey\">\r\n      <div class=\"d-flex flex-row w-100\">\r\n        <div class=\"boardname flex-fill\">{{ boardName }}</div>\r\n        <div class=\"h-v-actions align-self-end\">\r\n          <fa-icon [icon]=\"['fas', vCollapsed ? 'chevron-down' : 'chevron-up']\" [fixedWidth]=\"true\"\r\n            (click)=\"toggleCollapseGroup('vertical', vCollapsed)\"></fa-icon>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"border-left {{hHeaderClass}} d-flex flex-row justify-content-between horizontal-group-header\"\r\n      [class.bg-white]=\"collapseState(hGroup)\" [class.border-bottom-0]=\"collapseState(hGroup)\"\r\n      [class.col]=\"!collapseState(hGroup) && !(scrollable && horizontalScrolling)\"\r\n      *ngFor=\"let hGroup of hHeadings; let hLast = last\" [class.h-collapsed]=\"collapseState(hGroup)\"\r\n      [ngStyle]=\"getColumnWidth()\" [class.border-right]=\"(scrollable && horizontalScrolling) && hLast\">\r\n      <div class=\"\" *ngIf=\"!collapseState(hGroup)\">\r\n        <ng-container [ngIf]=\"hHeaderTemplate\" *ngTemplateOutlet=\"hHeaderTemplate; context: { groupName: hGroup }\">\r\n        </ng-container>\r\n        <ng-container *ngIf=\"!hHeaderTemplate\">\r\n          {{ getValue(hGroup) || 'Ungrouped' }}\r\n        </ng-container>\r\n      </div>\r\n      <div *ngIf=\"!collapseState(hGroup)\">\r\n        <ng-content\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: hAddNewItems, group: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }\">\r\n        </ng-content>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #rowHeadings let-vGroup=\"vGroup\">\r\n  <div class=\"col-2 {{vHeaderClass}} border-left-0 d-flex flex-row justify-content-between\" *ngIf=\"vGroupKey\">\r\n    <div class=\"vertical-group-header h-100 border-bottom-0 border-left-0 p-0 m-0 flex-fill\">\r\n\r\n      <ng-container [ngIf]=\"vHeaderTemplate\" *ngTemplateOutlet=\"vHeaderTemplate; context: { groupName: vGroup }\">\r\n      </ng-container>\r\n      <ng-container *ngIf=\"!vHeaderTemplate\">\r\n        {{ getValue(vGroup) || 'Ungrouped' }}\r\n      </ng-container>\r\n    </div>\r\n\r\n    <div class=\"vertical-actions d-flex flex-column\" [class.flex-column]=\"!collapseState(vGroup)\"\r\n      [class.flex-row]=\"collapseState(vGroup)\" [class.flex-row-reverse]=\"collapseState(vGroup)\">\r\n      <div class=\"align-self-start flex-fill\">\r\n        <ng-content\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? 'chevron-up' : 'chevron-down'  }\">\r\n        </ng-content>\r\n      </div>\r\n      <div class=\"align-self-start\">\r\n        <ng-content class=\"align-self-end\"\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: vAddNewItems, group: { hGroup: null, vGroup: vGroup}, collapser: false }\">\r\n        </ng-content>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #cellItem let-vGroup=\"vGroup\" let-hGroup=\"hGroup\" let-hLast=\"hLast\">\r\n  <div class=\"cell-item border-left {{cellClass}} bg-white d-flex flex-column\"\r\n    [class.col]=\"!collapseState(hGroup) && !(scrollable && horizontalScrolling)\"\r\n    [class.border-bottom-0]=\"collapseState(hGroup)\" [class.v-collapsed]=\"collapseState(vGroup)\"\r\n    [class.h-collapsed]=\"collapseState(hGroup)\" [ngStyle]=\"getColumnWidth()\"\r\n    [class.border-right]=\"(scrollable && horizontalScrolling) && hLast\">\r\n\r\n\r\n    <ng-container *ngIf=\"!collapseState(vGroup) && !collapseState(hGroup)\">\r\n\r\n      <div class=\"cell-items flex-fill\" (dragover)=\"dragOver($event, vGroup, hGroup)\"\r\n        (drop)=\"drop($event, vGroup, hGroup)\">\r\n        <ng-container *ngFor=\"let item of getItemsOfGroup(getValue(vGroup), getValue(hGroup))\">\r\n\r\n          <div class=\"item-container p-0 m-0\" draggable=\"true\" (dragstart)=\"dragStart($event, item)\"\r\n            (dragend)=\"dragEnd($event, item)\">\r\n            <ng-container *ngIf=\"itemTemplate\">\r\n              <ng-container *ngTemplateOutlet=\"itemTemplate; context { item: item }\"></ng-container>\r\n            </ng-container>\r\n\r\n            <ng-container *ngIf=\"!itemTemplate\">\r\n              <ng-container *ngTemplateOutlet=\"defaultItemTemplate; context: { item: item }\">\r\n              </ng-container>\r\n            </ng-container>\r\n          </div>\r\n\r\n        </ng-container>\r\n      </div>\r\n      <div class=\"cell-actions d-flex flex-row align-self-end\">\r\n        <ng-content\r\n          *ngTemplateOutlet=\"cardAction; context: { withNew: cellAddNewItems, group: { hGroup: hGroup, vGroup: vGroup}, collapser: false }\">\r\n        </ng-content>\r\n      </div>\r\n\r\n    </ng-container>\r\n\r\n    <ng-container *ngIf=\"collapseState(vGroup) && !collapseState(hGroup)\">\r\n      <div class=\"text-center\" (dragover)=\"dragOver($event, vGroup, hGroup)\" (drop)=\"drop($event, vGroup, hGroup)\">\r\n        <ng-container [ngIf]=\"noElementsTemplate\"\r\n          *ngTemplateOutlet=\"noElementsTemplate; context: { count: getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length, filter: this.filter }\">\r\n        </ng-container>\r\n        <ng-container *ngIf=\"!noElementsTemplate\">\r\n          {{ getItemsOfGroup(getValue(vGroup), getValue(hGroup)).length }} elements\r\n          <span *ngIf=\"filter !== ''\" class=\"code\"> (filtered by <code>{{filter}}</code>)</span>\r\n        </ng-container>\r\n      </div>\r\n    </ng-container>\r\n    <ng-container *ngIf=\"collapseState(hGroup)\">\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n\r\n</ng-template>\r\n"
         },
         {
             "name": "FilterSearchBarComponent",
-            "id": "component-FilterSearchBarComponent-de3866714b8e16c8474c509443771b03",
+            "id": "component-FilterSearchBarComponent-1c1fa1ba405851a99a3250b4b4e4db9c",
             "file": "projects/ngx-taskboard-lib/src/lib/filter-search-bar/filter-search-bar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1381,7 +2041,7 @@
             "inputsClass": [
                 {
                     "name": "placeholder",
-                    "defaultValue": "\"Search for Items\"",
+                    "defaultValue": "'Search for Items'",
                     "line": 19
                 }
             ],
@@ -1484,7 +2144,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit } from \"@angular/core\";\r\nimport { Subject } from \"rxjs\";\r\nimport { debounceTime, distinctUntilChanged } from \"rxjs/operators\";\r\nimport { TaskboardService } from \"../taskboard.service\";\r\n\r\n@Component({\r\n  // tslint:disable-next-line: component-selector\r\n  selector: \"ngx-taskboard-filter-search-bar\",\r\n  templateUrl: \"./filter-search-bar.component.html\",\r\n  styleUrls: [\"./filter-search-bar.component.scss\"],\r\n})\r\nexport class FilterSearchBarComponent implements OnInit {\r\n\r\n  public filter: string;\r\n  public filterChanged: Subject<string> = new Subject<string>();\r\n  public filterOnProperties: string[] = [];\r\n  public filterOnPropertiesChanged: EventEmitter<string[]> = new EventEmitter<string[]>();\r\n\r\n  @Input() public placeholder = \"Search for Items\";\r\n\r\n  constructor(public taskboardService: TaskboardService) {\r\n    this.filterChanged.pipe(\r\n      debounceTime(300),\r\n      distinctUntilChanged())\r\n      .subscribe((filter: string) => {\r\n        this.filter = filter;\r\n        this.taskboardService.filterChanged$.emit(filter);\r\n      });\r\n  }\r\n\r\n  public ngOnInit() {\r\n  }\r\n\r\n  public changed(text) {\r\n    this.filterChanged.next(text);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit } from '@angular/core';\r\nimport { Subject } from 'rxjs';\r\nimport { debounceTime, distinctUntilChanged } from 'rxjs/operators';\r\nimport { TaskboardService } from '../taskboard.service';\r\n\r\n@Component({\r\n\t// tslint:disable-next-line: component-selector\r\n\tselector: 'ngx-taskboard-filter-search-bar',\r\n\ttemplateUrl: './filter-search-bar.component.html',\r\n\tstyleUrls: ['./filter-search-bar.component.scss']\r\n})\r\nexport class FilterSearchBarComponent implements OnInit {\r\n\r\n\tpublic filter: string;\r\n\tpublic filterChanged: Subject<string> = new Subject<string>();\r\n\tpublic filterOnProperties: string[] = [];\r\n\tpublic filterOnPropertiesChanged: EventEmitter<string[]> = new EventEmitter<string[]>();\r\n\r\n\t@Input() public placeholder = 'Search for Items';\r\n\r\n\tconstructor(public taskboardService: TaskboardService) {\r\n\t\tthis.filterChanged.pipe(\r\n\t\t\tdebounceTime(300),\r\n\t\t\tdistinctUntilChanged())\r\n\t\t\t.subscribe((filter: string) => {\r\n\t\t\t\tthis.filter = filter;\r\n\t\t\t\tthis.taskboardService.filterChanged$.emit(filter);\r\n\t\t\t});\r\n\t}\r\n\r\n\tpublic ngOnInit() {\r\n\t}\r\n\r\n\tpublic changed(text) {\r\n\t\tthis.filterChanged.next(text);\r\n\t}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1576,9 +2236,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "BoardComponent",
-                "coveragePercent": 52,
-                "coverageCount": "41/78",
-                "status": "good"
+                "coveragePercent": 80,
+                "coverageCount": "73/91",
+                "status": "very-good"
             },
             {
                 "filePath": "projects/ngx-taskboard-lib/src/lib/filter-search-bar/filter-search-bar.component.ts",
@@ -1595,7 +2255,7 @@
                 "linktype": "injectable",
                 "name": "TaskboardService",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -1612,6 +2272,24 @@
                 "type": "interface",
                 "linktype": "interface",
                 "name": "ClickEvent",
+                "coveragePercent": 25,
+                "coverageCount": "1/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-taskboard-lib/src/lib/types.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "CollapseEvent",
+                "coveragePercent": 25,
+                "coverageCount": "1/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-taskboard-lib/src/lib/types.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "CollapseState",
                 "coveragePercent": 33,
                 "coverageCount": "1/3",
                 "status": "medium"
@@ -1620,7 +2298,7 @@
                 "filePath": "projects/ngx-taskboard-lib/src/lib/types.ts",
                 "type": "interface",
                 "linktype": "interface",
-                "name": "CollapseState",
+                "name": "DropEvent",
                 "coveragePercent": 33,
                 "coverageCount": "1/3",
                 "status": "medium"
@@ -1651,6 +2329,15 @@
                 "coveragePercent": 33,
                 "coverageCount": "1/3",
                 "status": "medium"
+            },
+            {
+                "filePath": "projects/ngx-taskboard-lib/src/lib/types.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ScrollEvent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
             }
         ]
     }

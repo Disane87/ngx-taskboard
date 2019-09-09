@@ -95,24 +95,6 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">projects/ngx-taskboard-lib/src/lib/taskboard.service.ts:9</a></div>
-                            </td>
-                        </tr>
-
-            </tbody>
-        </table>
-</section>
 
 
             <section>
@@ -186,17 +168,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Injectable } from &quot;@angular/core&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Injectable } from &#x27;@angular/core&#x27;;
 
 @Injectable({
-  providedIn: &quot;root&quot;,
+	providedIn: &#x27;root&#x27;
 })
 export class TaskboardService {
 
-  public filterChanged$ &#x3D; new EventEmitter&lt;string&gt;();
-  public objectProperties: string[] &#x3D; [];
-
-  constructor() { }
+	public filterChanged$ &#x3D; new EventEmitter&lt;string&gt;();
+	public objectProperties: string[] &#x3D; [];
 }
 </code></pre>
     </div>
