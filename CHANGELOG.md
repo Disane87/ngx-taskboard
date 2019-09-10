@@ -1,3 +1,18 @@
+# [1.3.0](https://github.com/Disane87/ngx-taskboard/compare/v1.2.15...v1.3.0) (2019-09-10)
+
+
+### Bug Fixes
+
+* changed docs and release script ([d650799](https://github.com/Disane87/ngx-taskboard/commit/d650799))
+* Column add button / Async items ([022725f](https://github.com/Disane87/ngx-taskboard/commit/022725f)), closes [#76](https://github.com/Disane87/ngx-taskboard/issues/76) [#75](https://github.com/Disane87/ngx-taskboard/issues/75) [#74](https://github.com/Disane87/ngx-taskboard/issues/74)
+
+
+### Features
+
+* **collapse event:** Emits the collapse state when heading is toggled ([f62acb4](https://github.com/Disane87/ngx-taskboard/commit/f62acb4)), closes [#70](https://github.com/Disane87/ngx-taskboard/issues/70)
+* **scrolling:** Fire events when scrolling ([26ee3a2](https://github.com/Disane87/ngx-taskboard/commit/26ee3a2))
+* **scrolling:** Restoring scorll state via @Input ([6c807d8](https://github.com/Disane87/ngx-taskboard/commit/6c807d8)), closes [#71](https://github.com/Disane87/ngx-taskboard/issues/71)
+
 ## [1.2.15](https://github.com/Disane87/ngx-taskboard/compare/v1.2.14...v1.2.15) (2019-09-04)
 
 
