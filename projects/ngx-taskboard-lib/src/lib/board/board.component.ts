@@ -220,6 +220,10 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		}
 	}
 
+	public executeChangeDetection() {
+		this.cd.markForCheck();
+	}
+
 	public ngDoCheck(): void {
 		this.checkIfContentNeedsToScroll();
 
@@ -239,10 +243,12 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		this.horizontalScrolling = h;
 		this.verticalScrolling = v;
 
+		this.scrollable = v || h;
+
 		this.cd.markForCheck();
 		if (this.scrollStates && (this.horizontalScrolling || this.verticalScrolling)) {
 			setTimeout(() => {
-				if (this.restoreScrollState(h, v, this.scrollStates )) {
+				if (this.restoreScrollState(h, v, this.scrollStates)) {
 					this.scrollStates = null;
 				}
 			}, 500);
@@ -365,8 +371,6 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 * @memberOf BoardComponent
 	 */
 	public getItemsOfGroup(vValue: string, hValue: string): (CardItem | object)[] {
-		// console.log('getItemsOfGroup');
-
 		let items = this.items.filter(item => {
 
 			if (this.taskboardService.objectProperties.length === 0) {
@@ -377,14 +381,17 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			const vItem = this.getValue(item[groupKeys.vGroupKey]);
 			const hItem = this.getValue(item[groupKeys.hGroupKey]);
 
+
+
 			if (hItem === undefined || hItem === undefined && vItem === undefined || vItem === undefined) {
 				return false;
 			}
 
-			const found = vItem.toLowerCase() === vValue.toLowerCase() && hItem.toLowerCase() === hValue.toLowerCase();
-
+			const found = vItem.toString().toLowerCase() === vValue.toString().toLowerCase() && hItem.toString().toLowerCase() === hValue.toString().toLowerCase();
 			return found;
 		});
+
+		// console.log('getItemsOfGroup', items);
 
 		if (this.showUngroupedInBacklog) {
 			items = items.filter(item => item[this.vGroupKey] !== '' && item[this.hGroupKey] !== '');
@@ -437,8 +444,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		const groupKeysToToggle =
 			this.collapseStates.filter(item => (direction === 'vertical' ? this.vHeadings : this.hHeadings)
 				.some(i =>
-					this.getValue(i)
-						.toLowerCase() === item.name.toLowerCase()));
+					this.getValue(i).toString()
+						.toLowerCase() === item.name.toString().toLowerCase()));
 
 		groupKeysToToggle.forEach(item => item.collapsed = !collapsed);
 		if (groupKeysToToggle.length > 0) {
@@ -683,8 +690,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 				hRow = '';
 			}
 
-			vRow = this.getValue(vRow);
-			hRow = this.getValue(hRow);
+			vRow = this.getValue(vRow).toString();
+			hRow = this.getValue(hRow).toString();
 
 			const dragZone = `${vRow}-${hRow.replace(' ', '')}`.toLowerCase();
 			if (dragZone !== this.currentDragZone && this.currentDragZone !== '') {
