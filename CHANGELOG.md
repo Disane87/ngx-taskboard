@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Disane87/ngx-taskboard/compare/v1.3.0...v1.3.1) (2019-09-11)
+
+
+### Bug Fixes
+
+* numeric values, change detection, value in display ([ca0bf23](https://github.com/Disane87/ngx-taskboard/commit/ca0bf23)), closes [#78](https://github.com/Disane87/ngx-taskboard/issues/78) [#79](https://github.com/Disane87/ngx-taskboard/issues/79) [#80](https://github.com/Disane87/ngx-taskboard/issues/80)
+
 # [1.3.0](https://github.com/Disane87/ngx-taskboard/compare/v1.2.15...v1.3.0) (2019-09-10)
 
 
