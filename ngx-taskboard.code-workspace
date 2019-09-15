@@ -1,31 +1,39 @@
 {
-  "folders": [{
-    "path": "."
-  }],
+	"folders": [{
+		"path": "."
+	}],
 
-  "settings": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.tslint": true
-    }
-	"typescript.referencesCodeLens.enabled": true
-  },
-  "extensions": {
-    "recommendations": [
-	  "GitHub.vscode-pull-request-github",
-	  "mhutchie.git-graph,
-      "donjayamanne.githistory",
-      "eamodio.gitlens",
-      "coenraads.bracket-pair-colorizer",
-      "angular.ng-template",
-      "mikael.angular-beastcode",
-      "hookyqr.beautify",
-      "glen-84.sass-lint",
-      "ms-vscode.vscode-typescript-tslint-plugin",
-      "wakatime.vscode-wakatime",
-      "thekalinga.bootstrap4-vscode",
-	  "msjsdiag.debugger-for-chrome",
-	  "KnisterPeter.vscode-commitizen",
-	  "KnisterPeter.vscode-github"
-    ]
-  }
+	"settings": {
+		"editor.codeActionsOnSave": {
+			"source.fixAll.tslint": true
+		},
+		"typescript.referencesCodeLens.enabled": true
+	},
+	"extensions": {
+		"recommendations": [
+			"GitHub.vscode-pull-request-github",
+			"sirtori.indenticator",
+			"chrmarti.regex",
+			"streetsidesoftware.code-spell-checker",
+			"mhutchie.git-graph",
+			"donjayamanne.githistory",
+			"eamodio.gitlens",
+			"coenraads.bracket-pair-colorizer",
+			"angular.ng-template",
+			"mikael.angular-beastcode",
+			"hookyqr.beautify",
+			"glen-84.sass-lint",
+			"ms-vscode.vscode-typescript-tslint-plugin",
+			"wakatime.vscode-wakatime",
+			"thekalinga.bootstrap4-vscode",
+			"msjsdiag.debugger-for-chrome",
+			"KnisterPeter.vscode-commitizen",
+			"KnisterPeter.vscode-github",
+			"pnp.polacode",
+			"ChakrounAnas.turbo-console-log",
+			"quicktype.quicktype",
+			"ms-vscode-remote.remote-ssh"
+
+		]
+	}
 }
