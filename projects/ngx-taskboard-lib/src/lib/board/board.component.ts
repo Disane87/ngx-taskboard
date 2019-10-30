@@ -209,7 +209,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		private readonly cd: ChangeDetectorRef,
 		private readonly taskboardService: TaskboardService,
 
-		private _ngZone: NgZone
+		private ngZone: NgZone
 	) { }
 
 	@HostListener('window:resize')
@@ -448,7 +448,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 * @memberOf BoardComponent
 	 */
 	public toggleCollapseGroup(direction: string, collapsed: boolean): void {
-		this._ngZone.runOutsideAngular(() => {
+		this.ngZone.runOutsideAngular(() => {
 			const groupKeysToToggle =
 			this.collapseStates.filter(item => (direction === 'vertical' ? this.vHeadings : this.hHeadings)
 				.some(i =>
@@ -568,7 +568,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	public toggleCollapse(group: { hGroup: string | GroupHeading, vGroup: string | GroupHeading }): void {
 
-		this._ngZone.runOutsideAngular(() => {
+		this.ngZone.runOutsideAngular(() => {
 			const part = this.getValue(group.hGroup || group.vGroup);
 			// console.log("Toggle: " + part);
 
@@ -580,7 +580,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 				collapsed: !collapseState,
 				overallCollapseState: this.collapseStates
 			});
-			this._ngZone.run(() => {
+			this.ngZone.run(() => {
 
 				this.checkIfContentNeedsToScroll();
 				this.executeChangeDetection();
