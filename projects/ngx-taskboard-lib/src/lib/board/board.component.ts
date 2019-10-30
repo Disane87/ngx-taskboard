@@ -5,7 +5,6 @@ import {
 	HostListener, Input, NgZone,
 	OnInit, Output, Renderer2, TemplateRef
 } from '@angular/core';
-import { fromEvent } from 'rxjs';
 import { TaskboardService } from '../taskboard.service';
 import { CardItem, ClickEvent, CollapseEvent, CollapseState, DropEvent, GroupHeading, GroupKeys, Scrollable, ScrollEvent, ScrollState } from '../types';
 

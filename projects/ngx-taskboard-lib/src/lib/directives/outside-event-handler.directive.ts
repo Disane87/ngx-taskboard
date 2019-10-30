@@ -1,21 +1,19 @@
-import { Directive, ElementRef, EventEmitter, Input, NgZone, Output, OnDestroy } from '@angular/core';
-import { EventManager } from '@angular/platform-browser';
-import { DomEventsPlugin } from '@angular/platform-browser/src/dom/events/dom_events';
+import { Directive, ElementRef, EventEmitter, Input, NgZone, OnDestroy, OnInit, Output } from '@angular/core';
 
 @Directive({
 	selector: '[outSideEventHandler]'
   })
-  export class OutSideEventHandlerDirective implements OnDestroy {
-	ngOnDestroy(): void {
-		this.el.nativeElement.removeEventListener(this.event, this.handler);
-	}
+  export class OutSideEventHandlerDirective implements OnDestroy, OnInit {
+	constructor(private ngZone: NgZone, private el: ElementRef) {}
 	@Input() public event = 'click';
 	@Output('outSideEventHandler') public emitter = new EventEmitter();
-	private handler: (any) => void;
-	constructor(private _ngZone: NgZone, private el: ElementRef) {}
+	private handler: (event: any) => void;
+	public ngOnDestroy(): void {
+		this.el.nativeElement.removeEventListener(this.event, this.handler);
+	}
 
-	ngOnInit() {
-	  this._ngZone.runOutsideAngular(() => {
+	public ngOnInit() {
+	  this.ngZone.runOutsideAngular(() => {
 		const nativeElement = this.el.nativeElement;
 		this.handler = $event => {
 		  this.emitter.emit($event);
