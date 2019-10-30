@@ -1,0 +1,1 @@
+sudo docker run --restart always --name code-server -p 8080:8080 -p 4200:4200 -v "${HOME}/.local/share:/home/coder/.local/share" -v "${HOME}:/home/coder" codercom/code-server:2.1472-vsc1.38.1

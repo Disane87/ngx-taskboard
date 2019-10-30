@@ -6,7 +6,7 @@
 			<ng-container *ngTemplateOutlet="backlogColumn"></ng-container>
 
 			<div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-x-auto]="horizontalScrolling"
-				[class.overflow-y-auto]="verticalScrolling" (scroll)="scrolling($event)"
+				[class.overflow-y-auto]="verticalScrolling" (outSideEventHandler)="scrolling($event)"
 				[class.border-bottom]="(scrollable && verticalScrolling)">
 
 				<ng-container *ngTemplateOutlet="columnHeadings"></ng-container>
@@ -15,7 +15,7 @@
 					[class.flex-fill]="!(scrollable && verticalScrolling)">
 					<ng-container *ngFor="let vGroup of vHeadings">
 
-						<div class="d-flex flex-row" [class.flex-fill]="!collapseState(vGroup)">
+						<div class="d-flex flex-row taskboard-row" [class.collapsed]="!collapseState(vGroup)" [class.flex-fill]="!collapseState(vGroup)">
 							<ng-container *ngTemplateOutlet="rowHeadings; context: { vGroup: vGroup }"></ng-container>
 
 							<ng-container *ngFor="let hGroup of hHeadings; let hLast = last">
@@ -77,10 +77,9 @@
 				</div>
 			</div>
 
-			<ul class="list-group list-group-flush p-3 h-100" (dragover)="dragOver($event, null, null)"
-				(drop)="drop($event, null, null)">
+			<ul class="list-group list-group-flush p-3 h-100" (outSideEventHandler)="dragOver($event, null, null)">
 				<div class=" ungrouped-item" *ngFor="let item of getUngroupedItems()" draggable="true"
-					(dragstart)="dragStart($event, item)" (dragend)="dragEnd()">
+					(outSideEventHandler)="dragStart($event, item)" (outSideEventHandler)="dragEnd()">
 					<ng-container *ngIf="itemTemplate">
 						<ng-container *ngTemplateOutlet="itemTemplate; context { item: item }"></ng-container>
 					</ng-container>
@@ -99,7 +98,7 @@
 		[class.sticky-top]="stickyHorizontalHeaderKeys && verticalScrolling">
 		<div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">
 			<div class="d-flex flex-row w-100">
-				<div class="boardname flex-fill">{{ boardName }}</div>
+				<div class="boardname flex-fill">{{ boardName }} {{ items.length }} items</div>
 				<div class="h-v-actions align-self-end">
 					<fa-icon [icon]="['fas', vCollapsed ? 'chevron-down' : 'chevron-up']" [fixedWidth]="true"
 						(click)="toggleCollapseGroup('vertical', vCollapsed)"></fa-icon>

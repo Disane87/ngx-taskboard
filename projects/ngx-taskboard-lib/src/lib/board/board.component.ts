@@ -2,9 +2,10 @@ import {
 	AfterViewInit,
 	ChangeDetectionStrategy, ChangeDetectorRef, Component,
 	DoCheck, ElementRef, EventEmitter,
-	HostListener, Input, OnInit,
-	Output, Renderer2, TemplateRef
+	HostListener, Input, NgZone,
+	OnInit, Output, Renderer2, TemplateRef
 } from '@angular/core';
+import { fromEvent } from 'rxjs';
 import { TaskboardService } from '../taskboard.service';
 import { CardItem, ClickEvent, CollapseEvent, CollapseState, DropEvent, GroupHeading, GroupKeys, Scrollable, ScrollEvent, ScrollState } from '../types';
 
@@ -206,7 +207,9 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		private readonly renderer: Renderer2,
 		private readonly elRef: ElementRef,
 		private readonly cd: ChangeDetectorRef,
-		private readonly taskboardService: TaskboardService
+		private readonly taskboardService: TaskboardService,
+
+		private _ngZone: NgZone
 	) { }
 
 	@HostListener('window:resize')
@@ -221,11 +224,14 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	}
 
 	public executeChangeDetection() {
-		this.cd.markForCheck();
+		console.log('Executing changedetection');
+		// this.checkIfContentNeedsToScroll();
+		this.cd.detectChanges();
 	}
 
 	public ngDoCheck(): void {
-		this.checkIfContentNeedsToScroll();
+
+		// console.log('ngDoCheck()');
 
 	}
 
@@ -245,7 +251,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 		this.scrollable = v || h;
 
-		this.cd.markForCheck();
+		// this.executeChangeDetection();
 		if (this.scrollStates && (this.horizontalScrolling || this.verticalScrolling)) {
 			setTimeout(() => {
 				if (this.restoreScrollState(h, v, this.scrollStates)) {
@@ -270,6 +276,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 			this.taskboardService.filterChanged$.subscribe(filter => this.filter = filter);
 			this.checkIfContentNeedsToScroll();
+			this.executeChangeDetection();
 
 		});
 	}
@@ -441,14 +448,15 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 * @memberOf BoardComponent
 	 */
 	public toggleCollapseGroup(direction: string, collapsed: boolean): void {
-		const groupKeysToToggle =
+		this._ngZone.runOutsideAngular(() => {
+			const groupKeysToToggle =
 			this.collapseStates.filter(item => (direction === 'vertical' ? this.vHeadings : this.hHeadings)
 				.some(i =>
 					this.getValue(i).toString()
 						.toLowerCase() === item.name.toString().toLowerCase()));
 
-		groupKeysToToggle.forEach(item => item.collapsed = !collapsed);
-		if (groupKeysToToggle.length > 0) {
+		 groupKeysToToggle.forEach(item => item.collapsed = !collapsed);
+		 if (groupKeysToToggle.length > 0) {
 			if (direction === 'vertical') {
 				this.vCollapsed = !collapsed;
 			} else {
@@ -456,13 +464,15 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			}
 		}
 
-		this.headingCollapsed.emit({
+		 this.headingCollapsed.emit({
 			group: direction,
 			collapsed: !collapsed,
 			overallCollapseState: this.collapseStates
 		});
+		});
 
-		setTimeout(() => this.cd.markForCheck(), 100);
+
+		setTimeout(() => this.executeChangeDetection() , 100);
 
 	}
 
@@ -558,17 +568,27 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	public toggleCollapse(group: { hGroup: string | GroupHeading, vGroup: string | GroupHeading }): void {
 
-		const part = this.getValue(group.hGroup || group.vGroup);
-		// console.log("Toggle: " + part);
+		this._ngZone.runOutsideAngular(() => {
+			const part = this.getValue(group.hGroup || group.vGroup);
+			// console.log("Toggle: " + part);
 
-		const collapseState = this.collapseState(part);
-		this.collapseStates.find(item => item.name === part).collapsed = !collapseState;
+			const collapseState = this.collapseState(part);
+			this.collapseStates.find(item => item.name === part).collapsed = !collapseState;
 
-		this.headingCollapsed.emit({
-			group: group.hGroup || group.vGroup,
-			collapsed: !collapseState,
-			overallCollapseState: this.collapseStates
+			this.headingCollapsed.emit({
+				group: group.hGroup || group.vGroup,
+				collapsed: !collapseState,
+				overallCollapseState: this.collapseStates
+			});
+			this._ngZone.run(() => {
+
+				this.checkIfContentNeedsToScroll();
+				this.executeChangeDetection();
+			});
+			// ;
 		});
+
+
 	}
 
 	/**
@@ -607,6 +627,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		this.dragItem = item;
 		this.nativeDragItem = (event.currentTarget as HTMLElement);
 		this.dragStarted.emit(this.dragItem);
+		this.cd.detach();
 	}
 
 	/**
@@ -644,6 +665,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	public drop(event: DragEvent, vRow: string | GroupHeading, hRow: string | GroupHeading): void {
 		event.preventDefault();
+
+
 		if (event.currentTarget) {
 			const placeholderEl = (event.currentTarget as HTMLElement).querySelector('.placeholder');
 			if (placeholderEl) {
@@ -667,6 +690,8 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			nativeItemElement: this.nativeDragItem
 		});
 		this.dragItem = undefined;
+		this.cd.reattach();
+		this.executeChangeDetection();
 	}
 
 	/**
