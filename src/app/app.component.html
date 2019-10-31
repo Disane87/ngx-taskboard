@@ -2,7 +2,7 @@
 <div class="d-flex  h-100 w-100 flex-row">
 	<div class="d-flex flex-fill p-0 flex-column align-items-center justify-content-center">
 		<div class="w-75 mb-3 text-center h2" *ngIf="showcaseMode">
-			Kanban-Board
+			Kanban-Board ({{items.length}}) Items
 		</div>
 		<div class="d-flex flex-row shadow border" [class.h-75]="showcaseMode" [class.w-75]="showcaseMode"
 			[class.h-100]="!showcaseMode" [class.w-100]="!showcaseMode" style="overflow: hidden">
@@ -32,7 +32,7 @@
 	</div>
 	<div class="events card border-0" [style.width.%]="15">
 		<div class="card-header d-flex flex-row justify-content-between">
-      <span>Events</span> 
+      <span>Events</span>
       <fa-icon [icon]="['fas', 'times']" (click)="events = []"></fa-icon>
 		</div>
 		<ul class="list-group list-group-flush h-100" [style.overflow-y]="'auto'">

@@ -9,7 +9,7 @@
     "build:watch": "ng build ngx-taskboard-lib --watch",
     "link": "npm link ./dist/ngx-taskboard && npm link @disane/ngx-taskboard",
     "unlink": "npm unlink ./dist/ngx-taskboard && npm unlink @disane/ngx-taskboard",
-    "start": "ng serve",
+    "start": "npm run link && ng serve --port 1211",
     "semantic-release:run": "npm run lint && npm run build:pre && npm run build && node ./scripts/copyFile.js && npm run semantic-release",
     "test:release": "npm run semantic-release -- -d -b dev",
     "commit": "npx git-cz",

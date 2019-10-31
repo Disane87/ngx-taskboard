@@ -15,11 +15,12 @@ import { FilterSearchBarComponent } from './filter-search-bar/filter-search-bar.
 import { TaskboardService } from './taskboard.service';
 
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { OutSideEventHandlerDirective } from './directives/outside-event-handler.directive';
 
 library.add(fas, far, fab);
 
 @NgModule({
-	declarations: [BoardComponent, FilterSearchBarComponent],
+	declarations: [BoardComponent, FilterSearchBarComponent, OutSideEventHandlerDirective],
 	imports: [BrowserModule, FontAwesomeModule, FormsModule, TypeaheadModule.forRoot(), BrowserAnimationsModule],
 	providers: [TaskboardService],
 	exports: [BoardComponent]
