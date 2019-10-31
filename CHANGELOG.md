@@ -1,3 +1,12 @@
+## [1.3.2](https://github.com/Disane87/ngx-taskboard/compare/v1.3.1...v1.3.2) (2019-10-31)
+
+
+### Bug Fixes
+
+* **change detection:** fixed lint errors ([29f9815](https://github.com/Disane87/ngx-taskboard/commit/29f9815)), closes [#82](https://github.com/Disane87/ngx-taskboard/issues/82)
+* **change detection:** Optimized change detection with many items ([b30370d](https://github.com/Disane87/ngx-taskboard/commit/b30370d))
+* **error:** Error in test fixed ([09ce9e5](https://github.com/Disane87/ngx-taskboard/commit/09ce9e5))
+
 ## [1.3.1](https://github.com/Disane87/ngx-taskboard/compare/v1.3.0...v1.3.1) (2019-09-11)
 
 
