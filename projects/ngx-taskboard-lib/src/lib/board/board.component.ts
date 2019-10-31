@@ -567,7 +567,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	public toggleCollapse(group: { hGroup: string | GroupHeading, vGroup: string | GroupHeading }): void {
 
-		this.ngZone.runOutsideAngular(() => {
+		// this.ngZone.runOutsideAngular(() => {
 			const part = this.getValue(group.hGroup || group.vGroup);
 			// console.log("Toggle: " + part);
 
@@ -579,15 +579,15 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 				collapsed: !collapseState,
 				overallCollapseState: this.collapseStates
 			});
-			this.ngZone.run(() => {
+			// this.ngZone.run(() => {
 
-				this.checkIfContentNeedsToScroll();
-				this.executeChangeDetection();
-			});
+
+			// });
 			// ;
-		});
+		// });
 
-
+		this.executeChangeDetection();
+		this.checkIfContentNeedsToScroll();
 	}
 
 	/**

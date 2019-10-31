@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
-import { NgxTaskboardModule } from '@disane/ngx-taskboard';
+import { NgxTaskboardModule } from '../../projects/ngx-taskboard-lib/src/lib/ngx-taskboard.module';
 import { AppComponent } from './app.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
