@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/Disane87/ngx-taskboard/compare/v1.3.2...v1.3.3) (2020-03-04)
+
+
+### Bug Fixes
+
+* Fixed scrolling bugs and removed console.logs ([#88](https://github.com/Disane87/ngx-taskboard/issues/88)) ([536eae1](https://github.com/Disane87/ngx-taskboard/commit/536eae1)), closes [#87](https://github.com/Disane87/ngx-taskboard/issues/87) [#86](https://github.com/Disane87/ngx-taskboard/issues/86)
+
 ## [1.3.2](https://github.com/Disane87/ngx-taskboard/compare/v1.3.1...v1.3.2) (2019-10-31)
 
 
