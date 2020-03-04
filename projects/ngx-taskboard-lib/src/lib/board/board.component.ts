@@ -587,7 +587,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 			// });
 			// ;
 		});
-		timer(100).subscribe(timer => {
+		timer(100).subscribe(t => {
 			this.executeChangeDetection();
 			this.checkIfContentNeedsToScroll();
 		});
