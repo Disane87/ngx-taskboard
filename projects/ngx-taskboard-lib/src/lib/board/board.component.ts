@@ -5,6 +5,7 @@ import {
 	HostListener, Input, NgZone,
 	OnInit, Output, Renderer2, TemplateRef
 } from '@angular/core';
+import { timer } from 'rxjs';
 import { TaskboardService } from '../taskboard.service';
 import { CardItem, ClickEvent, CollapseEvent, CollapseState, DropEvent, GroupHeading, GroupKeys, Scrollable, ScrollEvent, ScrollState } from '../types';
 
@@ -223,15 +224,13 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	}
 
 	public executeChangeDetection() {
-		console.log('Executing changedetection');
 		// this.checkIfContentNeedsToScroll();
 		this.cd.detectChanges();
 	}
 
 	public ngDoCheck(): void {
 
-		// console.log('ngDoCheck()');
-
+		console.log('ngDoCheck()');
 	}
 
 
@@ -470,8 +469,11 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 		});
 		});
 
-
-		setTimeout(() => this.executeChangeDetection() , 100);
+		// debugger;
+		setTimeout(() => {
+			this.executeChangeDetection();
+			this.checkIfContentNeedsToScroll();
+		}, 100);
 
 	}
 
@@ -567,7 +569,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	 */
 	public toggleCollapse(group: { hGroup: string | GroupHeading, vGroup: string | GroupHeading }): void {
 
-		// this.ngZone.runOutsideAngular(() => {
+		this.ngZone.runOutsideAngular(() => {
 			const part = this.getValue(group.hGroup || group.vGroup);
 			// console.log("Toggle: " + part);
 
@@ -584,10 +586,13 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 			// });
 			// ;
-		// });
+		});
+		timer(100).subscribe(timer => {
+			this.executeChangeDetection();
+			this.checkIfContentNeedsToScroll();
+		});
 
-		this.executeChangeDetection();
-		this.checkIfContentNeedsToScroll();
+		//  this.checkIfContentNeedsToScroll();
 	}
 
 	/**

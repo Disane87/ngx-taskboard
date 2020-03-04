@@ -1,17 +1,17 @@
 <div class="h-100 d-flex flex-column align-items-stretch border-0" [class.small]="smallText" style="overflow: hidden">
 	<div class="d-flex flex-column h-100">
 		<ngx-taskboard-filter-search-bar [placeholder]="filterRowPlaceholder"></ngx-taskboard-filter-search-bar>
-		<div class="d-flex flex-row align-items-stretch flex-fill h-100 ">
+		<div class="d-flex flex-row align-items-stretch flex-fill overflow-y-auto">
 
 			<ng-container *ngTemplateOutlet="backlogColumn"></ng-container>
 
-			<div class="column-cards d-flex flex-column flex-fill h-100" [class.overflow-x-auto]="horizontalScrolling"
+			<div class="column-cards d-flex flex-column flex-fill " [class.overflow-x-auto]="horizontalScrolling"
 				[class.overflow-y-auto]="verticalScrolling" (outSideEventHandler)="scrolling($event)"
 				[class.border-bottom]="(scrollable && verticalScrolling)">
 
 				<ng-container *ngTemplateOutlet="columnHeadings"></ng-container>
 
-				<div class="d-flex flex-column row-content align-items-stretch"
+				<div class="d-flex flex-column row-content flex-fill align-items-stretch"
 					[class.flex-fill]="!(scrollable && verticalScrolling)">
 					<ng-container *ngFor="let vGroup of vHeadings">
 
@@ -98,7 +98,7 @@
 		[class.sticky-top]="stickyHorizontalHeaderKeys && verticalScrolling">
 		<div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">
 			<div class="d-flex flex-row w-100">
-				<div class="boardname flex-fill">{{ boardName }} {{ items.length }} items</div>
+				<div class="boardname flex-fill">{{ boardName }}</div>
 				<div class="h-v-actions align-self-end">
 					<fa-icon [icon]="['fas', vCollapsed ? 'chevron-down' : 'chevron-up']" [fixedWidth]="true"
 						(click)="toggleCollapseGroup('vertical', vCollapsed)"></fa-icon>
