@@ -11,8 +11,8 @@
 			<ngx-taskboard class="w-100 h-100" [items]="items" [hGroupKey]="hGroupKey" [vGroupKey]="vGroupKey"
 				[initialCollapseState]="collapseState" [vGroupKeys]="vGroupKeys" [hGroupKeys]="hGroupKeys"
 				[showUngroupedInBacklog]="true" [itemTemplate]="itemTemplate" [vCollapsed]="true"
-        (elementCreateClick)="catchEvent('elementCreateClick', $event)"
-        [scrollStates]="{scrollTop: 100, scrollLeft: 100 }" [showBacklog]="false"
+        (elementCreateClick)="catchEvent('elementCreateClick', $event)" [stickyHorizontalHeaderKeys]="false"
+        [scrollStates]="{scrollTop: 100, scrollLeft: 100 }" [showBacklog]="true"
 				(dropped)="catchEvent('dropped', $event)" (dragStarted)="catchEvent('dragStarted', $event)"
 				(headingCollapsed)="catchEvent('headingCollapsed', $event)" (isScrolling)="catchEvent('isScrolling', $event)" (scrollEnded)="catchEvent('scrollEnded', $event)" (scrolledToEnd)="catchEvent('scrolledToEnd', $event)">
 			</ngx-taskboard>
