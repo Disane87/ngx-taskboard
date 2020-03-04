@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "ngx-taskboard-lib": [
-        "dist/ngx-taskboard-lib"
+      "@disane/ngx-taskboard": [
+        "projects/ngx-taskboard-lib"
       ],
-      "ngx-taskboard-lib/*": [
-        "dist/ngx-taskboard-lib/*"
+      "@disane/ngx-taskboard/*": [
+        "projects/ngx-taskboard-lib/*"
       ]
     }
   }
