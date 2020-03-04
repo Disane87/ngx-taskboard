@@ -230,7 +230,7 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 
 	public ngDoCheck(): void {
 
-		console.log('ngDoCheck()');
+		// console.log('ngDoCheck()');
 	}
 
 
