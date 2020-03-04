@@ -93,7 +93,7 @@
 
 <ng-template #columnHeadings>
 	<div class="headings d-flex flex-row align-items-stretch w-100" [ngStyle]="scrollBarStyle()"
-		[class.sticky-top]="stickyHorizontalHeaderKeys && verticalScrolling">
+		[class.sticky-top]="stickyHorizontalHeaderKeys">
 		<div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">
 			<div class="d-flex flex-row w-100">
 				<div class="boardname flex-fill">{{ boardName }}</div>
