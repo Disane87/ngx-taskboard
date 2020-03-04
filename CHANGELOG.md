@@ -1,3 +1,13 @@
+## [1.3.4](https://github.com/Disane87/ngx-taskboard/compare/v1.3.3...v1.3.4) (2020-03-04)
+
+
+### Bug Fixes
+
+* Fixed scrolling bugs and removed console.logs ([4335e21](https://github.com/Disane87/ngx-taskboard/commit/4335e21)), closes [#87](https://github.com/Disane87/ngx-taskboard/issues/87) [#86](https://github.com/Disane87/ngx-taskboard/issues/86)
+* **console.log:** removed console.log in ngDoCheck() ([497fd5d](https://github.com/Disane87/ngx-taskboard/commit/497fd5d))
+* **sticky-top:** Fixed a bug where sticky-top on header not working ([c8759a8](https://github.com/Disane87/ngx-taskboard/commit/c8759a8))
+* **template:** removed one unused div to prevent bug w/ scrollbar ([eae5766](https://github.com/Disane87/ngx-taskboard/commit/eae5766))
+
 ## [1.3.3](https://github.com/Disane87/ngx-taskboard/compare/v1.3.2...v1.3.3) (2020-03-04)
 
 
