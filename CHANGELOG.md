@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Disane87/ngx-taskboard/compare/v1.3.4...v1.4.0) (2020-03-16)
+
+
+### Features
+
+* **icons:** Customize icons and markup ([b6bd515](https://github.com/Disane87/ngx-taskboard/commit/b6bd515))
+
 ## [1.3.4](https://github.com/Disane87/ngx-taskboard/compare/v1.3.3...v1.3.4) (2020-03-04)
 
 
