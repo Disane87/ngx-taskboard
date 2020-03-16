@@ -95,6 +95,16 @@ export class BoardComponent implements OnInit, DoCheck, AfterViewInit {
 	/** Template for the placeholder element which will be generated when an item is draged over a cell */
 	@Input() public dragoverPlaceholderTemplate: TemplateRef<any> = null;
 
+	/** Icon template for add icons  */
+	@Input() public addIconTemplate: TemplateRef<any> = null;
+
+	/** Icon template for collapse icons  */
+	@Input() public collapseIconTemplate: TemplateRef<any> = null;
+
+	/** Icon template for expand icons  */
+	@Input() public expandIconTemplate: TemplateRef<any> = null;
+
+
 	/** Default css class for row header */
 	@Input() public vHeaderClass = 'card-header';
 

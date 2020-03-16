@@ -11,9 +11,9 @@
 			<ngx-taskboard class="w-100 h-100" [items]="items" [hGroupKey]="hGroupKey" [vGroupKey]="vGroupKey"
 				[initialCollapseState]="collapseState" [vGroupKeys]="vGroupKeys" [hGroupKeys]="hGroupKeys"
 				[showUngroupedInBacklog]="true" [itemTemplate]="itemTemplate" [vCollapsed]="true"
-        (elementCreateClick)="catchEvent('elementCreateClick', $event)" [stickyHorizontalHeaderKeys]="false"
-        [scrollStates]="{scrollTop: 100, scrollLeft: 100 }" [showBacklog]="true"
-				(dropped)="catchEvent('dropped', $event)" (dragStarted)="catchEvent('dragStarted', $event)"
+        (elementCreateClick)="catchEvent('elementCreateClick', $event)" [stickyHorizontalHeaderKeys]="true"
+        [scrollStates]="{scrollTop: 100, scrollLeft: 100 }" [showBacklog]="true" [addIconTemplate]="addIconTemplate"
+				(dropped)="catchEvent('dropped', $event)" (dragStarted)="catchEvent('dragStarted', $event)" [collapseIconTemplate]="collapseIconTemplate" [expandIconTemplate]="expandIconTemplate"
 				(headingCollapsed)="catchEvent('headingCollapsed', $event)" (isScrolling)="catchEvent('isScrolling', $event)" (scrollEnded)="catchEvent('scrollEnded', $event)" (scrolledToEnd)="catchEvent('scrolledToEnd', $event)">
 			</ngx-taskboard>
 		</div>
@@ -45,3 +45,16 @@
 			</li>
 		</ul>
 	</div>
+
+
+	<ng-template #addIconTemplate>
+		<fa-icon [icon]="['fas','plus-square']" [fixedWidth]="true"></fa-icon>
+	</ng-template>
+
+	<ng-template #collapseIconTemplate>
+		<fa-icon [icon]="['fas','chevron-up']" [fixedWidth]="true"></fa-icon>
+	</ng-template>
+
+	<ng-template #expandIconTemplate>
+		<fa-icon [icon]="['fas','chevron-down']" [fixedWidth]="true"></fa-icon>
+	</ng-template>

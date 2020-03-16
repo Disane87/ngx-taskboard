@@ -32,18 +32,34 @@
 </div>
 
 <!-- Templates -->
-<ng-template #cardAction let-withNew="withNew" let-group="group" let-chevronIcon="chevronIcon"
+<ng-template #cardAction let-withNew="withNew" let-group="group" let-collapsed="collapsed"
 	let-collapser="collapser">
 
 	<ng-container [ngIf]="actionsTemplate"
-		*ngTemplateOutlet="actionsTemplate; context: { actionConfig: { group: group, chevronIcon: chevronIcon, collapser: collapser  }  }">
+		*ngTemplateOutlet="actionsTemplate; context: { actionConfig: { group: group, collapsed: collapsed, collapser: collapser  }  }">
 	</ng-container>
+
 	<ng-container *ngIf="!actionsTemplate">
 		<div class="actions ml-3" *ngIf="vGroupKey">
-			<fa-icon [icon]="['fas','plus-square']" [fixedWidth]="true" *ngIf="withNew" (click)="createElement(group)">
-			</fa-icon>
-			<fa-icon [icon]="['fas',chevronIcon ? chevronIcon : 'chevron-left']" [fixedWidth]="true"
-				(click)="toggleCollapse(group)" *ngIf="(collapser != null ? collapser : true)"></fa-icon>
+
+			<div class="new-action" *ngIf="withNew" (click)="createElement(group)">
+				<ng-container *ngTemplateOutlet="addIcon"></ng-container>
+			</div>
+
+			<div class="collapse-action" *ngIf="(collapser != null ? collapser : true)" (click)="toggleCollapse(group)">
+				<ng-container *ngIf="collapsed">
+					<ng-container *ngTemplateOutlet="expandIconTemplate"></ng-container>
+				</ng-container>
+
+				<ng-container *ngIf="!collapsed">
+					<ng-container *ngTemplateOutlet="collapseIconTemplate"></ng-container>
+				</ng-container>
+			</div>
+			
+			<!-- <fa-icon [icon]="['fas','plus-square']" [fixedWidth]="true" >
+			</fa-icon> -->
+			<!-- <fa-icon [icon]="['fas',chevronIcon ? chevronIcon : 'chevron-left']" [fixedWidth]="true"
+				(click)="toggleCollapse(group)" *ngIf="(collapser != null ? collapser : true)"></fa-icon> -->
 		</div>
 	</ng-container>
 </ng-template>
@@ -71,7 +87,7 @@
 				{{ backlogName }}
 
 				<div class="actions ml-3">
-					<fa-icon [icon]="['fas','plus-square']" [fixedWidth]="true"></fa-icon>
+					<ng-container *ngTemplateOutlet="addIcon"></ng-container>
 				</div>
 			</div>
 
@@ -97,9 +113,17 @@
 		<div class="col-2 border-left {{hHeaderClass}} border-left-0 d-flex flex-row" *ngIf="vGroupKey">
 			<div class="d-flex flex-row w-100">
 				<div class="boardname flex-fill">{{ boardName }}</div>
-				<div class="h-v-actions align-self-end">
-					<fa-icon [icon]="['fas', vCollapsed ? 'chevron-down' : 'chevron-up']" [fixedWidth]="true"
-						(click)="toggleCollapseGroup('vertical', vCollapsed)"></fa-icon>
+				<div class="h-v-actions align-self-end" (click)="toggleCollapseGroup('vertical', vCollapsed)">
+
+					<ng-container *ngIf="vCollapsed">
+						<ng-container *ngTemplateOutlet="collapseIcon" [ngIf]="vCollapsed"></ng-container>
+					</ng-container>
+
+					<ng-container *ngIf="!vCollapsed">
+						<ng-container *ngTemplateOutlet="expandIcon" [ngIf]="vCollapsed"></ng-container>
+					</ng-container>
+					<!-- <fa-icon [icon]="['fas', vCollapsed ? 'chevron-down' : 'chevron-up']" [fixedWidth]="true"
+						(click)="toggleCollapseGroup('vertical', vCollapsed)"></fa-icon> -->
 				</div>
 			</div>
 		</div>
@@ -119,7 +143,7 @@
 			</div>
 			<div *ngIf="!collapseState(hGroup)">
 				<ng-content
-					*ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, group: { hGroup: hGroup, vGroup: null}, collapser: false, chevronIcon: !collapseState(hGroup) ? 'chevron-left' : 'chevron-right' }">
+					*ngTemplateOutlet="cardAction; context: { withNew: hAddNewItems, group: { hGroup: hGroup, vGroup: null}, collapser: false, collapsed: !collapseState(hGroup)}">
 				</ng-content>
 			</div>
 		</div>
@@ -141,7 +165,7 @@
 			[class.flex-row]="collapseState(vGroup)" [class.flex-row-reverse]="collapseState(vGroup)">
 			<div class="align-self-start flex-fill">
 				<ng-content
-					*ngTemplateOutlet="cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, chevronIcon: !collapseState(vGroup) ? 'chevron-up' : 'chevron-down'  }">
+					*ngTemplateOutlet="cardAction; context: { withNew: false, group: { hGroup: null, vGroup: vGroup}, collapser: true, collapsed: !collapseState(vGroup)}">
 				</ng-content>
 			</div>
 			<div class="align-self-start">
@@ -208,4 +232,26 @@
 
 	</div>
 
+</ng-template>
+
+<!-- Icons -->
+<ng-template #addIcon>
+	<ng-container *ngTemplateOutlet="icon; context: { template: addIconTemplate, defaultIcon: ['fas','plus-square'] }"></ng-container>
+</ng-template>
+
+<ng-template #collapseIcon>
+	<ng-container *ngTemplateOutlet="icon; context: { template: collapseIconTemplate, defaultIcon: ['fas','chevron-up'] }"></ng-container>
+</ng-template>
+
+<ng-template #expandIcon>
+	<ng-container *ngTemplateOutlet="icon; context: { template: expandIconTemplate, defaultIcon: ['fas','chevron-up'] }"></ng-container>
+</ng-template>
+
+<ng-template #icon let-template="template" let-defaultIcon="defaultIcon">
+	<ng-container *ngIf="template else noIcon">
+		<ng-container *ngTemplateOutlet="template; context: { defaultIcon: defaultIcon }"></ng-container>
+	</ng-container> 
+	<ng-template #noIcon>
+		<fa-icon [icon]="defaultIcon" [fixedWidth]="true"></fa-icon>
+	</ng-template>
 </ng-template>
