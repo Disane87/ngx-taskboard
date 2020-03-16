@@ -13,7 +13,7 @@ export class AppComponent {
   constructor(private readonly http: HttpClient) {
 
   }
-  public showcaseMode = true;
+  public showcaseMode = false;
   public hGroupKey = 'status';
   public vGroupKey = 'name';
 
