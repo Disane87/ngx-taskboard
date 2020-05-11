@@ -1,18 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 
 import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FilterSearchBarComponent } from '../filter-search-bar/filter-search-bar.component';
-import { TaskboardService } from '../taskboard.service';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BoardComponent } from './board.component';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
+
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fas, far, fab);
+import { FilterSearchBarComponent } from '../filter-search-bar/filter-search-bar.component';
+import { TaskboardService } from '../taskboard.service';
 
+import {FontAwesomeTestingModule} from '@fortawesome/angular-fontawesome/testing';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { OutSideEventHandlerDirective } from '../directives/outside-event-handler.directive';
 
 describe('MyLibComponent', () => {
 	let component: BoardComponent;
@@ -20,11 +22,11 @@ describe('MyLibComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [BoardComponent, FilterSearchBarComponent],
-			imports: [FontAwesomeModule, FormsModule],
+			declarations: [BoardComponent, FilterSearchBarComponent, OutSideEventHandlerDirective],
+			imports: [FontAwesomeTestingModule, FormsModule, TypeaheadModule],
 			providers: [TaskboardService]
 		})
-			.compileComponents();
+		.compileComponents();
 	}));
 
 	beforeEach(() => {
@@ -32,6 +34,13 @@ describe('MyLibComponent', () => {
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});
+
+	// it('should add fa icon packs', inject([FaIconLibrary], (library : FaIconLibrary) => {
+	// 	// expect(FaIconLibrary).toBeDefined();
+	// 	expect(library.addIconPacks(fas)).toHaveBeenCalled();
+	// 	expect(library.addIconPacks(fab)).toHaveBeenCalled();
+	// 	expect(library.addIconPacks(far)).toHaveBeenCalled();
+	// }));
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
