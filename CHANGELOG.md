@@ -1,3 +1,22 @@
+# [2.0.0](https://github.com/Disane87/ngx-taskboard/compare/v1.4.0...v2.0.0) (2020-05-11)
+
+
+* Angular update 7->8 (#94) ([2629ebd](https://github.com/Disane87/ngx-taskboard/commit/2629ebd)), closes [#94](https://github.com/Disane87/ngx-taskboard/issues/94)
+
+
+### BREAKING CHANGES
+
+* Angular 8 update
+
+* chore(Angular): Update Angular 8 - Version bump package.json
+* Update Angular 8 - Version bump package.json
+
+* update to nodejs 10
+
+* fixes ts version
+
+* fixed ts version
+
 # [1.4.0](https://github.com/Disane87/ngx-taskboard/compare/v1.3.4...v1.4.0) (2020-03-16)
 
 
