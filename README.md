@@ -29,9 +29,9 @@
 # Dependencies
 
 |  Version | Angular  | Bootstrap  | Status |
-|---|---|---|---|---|
-|  1.x.x | 7.x.x   | 4.x.x.   | unmaintained   |
-|  2.x.x | 8.x.x   | 4.x.x.   | unmaintained   |
+|----------|----------|------------|--------|
+|  1.x.x | 7.x.x   | 4.x.x.   | unmaintained|
+|  2.x.x | 8.x.x   | 4.x.x.   | unmaintained|
 |  3.x.x | 9.x.x   | 4.x.x.   | latest   |
 
 # Installation
