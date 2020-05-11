@@ -1,3 +1,19 @@
+# [3.0.0](https://github.com/Disane87/ngx-taskboard/compare/v2.0.0...v3.0.0) (2020-05-11)
+
+
+### chore
+
+* **angular:** Update to Angular 8 ([9858455](https://github.com/Disane87/ngx-taskboard/commit/9858455dc1935cde900e7fbab220b8103c93cdce))
+* **Angular:** Update Angular 8 - Version bump package.json ([c67a7c6](https://github.com/Disane87/ngx-taskboard/commit/c67a7c6bc5ec81190f09e1eeeae2c3eb5f231e4f))
+* **angular update:** Angular Update 8 -> 9 ([700303f](https://github.com/Disane87/ngx-taskboard/commit/700303f0c8dfffa512e71d2fdf9d6415dbed1966))
+
+
+### BREAKING CHANGES
+
+* **angular update:** Angular Update 8 -> 9
+* **Angular:** Update Angular 8 - Version bump package.json
+* **angular:** Angular 8 update
+
 # [2.0.0](https://github.com/Disane87/ngx-taskboard/compare/v1.4.0...v2.0.0) (2020-05-11)
 
 
