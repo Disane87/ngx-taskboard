@@ -5,8 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BoardComponent } from './board/board.component';
 
 // Fontawesome
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +16,7 @@ import { TaskboardService } from './taskboard.service';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { OutSideEventHandlerDirective } from './directives/outside-event-handler.directive';
 
-library.add(fas, far, fab);
+// library.add(fas, far, fab);
 
 @NgModule({
 	declarations: [BoardComponent, FilterSearchBarComponent, OutSideEventHandlerDirective],
@@ -25,4 +24,10 @@ library.add(fas, far, fab);
 	providers: [TaskboardService],
 	exports: [BoardComponent]
 })
-export class NgxTaskboardModule { }
+export class NgxTaskboardModule {
+	constructor(library: FaIconLibrary) {
+		library.addIconPacks(fas);
+		library.addIconPacks(fab);
+		library.addIconPacks(far);
+	}
+}
