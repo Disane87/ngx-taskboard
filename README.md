@@ -7,6 +7,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [ngx-taskboard](#ngx-taskboard)
 - [Description](#description)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
@@ -32,7 +33,9 @@
 |----------|----------|------------|--------|
 |  1.x.x | 7.x.x   | 4.x.x.   | unmaintained|
 |  2.x.x | 8.x.x   | 4.x.x.   | unmaintained|
-|  3.x.x | 9.x.x   | 4.x.x.   | latest   |
+|  3.x.x | 9.x.x   | 4.x.x.   | unmaintained   |
+|  4.x.x | 10.x.x   | 4.x.x.   | unmaintained   |
+|  5.x.x | 11.x.x   | 4.x.x.   | latest   |
 
 # Installation
 `npm install @disane/ngx-taskboard`

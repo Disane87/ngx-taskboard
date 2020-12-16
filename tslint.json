@@ -3,9 +3,16 @@
 	"rulesDirectory": [
 		"codelyzer"
 	],
-	"rules": {
+  "rules": {
+    "align": {
+      "options": [
+        "parameters",
+        "statements"
+      ]
+    },
 		"array-type": [true, "array"],
-		"arrow-parens": false,
+    "arrow-parens": false,
+    "arrow-return-shorthand": true,
 		"indent": [
 			true,
 			"tabs",
@@ -18,16 +25,17 @@
 		"import-blacklist": [
 			true,
 			"rxjs/Rx"
-		],
-		"interface-name": false,
+    ],
+    "eofline": true,
+    "interface-name": false,
+    "import-spacing": true,
 		"max-classes-per-file": false,
 		"max-line-length": [
 			true,
 			170
 		],
 		"curly": true,
-		"member-access": true,
-		"no-unused-variable": true,
+    "member-access": true,
 		"no-var-keyword": true,
 		"member-ordering": [
 			true,
@@ -56,8 +64,7 @@
 		],
 		"no-non-null-assertion": true,
 		"no-redundant-jsdoc": true,
-		"no-switch-case-fall-through": true,
-		"no-use-before-declare": false,
+    "no-switch-case-fall-through": true,
 		"no-var-requires": false,
 		"object-literal-key-quotes": [
 			true,
@@ -75,10 +82,59 @@
 		"no-outputs-metadata-property": true,
 		"no-host-metadata-property": true,
 		"no-input-rename": true,
-		"no-output-rename": true,
+    "no-output-rename": true,
+    "semicolon": {
+      "options": [
+        "always"
+      ]
+    },
+    "space-before-function-paren": {
+      "options": {
+        "anonymous": "never",
+        "asyncArrow": "always",
+        "constructor": "never",
+        "method": "never",
+        "named": "never"
+      }
+    },
 		"use-lifecycle-interface": true,
-		"use-pipe-transform-interface": true,
+    "use-pipe-transform-interface": true,
+    "typedef-whitespace": {
+      "options": [
+        {
+          "call-signature": "nospace",
+          "index-signature": "nospace",
+          "parameter": "nospace",
+          "property-declaration": "nospace",
+          "variable-declaration": "nospace"
+        },
+        {
+          "call-signature": "onespace",
+          "index-signature": "onespace",
+          "parameter": "onespace",
+          "property-declaration": "onespace",
+          "variable-declaration": "onespace"
+        }
+      ]
+    },
 		"component-class-suffix": true,
-		"directive-class-suffix": true
+    "directive-class-suffix": true,
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-pascal-case"
+      ]
+    },
+    "whitespace": {
+      "options": [
+        "check-branch",
+        "check-decl",
+        "check-operator",
+        "check-separator",
+        "check-type",
+        "check-typecast"
+      ]
+    }
 	}
 }
