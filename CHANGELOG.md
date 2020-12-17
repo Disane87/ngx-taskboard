@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/Disane87/ngx-taskboard/compare/v3.0.0...v4.0.0) (2020-12-17)
+
+
+### chore
+
+* **Angular:** Updated to Version 10 ([#98](https://github.com/Disane87/ngx-taskboard/issues/98)) ([a7e45c9](https://github.com/Disane87/ngx-taskboard/commit/a7e45c944b9a92143ad46cc4516caba3e28fb913))
+
+
+### BREAKING CHANGES
+
+* **Angular:** Angular 10 Update
+
 # [3.0.0](https://github.com/Disane87/ngx-taskboard/compare/v2.0.0...v3.0.0) (2020-05-11)
 
 
