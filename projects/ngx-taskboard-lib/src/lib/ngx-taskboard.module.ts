@@ -13,14 +13,13 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FilterSearchBarComponent } from './filter-search-bar/filter-search-bar.component';
 import { TaskboardService } from './taskboard.service';
 
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { OutSideEventHandlerDirective } from './directives/outside-event-handler.directive';
 
 // library.add(fas, far, fab);
 
 @NgModule({
 	declarations: [BoardComponent, FilterSearchBarComponent, OutSideEventHandlerDirective],
-	imports: [BrowserModule, FontAwesomeModule, FormsModule, TypeaheadModule.forRoot(), BrowserAnimationsModule],
+	imports: [BrowserModule, FontAwesomeModule, FormsModule, BrowserAnimationsModule],
 	providers: [TaskboardService],
 	exports: [BoardComponent]
 })
